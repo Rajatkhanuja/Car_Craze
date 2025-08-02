@@ -1,0 +1,28 @@
+/* Dashboard.css */
+
+/* Main container for the dashboard */
+.dashboard-container {
+    background-color: white;
+    /* Set minimum height considering the Navbar height */
+    min-height: calc(100vh - 70px); 
+    display: flex;
+    flex-direction: column; /* To align content vertically */
+    padding-top: 70px; /* Space for Navbar */
+    overflow-y: auto; /* Scroll if content exceeds minimum height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Styling for the welcome box */
+.dashboard-welcome {
+    background-color: #343a40;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 15rem;
+}
+
+.dashboard-welcome h1 {
+    color: #f8f9fa;
+    margin: 0; /* Remove default margin */
+}

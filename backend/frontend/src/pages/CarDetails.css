@@ -1,0 +1,242 @@
+.car-details-container {
+  max-width: 3100px; /* Maintain existing width */
+  margin: 90px 0 0 50px; /* Keep the existing margin */
+  padding: 20px;
+  display: flex; /* Use flexbox to position content horizontally */
+  gap: 20px; /* Add spacing between car details and related cars */
+}
+
+/* Add these styles to your CarDetails.css file */
+
+.more-cars-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.more-cars-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.more-cars-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.more-cars-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.related-cars {
+  flex-basis: 45%; /* Allocate space for Related Cars section */
+  max-width: 800px; /* Limit maximum width */
+  background: #f9f9f9; /* Optional background for better visibility */
+  padding: 10px;
+  border-radius: 9px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  align-self: flex-start; /* Align it to the start of the container */
+}
+
+.related-cars h3, 
+.related-cars .price { /* Assuming headings and price have specific classes */
+  margin-top: 0px; /* Remove unnecessary top margin */
+  margin-bottom: 1px; /* Ensure some spacing below the elements */
+  line-height: 1; /* Reduce the line height for a more compact appearance */
+}
+
+.related-cars .car-name { /* If there's a specific class for car names */
+  font-size: 1.1rem; /* Adjust font size */
+  font-weight: bold;
+  margin-bottom: 1px; /* Reduce space below the name */
+}
+
+.related-cars .price {
+  color: #3B82F6; /* Highlight price in blue */
+  font-size: 1.2rem; /* Slightly larger font for price */
+  font-weight: 600;
+}
+.car-details-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.car-title {
+  font-size: 1.8rem; /* Adjusted font size for smaller card */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.car-gallery {
+  margin-bottom: 30px;
+}
+
+.main-image {
+  width: 100%;
+  height: 300px; /* Reduced image height */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out; /* Smooth fade transition for image change */
+}
+
+.thumbnail-container {
+  display: flex; /* Use flexbox for row layout */
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.thumbnail {
+  height: 150px; /* Reduced thumbnail size */
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* Prevent thumbnails from shrinking */
+}
+
+.thumbnail.active {
+  border-color: #3B82F6;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-info {
+  margin-top: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px; /* Reduced padding */
+  border-bottom: 1px solid #d32121;
+  align-items: center; /* Align label and value in the center vertically */
+}
+
+.info-label {
+  font-weight: 600;
+  color: #666;
+  margin-right: 10px; /* Reduced the space between label and value */
+  min-width: 120px; /* Ensure all labels have equal space */
+}
+
+.info-value {
+  color: #333;
+  flex-grow: 1; /* Allow the value to take available space */
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.price-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.price-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3B82F6;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #ef4444;
+  font-size: 1.2rem;
+}
+
+/* Mobile Styles for 2 Rows */
+@media (max-width: 768px) {
+  .car-details-container {
+    padding: 10px;
+    margin-top: 80px;
+    margin-left: 10px; /* Adjusted for smaller screens */
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .main-image {
+    height: 250px; /* Adjusted image height for small screens */
+  }
+
+  /* Change grid to 2 rows for mobile screens */
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  }
+
+  .car-title {
+    font-size: 1.3rem; /* Smaller font size on mobile */
+  }
+
+  .price-section {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .related-cars {
+    margin-top: 20px; /* Add space between car details and related cars */
+  }
+}
+
+
+/* Adjust for very small screens (less than 480px) */
+@media (max-width: 480px) {
+  .info-grid {
+    grid-template-columns: 1fr; /* 1 column for very small screens (i.e., 1 item per row) */
+  }
+
+  .thumbnail-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for very small screens */
+  }
+}

@@ -1,0 +1,174 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for Contact Us header */
+  .contact-header {
+    text-align: center;
+    margin-top: 110px; /* Space the header below the Navbar */
+  }
+  
+  .contact-header h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Container for both contact details and form */
+  .contact-container {
+    display: flex;
+    
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  
+  /* Styling for contact details (left side) */
+  .contact-details {
+    text-align: left; /* Align text to the left */
+    font-size: 18px;
+    max-width: 45%; /* Limit width for better alignment */
+  }
+  
+  .contact-details p {
+    margin: 10px 0;
+  }
+  
+  .contact-details a {
+    text-decoration: none;
+    color: #4CAF50;
+  }
+  
+  .contact-details a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Styling for the contact form (right side) */
+  .contact-form {
+    max-width: 45%; /* Limit width for the form */
+    display: flex;
+    flex-direction: column;
+    margin-left: 800px; /* Reduce the left margin for better spacing */
+    margin-top: 0px; /* Add space from the top */
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-form label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .contact-form button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+      
+      align-items: center; /* Center content on small screens */
+    }
+  
+    .contact-details,
+    .contact-form {
+      max-width: 90%; 
+       /* Reduced width of the form */
+      margin: 10px 0;  /* Add margin to avoid sticking to edges */
+    }
+  
+    .contact-header h1 {
+      font-size: 28px;
+      
+    }
+  
+    /* Resize the contact form on mobile to make it smaller */
+    .contact-form {
+      max-width: 90%; /* Set maximum width to 90% of the screen */
+      margin-left: 15px; /* Remove left margin */
+      margin-top: 20px; /* Add some space from the top */
+    }
+  }
+  /* Add this to your existing CSS file */
+
+/* Container for the Google Map */
+/* Add this to your existing CSS file */
+
+/* Container for the Google Map */
+.map-container {
+    display: flex;
+    justify-content: center; /* Centers the map horizontally */
+    align-items: center; /* Centers the map vertically if needed */
+    margin-top: 30px; /* Optional: Adds space above the map */
+  }
+  
+  iframe {
+    width: 1400px; /* Larger width for laptop/desktop screens */
+    height: 500px; /* Larger height */
+    border: 0;
+  }
+  
+  /* Media query for smaller screens like tablets and mobile */
+  @media (max-width: 768px) {
+    /* For smaller screens, make the map responsive */
+    .map-container {
+      justify-content: center; /* Center map horizontally */
+      width: 100%; /* Allow map to fill the available width */
+    }
+  
+    iframe {
+      width: 100%; /* Ensure map occupies full width on smaller screens */
+      height: 300px; /* Adjust height for mobile */
+    }
+  }
+  /* Add to your existing CSS */
+.submission-status {
+    margin-top: 10px;
+    font-size: 19px;
+    color: #333333;
+    text-align: center;
+  }
+  
+  .submission-status.success {
+    color: green; /* Green color for success */
+  }
+  
+  .submission-status.error {
+    color: red; /* Red color for error */
+  }
+  

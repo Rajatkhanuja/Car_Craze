@@ -1,0 +1,135 @@
+/* ContactInfo.css */
+
+/* General container styling */
+.container {
+  max-width: 1200px;
+  margin: 200px auto 50px auto; /* Increased top margin to 200px */
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(241, 7, 7, 0.932);
+  position: relative; /* Added position relative */
+  top: 50px; /* Added some top offset */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Single column by default */
+  gap: 20px;
+}
+
+.message-item {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.message-item p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.message-item strong {
+  color: #333;
+}
+
+/* Styling for the loading and error states */
+p {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+p[style] {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Horizontal rule for message separation */
+.message-item hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+
+/* Responsive Design */
+
+/* Three-column layout for larger screens */
+@media (min-width: 1024px) {
+  .contact-details {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns */
+  }
+}
+
+/* Two-column layout for medium screens (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-details {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+  }
+}
+
+/* Two-column layout for phones (less than 768px) */
+@media (max-width: 767px) {
+  .contact-details {
+    gap: 10px;
+  }
+  
+  .container {
+    padding: 10px;
+    margin: 10px;
+    margin-top: 75px;
+  }
+
+  .message-item {
+    padding: 10px;
+  }
+}
+/* Mobile-specific adjustments (less than 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  .message-item {
+    padding: 8px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .message-item p {
+    font-size: 12px;
+  }
+}
+.delete-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .delete-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
