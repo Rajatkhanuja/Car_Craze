@@ -1,7 +1,9 @@
+// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const mongoose = require("./config/db");
+require("./config/db"); // Just connect DB, no need to assign
+
 const adminRoutes = require("./routes/adminRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const formRoutes = require("./routes/formRoutes");
@@ -28,7 +30,7 @@ app.use(cors({
       return callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
 
@@ -38,10 +40,15 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Define routes
-app.use("/admin", adminRoutes);
-app.use("/contact", contactRoutes);
-app.use("/api/car-data", formRoutes);
-app.use('/cars', carRouter);
+app.use("/admin", adminRoutes);           // Admin login and auth
+app.use("/contact", contactRoutes);       // Contact form
+app.use("/api/car-data", formRoutes);     // Sell car form
+app.use("/cars", carRouter);              // Cars list & details
+
+// Health check endpoint
+app.get("/", (req, res) => {
+  res.json({ status: "Backend is running" });
+});
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -50,4 +57,4 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
