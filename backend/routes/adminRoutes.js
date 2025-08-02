@@ -6,38 +6,33 @@ const router = express.Router();
 // Environment configuration
 require("dotenv").config();
 
-// Simulated database for demonstration purposes (replace with a real database)
-let adminConfig = null; // Admin configuration stored in memory temporarily
+let adminConfig = null; // Store in memory
 
-// Function to initialize admin user (should be run during app setup/migration)
+// Function to initialize admin user (always refresh from .env)
 async function initializeAdmin() {
-  if (adminConfig) return; // Prevent re-initialization
   try {
     const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10);
 
-    // Store the hashed password securely
     adminConfig = {
       username: process.env.ADMIN_USERNAME || "admin",
       password: hashedPassword,
     };
 
-    console.log("Admin user initialized successfully");
+    console.log("✅ Admin user initialized successfully");
   } catch (error) {
-    console.error("Error initializing admin:", error);
+    console.error("❌ Error initializing admin:", error);
     throw error;
   }
 }
 
 // Middleware to ensure adminConfig is initialized
 const ensureAdminInitialized = async (req, res, next) => {
-  if (!adminConfig) {
-    try {
-      await initializeAdmin();
-    } catch (error) {
-      return res.status(500).json({ message: "Error initializing admin" });
-    }
+  try {
+    await initializeAdmin();
+    next();
+  } catch (error) {
+    return res.status(500).json({ message: "Error initializing admin" });
   }
-  next();
 };
 
 // Admin login route
@@ -68,7 +63,6 @@ router.post("/login", ensureAdminInitialized, async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    // Successful login
     res.status(200).json({
       message: "Login successful",
       token,
