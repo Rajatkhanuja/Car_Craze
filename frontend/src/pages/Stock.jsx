@@ -3,12 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./Stock.css";
 
-// CustomSelect Component
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
+// CustomSelect Component (same as before)
 const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass }) => {
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
 
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (selectRef.current && !selectRef.current.contains(event.target)) {
@@ -22,7 +23,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
     }, []);
 
     const handleOptionClick = (optionValue) => {
-        onChange({ target: { value: optionValue } }); // Mimic select's event object
+        onChange({ target: { value: optionValue } });
         setIsOpen(false);
     };
 
@@ -50,7 +51,6 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
         </div>
     );
 };
-
 
 const Stock = () => {
     const [selectedBudget, setSelectedBudget] = useState("");
@@ -88,7 +88,7 @@ const Stock = () => {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/cars');
+                const response = await axios.get(`${API_URL}/cars`);
                 setCars(response.data);
             } catch (error) {
                 console.error('Error fetching cars:', error);
@@ -135,6 +135,7 @@ const Stock = () => {
     return (
         <div className="main-container">
             <aside className="sidebar">
+                {/* Budget filter */}
                 <h2>Budget Range</h2>
                 <div className="select-wrapper">
                     <CustomSelect
@@ -142,21 +143,22 @@ const Stock = () => {
                         value={selectedBudget}
                         onChange={handleBudgetChange}
                         placeholder="Select Budget"
-                        styleClass="budget-select-custom" // Add a class for specific styling if needed
+                        styleClass="budget-select-custom"
                     />
                 </div>
-               <button
-    className="clear-filter"
-    onClick={() => setSelectedBudget("")}
-    style={{
-        marginLeft: '10px',
-        padding: '5px 10px',
-        display: selectedBudget ? 'inline-block' : 'none'
-    }}
->
-    Clear Budget
-</button>
+                <button
+                    className="clear-filter"
+                    onClick={() => setSelectedBudget("")}
+                    style={{
+                        marginLeft: '10px',
+                        padding: '5px 10px',
+                        display: selectedBudget ? 'inline-block' : 'none'
+                    }}
+                >
+                    Clear Budget
+                </button>
 
+                {/* Manufacturer filter */}
                 <h2>Manufacturer</h2>
                 <div className="select-wrapper">
                     <CustomSelect
@@ -164,7 +166,7 @@ const Stock = () => {
                         value={selectedManufacturer}
                         onChange={handleManufacturerChange}
                         placeholder="Select Manufacturer"
-                        styleClass="manufacturer-select-custom" // Add a class for specific styling if needed
+                        styleClass="manufacturer-select-custom"
                     />
                     <button
                         className="clear-filter"
@@ -185,19 +187,19 @@ const Stock = () => {
                     <h1>Stock Cars</h1>
                 </div>
 
-                <div className="stock-cars-grid"> {/* Renamed cars-grid to stock-cars-grid for consistency with CSS */}
+                <div className="stock-cars-grid">
                     {filteredCars.map((car, index) => (
-                        <div key={index} className="stock-car-card"> {/* Renamed car-card to stock-car-card */}
+                        <div key={index} className="stock-car-card">
                             <img
-                                src={`http://localhost:5000/${car.photo1}`}
+                                src={`${API_URL}/${car.photo1}`}
                                 alt={car.name}
-                                className="stock-car-img" // Renamed car-img to stock-car-img
+                                className="stock-car-img"
                                 onError={(e) => {
                                     e.target.src = '/placeholder-car.jpg';
                                 }}
                             />
-                            <div className="stock-car-info"> {/* Renamed car-info to stock-car-info */}
-                                <h3 className="stock-car-name">{car.name} - {car.model}</h3> {/* Renamed car-name to stock-car-name */}
+                            <div className="stock-car-info">
+                                <h3 className="stock-car-name">{car.name} - {car.model}</h3>
                                 <div className="car-details-row">
                                     <p><strong>Year:</strong> {car.year}</p>
                                     <p><strong>Running:</strong> {car.running}</p>
@@ -206,7 +208,7 @@ const Stock = () => {
                                     <p><strong>Fuel:</strong> {car.fuel}</p>
                                     <p><strong>Price:</strong> {formatPrice(car.price)}</p>
                                 </div>
-                                <button className="stock-view-details" onClick={() => handleViewDetails(car._id)}> {/* Renamed view-details to stock-view-details */}
+                                <button className="stock-view-details" onClick={() => handleViewDetails(car._id)}>
                                     View Details
                                 </button>
                             </div>

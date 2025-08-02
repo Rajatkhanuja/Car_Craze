@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './CarDetails.css';
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
 const CarDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const CarDetails = () => {
     const fetchCarDetails = async () => {
       try {
         if (!id) throw new Error('Invalid car ID');
-        const response = await axios.get(`http://localhost:5000/cars/${id}`);
+        const response = await axios.get(`${API_URL}/cars/${id}`);
         setCar(response.data);
         setLoading(false);
       } catch (err) {
@@ -28,7 +30,7 @@ const CarDetails = () => {
 
     const fetchStockCars = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/cars');
+        const response = await axios.get(`${API_URL}/cars`);
         setStockCars(response.data.slice(0, 3));
       } catch (err) {
         console.error('Error fetching stock cars:', err);
@@ -46,7 +48,6 @@ const CarDetails = () => {
       const interval = setInterval(() => {
         setMainImage((prevIndex) => (prevIndex + 1) % photos.length);
       }, 3000);
-
       return () => clearInterval(interval);
     }
   }, [photos]);
@@ -75,7 +76,7 @@ const CarDetails = () => {
         <div className="car-gallery">
           <div className="main-image">
             <img
-              src={`http://localhost:5000/${photos[mainImage]}`}
+              src={`${API_URL}/${photos[mainImage]}`}
               alt={`${car.name} main view`}
               onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
             />
@@ -89,7 +90,7 @@ const CarDetails = () => {
                 onClick={() => setMainImage(index)}
               >
                 <img
-                  src={`http://localhost:5000/${photo}`}
+                  src={`${API_URL}/${photo}`}
                   alt={`${car.name} view ${index + 1}`}
                   onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
                 />
@@ -120,7 +121,7 @@ const CarDetails = () => {
           {stockCars.map((stockCar, index) => (
             <div key={index} className="car-card">
               <img
-                src={`http://localhost:5000/${stockCar.photo1}`}
+                src={`${API_URL}/${stockCar.photo1}`}
                 alt={stockCar.name}
                 className="car-img"
                 onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}

@@ -4,6 +4,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./Sell.css";
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
 const Sell = () => {
   const [formData, setFormData] = useState({
     car: "",
@@ -50,15 +52,13 @@ const Sell = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Concatenate month and year
     const monthAndYear = `${formData.month} ${formData.year}`;
     const updatedFormData = { ...formData, monthAndYear };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/car-data", updatedFormData);
+      const response = await axios.post(`${API_URL}/api/car-data`, updatedFormData);
       console.log("Form submitted successfully:", response.data);
 
-      // Success pop-up using SweetAlert2
       Swal.fire({
         title: 'Success!',
         text: 'Your car details have been submitted successfully.',
@@ -70,7 +70,6 @@ const Sell = () => {
     } catch (error) {
       console.error("Error submitting form data:", error);
 
-      // Error pop-up using SweetAlert2
       Swal.fire({
         title: 'Error!',
         text: 'There was an error submitting your details. Please try again.',
