@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -12,7 +11,27 @@ const path = require("path");
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS setup for multiple origins
+const allowedOrigins = [
+  "https://carcraze-two.vercel.app",   // Frontend
+  "https://carcraze-admin.vercel.app"  // Admin Panel
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman, mobile apps)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Serve static files from uploads directory
