@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import Swal from 'sweetalert2';
 import './UpdateService.css';
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
 const UpdateService = () => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +20,7 @@ const UpdateService = () => {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/cars');
+      const response = await axios.get(`${API_URL}/cars`);
       setCars(response.data);
       setLoading(false);
       setError(null);
@@ -40,7 +42,7 @@ const UpdateService = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/cars/${id}`);
+          await axios.delete(`${API_URL}/cars/${id}`);
           setCars(cars.filter((car) => car._id !== id));
           Swal.fire('Deleted!', 'The car has been deleted.', 'success');
         } catch (err) {
@@ -68,7 +70,7 @@ const UpdateService = () => {
     if (photoPath.startsWith('http')) return photoPath;
     const normalizedPath = photoPath.replace(/\\/g, '/');
     const cleanPath = normalizedPath.replace(/^(?:uploads\/)?/, '').replace(/^\/+/, '');
-    return `http://localhost:5000/uploads/${cleanPath}`;
+    return `${API_URL}/uploads/${cleanPath}`;
   };
 
   if (loading) {

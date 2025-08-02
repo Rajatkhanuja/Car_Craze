@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import './EditCar.css';
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Env variable se backend URL
+
 const EditCar = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const EditCar = () => {
 
   const fetchCarDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/cars/${id}`);
+      const response = await axios.get(`${API_URL}/cars/${id}`);
       setCar(response.data);
       setPrice(response.data.price);
       setLoading(false);
@@ -31,7 +33,7 @@ const EditCar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/cars/${id}`, { price });
+      await axios.patch(`${API_URL}/cars/${id}`, { price });
       navigate('/update-service');
     } catch (err) {
       setError('Failed to update price: ' + (err.response?.data?.message || err.message));
@@ -43,7 +45,7 @@ const EditCar = () => {
     if (photoPath.startsWith('http')) return photoPath;
     const normalizedPath = photoPath.replace(/\\/g, '/');
     const cleanPath = normalizedPath.replace(/^(?:uploads\/)?/, '').replace(/^\/+/, '');
-    return `http://localhost:5000/uploads/${cleanPath}`;
+    return `${API_URL}/uploads/${cleanPath}`;
   };
 
   if (loading) {

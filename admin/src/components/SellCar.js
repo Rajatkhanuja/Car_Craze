@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 import './SellCar.css';
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
 const DeleteButton = ({ onClick }) => {
   return (
     <button 
@@ -37,12 +39,12 @@ const SellCar = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch car data on component mount
+  // Fetch car data
   useEffect(() => {
     const fetchCarData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://localhost:5000/api/car-data");
+        const response = await axios.get(`${API_URL}/api/car-data`);
         setCarDataList(response.data);
         setError(null);
       } catch (error) {
@@ -56,7 +58,7 @@ const SellCar = () => {
     fetchCarData();
   }, []);
 
-  // Handle delete action
+  // Handle delete
   const handleDelete = async (id) => {
     const confirmDelete = await Swal.fire({
       title: "Are you sure?",
@@ -66,18 +68,12 @@ const SellCar = () => {
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it",
-      customClass: {
-        confirmButton: 'swal2-confirm-button',
-        cancelButton: 'swal2-cancel-button'
-      }
+      cancelButtonText: "No, keep it"
     });
 
     if (confirmDelete.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/car-data/${id}`);
-        
-        // Refresh the list after deletion
+        await axios.delete(`${API_URL}/api/car-data/${id}`);
         setCarDataList(carDataList.filter((car) => car._id !== id));
 
         Swal.fire({

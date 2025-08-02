@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import "./ContactInfo.css";
 
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+
 const ContactInfo = () => {
   const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchMessages = async () => {
-      setLoading(true); // Start loading
+      setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/contact/all", {
+        const response = await fetch(`${API_URL}/contact/all`, {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("adminToken")}`,
@@ -21,8 +23,8 @@ const ContactInfo = () => {
         if (response.ok) {
           const data = await response.json();
           console.log("Fetched data:", data);
-          setMessages(data); // Set messages in state
-          setError(""); // Clear any previous errors
+          setMessages(data);
+          setError("");
         } else {
           const errorData = await response.json();
           setError(errorData.message || "Failed to fetch messages.");
@@ -31,19 +33,18 @@ const ContactInfo = () => {
         console.error(err);
         setError("An error occurred while fetching messages.");
       } finally {
-        setLoading(false); // End loading
+        setLoading(false);
       }
     };
 
     fetchMessages();
   }, []);
 
-  // Function to handle delete action
   const handleDelete = async (id) => {
-    console.log("Delete called for ID:", id); // Log for debugging
+    console.log("Delete called for ID:", id);
   
     try {
-      const response = await fetch(`http://localhost:5000/contact/contact/${id}`, {
+      const response = await fetch(`${API_URL}/contact/contact/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("adminToken")}`,
@@ -51,13 +52,12 @@ const ContactInfo = () => {
       });
   
       if (response.ok) {
-        console.log("Message deleted successfully"); // Log success
-        // Remove deleted message from state
+        console.log("Message deleted successfully");
         setMessages(prevMessages => prevMessages.filter(msg => msg._id !== id));
         setError("");
       } else {
         const errorData = await response.json();
-        console.log("Delete error response:", errorData); // Log error details
+        console.log("Delete error response:", errorData);
         setError(errorData.message || "Failed to delete message.");
       }
     } catch (error) {
@@ -65,6 +65,7 @@ const ContactInfo = () => {
       setError("An error occurred while deleting the message.");
     }
   };
+
   return (
     <div>
       <Navbar />
@@ -85,7 +86,8 @@ const ContactInfo = () => {
                 <p><strong>Email:</strong> {msg.email}</p>
                 <p><strong>Message:</strong> {msg.message}</p>
                 <p><strong>Date:</strong> {new Date(msg.createdAt).toLocaleString()}</p>
-                <button className="delete-btn" onClick={() => handleDelete(msg._id)}>Delete</button>                <hr />
+                <button className="delete-btn" onClick={() => handleDelete(msg._id)}>Delete</button>
+                <hr />
               </div>
             ))}
           </div>
@@ -95,4 +97,4 @@ const ContactInfo = () => {
   );
 };
 
-export default ContactInfo; 
+export default ContactInfo;

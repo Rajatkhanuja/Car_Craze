@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'; // Importing Swal
+import Swal from 'sweetalert2';
 import './StockCars.css';
 import Navbar from './Navbar';
+
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
 const StockCars = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +16,7 @@ const StockCars = () => {
     fuel: '',
     year: '',
     registration: '',
-    price: '', // Added price field
+    price: '',
     photo1: null,
     photo2: null,
     photo3: null,
@@ -42,7 +44,6 @@ const StockCars = () => {
     e.preventDefault();
     const formDataToSend = new FormData();
 
-    // Append form data, including file uploads
     for (const key in formData) {
       if (formData[key]) {
         formDataToSend.append(key, formData[key]);
@@ -50,7 +51,7 @@ const StockCars = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/cars', formDataToSend, {
+      const response = await axios.post(`${API_URL}/cars`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -64,7 +65,6 @@ const StockCars = () => {
           confirmButtonText: 'OK',
         });
 
-        // Reset form after successful submission
         setFormData({
           name: '',
           model: '',
@@ -74,7 +74,7 @@ const StockCars = () => {
           fuel: '',
           year: '',
           registration: '',
-          price: '', // Reset price field
+          price: '',
           photo1: null,
           photo2: null,
           photo3: null,
@@ -103,27 +103,13 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="name" name="name" placeholder="Enter Name"
+              value={formData.name} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="model">Model</label>
-            <input
-              type="text"
-              id="model"
-              name="model"
-              placeholder="Enter Model"
-              value={formData.model}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="model" name="model" placeholder="Enter Model"
+              value={formData.model} onChange={handleChange} required />
           </div>
         </div>
 
@@ -131,27 +117,13 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="running">Running</label>
-            <input
-              type="text"
-              id="running"
-              name="running"
-              placeholder="Enter Running"
-              value={formData.running}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="running" name="running" placeholder="Enter Running"
+              value={formData.running} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="insurance">Insurance</label>
-            <input
-              type="text"
-              id="insurance"
-              name="insurance"
-              placeholder="Enter Insurance"
-              value={formData.insurance}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="insurance" name="insurance" placeholder="Enter Insurance"
+              value={formData.insurance} onChange={handleChange} required />
           </div>
         </div>
 
@@ -159,27 +131,13 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="ownership">Ownership</label>
-            <input
-              type="text"
-              id="ownership"
-              name="ownership"
-              placeholder="Enter Ownership"
-              value={formData.ownership}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="ownership" name="ownership" placeholder="Enter Ownership"
+              value={formData.ownership} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="fuel">Fuel Type</label>
-            <input
-              type="text"
-              id="fuel"
-              name="fuel"
-              placeholder="Enter Fuel Type"
-              value={formData.fuel}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="fuel" name="fuel" placeholder="Enter Fuel Type"
+              value={formData.fuel} onChange={handleChange} required />
           </div>
         </div>
 
@@ -187,27 +145,13 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="year">Year</label>
-            <input
-              type="number"
-              id="year"
-              name="year"
-              placeholder="Enter Year"
-              value={formData.year}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" id="year" name="year" placeholder="Enter Year"
+              value={formData.year} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="registration">Registration Number</label>
-            <input
-              type="text"
-              id="registration"
-              name="registration"
-              placeholder="Enter Registration Number"
-              value={formData.registration}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" id="registration" name="registration" placeholder="Enter Registration Number"
+              value={formData.registration} onChange={handleChange} required />
           </div>
         </div>
 
@@ -215,15 +159,8 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="price">Price</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              placeholder="Enter Price"
-              value={formData.price}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" id="price" name="price" placeholder="Enter Price"
+              value={formData.price} onChange={handleChange} required />
           </div>
         </div>
 
@@ -231,59 +168,32 @@ const StockCars = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="photo1">Photo 1</label>
-            <input
-              type="file"
-              id="photo1"
-              name="photo1"
-              onChange={handleFileChange}
-              required
-            />
+            <input type="file" id="photo1" name="photo1" onChange={handleFileChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="photo2">Photo 2</label>
-            <input
-              type="file"
-              id="photo2"
-              name="photo2"
-              onChange={handleFileChange}
-            />
+            <input type="file" id="photo2" name="photo2" onChange={handleFileChange} />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="photo3">Photo 3</label>
-            <input
-              type="file"
-              id="photo3"
-              name="photo3"
-              onChange={handleFileChange}
-            />
+            <input type="file" id="photo3" name="photo3" onChange={handleFileChange} />
           </div>
           <div className="form-group">
             <label htmlFor="photo4">Photo 4</label>
-            <input
-              type="file"
-              id="photo4"
-              name="photo4"
-              onChange={handleFileChange}
-            />
+            <input type="file" id="photo4" name="photo4" onChange={handleFileChange} />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="photo5">Photo 5</label>
-            <input
-              type="file"
-              id="photo5"
-              name="photo5"
-              onChange={handleFileChange}
-            />
+            <input type="file" id="photo5" name="photo5" onChange={handleFileChange} />
           </div>
         </div>
 
-        {/* Submit Button */}
         <button type="submit">Add Car</button>
       </form>
     </div>
