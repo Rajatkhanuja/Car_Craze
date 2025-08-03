@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import s from '../../../assets/s.jpg';
 import r from '../../../assets/r.jpg';
@@ -12,7 +12,6 @@ import rtoImage from '../../../assets/rto.jpg';
 import carImage from '../../../assets/Car.png';
 
 import './Home.css';
-import { Link } from 'react-router-dom';
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ from .env
 
@@ -101,8 +100,7 @@ const Hero = () => {
                 Easily check your pending challans online and make hassle-free payments.
                 Avoid penalties and stay informed about your vehicle's status. Our platform
                 provides real-time updates and ensures secure transactions, saving you time
-                and effort. With just a few clicks, you can settle your fines and hit the
-                road with confidence.
+                and effort.
               </p>
             </div>
             <div className="service-box">
@@ -111,8 +109,7 @@ const Hero = () => {
               <p className="service-description">
                 Track your vehicle's maintenance records effortlessly. Get detailed insights
                 into your car's service history, ensuring you’re up-to-date on repairs and
-                scheduled checkups. With our system, you'll never miss an important maintenance
-                milestone, keeping your car running smoothly and efficiently.
+                scheduled checkups.
               </p>
             </div>
             <div className="service-box">
@@ -121,16 +118,14 @@ const Hero = () => {
               <p className="service-description">
                 Access essential RTO details with ease. Our platform provides comprehensive
                 information about your vehicle's registration, ownership, and compliance
-                with road safety norms. Stay informed and avoid any surprises with your car's
-                legal standing. It's simple, fast, and reliable.
+                with road safety norms.
               </p>
             </div>
             <div className="service-box">
               <img src={carImage} alt="Car Info" className="service-image" />
               <h3>Car Info</h3>
               <p className="service-description">
-                Get detailed information and specifications about cars available in our stock. 
-                We provide real photos, prices, and specs to help you make the best decision.
+                Get detailed information and specifications about cars available in our stock.
               </p>
             </div>
           </div>
@@ -142,9 +137,9 @@ const Hero = () => {
         <div className="cars-grid">
           {cars.slice(0, 6).map((car, index) => (
             <div key={index} className="car-card">
-              <img 
-                src={`${API_URL}/${car.photo1}`} 
-                alt={car.name} 
+              <img
+                src={car.photo1} // ✅ Cloudinary full URL
+                alt={car.name}
                 className="car-img"
                 onError={(e) => {
                   e.target.src = '/placeholder-car.jpg'; // Fallback image
@@ -176,7 +171,7 @@ const Hero = () => {
         <div className="footer-container">
           <div className="footer-section about">
             <h3>About Us</h3>
-            <p>We are Car Craze, your trusted platform for selling and buying cars. Our mission is to provide excellent services to our users with a focus on quality and trust.</p>
+            <p>We are Car Craze, your trusted platform for selling and buying cars.</p>
           </div>
 
           <div className="footer-section links">
@@ -194,7 +189,7 @@ const Hero = () => {
             <h3>Contact Us</h3>
             <p><i className="fas fa-phone"></i> +91 8094559521</p>
             <p><i className="fas fa-envelope"></i> carcrazeudr@gmail.com</p>
-            <p><i className="fas fa-map-marker-alt"></i> Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
+            <p><i className="fas fa-map-marker-alt"></i> Near Bhairavgarh Resort, Udaipur</p>
           </div>
         </div>
         <div className="footer-bottom">

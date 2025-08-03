@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './CarDetails.css';
 
-const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env (for API calls)
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -76,7 +76,7 @@ const CarDetails = () => {
         <div className="car-gallery">
           <div className="main-image">
             <img
-              src={`${API_URL}/${photos[mainImage]}`}
+              src={photos[mainImage]} // ✅ Direct Cloudinary URL
               alt={`${car.name} main view`}
               onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
             />
@@ -90,7 +90,7 @@ const CarDetails = () => {
                 onClick={() => setMainImage(index)}
               >
                 <img
-                  src={`${API_URL}/${photo}`}
+                  src={photo} // ✅ Direct Cloudinary URL
                   alt={`${car.name} view ${index + 1}`}
                   onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
                 />
@@ -121,7 +121,7 @@ const CarDetails = () => {
           {stockCars.map((stockCar, index) => (
             <div key={index} className="car-card">
               <img
-                src={`${API_URL}/${stockCar.photo1}`}
+                src={stockCar.photo1} // ✅ Direct Cloudinary URL
                 alt={stockCar.name}
                 className="car-img"
                 onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}

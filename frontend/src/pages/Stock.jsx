@@ -189,7 +189,7 @@ const Stock = () => {
                     {filteredCars.map((car, index) => (
                         <div key={index} className="stock-car-card">
                             <img
-                                src={`${API_URL}/${car.photo1}`}
+                                src={car.photo1} // ✅ Direct Cloudinary URL
                                 alt={car.name}
                                 className="stock-car-img"
                                 onError={(e) => {
