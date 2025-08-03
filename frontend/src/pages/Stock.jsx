@@ -5,7 +5,7 @@ import "./Stock.css";
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
-// CustomSelect Component (same as before)
+// CustomSelect Component
 const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass }) => {
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
@@ -88,7 +88,8 @@ const Stock = () => {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                const response = await axios.get(`${API_URL}/cars`);
+                // ✅ Cache-bypass added here
+                const response = await axios.get(`${API_URL}/cars?nocache=${Date.now()}`);
                 setCars(response.data);
             } catch (error) {
                 console.error('Error fetching cars:', error);
@@ -103,8 +104,7 @@ const Stock = () => {
     };
 
     const handleManufacturerChange = (event) => {
-        const value = event.target.value;
-        setSelectedManufacturer(value);
+        setSelectedManufacturer(event.target.value);
     };
 
     const formatPrice = (price) => {
@@ -135,7 +135,6 @@ const Stock = () => {
     return (
         <div className="main-container">
             <aside className="sidebar">
-                {/* Budget filter */}
                 <h2>Budget Range</h2>
                 <div className="select-wrapper">
                     <CustomSelect
@@ -158,7 +157,6 @@ const Stock = () => {
                     Clear Budget
                 </button>
 
-                {/* Manufacturer filter */}
                 <h2>Manufacturer</h2>
                 <div className="select-wrapper">
                     <CustomSelect
