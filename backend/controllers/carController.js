@@ -1,8 +1,8 @@
 const Car = require('../models/carModel');
-const fs = require('fs');
-const path = require('path');
-const mongoose = require('mongoose');  // Import mongoose here
+const mongoose = require('mongoose');
+const cloudinary = require('../config/cloudinary');
 
+// Add Car (Cloudinary upload)
 exports.addCar = async (req, res) => {
   try {
     const { name, model, running, insurance, ownership, fuel, year, registration, price } = req.body;
@@ -10,7 +10,8 @@ exports.addCar = async (req, res) => {
     const photoFields = {};
     if (req.files) {
       Object.keys(req.files).forEach(key => {
-        photoFields[key] = req.files[key][0].path.replace(/\\/g, '/'); // Normalize path for Windows
+        // Cloudinary URL
+        photoFields[key] = req.files[key][0].path;
       });
     }
 
@@ -35,6 +36,7 @@ exports.addCar = async (req, res) => {
   }
 };
 
+// Get all cars
 exports.getCars = async (req, res) => {
   try {
     const cars = await Car.find().sort({ createdAt: -1 });
@@ -45,6 +47,7 @@ exports.getCars = async (req, res) => {
   }
 };
 
+// Get car by ID
 exports.getCarById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -65,6 +68,7 @@ exports.getCarById = async (req, res) => {
   }
 };
 
+// Update car price
 exports.updateCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -89,6 +93,7 @@ exports.updateCar = async (req, res) => {
   }
 };
 
+// Delete car + Cloudinary images
 exports.deleteCar = async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
@@ -96,17 +101,19 @@ exports.deleteCar = async (req, res) => {
       return res.status(404).json({ message: "Car not found" });
     }
 
-    // Delete associated photos
-    ['photo1', 'photo2', 'photo3', 'photo4', 'photo5'].forEach(photoKey => {
-      if (car[photoKey]) {
-        const photoPath = path.join(__dirname, '..', car[photoKey]);
+    // Delete images from Cloudinary
+    const photoKeys = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5'];
+    for (let key of photoKeys) {
+      if (car[key]) {
         try {
-          fs.unlinkSync(photoPath);
+          // Extract public_id from Cloudinary URL
+          const publicId = car[key].split('/').pop().split('.')[0];
+          await cloudinary.uploader.destroy(`carcraze_uploads/${publicId}`);
         } catch (err) {
-          console.error(`Failed to delete photo ${photoKey}:`, err);
+          console.error(`Failed to delete ${key} from Cloudinary:`, err);
         }
       }
-    });
+    }
 
     await Car.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Car deleted successfully" });

@@ -1,40 +1,21 @@
 // middleware/upload.js
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../config/cloudinary');
 
-const uploadDir = 'uploads/';
-
-// Create uploads directory if it doesn't exist
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+// Cloudinary Storage Setup
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'carcraze_uploads', // Cloudinary me folder ka naam
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
   },
 });
 
-const fileFilter = (req, file, cb) => {
-  const fileTypes = /jpeg|jpg|png/;
-  const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = fileTypes.test(file.mimetype);
-
-  if (extname && mimetype) {
-    cb(null, true);
-  } else {
-    cb(new Error('Only images are allowed!'), false);
-  }
-};
-
+// Multer Setup (multiple fields)
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 },
-  fileFilter,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
 }).fields([
   { name: 'photo1', maxCount: 1 },
   { name: 'photo2', maxCount: 1 },

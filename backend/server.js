@@ -2,7 +2,6 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 require("./config/db"); // MongoDB connection
-const path = require("path");
 
 // Routes
 const adminRoutes = require("./routes/adminRoutes");
@@ -33,8 +32,8 @@ app.use(cors({
 // Middleware
 app.use(express.json());
 
-// Static files (uploads)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// ❌ Local uploads folder serving is removed
+// ✅ Cloudinary will handle file storage & access via its URLs
 
 // Routes
 app.use("/admin", adminRoutes);           // Admin login & auth
