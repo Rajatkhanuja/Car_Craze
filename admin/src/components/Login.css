@@ -4,43 +4,65 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 100vh; /* Use 100vh to ensure it fills the entire viewport height */
     width: 100%;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden; /* Hide any overflow from blur */
     padding: 1rem;
     box-sizing: border-box;
+
+    /* Background Image */
+    background-image: url('../assets/bwm.jpg'); /* Use the imported image path */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
 }
 
-/* Card Container */
-.login-container form {
+/* Pseudo-element for blur and overlay */
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+    backdrop-filter: blur(8px); /* Apply blur effect */
+    z-index: 1; /* Place it above the background image but below the form */
+}
+
+/* Card Container (now .login-form-card) */
+.login-form-card {
     width: 90%;
     max-width: 420px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white for the form */
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow to pop out */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    position: relative; /* Needed for z-index to work */
+    z-index: 2; /* Ensure the form is above the blurred background */
 }
 
 /* Heading Styles */
-.login-container h2 {
+.login-form-card h2 { /* Changed to .login-form-card h2 */
     font-size: clamp(1.5rem, 5vw, 2rem);
     color: #1a202c;
-    margin-bottom: -3rem;
+    margin-bottom: 2rem; /* Adjusted margin for better spacing */
     font-weight: 700;
     letter-spacing: -0.5px;
     text-align: center;
 }
 
 /* Input Container */
-.login-container div {
+.login-form-card div { /* Changed to .login-form-card div */
     width: 100%;
     margin-bottom: 1.25rem;
 }
 
 /* Input Fields */
-.login-container input {
+.login-form-card input { /* Changed to .login-form-card input */
     width: 100%;
     padding: 0.875rem 1rem;
     background: #f8fafc;
@@ -53,12 +75,12 @@
     box-sizing: border-box;
 }
 
-.login-container input::placeholder {
+.login-form-card input::placeholder { /* Changed to .login-form-card input::placeholder */
     color: #a0aec0;
     text-align: center;
 }
 
-.login-container input:focus {
+.login-form-card input:focus { /* Changed to .login-form-card input:focus */
     border-color: #3182ce;
     background: #ffffff;
     box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
@@ -66,7 +88,7 @@
 }
 
 /* Error Message */
-.login-container p {
+.login-form-card p { /* Changed to .login-form-card p */
     margin: 0.75rem 0;
     font-size: 0.875rem;
     color: #e53e3e;
@@ -75,7 +97,7 @@
 }
 
 /* Login Button */
-.login-container button {
+.login-form-card button { /* Changed to .login-form-card button */
     width: 100%;
     min-height: 44px; /* Minimum touch target size */
     padding: 0.875rem;
@@ -94,13 +116,13 @@
     text-align: center;
 }
 
-.login-container button:hover {
+.login-form-card button:hover { /* Changed to .login-form-card button:hover */
     background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(49, 130, 206, 0.2);
 }
 
-.login-container button:active {
+.login-form-card button:active { /* Changed to .login-form-card button:active */
     transform: translateY(0);
     box-shadow: none;
 }
@@ -111,13 +133,13 @@
         padding: 1rem;
     }
 
-    .login-container form {
+    .login-form-card {
         width: 95%;
         padding: 1.5rem;
     }
 
-    .login-container input,
-    .login-container button {
+    .login-form-card input,
+    .login-form-card button {
         font-size: 16px; /* Prevents zoom on mobile */
         padding: 0.75rem;
     }
@@ -125,18 +147,18 @@
 
 /* For very small screens */
 @media (max-width: 320px) {
-    .login-container form {
+    .login-form-card {
         padding: 1rem;
     }
 
-    .login-container h2 {
+    .login-form-card h2 {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
     }
 }
 
 /* Ensure no zoom on iOS devices */
-@media screen and (-webkit-min-device-pixel-ratio: 0) { 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
     select,
     textarea,
     input {

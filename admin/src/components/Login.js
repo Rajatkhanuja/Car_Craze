@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import bwmImage from '../assets/bwm.jpg'; // Import your BMW image here
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
@@ -35,30 +36,34 @@ function Login() {
   };
 
   return (
-    <div className="login-container" style={{ paddingTop: "70px" }}>
-      <h2>Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Login</button>
-      </form>
+    // Apply the background image via CSS to this container
+    <div className="login-container">
+      {/* The background image and blur will be handled by CSS on .login-container::before */}
+      <div className="login-form-card"> {/* New div for the form to give it a distinct background */}
+        <h2>Admin Login</h2>
+        <form onSubmit={handleLogin}>
+          <div>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }
