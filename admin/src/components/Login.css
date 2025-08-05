@@ -18,7 +18,7 @@
     background-repeat: no-repeat; /* Do not repeat the image */
 }
 
-/* Pseudo-element for blur and overlay */
+/* Pseudo-element for main background blur and overlay */
 .login-container::before {
     content: "";
     position: absolute;
@@ -27,6 +27,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+    backdrop-filter: blur(8px); /* Apply blur effect to the main background image */
     z-index: 1; /* Place it above the background image but below the form */
 }
 
@@ -34,71 +35,79 @@
 .login-form-card {
     width: 90%;
     max-width: 420px;
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white for the form */
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1); /* Very slight transparency for the form card */
+    padding: 2.5rem 2rem 2rem; /* Adjusted top padding to move heading down */
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow to pop out */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Stronger shadow for more depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     position: relative; /* Needed for z-index to work */
     z-index: 2; /* Ensure the form is above the blurred background */
+    backdrop-filter: blur(10px); /* Apply blur to the form card itself */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly more visible border */
 }
 
 /* Heading Styles */
-.login-form-card h2 { /* Changed to .login-form-card h2 */
+.login-form-card h2 {
     font-size: clamp(1.5rem, 5vw, 2rem);
-    color: #1a202c;
-    margin-top: 0rem; /* Adjusted margin for better spacing */
+    color: #ffffff; /* White text for better contrast */
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 2rem; /* Adjusted bottom margin to push inputs down */
     font-weight: 700;
     letter-spacing: -0.5px;
     text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); /* Stronger text shadow for readability */
 }
 
 /* Input Container */
-.login-form-card div { /* Changed to .login-form-card div */
+.login-form-card div {
     width: 100%;
     margin-bottom: 1.25rem;
 }
 
 /* Input Fields */
-.login-form-card input { /* Changed to .login-form-card input */
+.login-form-card input {
     width: 100%;
     padding: 0.875rem 1rem;
-    background:  rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05); /* Very subtle transparent background for inputs */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Transparent border for inputs */
     border-radius: 8px;
-    font-size: 16px; /* Fixed font size for better mobile readability */
-    color: #2d3748;
-    transition: all 0.2s ease;
+    font-size: 16px;
+    color: #ffffff; /* White text for input values */
+    transition: all 0.3s ease; /* Smooth transition for background and border */
     text-align: center;
     box-sizing: border-box;
+    backdrop-filter: blur(3px); /* Apply slight blur to inputs initially */
 }
 
-.login-form-card input::placeholder { /* Changed to .login-form-card input::placeholder */
-    color: #a0aec0;
+.login-form-card input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Lighter placeholder color */
     text-align: center;
 }
 
-.login-form-card input:focus { /* Changed to .login-form-card input:focus */
-    border-color: #3182ce;
-    background:  rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+.login-form-card input:focus {
+    border-color: #3182ce; /* Keep blue border on focus */
+    background: #ffffff; /* Solid white background on focus */
+    color: #2d3748; /* Dark text color when focused */
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3); /* Slightly stronger shadow on focus */
     outline: none;
+    backdrop-filter: blur(0); /* Remove blur on focus */
 }
 
 /* Error Message */
-.login-form-card p { /* Changed to .login-form-card p */
+.login-form-card p {
     margin: 0.75rem 0;
     font-size: 0.875rem;
-    color: #e53e3e;
+    color: #ff6b6b; /* Brighter red for visibility on dark background */
     text-align: center;
     font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Login Button */
-.login-form-card button { /* Changed to .login-form-card button */
+.login-form-card button {
     width: 100%;
-    min-height: 44px; /* Minimum touch target size */
+    min-height: 44px;
     padding: 0.875rem;
     background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
     color: #ffffff;
@@ -111,17 +120,17 @@
     margin-top: 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers the text inside button */
+    justify-content: center;
     text-align: center;
 }
 
-.login-form-card button:hover { /* Changed to .login-form-card button:hover */
+.login-form-card button:hover {
     background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.2);
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4); /* Stronger hover shadow */
 }
 
-.login-form-card button:active { /* Changed to .login-form-card button:active */
+.login-form-card button:active {
     transform: translateY(0);
     box-shadow: none;
 }
@@ -129,17 +138,21 @@
 /* Mobile-first responsive adjustments */
 @media (max-width: 480px) {
     .login-container {
-        padding: 1rem;
+        padding: 0.5rem; /* Slightly less padding on very small screens */
     }
 
     .login-form-card {
         width: 95%;
-        padding: 1.5rem;
+        padding: 2rem 1.5rem 1.5rem; /* Adjusted padding for mobile */
+    }
+
+    .login-form-card h2 {
+        margin-bottom: 1.5rem; /* Even less margin on mobile */
     }
 
     .login-form-card input,
     .login-form-card button {
-        font-size: 16px; /* Prevents zoom on mobile */
+        font-size: 16px;
         padding: 0.75rem;
     }
 }
@@ -147,12 +160,12 @@
 /* For very small screens */
 @media (max-width: 320px) {
     .login-form-card {
-        padding: 1rem;
+        padding: 1.5rem 1rem 1rem; /* Adjusted padding for very small screens */
     }
 
     .login-form-card h2 {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 }
 
