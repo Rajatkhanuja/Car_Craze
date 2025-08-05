@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./Contact.css";
 import { Link } from 'react-router-dom';
-import bwmImage from '../assets/bwm.jpg'; // Adjust the path if your image is not bwm.jpg or not directly in 'assets'
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ Env variable se backend URL
 
@@ -26,7 +25,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setIsLoading(true); 
     setSubmissionStatus("");
 
     try {
@@ -60,10 +59,6 @@ const Contact = () => {
         <h1>Contact Us</h1>
       </div>
       <div className="contact-details">
-        {/* Image added here */}
-        <div className="contact-image-container">
-          <img src={bwmImage} alt="BMW Car" className="bwm-contact-image" />
-        </div>
         <p><strong>Car Craze</strong></p>
         <p>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
         <p><strong>Email:</strong> <a href="mailto:crazeudr@gmail.com">carcrazeudr@gmail.com</a></p>
@@ -129,7 +124,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2025 Car Craze. All Rights Reserved.</p>
+          <p>&copy; 2025 Car Craze. All Rights Reserved.</p>
         </div>
       </footer>
     </>
