@@ -48,7 +48,8 @@
 .login-form-card h2 { /* Changed to .login-form-card h2 */
     font-size: clamp(1.5rem, 5vw, 2rem);
     color: #1a202c;
-    margin-top: 0rem; /* Adjusted margin for better spacing */
+    margin-top: 0rem;
+    margin-bottom: 3rem; /* Adjusted margin for better spacing */
     font-weight: 700;
     letter-spacing: -0.5px;
     text-align: center;
