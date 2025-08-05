@@ -39,7 +39,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 .related-cars {
   flex-basis: 45%; /* Allocate space for Related Cars section */
   max-width: 800px; /* Limit maximum width */
@@ -50,21 +49,23 @@
   align-self: flex-start; /* Align it to the start of the container */
 }
 
-.related-cars h3, 
-.related-cars .price { /* Assuming headings and price have specific classes */
+.related-cars h3,
+.related-cars .price {
+  /* Assuming headings and price have specific classes */
   margin-top: 0px; /* Remove unnecessary top margin */
   margin-bottom: 1px; /* Ensure some spacing below the elements */
   line-height: 1; /* Reduce the line height for a more compact appearance */
 }
 
-.related-cars .car-name { /* If there's a specific class for car names */
+.related-cars .car-name {
+  /* If there's a specific class for car names */
   font-size: 1.1rem; /* Adjust font size */
   font-weight: bold;
   margin-bottom: 1px; /* Reduce space below the name */
 }
 
 .related-cars .price {
-  color: #3B82F6; /* Highlight price in blue */
+  color: #3b82f6; /* Highlight price in blue */
   font-size: 1.2rem; /* Slightly larger font for price */
   font-weight: 600;
 }
@@ -107,6 +108,8 @@
   overflow-x: auto; /* Allow horizontal scrolling if necessary */
   gap: 10px;
   padding-bottom: 10px;
+  /* Add this for desktop to ensure proper wrapping if needed, though flex-shrink: 0 below handles primary behavior */
+  flex-wrap: nowrap;
 }
 
 .thumbnail {
@@ -120,7 +123,7 @@
 }
 
 .thumbnail.active {
-  border-color: #3B82F6;
+  border-color: #3b82f6;
 }
 
 .thumbnail img {
@@ -179,7 +182,7 @@
 .price-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3B82F6;
+  color: #3b82f6;
 }
 
 .loading {
@@ -209,7 +212,7 @@
     height: 250px; /* Adjusted image height for small screens */
   }
 
-  /* Change grid to 2 rows for mobile screens */
+  /* Change grid to 2 columns for mobile screens */
   .info-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
   }
@@ -227,8 +230,20 @@
   .related-cars {
     margin-top: 20px; /* Add space between car details and related cars */
   }
-}
 
+  .thumbnail-container {
+    display: grid; /* Change to grid for mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px; /* Maintain gap */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    padding-bottom: 0; /* Remove extra padding if not scrolling */
+  }
+
+  .thumbnail {
+    width: 100%; /* Make thumbnails take full width of their grid column */
+    height: 100px; /* Adjust height for mobile thumbnails */
+  }
+}
 
 /* Adjust for very small screens (less than 480px) */
 @media (max-width: 480px) {
@@ -237,6 +252,10 @@
   }
 
   .thumbnail-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for very small screens */
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns even for very small screens if it looks good, or change to 1fr if preferred */
+  }
+
+  .thumbnail {
+    height: 80px; /* Further adjust thumbnail height for very small screens */
   }
 }
