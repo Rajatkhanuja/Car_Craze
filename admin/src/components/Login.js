@@ -40,7 +40,8 @@ function Login() {
     <div className="login-container">
       {/* The background image and blur will be handled by CSS on .login-container::before */}
       <div className="login-form-card"> {/* New div for the form to give it a distinct background */}
-        <h2>Admin Login</h2>
+        <h2>Car craze 
+          Admin Login</h2>
         <form onSubmit={handleLogin}>
           <div>
             <input
