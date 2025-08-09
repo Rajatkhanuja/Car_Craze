@@ -33,6 +33,9 @@ const Navbar = () => {
           <Link to="/" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             HOME
           </Link>
+          <Link to="/about" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+            ABOUT US
+          </Link>
           <Link to="/stock" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             BUY USED CAR
           </Link>
@@ -60,6 +63,9 @@ const Navbar = () => {
         <div className="lg:hidden bg-[#1A1A1A] text-white font-medium text-xl p-4 pl-8 pr-8 mt-2">
           <Link to="/" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             HOME
+          </Link>
+          <Link to="/about" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+            ABOUT US
           </Link>
           <Link to="/stock" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             BUY USED CAR
