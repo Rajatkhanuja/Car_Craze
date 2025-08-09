@@ -16,14 +16,14 @@ const Navbar = () => {
   return (
     <header className="bg-black fixed top-0 left-0 w-full z-50 shadow-md">
       {/* Navbar Container */}
-      <nav className="container flex justify-between items-center py-4 px-4">
+      <nav className="flex justify-between items-center py-4 px-2 sm:px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link to="/" onClick={closeMenu}>
+          <Link to="/" onClick={closeMenu} className="ml-0 sm:ml-[-10px]">
             <img 
               src={logo} 
               alt="CarCraze Logo" 
-              className="h-10 sm:h-12 ml-[-6px] sm:ml-[-10px]" 
+              className="h-10 sm:h-12 ml-0" 
             />
           </Link>
         </div>
