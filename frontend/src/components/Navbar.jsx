@@ -30,10 +30,10 @@ const Navbar = () => {
             HOME
           </Link>
           <Link to="/stock" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            STOCK CARS
+            BUY USED CAR
           </Link>
           <Link to="/sell" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            SELL CARS
+            SELL CAR
           </Link>
           <Link to="/services" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             SERVICES
@@ -58,10 +58,10 @@ const Navbar = () => {
             HOME
           </Link>
           <Link to="/stock" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            STOCK CARS
+            BUY USED CAR
           </Link>
           <Link to="/sell" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            SELL CARS
+            SELL CAR
           </Link>
           <Link to="/services" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             SERVICES
