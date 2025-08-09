@@ -16,11 +16,15 @@ const Navbar = () => {
   return (
     <header className="bg-black fixed top-0 left-0 w-full z-50 shadow-md">
       {/* Navbar Container */}
-      <nav className="container flex justify-between items-center py-4 px-4">
+      <nav className="max-w-[1300px] mx-auto flex justify-between items-center py-4 px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link to="/" onClick={closeMenu} className="ml-[-10px]">
-            <img src={logo} alt="CarCraze Logo" style={{ height: "50px" }} />
+          <Link to="/" onClick={closeMenu} className="flex items-center">
+            <img
+              src={logo}
+              alt="CarCraze Logo"
+              className="h-[50px] object-contain ml-[-8px] mt-[-4px]"
+            />
           </Link>
         </div>
 
