@@ -19,8 +19,12 @@ const Navbar = () => {
       <nav className="container flex justify-between items-center py-4 px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link to="/" onClick={closeMenu} className="ml-[-10px]">
-            <img src={logo} alt="CarCraze Logo" style={{ height: "50px" }} />
+          <Link to="/" onClick={closeMenu}>
+            <img 
+              src={logo} 
+              alt="CarCraze Logo" 
+              className="h-10 sm:h-12 ml-[-6px] sm:ml-[-10px]" 
+            />
           </Link>
         </div>
 
