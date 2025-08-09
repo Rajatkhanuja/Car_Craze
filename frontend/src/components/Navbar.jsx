@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-black fixed top-0 left-0 w-full z-50 shadow-md">
+    <header className="bg-[#1A1A1A] fixed top-0 left-0 w-full z-50 shadow-md">
       {/* Navbar Container */}
       <nav className="flex justify-between items-center py-4 px-2 sm:px-4">
         {/* Logo */}
@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-black text-white font-medium text-xl p-4 pl-8 pr-8 mt-2">
+        <div className="lg:hidden bg-[#1A1A1A] text-white font-medium text-xl p-4 pl-8 pr-8 mt-2">
           <Link to="/" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             HOME
           </Link>
