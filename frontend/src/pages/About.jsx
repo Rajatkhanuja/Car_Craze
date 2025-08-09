@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import "./About.css"; // Make sure this CSS file exists
+import "./About.css"; // Make sure this is updated
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -9,37 +9,51 @@ const About = () => {
       <Navbar />
       <div className="about-container">
         <div className="about-content">
-          <h1>About Us</h1>
-          <p>
-            Welcome to <strong>CAR CRAZE</strong>, a trusted name in the automotive industry since our establishment in 2004.
-            With over two decades of experience, we have proudly emerged as seasoned experts in the sale and purchase of 
-            non-accidental and non-odometer tempered cars.
-          </p>
-          <p>
-            Our commitment to providing a seamless automotive experience led us to become a 
-            <strong> one-stop solution</strong> for all your car-related needs.
-          </p>
-          <p>
-            At CAR CRAZE, we understand that buying or selling a car involves more than a transaction – 
-            it’s about <strong>trust, reliability, and satisfaction</strong>. Our dedicated team works tirelessly 
-            to ensure that each customer receives the highest level of service, whether you are looking to finance your dream car, 
-            secure the right insurance, or simply explore our extensive range of certified vehicles.
-          </p>
-          <p>
-            What sets us apart is our emphasis on <strong>transparency and accountability</strong>. Every certified car 
-            at CAR CRAZE comes with a detailed history, providing you with the confidence and peace of mind you deserve.
-          </p>
-          <p>
-            We take pride in our longstanding partnerships with leading financial institutions including 
-            IDFC, Bajaj Finance, Mahindra & Mahindra Finance, AU Small Finance, and IndusInd Bank – ensuring you have access 
-            to a variety of financing options tailored to your needs.
-          </p>
-          <p>
-            As an established player in the market, CAR CRAZE remains committed to delivering excellence in every aspect of 
-            the automotive journey. Whether you are a buyer or a seller, our mission is to make your experience with us 
-            <strong> memorable, reliable, and hassle-free</strong>.
-          </p>
-          <p><strong>Thank you</strong> for considering CAR CRAZE for all your automotive needs.</p>
+          <h1 className="main-title">About <span>CAR CRAZE</span></h1>
+
+          <section>
+            <h2>Our Legacy</h2>
+            <p>
+              Established in 2004, <strong>CAR CRAZE</strong> has become a trusted name in the automotive industry. 
+              With over two decades of expertise, we specialize in the sale and purchase of 
+              <strong> non-accidental</strong> and <strong>non-odometer tempered cars</strong>.
+            </p>
+          </section>
+
+          <section>
+            <h2>Why Choose Us?</h2>
+            <p>
+              Our aim is to provide a <strong>one-stop solution</strong> for all your car-related needs — from buying 
+              and selling, to insurance and financing. We don’t just sell cars, we build relationships based on 
+              <strong> trust, satisfaction, and transparency</strong>.
+            </p>
+          </section>
+
+          <section>
+            <h2>What We Offer</h2>
+            <ul>
+              <li>Certified pre-owned cars with full history</li>
+              <li>Finance options from IDFC, Bajaj Finance, AU Bank, and more</li>
+              <li>Trusted insurance assistance</li>
+              <li>Expert support and guidance</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Our Promise</h2>
+            <p>
+              Every car at CAR CRAZE comes with a <strong>detailed background check</strong>, ensuring peace of mind 
+              for our buyers. We partner only with reputed institutions, offering you tailored solutions for your needs.
+            </p>
+          </section>
+
+          <section>
+            <h2>Thank You</h2>
+            <p>
+              We appreciate your trust in <strong>CAR CRAZE</strong>. Whether buying or selling, we’re here to make your 
+              automotive journey <strong>memorable, reliable, and hassle-free</strong>.
+            </p>
+          </section>
         </div>
       </div>
     </>
