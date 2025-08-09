@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <header className="bg-[#1A1A1A] fixed top-0 left-0 w-full z-50 shadow-md">
       {/* Navbar Container */}
-      <nav className="flex justify-between items-center py-4 px-0 sm:px-4">
+      <nav className="flex justify-between items-center py-2 sm:py-3 px-0 sm:px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Link to="/" onClick={closeMenu} className="ml-0 sm:ml-0">
