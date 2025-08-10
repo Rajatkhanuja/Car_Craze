@@ -42,7 +42,7 @@ const Navbar = () => {
 
           {/* VALUE ADDED SERVICES Dropdown - Desktop */}
           <div className="relative group">
-            <button className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+            <button className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white bg-transparent border-none focus:outline-none appearance-none">
               VALUE ADDED SERVICES
             </button>
             <div className="absolute hidden group-hover:block bg-[#1A1A1A] text-white mt-2 py-2 w-64 shadow-lg rounded z-50">
