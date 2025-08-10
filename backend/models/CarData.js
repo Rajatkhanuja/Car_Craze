@@ -31,8 +31,8 @@ const carDataSchema = new mongoose.Schema({
     "60,000 - 70,000 km",
     "70,000 - 80,000 km",
     "80,000 - 90,000 km",
-    "90,000 - 100,000 km",
-    "Above 100,000 km"
+    "90,000 - 1,00,000 km",
+    "Above 1,00,000 km"
   ]
 },
 
