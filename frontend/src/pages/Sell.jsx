@@ -155,8 +155,9 @@ const Sell = () => {
               <option value="Petrol">Petrol</option>
               <option value="Diesel">Diesel</option>
               <option value="CNG">CNG</option>
+              <option value="Hybrid">LPG</option>
               <option value="Electric">Electric</option>
-              <option value="Hybrid">Hybrid</option>
+              
             </select>
           </div>
 
