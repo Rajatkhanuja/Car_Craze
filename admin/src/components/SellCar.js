@@ -121,8 +121,8 @@ const SellCar = () => {
           <table>
             <thead>
               <tr>
-                {["Car", "Model", "Owner", "Registration No", "Month/Year", 
-                  "Color", "Registration At", "Life Time Tax", 
+                {["Brand", "Model & Variant", "Owner", "Registration No", 
+                  "Manufacturing Year", "Fuel", "Kms Driven", 
                   "Car Insurance", "Accident", "Name", "Mobile No", 
                   "Email", "Actions"].map(header => (
                   <th key={header} className="px-4 py-3 bg-gray-50 text-gray-700">
@@ -135,19 +135,19 @@ const SellCar = () => {
               {carDataList.map((car) => (
                 <tr key={car._id} className="hover:bg-gray-50 transition-colors duration-150">
                   {Object.entries({
-                    car: car.car,
-                    model: car.model,
-                    owner: car.owner,
-                    registrationNo: car.registrationNo,
-                    monthAndYear: car.monthAndYear,
-                    colour: car.colour,
-                    registrationAt: car.registrationAt,
-                    lifeTimeTax: car.lifeTimeTax,
-                    carInsurance: car.carInsurance,
-                    isAccidental: car.isAccidental ? "Yes" : "No",
-                    name: car.name,
-                    mobileNo: car.mobileNo,
-                    email: car.email
+                    brand: car.brand,
+modelAndVariant: car.modelAndVariant,
+owner: car.owner,
+registrationNo: car.registrationNo,
+manufacturingYear: car.manufacturingYear,
+fuel: car.fuel,
+kmsDriven: car.kmsDriven,
+carInsurance: car.carInsurance,
+isAccidental: car.isAccidental ? "Yes" : "No",
+name: car.name,
+mobileNo: car.mobileNo,
+email: car.email
+
                   }).map(([key, value]) => (
                     <td key={key} data-label={key} className="px-4 py-3 border-b">
                       {value}
