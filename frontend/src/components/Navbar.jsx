@@ -4,22 +4,31 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // New state to control the desktop dropdown visibility
+  // State to control the desktop dropdown visibility
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
+  // New state to control the mobile dropdown visibility
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsDesktopDropdownOpen(false); // Close desktop dropdown if mobile menu opens
+    setIsMobileDropdownOpen(false); // Close mobile dropdown as well
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsDesktopDropdownOpen(false); // Close both menus
+    setIsMobileDropdownOpen(false); // Ensure mobile dropdown is closed
   };
 
   // Function to toggle the desktop dropdown
   const toggleDesktopDropdown = () => {
     setIsDesktopDropdownOpen(!isDesktopDropdownOpen);
+  };
+
+  // Function to toggle the mobile dropdown
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen(!isMobileDropdownOpen);
   };
 
   return (
@@ -50,7 +59,6 @@ const Navbar = () => {
           </Link>
 
           {/* VALUE ADDED SERVICES Dropdown - Desktop */}
-          {/* Changed from 'group' to a click-based dropdown */}
           <div className="relative">
             <button
               onClick={toggleDesktopDropdown} // Added onClick handler
@@ -80,6 +88,7 @@ const Navbar = () => {
         {/* Mobile Hamburger Icon */}
         <div className="lg:hidden absolute top-6 right-4 flex items-center" onClick={toggleMenu}>
           <button className="text-white bg-transparent border-none">
+            {/* Note: Ensure you have Font Awesome loaded for these icons */}
             <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
@@ -100,16 +109,23 @@ const Navbar = () => {
 
           {/* VALUE ADDED SERVICES - Mobile Nested Links */}
           <div className="py-2">
-            <p className="text-white">VALUE ADDED SERVICES</p>
-            <div className="pl-4 text-base">
-              <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Insurance</Link>
-              <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Road Side Assistance</Link>
-              <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Warranty</Link>
-              <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Pre Delivery Inspection</Link>
-              <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Denting & Painting Work</Link>
-              <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Dryclean & Polish Work</Link>
-              <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400">RTO Work</Link>
-            </div>
+            <p className="text-white flex justify-between items-center" onClick={toggleMobileDropdown}>
+              VALUE ADDED SERVICES
+              {/* Added a chevron icon to indicate it's a dropdown */}
+              <i className={`fas ${isMobileDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-sm`}></i>
+            </p>
+            {/* Conditionally render the dropdown links based on state */}
+            {isMobileDropdownOpen && (
+              <div className="pl-4 text-base">
+                <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Insurance</Link>
+                <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Road Side Assistance</Link>
+                <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Warranty</Link>
+                <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Pre Delivery Inspection</Link>
+                <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Denting & Painting Work</Link>
+                <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Dryclean & Polish Work</Link>
+                <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400">RTO Work</Link>
+              </div>
+            )}
           </div>
 
           <Link to="/contact" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
