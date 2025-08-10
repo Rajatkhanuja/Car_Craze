@@ -4,42 +4,27 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./Sell.css";
 
-const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Sell = () => {
   const [formData, setFormData] = useState({
-    car: "",
-    model: "",
-    monthAndYear: "",
+    brand: "",
+    modelAndVariant: "",
+    manufacturingYear: "",   // ✅ Updated key
     owner: "",
-    colour: "",
+    kmsDriven: "",
     registrationNo: "",
-    registrationAt: "",
-    lifeTimeTax: "",
     carInsurance: "",
     isAccidental: "",
     name: "",
     mobileNo: "",
     email: "",
-    month: "",
-    year: "",
   });
-
-  const months = [
-    "January", "February", "March", "April", "May", "June", 
-    "July", "August", "September", "October", "November", "December"
-  ];
 
   const years = [];
   for (let i = 2009; i <= new Date().getFullYear(); i++) {
     years.push(i);
   }
-
-  const carColors = [
-    "Black", "White", "Silver", "Grey", "Red", "Blue", "Green", "Yellow", 
-    "Orange", "Brown", "Beige", "Purple", "Pink", "Gold", "Maroon", "Teal", 
-    "Bronze", "Turquoise", "Turquoise Blue", "Champagne", "Metallic Blue"
-  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,30 +36,40 @@ const Sell = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const monthAndYear = `${formData.month} ${formData.year}`;
-    const updatedFormData = { ...formData, monthAndYear };
 
     try {
-      const response = await axios.post(`${API_URL}/api/car-data`, updatedFormData);
+      const response = await axios.post(`${API_URL}/api/car-data`, formData);
       console.log("Form submitted successfully:", response.data);
 
       Swal.fire({
-        title: 'Success!',
-        text: 'Your car details have been submitted successfully.',
-        icon: 'success',
-        confirmButtonText: 'OK',
+        title: "Success!",
+        text: "Your car details have been submitted successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
       });
 
-      setFormData({}); // Reset form
+      // Reset form
+      setFormData({
+        brand: "",
+        modelAndVariant: "",
+        manufacturingYear: "",
+        owner: "",
+        kmsDriven: "",
+        registrationNo: "",
+        carInsurance: "",
+        isAccidental: "",
+        name: "",
+        mobileNo: "",
+        email: "",
+      });
     } catch (error) {
       console.error("Error submitting form data:", error);
 
       Swal.fire({
-        title: 'Error!',
-        text: 'There was an error submitting your details. Please try again.',
-        icon: 'error',
-        confirmButtonText: 'OK',
+        title: "Error!",
+        text: "There was an error submitting your details. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
       });
     }
   };
@@ -86,49 +81,36 @@ const Sell = () => {
         <h1>Sell Car</h1>
         <p>Please fill the details in the below form to send your request.</p>
         <form onSubmit={handleSubmit}>
+          {/* Brand */}
           <div className="form-group">
-            <label>Car Name</label>
+            <label>Brand</label>
             <input
               type="text"
-              name="car"
-              value={formData.car}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Model</label>
-            <input
-              type="text"
-              name="model"
-              value={formData.model}
+              name="brand"
+              value={formData.brand}
               onChange={handleChange}
               required
             />
           </div>
 
-          {/* Month and Year dropdowns */}
+          {/* Model Name & Variant */}
           <div className="form-group">
-            <label>Month</label>
-            <select
-              name="month"
-              value={formData.month}
+            <label>Model Name & Variant</label>
+            <input
+              type="text"
+              name="modelAndVariant"
+              value={formData.modelAndVariant}
               onChange={handleChange}
               required
-            >
-              <option value="">Select Month</option>
-              {months.map((month, index) => (
-                <option key={index} value={month}>
-                  {month}
-                </option>
-              ))}
-            </select>
+            />
           </div>
+
+          {/* Manufacturing Year */}
           <div className="form-group">
-            <label>Year</label>
+            <label>Manufacturing Year</label>
             <select
-              name="year"
-              value={formData.year}
+              name="manufacturingYear"
+              value={formData.manufacturingYear}
               onChange={handleChange}
               required
             >
@@ -141,16 +123,16 @@ const Sell = () => {
             </select>
           </div>
 
-          {/* Owner dropdown */}
+          {/* Ownership */}
           <div className="form-group">
-            <label>Owner</label>
+            <label>Ownership</label>
             <select
               name="owner"
               value={formData.owner}
               onChange={handleChange}
               required
             >
-              <option value="">Select Owner</option>
+              <option value="">Select Ownership</option>
               <option value="First Owner">First Owner</option>
               <option value="Second Owner">Second Owner</option>
               <option value="Third Owner">Third Owner</option>
@@ -158,26 +140,21 @@ const Sell = () => {
             </select>
           </div>
 
-          {/* Colour dropdown */}
+          {/* Kms Driven */}
           <div className="form-group">
-            <label>Colour</label>
-            <select
-              name="colour"
-              value={formData.colour}
+            <label>Kms Driven</label>
+            <input
+              type="number"
+              name="kmsDriven"
+              value={formData.kmsDriven}
               onChange={handleChange}
               required
-            >
-              <option value="">Select Colour</option>
-              {carColors.map((color, index) => (
-                <option key={index} value={color}>
-                  {color}
-                </option>
-              ))}
-            </select>
+            />
           </div>
 
+          {/* Registration No. */}
           <div className="form-group">
-            <label>Registration Number</label>
+            <label>Registration No.</label>
             <input
               type="text"
               name="registrationNo"
@@ -186,47 +163,10 @@ const Sell = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <label>Registration At</label>
-            <input
-              type="text"
-              name="registrationAt"
-              value={formData.registrationAt}
-              onChange={handleChange}
-              required
-            />
-          </div>
 
-          {/* Lifetime Tax options */}
+          {/* Insurance */}
           <div className="form-group">
-            <label>Lifetime Tax</label>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="lifeTimeTax"
-                  value="Individual"
-                  checked={formData.lifeTimeTax === "Individual"}
-                  onChange={handleChange}
-                />
-                Individual
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="lifeTimeTax"
-                  value="Corporate"
-                  checked={formData.lifeTimeTax === "Corporate"}
-                  onChange={handleChange}
-                />
-                Corporate
-              </label>
-            </div>
-          </div>
-
-          {/* Car Insurance dropdown */}
-          <div className="form-group">
-            <label>Car Insurance</label>
+            <label>Insurance</label>
             <select
               name="carInsurance"
               value={formData.carInsurance}
@@ -240,9 +180,9 @@ const Sell = () => {
             </select>
           </div>
 
-          {/* Accidental options */}
+          {/* Any Major Accident? */}
           <div className="form-group">
-            <label>Accidental?</label>
+            <label>Any Major Accident?</label>
             <div>
               <label>
                 <input
@@ -267,7 +207,7 @@ const Sell = () => {
             </div>
           </div>
 
-          {/* Name, Mobile, and Email fields */}
+          {/* Name */}
           <div className="form-group">
             <label>Your Name</label>
             <input
@@ -278,8 +218,10 @@ const Sell = () => {
               required
             />
           </div>
+
+          {/* Mobile No. */}
           <div className="form-group">
-            <label>Your Mobile Number</label>
+            <label>Your Mobile No.</label>
             <input
               type="text"
               name="mobileNo"
@@ -288,6 +230,8 @@ const Sell = () => {
               required
             />
           </div>
+
+          {/* Email */}
           <div className="form-group">
             <label>Your Email</label>
             <input
