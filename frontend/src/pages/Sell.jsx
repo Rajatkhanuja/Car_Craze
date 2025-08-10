@@ -197,15 +197,15 @@ const Sell = () => {
   >
     <option value="">Select Kms Driven</option>
     <option value="Upto 10,000 km">Upto 10,000 km</option>
-    <option value="10,001 - 20,000 km">10,001 - 20,000 km</option>
-    <option value="20,001 - 30,000 km">20,001 - 30,000 km</option>
-    <option value="30,001 - 40,000 km">30,001 - 40,000 km</option>
-    <option value="40,001 - 50,000 km">40,001 - 50,000 km</option>
-    <option value="50,001 - 60,000 km">50,001 - 60,000 km</option>
-    <option value="60,001 - 70,000 km">60,001 - 70,000 km</option>
-    <option value="70,001 - 80,000 km">70,001 - 80,000 km</option>
-    <option value="80,001 - 90,000 km">80,001 - 90,000 km</option>
-    <option value="90,001 - 100,000 km">90,001 - 100,000 km</option>
+    <option value="10,001 - 20,000 km">10,000 - 20,000 km</option>
+    <option value="20,001 - 30,000 km">20,000 - 30,000 km</option>
+    <option value="30,001 - 40,000 km">30,000 - 40,000 km</option>
+    <option value="40,001 - 50,000 km">40,000 - 50,000 km</option>
+    <option value="50,001 - 60,000 km">50,000 - 60,000 km</option>
+    <option value="60,001 - 70,000 km">60,000 - 70,000 km</option>
+    <option value="70,001 - 80,000 km">70,000 - 80,000 km</option>
+    <option value="80,001 - 90,000 km">80,000 - 90,000 km</option>
+    <option value="90,001 - 100,000 km">90,000 - 100,000 km</option>
     <option value="Above 100,000 km">Above 100,000 km</option>
   </select>
 </div>
@@ -280,13 +280,13 @@ const Sell = () => {
 
           {/* Email */}
           <div className="form-group">
-            <label>Your Email</label>
+             <label>Your Email <small>(Optional)</small></label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
+               placeholder="Enter your email (optional)"
             />
           </div>
 
