@@ -41,7 +41,7 @@ const Navbar = () => {
             SELL CAR
           </Link>
           <Link to="/services" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            SERVICES
+             VALUE ADDED SERVICES
           </Link>
           <Link to="/contact" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
@@ -70,7 +70,7 @@ const Navbar = () => {
             SELL CAR
           </Link>
           <Link to="/services" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            SERVICES
+            VALUE ADDED SERVICES
           </Link>
           <Link to="/contact" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
