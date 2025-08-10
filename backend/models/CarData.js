@@ -1,3 +1,4 @@
+// ✅ Mongoose Model (models/CarData.js)
 const mongoose = require('mongoose');
 
 const carDataSchema = new mongoose.Schema({
@@ -11,7 +12,6 @@ const carDataSchema = new mongoose.Schema({
   },
   kmsDriven: { type: String, required: true },               // ✅ newly added
   registrationNo: { type: String, required: true },
-
   carInsurance: {
     type: String,
     required: true,
@@ -21,6 +21,11 @@ const carDataSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['Yes', 'No'],
+  },
+  fuel: {
+    type: String,
+    required: true,
+    enum: ['Petrol', 'Diesel', 'CNG', 'Electric', 'Hybrid'],
   },
   name: { type: String, required: true },
   mobileNo: { type: String, required: true },
