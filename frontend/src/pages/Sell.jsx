@@ -22,7 +22,7 @@ const Sell = () => {
   });
 
   const years = [];
-  for (let i = 2009; i <= new Date().getFullYear(); i++) {
+  for (let i = 2006; i <= new Date().getFullYear(); i++) {
     years.push(i);
   }
 
