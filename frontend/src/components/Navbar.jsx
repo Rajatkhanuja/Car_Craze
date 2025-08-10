@@ -109,7 +109,7 @@ const Navbar = () => {
           </Link>
 
           {/* VALUE ADDED SERVICES - Mobile Nested Links */}
-          <div className="py-2">
+          <div>
             <p className="text-white flex justify-between items-center" onClick={toggleMobileDropdown}>
               VALUE ADDED SERVICES
               {/* Added a chevron icon to indicate it's a dropdown */}
