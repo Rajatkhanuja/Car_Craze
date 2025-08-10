@@ -10,8 +10,9 @@ const Sell = () => {
   const [formData, setFormData] = useState({
     brand: "",
     modelAndVariant: "",
-    manufacturingYear: "",   // ✅ Updated key
+    manufacturingYear: "",
     owner: "",
+    fuel: "", // ✅ Added fuel key
     kmsDriven: "",
     registrationNo: "",
     carInsurance: "",
@@ -54,6 +55,7 @@ const Sell = () => {
         modelAndVariant: "",
         manufacturingYear: "",
         owner: "",
+        fuel: "", // ✅ Reset fuel also
         kmsDriven: "",
         registrationNo: "",
         carInsurance: "",
@@ -137,6 +139,24 @@ const Sell = () => {
               <option value="Second Owner">Second Owner</option>
               <option value="Third Owner">Third Owner</option>
               <option value="Four or More">Four or More</option>
+            </select>
+          </div>
+
+          {/* Fuel Type */}
+          <div className="form-group">
+            <label>Fuel Type</label>
+            <select
+              name="fuel"
+              value={formData.fuel}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Fuel Type</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="CNG">CNG</option>
+              <option value="Electric">Electric</option>
+              <option value="Hybrid">Hybrid</option>
             </select>
           </div>
 
