@@ -118,13 +118,13 @@ const Navbar = () => {
             {/* Conditionally render the dropdown links based on state */}
             {isMobileDropdownOpen && (
               <div className="pl-4 text-base">
-                <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Insurance</Link>
-                <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Road Side Assistance</Link>
-                <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Warranty</Link>
-                <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Pre Delivery Inspection</Link>
-                <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Denting & Painting Work</Link>
-                <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Dryclean & Polish Work</Link>
-                <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400">RTO Work</Link>
+                <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Insurance</Link>
+                <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Road Side Assistance</Link>
+                <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Warranty</Link>
+                <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Pre Delivery Inspection</Link>
+                <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Denting & Painting Work</Link>
+                <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
+                <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">RTO Work</Link>
               </div>
             )}
           </div>
