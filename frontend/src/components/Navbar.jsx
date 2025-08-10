@@ -62,7 +62,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={toggleDesktopDropdown} // Added onClick handler
-              className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white bg-transparent border-none focus:outline-none appearance-none"
+              className="font-bold hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white bg-transparent border-none focus:outline-none appearance-none"
             >
               VALUE ADDED SERVICES
             </button>
@@ -109,7 +109,7 @@ const Navbar = () => {
 
           {/* VALUE ADDED SERVICES - Mobile Nested Links */}
           <div className="py-2">
-            <p className="text-white flex justify-between items-center" onClick={toggleMobileDropdown}>
+            <p className="text-white font-bold flex justify-between items-center" onClick={toggleMobileDropdown}>
               VALUE ADDED SERVICES
               {/* Added a chevron icon to indicate it's a dropdown */}
               <i className={`fas ${isMobileDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-sm`}></i>
