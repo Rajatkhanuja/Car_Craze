@@ -186,17 +186,29 @@ const Sell = () => {
             </select>
           </div>
 
-          {/* Kms Driven */}
-          <div className="form-group">
-            <label>Kms Driven</label>
-            <input
-              type="number"
-              name="kmsDriven"
-              value={formData.kmsDriven}
-              onChange={handleChange}
-              required
-            />
-          </div>
+         {/* Kms Driven */}
+<div className="form-group">
+  <label>Kms Driven</label>
+  <select
+    name="kmsDriven"
+    value={formData.kmsDriven}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Kms Driven</option>
+    <option value="Upto 10,000 km">Upto 10,000 km</option>
+    <option value="10,001 - 20,000 km">10,001 - 20,000 km</option>
+    <option value="20,001 - 30,000 km">20,001 - 30,000 km</option>
+    <option value="30,001 - 40,000 km">30,001 - 40,000 km</option>
+    <option value="40,001 - 50,000 km">40,001 - 50,000 km</option>
+    <option value="50,001 - 60,000 km">50,001 - 60,000 km</option>
+    <option value="60,001 - 70,000 km">60,001 - 70,000 km</option>
+    <option value="70,001 - 80,000 km">70,001 - 80,000 km</option>
+    <option value="80,001 - 90,000 km">80,001 - 90,000 km</option>
+    <option value="90,001 - 100,000 km">90,001 - 100,000 km</option>
+    <option value="Above 100,000 km">Above 100,000 km</option>
+  </select>
+</div>
 
           {/* Registration No. */}
           <div className="form-group">
@@ -226,32 +238,21 @@ const Sell = () => {
             </select>
           </div>
 
-          {/* Any Major Accident? */}
-          <div className="form-group">
-            <label>Any Major Accident?</label>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="isAccidental"
-                  value="Yes"
-                  checked={formData.isAccidental === "Yes"}
-                  onChange={handleChange}
-                />
-                Yes
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="isAccidental"
-                  value="No"
-                  checked={formData.isAccidental === "No"}
-                  onChange={handleChange}
-                />
-                No
-              </label>
-            </div>
-          </div>
+         {/* Any Major Accident? */}
+<div className="form-group">
+  <label>Any Major Accident?</label>
+  <select
+    name="isAccidental"
+    value={formData.isAccidental}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Option</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
+
 
           {/* Name */}
           <div className="form-group">
