@@ -71,13 +71,13 @@ const Navbar = () => {
               // Dynamically show/hide based on state
               className={`absolute ${isDesktopDropdownOpen ? 'block' : 'hidden'} bg-[#1A1A1A] text-white mt-2 py-2 w-64 shadow-lg rounded z-50`}
             >
-              <Link to="/insurance" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Insurance</Link>
-              <Link to="/road-side-assistance" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Road Side Assistance</Link>
-              <Link to="/warranty" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Warranty</Link>
-              <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Pre Delivery Inspection</Link>
-              <Link to="/denting-painting" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Denting & Painting Work</Link>
-              <Link to="/dryclean-polish" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Dryclean & Polish Work</Link>
-              <Link to="/rto-work" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">RTO Work</Link>
+              <Link to="/insurance" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline ">Insurance</Link>
+              <Link to="/road-side-assistance" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Road Side Assistance</Link>
+              <Link to="/warranty" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Warranty</Link>
+              <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Pre Delivery Inspection</Link>
+              <Link to="/denting-painting" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Denting & Painting Work</Link>
+              <Link to="/dryclean-polish" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
+              <Link to="/rto-work" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">RTO Work</Link>
             </div>
           </div>
 
