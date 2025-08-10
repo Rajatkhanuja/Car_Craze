@@ -25,7 +25,7 @@ const carDataSchema = new mongoose.Schema({
   fuel: {
     type: String,
     required: true,
-    enum: ['Petrol', 'Diesel', 'CNG', 'Electric', 'Hybrid'],
+    enum: ['Petrol', 'Diesel', 'CNG','LPG', 'Electric',],
   },
   name: { type: String, required: true },
   mobileNo: { type: String, required: true },
