@@ -217,9 +217,23 @@
   transform: rotate(0deg) scale(1.05);
 }
 
-.car-icon {
-  font-size: 3rem;
+/* Logo Styling */
+.logo-container {
   margin-bottom: 15px;
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: scale(1.1);
 }
 
 .visual-card h3 {
@@ -234,7 +248,7 @@
 /* Features Section */
 .features-grid {
   display: grid;
-   grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 40px;
   justify-items: center;
@@ -247,6 +261,8 @@
   text-align: center;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  width: 100%;
+  max-width: 300px;
 }
 
 .feature-card:hover {
@@ -470,6 +486,11 @@
   .badge-number {
     margin-right: 0;
     margin-bottom: 5px;
+  }
+  
+  .company-logo {
+    width: 60px;
+    height: 60px;
   }
 }
 

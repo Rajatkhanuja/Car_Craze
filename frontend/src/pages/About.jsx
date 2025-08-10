@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./About.css";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
 const About = () => {
   return (
@@ -39,7 +40,9 @@ const About = () => {
               </div>
               <div className="story-visual">
                 <div className="visual-card">
-                  <div className="car-icon">🚗</div>
+                  <div className="logo-container">
+                    <img src={logo} alt="CAR CRAZE Logo" className="company-logo" />
+                  </div>
                   <h3>Since 2004</h3>
                   <p>Trusted Excellence</p>
                 </div>
