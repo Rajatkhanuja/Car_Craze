@@ -30,7 +30,6 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-7 font-medium text-xl text-white">
-          
           <Link to="/about" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             ABOUT US
           </Link>
@@ -40,9 +39,23 @@ const Navbar = () => {
           <Link to="/sell" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             SELL CAR
           </Link>
-          <Link to="/services" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-             VALUE ADDED SERVICES
-          </Link>
+
+          {/* VALUE ADDED SERVICES Dropdown - Desktop */}
+          <div className="relative group">
+            <button className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+              VALUE ADDED SERVICES
+            </button>
+            <div className="absolute hidden group-hover:block bg-[#1A1A1A] text-white mt-2 py-2 w-64 shadow-lg rounded z-50">
+              <Link to="/insurance" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Insurance</Link>
+              <Link to="/road-side-assistance" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Road Side Assistance</Link>
+              <Link to="/warranty" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Warranty</Link>
+              <Link to="/pre-delivery-inspection" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Pre Delivery Inspection</Link>
+              <Link to="/denting-painting" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Denting & Painting Work</Link>
+              <Link to="/dryclean-polish" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">Dryclean & Polish Work</Link>
+              <Link to="/rto-work" className="block px-4 py-2 hover:bg-yellow-400 hover:text-black">RTO Work</Link>
+            </div>
+          </div>
+
           <Link to="/contact" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
           </Link>
@@ -59,7 +72,6 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-[#1A1A1A] text-white font-medium text-xl p-4 pl-8 pr-8 mt-2">
-          
           <Link to="/about" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             ABOUT US
           </Link>
@@ -69,9 +81,21 @@ const Navbar = () => {
           <Link to="/sell" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             SELL CAR
           </Link>
-          <Link to="/services" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            VALUE ADDED SERVICES
-          </Link>
+
+          {/* VALUE ADDED SERVICES - Mobile Nested Links */}
+          <div className="py-2">
+            <p className="text-white">VALUE ADDED SERVICES</p>
+            <div className="pl-4 text-base">
+              <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Insurance</Link>
+              <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Road Side Assistance</Link>
+              <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Warranty</Link>
+              <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Pre Delivery Inspection</Link>
+              <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Denting & Painting Work</Link>
+              <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400">Dryclean & Polish Work</Link>
+              <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400">RTO Work</Link>
+            </div>
+          </div>
+
           <Link to="/contact" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
           </Link>
