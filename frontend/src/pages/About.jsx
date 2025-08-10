@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./About.css";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logoo.jpg";
 
 const About = () => {
   return (
