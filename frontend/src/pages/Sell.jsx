@@ -83,17 +83,42 @@ const Sell = () => {
         <h1>Sell Car</h1>
         <p>Please fill the details in the below form to send your request.</p>
         <form onSubmit={handleSubmit}>
-          {/* Brand */}
-          <div className="form-group">
-            <label>Brand</label>
-            <input
-              type="text"
-              name="brand"
-              value={formData.brand}
-              onChange={handleChange}
-              required
-            />
-          </div>
+         {/* Brand */}
+<div className="form-group">
+  <label>Brand</label>
+  <select
+    name="brand"
+    value={formData.brand}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Brand</option>
+    <option value="Audi">Audi</option>
+    <option value="BMW">BMW</option>
+    <option value="Chevrolet">Chevrolet</option>
+    <option value="Citroen">Citroen</option>
+    <option value="Datsun">Datsun</option>
+    <option value="Fiat">Fiat</option>
+    <option value="Ford">Ford</option>
+    <option value="Honda">Honda</option>
+    <option value="Hyundai">Hyundai</option>
+    <option value="Jaguar">Jaguar</option>
+    <option value="Jeep">Jeep</option>
+    <option value="Kia">Kia</option>
+    <option value="Land Rover">Land Rover</option>
+    <option value="Mahindra">Mahindra</option>
+    <option value="Maruti Suzuki">Maruti Suzuki</option>
+    <option value="Mercedes-Benz">Mercedes Benz</option>
+    <option value="Morris Garage">Morris Garage</option>
+    <option value="Skoda">Skoda</option>
+    <option value="Nissan">Nissan</option>
+    <option value="Renault">Renault</option>
+    <option value="Tata">Tata</option>
+    <option value="Toyota">Toyota</option>
+    <option value="Volkswagen">Volkswagen</option>
+  </select>
+</div>
+
 
           {/* Model Name & Variant */}
           <div className="form-group">
