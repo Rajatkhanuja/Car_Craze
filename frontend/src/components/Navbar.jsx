@@ -30,9 +30,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-7 font-medium text-xl text-white">
-          <Link to="/" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
-            HOME
-          </Link>
+          
           <Link to="/about" className="hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             ABOUT US
           </Link>
