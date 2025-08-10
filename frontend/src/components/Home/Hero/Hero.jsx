@@ -178,7 +178,7 @@ const Hero = () => {
             <h3>Quick Links</h3>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/">ABOUT US</Link></li>
+              <li><Link to="/about">ABOUT US</Link></li>
               <li><Link to="/stock">BUY USED CAR</Link></li>
               <li><Link to="/sell">SELL CAR</Link></li>
               <li><Link to="/services">SERVICES</Link></li>
