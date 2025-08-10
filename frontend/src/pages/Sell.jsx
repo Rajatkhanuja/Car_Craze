@@ -205,8 +205,8 @@ const Sell = () => {
     <option value="60,000 - 70,000 km">60,000 - 70,000 km</option>
     <option value="70,000 - 80,000 km">70,000 - 80,000 km</option>
     <option value="80,000 - 90,000 km">80,000 - 90,000 km</option>
-    <option value="90,000 - 100,000 km">90,000 - 1,00,000 km</option>
-    <option value="Above 100,000 km">Above 1,00,000 km</option>
+    <option value="90,000 - 1,00,000 km">90,000 - 1,00,000 km</option>
+    <option value="Above 1,00,000 km">Above 1,00,000 km</option>
   </select>
 </div>
 
