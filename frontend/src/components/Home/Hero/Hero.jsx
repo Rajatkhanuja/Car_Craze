@@ -97,38 +97,23 @@ const Hero = () => {
               <img src={carImage} alt="Car Info" className="service-image" />
               
               <h3>Challan Check</h3>
-              <p className="service-description">
-                Easily check your pending challans online and make hassle-free payments.
-                Avoid penalties and stay informed about your vehicle's status. Our platform
-                provides real-time updates and ensures secure transactions, saving you time
-                and effort.
-              </p>
+             
             </div>
             <div className="service-box">
               <img src={challanImage} alt="Challan Check" className="service-image" />
               
               <h3>Car Service History</h3>
-              <p className="service-description">
-                Track your vehicle's maintenance records effortlessly. Get detailed insights
-                into your car's service history, ensuring you’re up-to-date on repairs and
-                scheduled checkups.
-              </p>
+              
             </div>
             <div className="service-box">
               <img src={rtoImage} alt="RTO Records Info" className="service-image" />
               <h3>RTO Records Info</h3>
-              <p className="service-description">
-                Access essential RTO details with ease. Our platform provides comprehensive
-                information about your vehicle's registration, ownership, and compliance
-                with road safety norms.
-              </p>
+              
             </div>
             <div className="service-box">
               <img src={serviceHistoryImage} alt="Car Service History" className="service-image" />
               <h3>Car Info</h3>
-              <p className="service-description">
-                Get detailed information and specifications about cars available in our stock.
-              </p>
+              
             </div>
           </div>
         </div>
