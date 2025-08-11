@@ -96,23 +96,23 @@ const Hero = () => {
             <div className="service-box">
               <img src={carImage} alt="Car Info" className="service-image" />
               
-              <h3>Challan Check</h3>
+              <h3>Buy Used Car</h3>
              
             </div>
             <div className="service-box">
               <img src={challanImage} alt="Challan Check" className="service-image" />
               
-              <h3>Car Service History</h3>
+              <h3> Used Car Loan</h3>
               
             </div>
             <div className="service-box">
               <img src={rtoImage} alt="RTO Records Info" className="service-image" />
-              <h3>RTO Records Info</h3>
+              <h3> Sell Car</h3>
               
             </div>
             <div className="service-box">
               <img src={serviceHistoryImage} alt="Car Service History" className="service-image" />
-              <h3>Car Info</h3>
+              <h3>Denting & Painting, Dryclean & Polish Work</h3>
               
             </div>
           </div>
