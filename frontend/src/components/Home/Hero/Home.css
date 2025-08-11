@@ -54,18 +54,16 @@
   gap: 1.5rem;
 }
 
-/* Each Service Card - Improved to match cars section */
+/* Each Service Card */
 .service-box {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   overflow: hidden;
-  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 280px; /* Fixed height like car cards */
   box-sizing: border-box;
 }
 
@@ -74,14 +72,15 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Service Image - Fixed sizing and positioning */
+/* ✅ Fixed Image Ratio (No Crop) */
 .service-image {
   width: 100%;
-  height: 280px; /* Fixed height like car images */
+  aspect-ratio: 3 / 2; /* Maintains 1536x1024 ratio */
   object-fit: cover;
   object-position: center;
-  border-bottom: 1px solid #eee;
   display: block;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px;
 }
 
 /* Service Content Container */
@@ -99,7 +98,7 @@
 .service-box h3 {
   font-size: 1.2rem;
   color: #007bff;
-  margin-bottom: 0.8rem;
+  margin: 0.8rem 0;
   font-weight: 700;
   line-height: 1.3;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -110,7 +109,7 @@
   color: #0056b3;
 }
 
-/* Service Description - Controlled height */
+/* Service Description */
 .service-description {
   font-size: 0.9rem;
   color: #666;
@@ -118,13 +117,13 @@
   flex-grow: 1;
   margin-bottom: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Optional: Add a "Learn More" button if needed */
+/* Optional Button */
 .service-button {
   margin-top: auto;
   padding: 0.8rem 1rem;
@@ -140,18 +139,19 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-sizing: border-box;
-  display: none; /* Hidden by default, uncomment if you want buttons */
+  display: none;
 }
 
 .service-button:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
+
 /* ---------------------------- */
 /* 📱 Responsive Design         */
 /* ---------------------------- */
 
-/* Tablet Styles */
+/* Tablet */
 @media (max-width: 1024px) {
   .services-container .desktop-view {
     grid-template-columns: repeat(2, 1fr);
@@ -160,176 +160,114 @@
   }
 
   .service-box {
-    min-height: 260px;
+    min-height: auto;
   }
 
   .service-image {
-    height: 120px;
+    aspect-ratio: 3 / 2;
   }
 }
 
-/* Mobile Styles - Large phones */
+/* Mobile - Large phones */
 @media (max-width: 768px) {
   .services-section {
-    padding: 0.2rem 0.2rem 0.2rem 0.2rem; /* Reduced top padding */
-  }
-  
-  .services-section h2 {
-     margin-bottom: 0.2rem !important;
-      margin-top: 0 !important;/* Reduced margin below heading */
+    padding: 0.5rem 0.5rem;
   }
 
-  .services-container {
-    margin-top: 1.5rem !important; /* Remove any container margin */
-    padding-top: 0 !important; /* Remove any container padding */
+  .section-title {
+    margin-bottom: 1rem;
   }
 
   .services-container .desktop-view {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem; /* Increased gap between cards */
+    gap: 0.6rem;
     padding: 0;
   }
 
   .service-box {
-    padding: 0 !important;
-    min-height: auto !important;
-    height: auto !important;
-    overflow: hidden;
     border-radius: 10px;
   }
 
   .service-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
+    aspect-ratio: 3 / 2;
     border-radius: 10px;
   }
 
-  .service-box h3,
+  .service-box h3 {
+    display: block !important;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
   .service-description,
   .service-content {
     display: none !important;
   }
 }
 
-/* Mobile Styles - Medium phones */
+/* Mobile - Medium phones */
 @media (max-width: 480px) {
-  .services-section {
-    padding: 0.2rem 0.1rem 0.1rem 0.1rem; /* Reduced top padding */
-  }
-  
-  .services-section h2 {
-    margin-bottom: 0.4rem; /* Reduced margin below heading */
-  }
-
   .services-container .desktop-view {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem; /* Increased gap between cards */
-    padding: 0;
+    gap: 0.4rem;
   }
 
   .service-box {
-    padding: 0 !important;
-    height: auto !important;
-    overflow: hidden;
     border-radius: 8px;
   }
 
   .service-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
+    aspect-ratio: 3 / 2;
     border-radius: 8px;
   }
 
-  .service-box h3,
-  .service-description,
-  .service-content {
-    display: none !important;
+  .service-box h3 {
+    font-size: 0.95rem;
   }
 }
 
-/* Mobile Styles - Small phones */
+/* Mobile - Small phones */
 @media (max-width: 360px) {
-  .services-section {
-    padding: 0.1rem 0.1rem 0.1rem 0.1rem; /* Reduced top padding */
-  }
-  
-  .services-section h2 {
-    margin-bottom: 0.3rem; /* Reduced margin below heading */
-  }
-
   .services-container .desktop-view {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.3rem; /* Increased gap between cards */
-    padding: 0;
+    gap: 0.3rem;
   }
 
   .service-box {
-    padding: 0 !important;
-    height: auto !important;
-    overflow: hidden;
     border-radius: 6px;
   }
 
   .service-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
+    aspect-ratio: 3 / 2;
     border-radius: 6px;
   }
 
-  .service-box h3,
-  .service-description,
-  .service-content {
-    display: none !important;
+  .service-box h3 {
+    font-size: 0.9rem;
   }
 }
 
 /* Very small screens */
 @media (max-width: 320px) {
-  .services-section {
-    padding: 0.1rem 0.1rem 0.1rem 0.1rem; /* Reduced top padding */
-  }
-  
-  .services-section h2 {
-    margin-bottom: 0.2rem; /* Reduced margin below heading */
-  }
-
   .services-container .desktop-view {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.25rem; /* Increased gap between cards */
-    padding: 0;
+    gap: 0.25rem;
   }
 
   .service-box {
-    padding: 0 !important;
-    height: auto !important;
-    overflow: hidden;
     border-radius: 4px;
   }
 
   .service-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
+    aspect-ratio: 3 / 2;
     border-radius: 4px;
   }
 
-  .service-box h3,
-  .service-description,
-  .service-content {
-    display: none !important;
+  .service-box h3 {
+    font-size: 0.85rem;
   }
 }
+
 /* Featured Cars Section */
 .cars-in-stock-section {
   display: flex;
