@@ -92,30 +92,30 @@ const Hero = () => {
       <section id="services" className="services-section">
   <div className="services-container">
     <div className="desktop-view">
-      
-      <div className="service-box">
+
+      <Link to="/buy-used-car" className="service-box">
         <img src={carImage} alt="Buy Used Car" className="service-image" />
         <h3>Buy Used Car</h3>
-      </div>
+      </Link>
 
-      <div className="service-box">
+      <Link to="/used-car-loan" className="service-box">
         <img src={challanImage} alt="Used Car Loan" className="service-image" />
         <h3>Used Car Loan</h3>
-      </div>
+      </Link>
 
-      <div className="service-box">
+      <Link to="/sell-car" className="service-box">
         <img src={rtoImage} alt="Sell Car" className="service-image" />
         <h3>Sell Car</h3>
-      </div>
+      </Link>
 
-      <div className="service-box">
+      <Link to="/park-and-sell" className="service-box">
         <img
           src={serviceHistoryImage}
           alt="Denting & Polish Work"
-          className="service-image full-image" // 👈 special class added here
+          className="service-image full-image"
         />
         <h3>Park & Sell Your Car Here</h3>
-      </div>
+      </Link>
 
     </div>
   </div>
