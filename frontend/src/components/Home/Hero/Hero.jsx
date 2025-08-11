@@ -90,34 +90,37 @@ const Hero = () => {
 
       {/* ✅ Updated Services Section with Images */}
       <section id="services" className="services-section">
-        <h2 className="section-title">Our Services</h2>
-        <div className="services-container">
-          <div className="desktop-view">
-            <div className="service-box">
-              <img src={carImage} alt="Car Info" className="service-image" />
-              
-              <h3>Buy Used Car</h3>
-             
-            </div>
-            <div className="service-box">
-              <img src={challanImage} alt="Challan Check" className="service-image" />
-              
-              <h3> Used Car Loan</h3>
-              
-            </div>
-            <div className="service-box">
-              <img src={rtoImage} alt="RTO Records Info" className="service-image" />
-              <h3> Sell Car</h3>
-              
-            </div>
-            <div className="service-box">
-              <img src={serviceHistoryImage} alt="Car Service History" className="service-image" />
-              <h3>Denting & Painting, Dryclean & Polish Work</h3>
-              
-            </div>
-          </div>
-        </div>
-      </section>
+  <h2 className="section-title">Our Services</h2>
+  <div className="services-container">
+    <div className="desktop-view">
+      
+      <div className="service-box">
+        <img src={carImage} alt="Buy Used Car" className="service-image" />
+        <h3>Buy Used Car</h3>
+      </div>
+
+      <div className="service-box">
+        <img src={challanImage} alt="Used Car Loan" className="service-image" />
+        <h3>Used Car Loan</h3>
+      </div>
+
+      <div className="service-box">
+        <img src={rtoImage} alt="Sell Car" className="service-image" />
+        <h3>Sell Car</h3>
+      </div>
+
+      <div className="service-box">
+        <img
+          src={serviceHistoryImage}
+          alt="Denting & Polish Work"
+          className="service-image full-image" // 👈 special class added here
+        />
+        <h3>Denting & Painting, Dryclean & Polish Work</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       <section id="cars-in-stock" className="cars-in-stock-section">
         <h2 className="section-title">Our Cars in Stock</h2>
