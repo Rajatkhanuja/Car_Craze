@@ -11,7 +11,7 @@ const About = () => {
       <div className="about-container">
         <div className="hero-section">
           <div className="hero-content">
-            <h1 className="hero-title">About <span className="brand-highlight">CAR CRAZE</span></h1>
+            <h1 className="hero-title">About <span className="brand-highlight">US</span></h1>
             <p className="hero-subtitle">Your Trusted Automotive Partner Since 2004</p>
             <div className="experience-badge">
               <span className="badge-number">20+</span>

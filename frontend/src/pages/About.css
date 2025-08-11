@@ -18,7 +18,7 @@
               url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
   background-size: cover;
   background-attachment: fixed;
-  padding: 100px 20px;
+  padding: 250px 20px;
   text-align: center;
   color: white;
   position: relative;
@@ -32,8 +32,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="white" opacity="0.1"><circle cx="50" cy="50" r="40"/><path d="M50 10v80M10 50h80"/></svg>');
-  background-size: 100px 100px;
+  
   animation: float 20s ease-in-out infinite;
 }
 
@@ -453,7 +452,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-container {
-    padding-top: 60px;
+    padding-top: 10px;
   }
   
   .hero-section {

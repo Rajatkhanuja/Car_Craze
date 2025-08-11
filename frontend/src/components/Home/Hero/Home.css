@@ -45,6 +45,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  
 }
 
 .service-box {
@@ -57,6 +58,7 @@
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .service-box:hover {
