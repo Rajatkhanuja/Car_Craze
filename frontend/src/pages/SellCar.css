@@ -1,0 +1,89 @@
+.sell-car-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+
+.sell-car-content {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  gap: 40px;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sell-car-text {
+  flex: 1;
+}
+
+.sell-car-text h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.sell-car-text p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.sell-button {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.sell-button:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.sell-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sell-car-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .car-image {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .sell-car-text h1 {
+    font-size: 2rem;
+  }
+  
+  .sell-car-text p {
+    font-size: 1rem;
+  }
+}
