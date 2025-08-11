@@ -113,7 +113,6 @@ const Contact = () => {
                             <li><Link to="/about">ABOUT US</Link></li>
                             <li><Link to="/stock">BUY USED CAR</Link></li>
                             <li><Link to="/sell">SELL CAR</Link></li>
-                            <li><Link to="/services">SERVICES</Link></li>
                             <li><Link to="/contact">CONTACT US</Link></li>
             </ul>
           </div>
