@@ -94,7 +94,8 @@ const Hero = () => {
         <div className="services-container">
           <div className="desktop-view">
             <div className="service-box">
-              <img src={challanImage} alt="Challan Check" className="service-image" />
+              <img src={carImage} alt="Car Info" className="service-image" />
+              
               <h3>Challan Check</h3>
               <p className="service-description">
                 Easily check your pending challans online and make hassle-free payments.
@@ -104,7 +105,8 @@ const Hero = () => {
               </p>
             </div>
             <div className="service-box">
-              <img src={serviceHistoryImage} alt="Car Service History" className="service-image" />
+              <img src={challanImage} alt="Challan Check" className="service-image" />
+              
               <h3>Car Service History</h3>
               <p className="service-description">
                 Track your vehicle's maintenance records effortlessly. Get detailed insights
@@ -122,7 +124,7 @@ const Hero = () => {
               </p>
             </div>
             <div className="service-box">
-              <img src={carImage} alt="Car Info" className="service-image" />
+              <img src={serviceHistoryImage} alt="Car Service History" className="service-image" />
               <h3>Car Info</h3>
               <p className="service-description">
                 Get detailed information and specifications about cars available in our stock.
