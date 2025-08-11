@@ -90,7 +90,6 @@ const Hero = () => {
 
       {/* ✅ Updated Services Section with Images */}
       <section id="services" className="services-section">
-  <h2 className="section-title">Our Services</h2>
   <div className="services-container">
     <div className="desktop-view">
       
