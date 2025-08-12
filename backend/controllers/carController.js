@@ -5,7 +5,8 @@ const cloudinary = require('../config/cloudinary');
 // Add Car (Cloudinary upload)
 exports.addCar = async (req, res) => {
   try {
-    const { name, model, running, insurance, ownership, fuel, year, registration, price } = req.body;
+    const { name, model, running, insurance, ownership, fuel, year, registration, price, transmission } = req.body;
+
 
     const photoFields = {};
     if (req.files) {
@@ -17,15 +18,16 @@ exports.addCar = async (req, res) => {
 
     const car = new Car({
       name,
-      model,
-      running,
-      insurance,
-      ownership,
-      fuel,
-      year,
-      registration,
-      price,
-      ...photoFields
+  model,
+  running,
+  insurance,
+  ownership,
+  fuel,
+  year,
+  registration,
+  price,
+  transmission,
+  ...photoFields
     });
 
     const savedCar = await car.save();
