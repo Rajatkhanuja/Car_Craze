@@ -56,7 +56,8 @@ const CarDetails = () => {
     new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
-      maximumFractionDigits: 0,
+      maximumFractionDigits: 1, // 🔁 allow 1 digit after decimal
+    minimumFractionDigits: 1 
     }).format(price);
 
   const handleMoreCars = () => {
