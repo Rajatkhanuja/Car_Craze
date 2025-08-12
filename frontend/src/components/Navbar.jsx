@@ -129,7 +129,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/contact" onClick={closeMenu} className="block py-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+          <Link to="/contact" onClick={closeMenu} className="block py-0 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
           </Link>
         </div>

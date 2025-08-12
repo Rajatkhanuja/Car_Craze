@@ -15,6 +15,7 @@ import ParkAndSell from './pages/ParkAndSell';
 
 // Components
 import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop'; // ✅ Import ScrollToTop
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop /> {/* ✅ Use ScrollToTop here */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

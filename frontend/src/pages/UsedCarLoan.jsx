@@ -120,6 +120,28 @@ const UsedCarLoan = () => {
             </div>
           </div>
         </div>
+        {/* Contact Button Section */}
+<div className="contact-button-section" style={{ textAlign: "center", margin: "40px 0" }}>
+  <button 
+    className="get-in-touch-btn"
+    onClick={() => navigate("/contact")}
+    style={{
+      backgroundColor: "#2c3e50",
+      color: "#fff",
+      border: "none",
+      padding: "12px 30px",
+      fontSize: "1.1rem",
+      borderRadius: "8px",
+      cursor: "pointer",
+      transition: "background-color 0.3s ease"
+    }}
+    onMouseEnter={e => e.target.style.backgroundColor = "#1a242f"}
+    onMouseLeave={e => e.target.style.backgroundColor = "#2c3e50"}
+  >
+    Get in Touch
+  </button>
+</div>
+
       </div>
     </>
   );

@@ -137,11 +137,11 @@ const Hero = () => {
               <div className="car-info">
                 <h3 className="car-name">{car.name} - {car.model}</h3>
                 <div className="car-details-row">
-                  <p><strong>Year:</strong> {car.year}</p>
-                  <p><strong>Running:</strong> {car.running}</p>
+                  <p><strong>Reg.Year:</strong> {car.year}</p>
+                  <p><strong>Fuel:</strong> {car.Fuel}</p>
                 </div>
                 <div className="car-details-row">
-                  <p><strong>Fuel:</strong> {car.fuel}</p>
+                  <p><strong>Km Driven:</strong> {car.running}</p>
                   <p><strong>Price:</strong> {formatPrice(car.price)}</p>
                 </div>
                 <button

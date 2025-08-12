@@ -58,10 +58,11 @@ const Stock = () => {
     const [cars, setCars] = useState([]);
     const navigate = useNavigate();
 
-    const manufacturers = [
-        "Audi", "BMW", "Ford", "Honda", "Hyundai", "Jaguar", "Kia",
-        "Mahindra", "Maruti Suzuki", "Mercedes-Benz", "Skoda", "Tata",
-        "Toyota", "Volkswagen", "Morris Garage",
+    const manufacturers = ["Audi", "BMW", "Chevrolet", "Citroen", "Datsun", "Fiat", "Ford", "Honda",
+"Hyundai", "Jaguar", "Jeep", "Kia", "Land Rover", "Mahindra", "Maruti Suzuki",
+"Mercedes-Benz", "Morris Garage", "Nissan", "Renault", "Skoda", "Tata",
+"Toyota", "Volkswagen"
+
     ];
 
     const manufacturerOptions = [{ label: "Select Manufacturer", value: "" }, ...manufacturers.map(m => ({ label: m, value: m }))];
@@ -199,11 +200,11 @@ const Stock = () => {
                             <div className="stock-car-info">
                                 <h3 className="stock-car-name">{car.name} - {car.model}</h3>
                                 <div className="car-details-row">
-                                    <p><strong>Year:</strong> {car.year}</p>
-                                    <p><strong>Running:</strong> {car.running}</p>
+                                    <p><strong>Reg.Year:</strong> {car.year}</p>
+                                    <p><strong>Fuel:</strong> {car.fule}</p>
                                 </div>
                                 <div className="car-details-row">
-                                    <p><strong>Fuel:</strong> {car.fuel}</p>
+                                    <p><strong>Km Driven:</strong> {car.running}</p>
                                     <p><strong>Price:</strong> {formatPrice(car.price)}</p>
                                 </div>
                                 <button className="stock-view-details" onClick={() => handleViewDetails(car._id)}>
