@@ -114,7 +114,7 @@ const Hero = () => {
           alt="Denting & Polish Work"
           className="service-image full-image"
         />
-        <h3>Park & Sell Your Car Here</h3>
+        <h3>Park & Sell</h3>
       </Link>
 
     </div>
