@@ -110,14 +110,14 @@ const Navbar = () => {
 
           {/* VALUE ADDED SERVICES - Mobile Nested Links */}
           <div>
-            <p className="text-white flex justify-between items-center" onClick={toggleMobileDropdown}>
+            <p className=" block py-2 text-white flex justify-between items-center" onClick={toggleMobileDropdown}>
               VALUE ADDED SERVICES
               {/* Added a chevron icon to indicate it's a dropdown */}
-              <i className={`fas ${isMobileDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-sm`}></i>
+              <i className= {`fas ${isMobileDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-sm`}></i>
             </p>
             {/* Conditionally render the dropdown links based on state */}
             {isMobileDropdownOpen && (
-              <div className="pl-4 text-base">
+              <div className="pl-9 py-0 text-base -mt-4">
                 <Link to="/insurance" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Insurance</Link>
                 <Link to="/road-side-assistance" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Road Side Assistance</Link>
                 <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Warranty</Link>
@@ -129,7 +129,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/contact" onClick={closeMenu} className="block py-0 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
+          <Link to="/contact" onClick={closeMenu} className="block py-0 -mt-2 hover:text-yellow-400 transition duration-200 ease-linear no-underline text-white">
             CONTACT US
           </Link>
         </div>
