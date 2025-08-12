@@ -165,12 +165,12 @@ const StockCars = () => {
               value={formData.registration} onChange={handleChange} required />
           </div>
       <div className="form-group">
-  <label htmlFor="price">Price (₹2 Lakh, ₹4.5 Lakh etc.)</label>
+  <label htmlFor="price">Price (only type 1 or 1.5)</label>
   <input
     type="text"
     id="price"
     name="price"
-    placeholder="₹2 Lakh"
+    placeholder="only type 1 or 1.5"
     value={formData.price}
     onChange={handleChange}
     pattern="^₹?[0-9]+(\.[0-9]+)?\s?(Lakh|lakh|Lakhs|lakhs)?$"
