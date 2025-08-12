@@ -201,7 +201,7 @@ const Stock = () => {
                                 <h3 className="stock-car-name">{car.name} - {car.model}</h3>
                                 <div className="car-details-row">
                                     <p><strong>Reg.Year:</strong> {car.year}</p>
-                                    <p><strong>Fuel:</strong> {car.fule}</p>
+                                    <p><strong>Fuel:</strong> {car.fuel}</p>
                                 </div>
                                 <div className="car-details-row">
                                     <p><strong>Km Driven:</strong> {car.running}</p>
