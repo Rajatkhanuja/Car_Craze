@@ -10,11 +10,12 @@ const StockCars = () => {
   const [formData, setFormData] = useState({
     name: '',
     model: '',
-    running: '',
-    insurance: '',
-    ownership: '',
-    fuel: '',
     year: '',
+    fuel: '',
+    running: '',
+    transmission: '', // ✅ Added
+    ownership: '',
+    insurance: '',
     registration: '',
     price: '',
     photo1: null,
@@ -68,11 +69,12 @@ const StockCars = () => {
         setFormData({
           name: '',
           model: '',
-          running: '',
-          insurance: '',
-          ownership: '',
-          fuel: '',
           year: '',
+          fuel: '',
+          running: '',
+          transmission: '',
+          ownership: '',
+          insurance: '',
           registration: '',
           price: '',
           photo1: null,
@@ -113,26 +115,12 @@ const StockCars = () => {
           </div>
         </div>
 
-        {/* Running and Insurance Section */}
+        {/* Year and Fuel Section */}
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="running">Running</label>
-            <input type="text" id="running" name="running" placeholder="Enter Running"
-              value={formData.running} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="insurance">Insurance</label>
-            <input type="text" id="insurance" name="insurance" placeholder="Enter Insurance"
-              value={formData.insurance} onChange={handleChange} required />
-          </div>
-        </div>
-
-        {/* Ownership and Fuel Section */}
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="ownership">Ownership</label>
-            <input type="text" id="ownership" name="ownership" placeholder="Enter Ownership"
-              value={formData.ownership} onChange={handleChange} required />
+            <label htmlFor="year">Reg. Year</label>
+            <input type="number" id="year" name="year" placeholder="Enter Year"
+              value={formData.year} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="fuel">Fuel Type</label>
@@ -141,33 +129,60 @@ const StockCars = () => {
           </div>
         </div>
 
-        {/* Year and Registration Section */}
+        {/* Running and Transmission Section */}
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="year">Year</label>
-            <input type="number" id="year" name="year" placeholder="Enter Year"
-              value={formData.year} onChange={handleChange} required />
+            <label htmlFor="running">Km Driven</label>
+            <input type="text" id="running" name="running" placeholder="Enter Running"
+              value={formData.running} onChange={handleChange} required />
           </div>
+          <div className="form-group">
+            <label htmlFor="transmission">Transmission</label>
+            <input type="text" id="transmission" name="transmission" placeholder="Manual/Automatic"
+              value={formData.transmission} onChange={handleChange} required />
+          </div>
+        </div>
+
+        {/* Ownership and Insurance Section */}
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="ownership">Ownership</label>
+            <input type="text" id="ownership" name="ownership" placeholder="Enter Ownership"
+              value={formData.ownership} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="insurance">Insurance</label>
+            <input type="text" id="insurance" name="insurance" placeholder="Enter Insurance"
+              value={formData.insurance} onChange={handleChange} required />
+          </div>
+        </div>
+
+        {/* Registration and Price Section */}
+        <div className="form-row">
           <div className="form-group">
             <label htmlFor="registration">Registration Number</label>
             <input type="text" id="registration" name="registration" placeholder="Enter Registration Number"
               value={formData.registration} onChange={handleChange} required />
           </div>
-        </div>
-
-        {/* Price Section */}
-        <div className="form-row">
           <div className="form-group">
-            <label htmlFor="price">Price</label>
-            <input type="number" id="price" name="price" placeholder="Enter Price"
-              value={formData.price} onChange={handleChange} required />
-          </div>
+  <label htmlFor="price">Price (e.g. ₹4.5 Lakh)</label>
+  <input
+    type="text" // 👈 changed from number to text
+    id="price"
+    name="price"
+    placeholder="Enter Price (e.g. ₹4.5 Lakh)"
+    value={formData.price}
+    onChange={handleChange}
+    required
+  />
+</div>
+
         </div>
 
         {/* Photo Upload Section */}
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="photo1">Photo 1</label>
+            <label htmlFor="photo1">Cover Image</label>
             <input type="file" id="photo1" name="photo1" onChange={handleFileChange} required />
           </div>
           <div className="form-group">
