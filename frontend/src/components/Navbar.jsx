@@ -124,7 +124,7 @@ const Navbar = () => {
                 <Link to="/pre-delivery-inspection" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Pre Delivery Inspection</Link>
                 <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Denting & Painting Work</Link>
                 <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
-                <Link to="/rto-work" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">RTO Work</Link>
+                <Link to="/rto-work" onClick={closeMenu} className="block py-1  mb-3 hover:text-yellow-400 text-white no-underline">RTO Work</Link>
               </div>
             )}
           </div>
