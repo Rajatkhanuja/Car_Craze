@@ -112,7 +112,8 @@ const Stock = () => {
         return new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR',
-            maximumFractionDigits: 0,
+             maximumFractionDigits: 1, // 🔁 allow 1 digit after decimal
+    minimumFractionDigits: 1  // ✅ ensure .0 is also shown (like 4.0)
         }).format(price);
     };
 
@@ -205,7 +206,8 @@ const Stock = () => {
                                 </div>
                                 <div className="car-details-row">
                                     <p><strong>Km Driven:</strong> {car.running}</p>
-                                    <p><strong>Price:</strong> {formatPrice(car.price)}</p>
+                                    <p><strong>Price:</strong> ₹{car.price} Lakh</p>
+
                                 </div>
                                 <button className="stock-view-details" onClick={() => handleViewDetails(car._id)}>
                                     View Details
