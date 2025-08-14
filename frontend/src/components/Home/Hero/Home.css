@@ -227,7 +227,7 @@
 
 .car-card {
   width: 320px;
-  height: auto; /* Allow content to dictate height */
+  height: auto;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -250,10 +250,9 @@
   width: 100%;
   height: 200px;
   margin-bottom: 0;
-  /* Ensure image corners match card corners */
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  overflow: hidden; /* Crucial for heart icon and badge positioning */
+  overflow: hidden;
 }
 
 .car-img {
@@ -267,129 +266,129 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem; /* Adjust icon size */
-  color: #333; /* Default icon color */
+  font-size: 1.2rem;
+  color: #333;
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .heart-icon:hover {
   background-color: #fff;
-  color: #e74c3c; /* Red color on hover */
+  color: #e74c3c;
   transform: scale(1.1);
 }
 
-/* Assured Badge Styles (Replacing .badge-bottom) */
+/* Assured Badge Styles */
 .badge-assured {
   position: absolute;
   bottom: 0;
   left: 0;
   background-color: #fff;
-  color: #3498db; /* Blue for the checkmark and text */
+  color: #3498db;
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.4rem 0.8rem;
-  border-top-right-radius: 8px; /* Smooth corner on the top right */
+  border-top-right-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex; /* To align icon and text */
+  display: flex;
   align-items: center;
-  gap: 0.3rem; /* Space between icon and text */
+  gap: 0.3rem;
   z-index: 10;
 }
 
 .badge-assured .fa-circle-check {
-  font-size: 1rem; /* Adjust icon size if needed */
+  font-size: 1rem;
 }
 
 
 .car-info {
-  padding: 0.8rem 1rem 1rem 1rem;
+  padding: 0.6rem 1rem 0.8rem 1rem; /* Reduced top and bottom padding slightly */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .car-name {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem; /* Reduced margin-bottom significantly */
 }
 
 .car-title {
-  display: inline; /* Changed to inline to allow variant to sit next to it */
-  font-size: 1.25rem; /* Larger font size for main title */
+  display: inline;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #333;
   line-height: 1.3;
 }
 
-.car-variant-full { /* New class for the full variant string */
-  display: inline; /* To sit next to the title */
-  font-size: 0.95rem; /* Smaller font for variant */
+.car-variant-full {
+  display: inline;
+  font-size: 0.95rem;
   color: #666;
   font-weight: 400;
   line-height: 1.2;
-  margin-left: 0.3rem; /* Small space between title and variant */
+  margin-left: 0.2rem; /* Slightly reduced space */
 }
 
 .car-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem; /* Slightly larger gap between badges */
-  margin-top: 0.8rem; /* Space from title/variant */
-  margin-bottom: 1rem; /* Space before price details */
+  gap: 0.4rem; /* Slightly reduced gap between badges */
+  margin-top: 0.5rem; /* Reduced margin-top */
+  margin-bottom: 0.8rem; /* Reduced margin-bottom */
 }
 
 .car-badges span {
-  background-color: #f0f2f5; /* Lighter background for badges */
-  color: #555; /* Darker text for badges */
-  padding: 0.4rem 0.8rem; /* Adjusted padding for badges */
-  border-radius: 6px; /* Slightly more rounded corners */
-  font-size: 0.8rem; /* Slightly larger font size */
+  background-color: #f0f2f5;
+  color: #555;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
   font-weight: 500;
-  border: none; /* No border as per reference */
+  border: none;
 }
 
-/* NEW: Wrapper for Price and EMI for better alignment */
+/* Wrapper for Price and EMI */
 .car-price-details {
     display: flex;
-    flex-direction: column; /* Stack EMI, prices, and charges */
-    margin-top: auto; /* Pushes content to the bottom if car-info has height */
+    flex-direction: column;
+    margin-top: auto;
 }
 
 .car-emi {
-    font-size: 0.95rem; /* Smaller font for EMI */
+    font-size: 0.95rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 0.3rem; /* Space below EMI */
-    border-bottom: 1px dotted #ccc; /* Dotted underline */
-    display: inline-block; /* Ensures underline only covers text */
-    padding-bottom: 2px; /* Small space between text and underline */
+    margin-bottom: 0.2rem; /* Reduced margin-bottom */
+    border-bottom: 1px dotted #ccc;
+    display: inline-block;
+    padding-bottom: 2px;
 }
 
 .car-prices {
     display: flex;
-    align-items: baseline; /* Align prices nicely */
-    gap: 0.5rem; /* Space between original and new price */
-    margin-bottom: 0.2rem; /* Space before extra charges */
+    align-items: baseline;
+    gap: 0.4rem; /* Slightly reduced gap between original and new price */
+    margin-bottom: 0.1rem; /* Reduced margin-bottom */
 }
 
 .original-price {
-    font-size: 0.9rem; /* Smaller for original price */
+    font-size: 0.9rem;
     color: #888;
-    text-decoration: line-through; /* Strikethrough effect */
+    text-decoration: line-through;
     font-weight: 400;
 }
 
 .new-price {
-    font-size: 1.35rem; /* Larger and bolder for new price */
+    font-size: 1.35rem;
     font-weight: 700;
     color: #333;
     line-height: 1.2;
@@ -451,12 +450,23 @@
     height: 180px;
   }
 
+  .car-info {
+    padding: 0.5rem 0.8rem 0.7rem 0.8rem; /* Adjusted padding */
+  }
+
   .car-title {
     font-size: 1.15rem;
   }
 
   .car-variant-full {
     font-size: 0.85rem;
+    margin-left: 0.2rem;
+  }
+
+  .car-badges {
+    gap: 0.3rem; /* Further reduced gap */
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
   }
 
   .car-badges span {
@@ -466,12 +476,16 @@
 
   .car-emi {
     font-size: 0.9rem;
+    margin-bottom: 0.15rem;
   }
   .original-price {
     font-size: 0.85rem;
   }
   .new-price {
     font-size: 1.2rem;
+  }
+  .extra-charges {
+    font-size: 0.72rem;
   }
 
   .heart-icon {
@@ -509,7 +523,7 @@
   }
 
   .car-card {
-    width: 240px; /* Adjusted to be slightly wider for better content fit */
+    width: 240px;
   }
 
   .car-img-wrapper {
@@ -517,22 +531,22 @@
   }
 
   .car-info {
-    padding: 0.6rem 0.8rem 0.8rem 0.8rem; /* Adjusted padding */
+    padding: 0.5rem 0.8rem 0.7rem 0.8rem; /* Adjusted padding */
   }
 
   .car-title {
-    font-size: 1.05rem; /* Smaller font for main title */
+    font-size: 1.05rem;
   }
 
   .car-variant-full {
-    font-size: 0.8rem; /* Smaller font for variant */
-    margin-left: 0.2rem;
+    font-size: 0.8rem;
+    margin-left: 0.15rem; /* Even less space */
   }
 
   .car-badges {
-    gap: 0.4rem;
-    margin-top: 0.6rem;
-    margin-bottom: 0.8rem;
+    gap: 0.3rem; /* Further reduced gap */
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .car-badges span {
@@ -543,6 +557,7 @@
 
   .car-emi {
     font-size: 0.85rem;
+    margin-bottom: 0.1rem;
   }
   .original-price {
     font-size: 0.75rem;
@@ -592,7 +607,7 @@
   }
 
   .car-card {
-    width: 210px; /* Adjusted for very small screens */
+    width: 210px;
   }
 
   .car-img-wrapper {
@@ -600,7 +615,7 @@
   }
 
   .car-info {
-    padding: 0.5rem 0.6rem 0.7rem 0.6rem;
+    padding: 0.4rem 0.6rem 0.6rem 0.6rem; /* Reduced padding further */
   }
 
   .car-title {
@@ -609,12 +624,13 @@
 
   .car-variant-full {
     font-size: 0.7rem;
+    margin-left: 0.1rem; /* Minimal space */
   }
 
   .car-badges {
-    gap: 0.3rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.7rem;
+    gap: 0.2rem; /* Even tighter gap */
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
   }
 
   .car-badges span {
@@ -624,6 +640,7 @@
 
   .car-emi {
     font-size: 0.8rem;
+    margin-bottom: 0.05rem; /* Almost no space */
   }
   .original-price {
     font-size: 0.7rem;
