@@ -205,10 +205,14 @@
 /* Car Info */
 .stock-car-info {
   padding: 20px;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally within this flex container */
 }
 
 .stock-car-name {
-  margin: 0 0 12px 0;
+  /* No changes needed here directly for centering, as it's within a flex item that's centered */
+  margin: 0; /* Remove default h3 margins */
   font-size: 16px;
   font-weight: 500;
   color: #2d3748;
@@ -218,24 +222,34 @@
   text-overflow: ellipsis;
 }
 
-.car-title {
-  display: inline;
+.car-title-main { /* This is the h3 wrapper for the main title */
+  margin-bottom: 4px; /* Space between title and variant */
+  text-align: center; /* Ensure the text inside is centered if it wraps */
+  width: 100%; /* Take full width to allow text-align to work */
+}
+
+
+.car-variant-wrapper { /* New wrapper for the variant */
+  width: 100%; /* Take full width */
+  text-align: center; /* Center the text inside */
+  margin-bottom: 12px; /* Space before badges */
 }
 
 .car-variant {
-  display: inline;
+  /* Inherits text-align from .car-variant-wrapper */
   font-size: 14px;
   color: #718096;
   font-weight: 400;
-  margin-left: 8px;
 }
 
 /* Car Badges */
 .car-badges {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Center the badges */
   gap: 8px;
   margin-bottom: 16px;
+  width: 100%; /* Ensure badges container takes full width for centering */
 }
 
 .car-badges span {
@@ -251,6 +265,8 @@
 /* Price */
 .car-price {
   margin-top: auto;
+  text-align: center; /* Center the price */
+  width: 100%; /* Ensure price container takes full width for centering */
 }
 
 .new-price {
@@ -324,7 +340,12 @@
   z-index: 1001;
   box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
   min-width: 120px;
+  display: flex; /* Make it a flex container */
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Horizontally align items */
+  gap: 8px; /* Space between text and dot */
 }
+
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
@@ -332,12 +353,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  
+
   .sidebar {
     width: 240px;
     padding: 20px;
   }
-  
+
   .content {
     padding: 20px;
   }
@@ -348,63 +369,69 @@
   .main-container {
     flex-direction: column;
   }
-  
+
   /* Hide desktop sidebar */
   .sidebar {
     display: none;
   }
-  
+
   /* Show mobile filters */
   .mobile-filters {
     display: block;
   }
-  
+
   .mobile-filters-toggle {
-    display: block;
+    display: flex; /* Ensure it's flex for mobile */
   }
-  
+
   .content {
     padding: 16px;
-    padding-bottom: 140px; /* Space for mobile filters */
+    padding-bottom: 140px;
+    /* Space for mobile filters */
   }
-  
+
   .stock-header h1 {
     font-size: 24px;
   }
-  
+
   .stock-cars-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  
+
   .stock-car-card {
     border-radius: 8px;
   }
-  
+
   .car-img-wrapper {
     height: 160px;
   }
-  
+
   .stock-car-info {
     padding: 16px;
   }
-  
-  .stock-car-name {
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  .car-title-main {
+    font-size: 15px; /* Adjust font size for mobile */
+    margin-bottom: 2px; /* Less space on mobile */
   }
-  
+
+  .car-variant-wrapper {
+    margin-bottom: 10px; /* Less space on mobile */
+  }
+
+  .car-variant {
+    font-size: 13px; /* Adjust font size for mobile */
+  }
+
   .new-price {
     font-size: 18px;
   }
-  
+
   .car-badges {
     gap: 6px;
   }
-  
+
   .car-badges span {
     font-size: 11px;
     padding: 3px 6px;
@@ -416,19 +443,19 @@
   .content {
     padding: 12px;
   }
-  
+
   .stock-cars-grid {
     gap: 12px;
   }
-  
+
   .car-img-wrapper {
     height: 140px;
   }
-  
+
   .stock-car-info {
     padding: 12px;
   }
-  
+
   .mobile-filters {
     padding: 16px;
   }

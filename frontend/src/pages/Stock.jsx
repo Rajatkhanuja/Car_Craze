@@ -267,10 +267,12 @@ const Stock = () => {
                             </div>
 
                             <div className="stock-car-info">
-                                <h3 className="car-title-main"> {/* New container for title and variant */}
+                                <h3 className="car-title-main">
                                     <span className="car-title">{car.year} {car.name}</span>
                                 </h3>
-                                <p className="car-variant-center">{car.model}</p> {/* Moved and styled separately */}
+                                <div className="car-variant-wrapper"> {/* New wrapper div */}
+                                    <span className="car-variant">{car.model}</span>
+                                </div>
 
 
                                 <div className="car-badges">
