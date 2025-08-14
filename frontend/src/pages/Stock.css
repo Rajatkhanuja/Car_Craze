@@ -263,58 +263,65 @@ body {
   border: 1px solid #e2e8f0;
 }
 
-/* Mobile Styles - Single column like image 1 */
+/* ALL Mobile Devices - Consistent Layout like Image 2 */
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
     padding: 0.5rem;
-    gap: 1rem;
-    background: #ffffff; /* White background on mobile */
+    gap: 0.5rem;
+    background: #ffffff;
+    margin-top: 0;
   }
 
   .content {
-    margin-bottom: 220px;
-    padding: 0 0.2rem; /* Reduced horizontal padding for wider cards */
-    margin-top: 1rem;
+    margin-bottom: 200px;
+    padding: 0 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .stock-header {
+    margin-bottom: 1.5rem;
   }
 
   .stock-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .sidebar {
-    width: 95%;
-    max-width: 400px;
+    width: 92%;
+    max-width: 380px;
     position: fixed;
-    bottom: 15px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2000;
-    border-radius: 15px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    background: #ffffff; /* White background for mobile sidebar */
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
     border: 1px solid #e2e8f0;
     top: auto;
     overflow: visible;
   }
 
   .sidebar h2 {
-    color: #2d3748; /* Dark text for mobile sidebar */
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    color: #2d3748;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
   }
 
   .select-wrapper {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
     z-index: 2002;
   }
 
   .budget-select,
   .manufacturer-select {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 8px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
     background: #ffffff;
     border: 1px solid #d1d5db;
     color: #2d3748;
@@ -326,137 +333,132 @@ body {
     appearance: none;
     position: relative;
     z-index: 2003;
+    width: 100%;
   }
 
   .budget-select:focus,
   .manufacturer-select:focus {
     outline: none;
     border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
     z-index: 2004;
   }
 
-  /* Mobile: Single column layout like image 2 */
+  /* Single column - ALL mobile devices same */
   .stock-cars-grid {
-    grid-template-columns: 1fr; /* Single column */
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem;
     padding: 0;
+    width: 100%;
   }
 
-  /* Mobile car cards - wider size like image 2 */
+  /* Consistent card sizing for ALL phones */
   .stock-car-card {
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 0;
     width: 100%;
     max-width: 100%;
+    min-height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .car-img-wrapper {
+    width: 100%;
+    height: auto;
   }
 
   .stock-car-img {
-    height: 200px; /* Taller image for mobile like image 2 */
+    width: 100%;
+    height: 180px !important;
+    object-fit: cover;
+    display: block;
   }
 
   .stock-car-info {
-    padding: 1.5rem 1.2rem;
+    padding: 1.2rem 1rem;
+    width: 100%;
   }
 
   .car-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem !important;
     font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
   }
 
   .car-variant {
-    font-size: 1rem;
+    font-size: 0.95rem !important;
     margin-top: 0.2rem;
+    color: #718096;
+  }
+
+  .car-badges {
+    margin: 0.8rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .car-badges span {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .car-price {
+    margin-top: 0.8rem;
   }
 
   .new-price {
-    font-size: 1.5rem;
+    font-size: 1.3rem !important;
     font-weight: 700;
+    color: #2d3748;
+  }
+
+  .extra-charges {
+    font-size: 11px;
+    color: #718096;
+    margin-top: 2px;
   }
 }
 
-/* Very Small Phones */
+/* Remove separate breakpoints - Use single mobile layout */
+/* Very Small Phones - Same as all mobile */
 @media (max-width: 480px) {
-  .sidebar {
-    width: 95%;
-    max-width: 350px;
-    bottom: 12px;
-    padding: 1.2rem;
-  }
-
-  .stock-header h1 {
-    font-size: 2rem;
-  }
-
-  .stock-cars-grid {
-    grid-template-columns: 1fr; /* Keep single column */
-    gap: 1.5rem;
-    padding: 0;
-  }
-
-  .stock-car-card {
-    width: 100%;
-  }
-
   .stock-car-img {
-    height: 180px;
+    height: 180px !important;
   }
-
-  .stock-car-info {
-    padding: 1.2rem;
-  }
-
+  
   .car-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem !important;
   }
-
+  
   .new-price {
-    font-size: 1.4rem;
+    font-size: 1.3rem !important;
   }
 }
 
-/* Extra Small Phones */
+/* Extra Small Phones - Same as all mobile */
 @media (max-width: 360px) {
   .sidebar {
-    width: 98%;
-    max-width: 320px;
-    bottom: 10px;
+    width: 90%;
     padding: 1rem;
   }
-
-  .content {
-    margin-bottom: 190px;
-    padding: 0 0.1rem; /* Further reduced horizontal padding */
-  }
-
-  .stock-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .stock-cars-grid {
-    grid-template-columns: 1fr; /* Keep single column */
-    gap: 1.2rem;
-    padding: 0;
-  }
-
-  .stock-car-card {
-    width: 100%;
-  }
-
+  
   .stock-car-img {
-    height: 160px;
+    height: 170px !important;
   }
-
+  
   .stock-car-info {
-    padding: 1rem;
+    padding: 1rem 0.8rem;
   }
-
+  
   .car-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem !important;
   }
-
+  
   .new-price {
-    font-size: 1.3rem;
+    font-size: 1.2rem !important;
   }
 }
 
