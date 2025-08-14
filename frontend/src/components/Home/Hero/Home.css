@@ -3,7 +3,8 @@
 .hero-header {
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* Use a reasonable max-height for mobile, for example, 60vh or a fixed pixel value */
+  height: 100vh; /* Default for larger screens */
   overflow: hidden;
 }
 
@@ -13,9 +14,41 @@
 
 .carousel-img {
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Default for larger screens */
   object-fit: cover;
   object-position: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero-header {
+    height: 60vh; /* Adjust this value as needed, e.g., 50vh or 250px */
+  }
+
+  .carousel-img {
+    height: 60vh; /* Match the hero-header height */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    height: 50vh; /* Even smaller for very narrow screens */
+  }
+
+  .carousel-img {
+    height: 50vh;
+  }
+}
+
+/* Add more breakpoints if necessary for very small screens */
+@media (max-width: 360px) {
+  .hero-header {
+    height: 40vh; /* Further reduction for extremely small devices */
+  }
+
+  .carousel-img {
+    height: 40vh;
+  }
 }
 
 .carousel-control-prev,
@@ -25,6 +58,7 @@
   transform: translateY(-50%);
   z-index: 1;
 }
+
 /* -------------------- */
 /* 🚗 Services Section */
 /* -------------------- */
@@ -45,7 +79,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  
 }
 
 .service-box {
@@ -98,7 +131,7 @@
 }
 
 /* ---------------------------- */
-/* 📱 Responsive Design         */
+/* 📱 Responsive Design         */
 /* ---------------------------- */
 
 @media (max-width: 768px) {
@@ -244,7 +277,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
- 
 }
 
 .car-name {
@@ -276,7 +308,6 @@
   /* Reduced margin-bottom to create more space */
   margin-bottom: 0.5rem; /* Changed from 0.5rem */
   /* Added flex-grow to allow badges to take available space */
-  
 }
 
 .car-badges span {
@@ -450,7 +481,8 @@
   margin-bottom: 1rem;
 }
 
-.footer-section p, .footer-section ul {
+.footer-section p,
+.footer-section ul {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
