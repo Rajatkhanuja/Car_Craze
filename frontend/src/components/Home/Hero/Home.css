@@ -3,7 +3,6 @@
 .hero-header {
   position: relative;
   width: 100%;
-  /* Using 100vh for height is good for full viewport height */
   height: 100vh;
   overflow: hidden;
 }
@@ -26,31 +25,27 @@
   transform: translateY(-50%);
   z-index: 1;
 }
-
 /* -------------------- */
 /* 🚗 Services Section */
 /* -------------------- */
 
 .services-section {
   text-align: center;
-  /* Use padding for internal spacing and consistent look */
-  padding: 2rem 1rem; /* Adjust as needed for desktop */
+  margin-top: 1rem;
   background-color: #f9f9f9;
 }
 
 .services-container {
-  /* Using max-width and margin: auto is great for centering content */
-  max-width: 1200px; /* Slightly increased for more desktop space */
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .services-container .desktop-view {
-  /* Grid is excellent for responsive layouts */
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  /* Added padding to services-container for better overall spacing on smaller desktop views */
+  
 }
 
 .service-box {
@@ -74,7 +69,6 @@
 /* 🔥 Default image */
 .service-image {
   width: 100%;
-  /* aspect-ratio is modern and very effective for responsive images */
   aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center;
@@ -91,8 +85,7 @@
 
 /* Title */
 .service-box h3 {
-  /* Use responsive font sizes with clamp for better control across devices */
-  font-size: clamp(1rem, 2.5vw, 1.4rem); /* Smaller on mobile, larger on desktop */
+  font-size: 1.2rem;
   color: #007bff;
   margin: 0.8rem 0;
   font-weight: 700;
@@ -105,23 +98,22 @@
 }
 
 /* ---------------------------- */
-/* 📱 Responsive Design for Services Section */
+/* 📱 Responsive Design         */
 /* ---------------------------- */
 
 @media (max-width: 768px) {
   .services-section {
-    padding: 1.5rem 0.5rem; /* Adjusted padding for tablet view */
+    padding: 0.5rem 0.5rem;
   }
 
   .section-title {
-    margin-bottom: 1.5rem; /* Give more space */
-    font-size: 1.8rem; /* Slightly larger for tablets */
+    margin-bottom: 1rem;
   }
 
   .services-container .desktop-view {
-    /* For tablets, still 2 columns, but with less gap */
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 0.6rem;
+    padding: 0;
   }
 
   .service-box {
@@ -135,25 +127,15 @@
 
   .service-box h3 {
     display: block !important;
-    font-size: clamp(0.9rem, 2.8vw, 1.1rem); /* Fine-tuned for tablets */
+    font-size: 0.95rem;
     margin: 0.5rem 0;
   }
 }
 
 @media (max-width: 480px) {
-  .services-section {
-    padding: 1rem 0.5rem; /* Even less padding for small phones */
-  }
-
-  .section-title {
-    margin-bottom: 1rem;
-    font-size: 1.4rem; /* Smaller for phones */
-  }
-
   .services-container .desktop-view {
-    /* On small phones, stack them in a single column */
-    grid-template-columns: 1fr;
-    gap: 1rem; /* Consistent gap */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
   }
 
   .service-image {
@@ -161,23 +143,36 @@
   }
 
   .service-box h3 {
-    font-size: clamp(0.85rem, 3.5vw, 1rem); /* Adjusted for very small screens */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .services-container .desktop-view {
+    gap: 0.3rem;
+  }
+
+  .service-image {
+    border-radius: 6px;
+  }
+
+  .service-box h3 {
+    font-size: 0.85rem;
   }
 }
 
 /* Featured Cars Section */
 .cars-in-stock-section {
-  padding: 2rem 1rem; /* Consistent padding with services section */
+  padding: 1rem;
   background-color: #f4f4f4;
   overflow-x: hidden;
 }
 
 .section-title {
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size for titles */
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Increased margin for better separation */
+  margin-bottom: 1rem;
   color: #333;
-  text-align: center; /* Center the title for better aesthetics */
 }
 
 .horizontal-scroll {
@@ -194,13 +189,11 @@
 
 .car-card-wrapper {
   display: inline-flex;
-  gap: 1.5rem; /* Slightly increased gap for better visual separation */
-  padding: 0 1rem; /* Add padding to the wrapper to prevent cards from touching edges */
+  gap: 1rem;
 }
 
 .car-card {
-  /* Use a max-width and flexible width for better responsiveness */
-  width: min(90vw, 320px); /* Card will take 90% of viewport or max 320px */
+  width: 320px;
   height: auto;
   background: white;
   border-radius: 12px;
@@ -222,8 +215,7 @@
 .car-img-wrapper {
   position: relative;
   width: 100%;
-  /* Use aspect-ratio for consistent image height */
-  aspect-ratio: 16 / 9; /* Common aspect ratio for car images */
+  height: 200px;
   margin-bottom: 0;
 }
 
@@ -239,7 +231,7 @@
   left: 8px;
   background-color: #007bff;
   color: white;
-  font-size: 0.75rem; /* Slightly increased for readability */
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
@@ -248,28 +240,30 @@
 }
 
 .car-info {
-  padding: 1rem; /* Consistent padding */
+  padding: 0.8rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+ 
 }
 
 .car-name {
-  margin-bottom: 0.5rem;
+  /* Reduced margin-bottom to create more space */
+  margin-bottom: 0.5rem; /* Changed from 0.5rem */
 }
 
 .car-title {
   display: block;
-  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsive font size */
+  font-size: 1.1rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.2rem; /* Reduced margin-bottom for tighter spacing */
   line-height: 1.3;
 }
 
 .car-variant {
   display: block;
-  font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive font size */
+  font-size: 0.9rem;
   color: #666;
   font-weight: 400;
   line-height: 1.2;
@@ -278,14 +272,17 @@
 .car-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem; /* Slightly increased gap */
-  margin-bottom: 0.8rem; /* More space below badges */
+  gap: 0.4rem;
+  /* Reduced margin-bottom to create more space */
+  margin-bottom: 0.5rem; /* Changed from 0.5rem */
+  /* Added flex-grow to allow badges to take available space */
+  
 }
 
 .car-badges span {
   background-color: #f8f9fa;
   color: #666;
-  padding: 0.3rem 0.7rem; /* Adjusted padding */
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -293,12 +290,12 @@
 }
 
 .car-price {
-  margin-top: auto; /* Pushes the price to the bottom if content above varies */
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 
 .new-price {
-  font-size: clamp(1.1rem, 3vw, 1.3rem); /* Responsive font size */
+  font-size: 1.2rem;
   font-weight: 700;
   color: #333;
   display: block;
@@ -307,7 +304,7 @@
 }
 
 .extra-charges {
-  font-size: clamp(0.7rem, 1.8vw, 0.8rem); /* Responsive font size */
+  font-size: 0.75rem;
   color: #888;
   font-weight: 400;
   line-height: 1.2;
@@ -315,19 +312,19 @@
 
 /* View More Circle */
 .view-more-circle {
-  width: min(20vw, 90px); /* Responsive width */
-  height: min(20vw, 90px); /* Responsive height */
+  width: 90px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
+  font-size: 2rem;
   font-weight: bold;
   background-color: #007bff;
   color: white;
   border-radius: 50%;
   flex-shrink: 0;
   transition: background-color 0.3s ease;
-  margin: auto 1rem auto 0; /* Adjust margin for spacing in horizontal scroll */
+  margin: auto 0;
   align-self: center;
 }
 
@@ -339,70 +336,98 @@
   line-height: 1;
 }
 
-/* Responsive Design for Featured Cars Section */
+/* Responsive Design */
 @media (max-width: 768px) {
   .cars-in-stock-section {
-    padding: 1.5rem 0.8rem;
-  }
-
-  .car-card-wrapper {
-    gap: 1rem;
-    padding: 0 0.8rem; /* Adjusted padding */
+    padding: 0.8rem;
   }
 
   .car-card {
-    width: min(85vw, 300px); /* Slightly narrower for tablets */
+    width: 280px;
+    height: auto;
   }
 
   .car-img-wrapper {
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    height: 180px;
   }
 
-  .badge-bottom {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
+  .car-title {
+    font-size: 1rem;
+  }
+
+  .car-variant {
+    font-size: 0.85rem;
+  }
+
+  .new-price {
+    font-size: 1.1rem;
+  }
+
+  .view-more-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .cars-in-stock-section {
-    padding: 1rem 0.5rem;
-  }
-
-  .car-card-wrapper {
-    gap: 0.8rem;
-    padding: 0 0.5rem; /* Adjusted padding */
-  }
-
   .car-card {
-    width: min(90vw, 270px); /* Adjusted for small phones */
+    width: 250px;
+    height: auto;
   }
 
   .car-img-wrapper {
-    aspect-ratio: 16 / 9;
+    height: 160px;
   }
 
   .car-info {
-    padding: 0.8rem; /* Reduced padding */
+    padding: 0.5rem 0.8rem 0.6rem 0.8rem;
+  }
+
+  .car-title {
+    font-size: 0.95rem;
+  }
+
+  .car-variant {
+    font-size: 0.8rem;
   }
 
   .car-badges span {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .new-price {
+    font-size: 1rem;
+  }
+
+  .badge-bottom {
     font-size: 0.65rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .view-more-circle {
-    width: min(18vw, 65px);
-    height: min(18vw, 65px);
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
   }
 }
 
+@media (max-width: 360px) {
+  .car-card {
+    width: 230px;
+    height: auto;
+  }
+
+  .car-img-wrapper {
+    height: 150px;
+  }
+}
 /* Footer Styles */
 .footer {
   background-color: #222;
   color: #ddd;
-  padding: 2rem 1rem; /* Consistent padding */
+  padding: 2rem 1rem;
   font-family: Arial, sans-serif;
 }
 
@@ -411,26 +436,24 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: 1200px; /* Consistent max-width */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .footer-section {
   flex: 1;
-  min-width: 200px; /* Ensures sections don't get too small */
+  min-width: 200px;
 }
 
 .footer-section h3 {
   color: #fff;
   margin-bottom: 1rem;
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem); /* Responsive font size */
 }
 
-.footer-section p,
-.footer-section ul {
+.footer-section p, .footer-section ul {
   margin: 0;
-  font-size: clamp(0.85rem, 2vw, 0.95rem); /* Responsive font size */
-  line-height: 1.6; /* Slightly increased line height for readability */
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .footer-section ul {
@@ -439,7 +462,7 @@
 }
 
 .footer-section ul li {
-  margin: 0.6rem 0; /* Slightly more vertical spacing */
+  margin: 0.5rem 0;
 }
 
 .footer-section ul li a {
@@ -454,9 +477,9 @@
 .footer-bottom {
   text-align: center;
   border-top: 1px solid #444;
-  padding-top: 1.5rem; /* More padding */
-  margin-top: 2.5rem; /* More margin */
-  font-size: clamp(0.8rem, 1.8vw, 0.85rem); /* Responsive font size */
+  padding-top: 1rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
   color: #aaa;
 }
 
@@ -464,61 +487,14 @@
   margin: 0;
 }
 
-/* Responsive Design for Footer */
+/* Responsive Design */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem; /* Reduced gap for smaller screens */
   }
 
   .footer-section {
-    margin-bottom: 1.5rem; /* Reduced margin */
-  }
-
-  .footer-section:last-child {
-    margin-bottom: 0; /* No margin for the last section */
-  }
-
-  .footer-section ul {
-    display: flex; /* Make list items inline for better mobile presentation */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem; /* Gap between inline list items */
-  }
-
-  .footer-section ul li {
-    margin: 0; /* Reset margin */
-  }
-
-  .footer-section ul li a {
-    padding: 0.3rem 0.5rem; /* Add some padding for touch targets */
-    border-radius: 4px;
-    background-color: #333; /* Slightly different background for links */
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    padding: 1.5rem 0.8rem;
-  }
-
-  .footer-section h3 {
-    font-size: 1.2rem;
-  }
-
-  .footer-section p,
-  .footer-section ul {
-    font-size: 0.85rem;
-  }
-
-  .footer-section ul {
-    gap: 0.6rem;
-  }
-
-  .footer-bottom {
-    padding-top: 1rem;
-    margin-top: 2rem;
-    font-size: 0.75rem;
+    margin-bottom: 2rem;
   }
 }
