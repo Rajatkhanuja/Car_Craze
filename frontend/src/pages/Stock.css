@@ -8,6 +8,8 @@
 
 /* Sidebar - Desktop */
 .sidebar {
+  /* Default for desktop: visible */
+  display: block; /* Ensure it's visible by default on larger screens */
   width: 280px;
   background: #fff;
   padding: 24px;
@@ -211,7 +213,6 @@
 }
 
 .stock-car-name {
-  /* No changes needed here directly for centering, as it's within a flex item that's centered */
   margin: 0; /* Remove default h3 margins */
   font-size: 16px;
   font-weight: 500;
@@ -222,21 +223,19 @@
   text-overflow: ellipsis;
 }
 
-.car-title-main { /* This is the h3 wrapper for the main title */
-  margin-bottom: 4px; /* Space between title and variant */
-  text-align: center; /* Ensure the text inside is centered if it wraps */
-  width: 100%; /* Take full width to allow text-align to work */
+.car-title-main {
+  margin-bottom: 4px;
+  text-align: center;
+  width: 100%;
 }
 
-
-.car-variant-wrapper { /* New wrapper for the variant */
-  width: 100%; /* Take full width */
-  text-align: center; /* Center the text inside */
-  margin-bottom: 12px; /* Space before badges */
+.car-variant-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 .car-variant {
-  /* Inherits text-align from .car-variant-wrapper */
   font-size: 14px;
   color: #718096;
   font-weight: 400;
@@ -246,10 +245,10 @@
 .car-badges {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the badges */
+  justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
-  width: 100%; /* Ensure badges container takes full width for centering */
+  width: 100%;
 }
 
 .car-badges span {
@@ -265,8 +264,8 @@
 /* Price */
 .car-price {
   margin-top: auto;
-  text-align: center; /* Center the price */
-  width: 100%; /* Ensure price container takes full width for centering */
+  text-align: center;
+  width: 100%;
 }
 
 .new-price {
@@ -290,9 +289,9 @@
   grid-column: 1 / -1;
 }
 
-/* Mobile Filters Container - Hidden by default */
+/* Mobile Filters Container - Hidden by default on desktop */
 .mobile-filters {
-  display: none;
+  display: none; /* Hidden by default on desktop */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -308,23 +307,9 @@
   transition: transform 0.3s ease;
 }
 
-.mobile-filters.show {
-  display: block;
-}
-
-.mobile-filters h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2d3748;
-  margin: 0 0 12px 0;
-}
-
-.mobile-filters .custom-select-container {
-  margin-bottom: 16px;
-}
-
+/* Mobile Filters Toggle Button - Hidden by default on desktop */
 .mobile-filters-toggle {
-  display: none;
+  display: none; /* Hidden by default on desktop */
   position: fixed;
   bottom: 80px;
   left: 50%;
@@ -340,10 +325,9 @@
   z-index: 1001;
   box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
   min-width: 120px;
-  display: flex; /* Make it a flex container */
-  align-items: center; /* Vertically align items */
-  justify-content: center; /* Horizontally align items */
-  gap: 8px; /* Space between text and dot */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 
@@ -364,30 +348,30 @@
   }
 }
 
-/* Mobile Styles */
+/* Mobile Styles (up to 768px wide) */
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
   }
 
-  /* Hide desktop sidebar */
+  /* Hide desktop sidebar on mobile */
   .sidebar {
     display: none;
   }
 
-  /* Show mobile filters */
-  .mobile-filters {
-    display: block;
+  /* Show mobile filters toggle button on mobile */
+  .mobile-filters-toggle {
+    display: flex; /* Show the button on mobile */
   }
 
-  .mobile-filters-toggle {
-    display: flex; /* Ensure it's flex for mobile */
+  /* Show mobile filters container if 'show' class is present */
+  .mobile-filters.show {
+    display: block; /* Show the mobile filter overlay when active */
   }
 
   .content {
     padding: 16px;
-    padding-bottom: 140px;
-    /* Space for mobile filters */
+    padding-bottom: 140px; /* Space for mobile filters toggle */
   }
 
   .stock-header h1 {
@@ -412,16 +396,16 @@
   }
 
   .car-title-main {
-    font-size: 15px; /* Adjust font size for mobile */
-    margin-bottom: 2px; /* Less space on mobile */
+    font-size: 15px;
+    margin-bottom: 2px;
   }
 
   .car-variant-wrapper {
-    margin-bottom: 10px; /* Less space on mobile */
+    margin-bottom: 10px;
   }
 
   .car-variant {
-    font-size: 13px; /* Adjust font size for mobile */
+    font-size: 13px;
   }
 
   .new-price {
