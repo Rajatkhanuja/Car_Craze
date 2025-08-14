@@ -5,7 +5,7 @@ import "./Stock.css";
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
-// CustomSelect Component
+// CustomSelect Component (No changes needed here)
 const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass }) => {
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
@@ -51,6 +51,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
         </div>
     );
 };
+
 
 const Stock = () => {
     const [selectedBudget, setSelectedBudget] = useState("");
@@ -178,27 +179,27 @@ const Stock = () => {
                     {filteredCars.map((car, index) => (
                         <div
                             key={index}
-                            className="car-card" // Changed to car-card
+                            className="stock-car-card" // ✅ CORRECTED: Was "car-card"
                             onClick={() => navigate(`/car-details/${car._id}`)}
                         >
                             <div className="car-img-wrapper">
                                 <img
                                     src={car.photo1}
                                     alt={car.name}
-                                    className="car-img" // Changed to car-img
+                                    className="stock-car-img" // ✅ CORRECTED: Was "car-img"
                                     onError={(e) => (e.target.src = "/placeholder-car.jpg")}
                                 />
                                 <div className="badge-bottom">CARCRAZE Assured</div>
                             </div>
 
-                            <div className="car-info">
-                                <h3 className="car-name">
+                            <div className="stock-car-info"> {/* ✅ CORRECTED: Was "car-info" */}
+                                <h3 className="stock-car-name"> {/* ✅ CORRECTED: Was "car-name" */}
                                     <span className="car-title">{car.year} {car.name}</span>
                                     <span className="car-variant">{car.model}</span>
                                 </h3>
 
                                 <div className="car-badges">
-                                    <span>{car.running} km</span> {/* Added 'km' for clarity */}
+                                    <span>{car.running} km</span>
                                     <span>{car.fuel}</span>
                                     <span>{car.transmission}</span>
                                     <span>{car.registration}</span>
