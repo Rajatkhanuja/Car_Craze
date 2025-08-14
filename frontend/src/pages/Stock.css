@@ -27,7 +27,7 @@ body {
 /* Sidebar Styles */
 .sidebar {
   width: 320px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.95); /* Desktop: White background */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 2rem;
@@ -38,7 +38,7 @@ body {
   top: 10rem;
   transition: all 0.3s ease;
   margin-top: 15rem;
-  z-index: 1000; /* Added z-index */
+  z-index: 1000;
 }
 
 .sidebar::before {
@@ -54,7 +54,7 @@ body {
 }
 
 .sidebar h2 {
-  color: white; /* Changed to white */
+  color: #2d3748; /* Changed to dark for desktop */
   margin-bottom: 1rem;
   font-size: 1.4rem;
   font-weight: 600;
@@ -76,7 +76,7 @@ body {
 
 .select-wrapper {
   margin-bottom: 1.5rem;
-  font-weight: bold; /* Make "Select Budget" and "Select Manufacturer" bold */
+  font-weight: bold;
 }
 
 .budget-select,
@@ -89,7 +89,7 @@ body {
   background-color: #fff;
   appearance: none;
   outline: none;
-  color: white; /* Changed to white for desktop as well */
+  color: #2d3748; /* Changed to dark for desktop */
 }
 
 
@@ -99,24 +99,24 @@ body {
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
   transform: translateY(-2px);
-  z-index: 1004; /* Higher z-index when focused */
+  z-index: 1004;
 }
 
 .budget-select:hover,
 .manufacturer-select:hover {
   border-color: #667eea;
   transform: translateY(-1px);
-  z-index: 1004; /* Higher z-index when hovered */
+  z-index: 1004;
 }
 
 /* Dropdown options styling */
 .budget-select option,
 .manufacturer-select option {
   background: white;
-  color: white; /* Changed to white */
+  color: #2d3748; /* Changed to dark for desktop */
   padding: 0.5rem;
-  z-index: 1005; /* Highest z-index for options */
-  font-weight: bold; /* Make dropdown options bold */
+  z-index: 1005;
+  font-weight: bold;
 }
 
 /* Content Area */
@@ -124,7 +124,7 @@ body {
   flex: 1;
   padding: 1rem;
   position: relative;
-  z-index: 1; /* Lower z-index than sidebar */
+  z-index: 1;
 }
 
 .stock-header {
@@ -169,7 +169,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  z-index: 1; /* Lower z-index than sidebar */
+  z-index: 1;
 }
 
 .stock-car-card::before {
@@ -318,15 +318,15 @@ body {
     padding: 1rem;
     gap: 1rem;
   }
- .select-wrapper {
+  .select-wrapper {
     max-height: 180px;
     overflow-y: auto;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
-    font-weight: bold; /* Make "Select Budget" and "Select Manufacturer" bold on mobile */
-    color: white; /* Make "Select Budget" and "Select Manufacturer" text white on mobile */
+    -webkit-overflow-scrolling: touch;
+    font-weight: bold;
+    color: white; /* Mobile: Text color for "Select Budget" and "Select Manufacturer" */
   }
- /* 👇 Dropdown overflow fix */
+  /* 👇 Dropdown overflow fix */
   .select-wrapper {
     position: relative;
     width: 100%;
@@ -359,20 +359,20 @@ body {
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2000; /* Higher z-index for mobile */
+    z-index: 2000;
     border-radius: 25px;
     padding: 1.5rem;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Mobile: Gradient background */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     top: auto;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: visible; /* Changed from hidden to visible */
+    overflow: visible;
   }
 
   .sidebar h2 {
-    color: white;
+    color: white; /* Mobile: White text for sidebar heading */
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -383,10 +383,10 @@ body {
   }
 
   .select-wrapper {
-    max-height: none; /* Remove height restriction */
-    overflow: visible; /* Ensure dropdown is visible */
+    max-height: none;
+    overflow: visible;
     margin-bottom: 1.2rem;
-    z-index: 2002; /* Higher z-index for mobile */
+    z-index: 2002;
   }
 
   .budget-select,
@@ -396,7 +396,7 @@ body {
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.98);
     border: 2px solid rgba(255, 255, 255, 0.5);
-    color: white; /* Changed to white for mobile */
+    color: #2d3748; /* Mobile: Dark text for select inputs */
     font-weight: 500;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -404,7 +404,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     position: relative;
-    z-index: 2003; /* Higher z-index for mobile */
+    z-index: 2003;
   }
 
   .budget-select:focus,
@@ -413,30 +413,30 @@ body {
     border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    z-index: 2004; /* Highest z-index when focused on mobile */
+    z-index: 2004;
   }
 
   .budget-select:hover,
   .manufacturer-select:hover {
-    z-index: 2004; /* Higher z-index when hovered on mobile */
+    z-index: 2004;
   }
 
   /* Custom dropdown arrow */
   .budget-select,
   .manufacturer-select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); /* Changed arrow color to white */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 0.5rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
     padding-right: 1.5rem;
   }
 
-  /* Make options bold and white for mobile as well */
+  /* Make options bold and dark for mobile */
   .budget-select option,
   .manufacturer-select option {
     font-weight: bold;
-    color: white; /* Changed to white for mobile */
-    background: #667eea; /* A background for options in mobile for better visibility */
+    color: #2d3748; /* Mobile: Dark text for select options */
+    background: white; /* A white background for options in mobile for better visibility */
   }
 
   .stock-cars-grid {
@@ -476,7 +476,7 @@ body {
     min-height: 180px;
     bottom: 12px;
     padding: 1.2rem;
-    z-index: 1000; /* Maintain high z-index */
+    z-index: 1000;
   }
 
   .budget-select,
@@ -485,7 +485,7 @@ body {
     font-size: 0.95rem;
     margin-bottom: 1rem;
     border-radius: 12px;
-    z-index: 2003; /* Higher z-index */
+    z-index: 2003;
   }
 
   .sidebar h2 {
@@ -523,7 +523,7 @@ body {
     min-height: 170px;
     bottom: 10px;
     padding: 1rem;
-    z-index: 2000; /* Maintain high z-index */
+    z-index: 2000;
   }
 
   .budget-select,
@@ -532,7 +532,7 @@ body {
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
     border-radius: 10px;
-    z-index: 2003; /* Higher z-index */
+    z-index: 2003;
   }
 
   .sidebar h2 {
@@ -574,7 +574,7 @@ body {
 
   .sidebar {
     width: 280px;
-    z-index: 1000; /* Maintain proper z-index */
+    z-index: 1000;
   }
 }
 
@@ -603,7 +603,7 @@ body {
     min-height: 140px;
     bottom: 8px;
     padding: 1rem;
-    z-index: 2000; /* Maintain high z-index */
+    z-index: 2000;
   }
 
   .content {
@@ -615,7 +615,7 @@ body {
     padding: 0.7rem;
     font-size: 0.85rem;
     margin-bottom: 0.7rem;
-    z-index: 2003; /* Higher z-index */
+    z-index: 2003;
   }
 
   .sidebar h2 {
