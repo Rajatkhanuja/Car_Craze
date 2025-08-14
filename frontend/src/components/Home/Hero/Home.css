@@ -276,14 +276,14 @@
 }
 
 .car-info {
-  padding: 0.8rem 1rem 0.5rem 1rem; /* Reduced bottom padding */
+  padding: 0.5rem 1rem; /* Reduced bottom padding */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .car-name {
-  margin-bottom: 0.2rem; /* Reduced bottom margin */
+  margin-bottom: 0.1rem; /* Reduced bottom margin */
 }
 
 .car-title {
@@ -301,14 +301,14 @@
   color: #666;
   font-weight: 400;
   line-height: 1.2;
-  margin-bottom: 0.5rem; /* Reduced gap between variant and badges */
+  margin-bottom: 0.4rem; /* Reduced gap between variant and badges */
 }
 
 .car-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem; /* Reduced gap between badges */
-  margin-bottom: 0.5rem; /* Reduced bottom margin */
+  margin-bottom: 0.4rem; /* Reduced bottom margin */
 }
 
 .car-badges span {
