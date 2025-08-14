@@ -168,10 +168,23 @@
   overflow-x: hidden;
 }
 
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
 .horizontal-scroll {
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .car-card-wrapper {
@@ -184,105 +197,109 @@
   height: 400px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   flex-shrink: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .car-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.car-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
 }
 
 .car-img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
-/* Badge Bottom over Image */
-.badge {
+.badge-bottom {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 8px;
+  left: 8px;
   background-color: #007bff;
   color: white;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
 .car-info {
-  padding: 0.8rem 1rem 1rem 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  justify-content: space-between;
 }
 
 .car-name {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .car-title {
-  font-size: 1rem;
+  display: block;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #000;
-  margin-bottom: 2px;
+  color: #333;
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
 }
 
 .car-variant {
-  font-size: 0.85rem;
+  display: block;
+  font-size: 0.9rem;
   color: #666;
-  margin-bottom: 6px;
-}
-
-.car-price {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #111;
-  margin-bottom: 0.4rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .car-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
-  font-size: 0.75rem;
-  color: #555;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .car-badges span {
-  background-color: #f1f1f1;
-  padding: 0.2rem 0.5rem;
+  background-color: #f8f9fa;
+  color: #666;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
-}
-
-/* EMI and Other Charges (intact as required) */
-.car-emi {
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 0.2rem;
-}
-
-.car-old-price {
-  font-size: 0.85rem;
-  color: #999;
-  text-decoration: line-through;
-}
-
-.car-extra-charges {
   font-size: 0.75rem;
-  color: #777;
-  margin-top: 0.2rem;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+}
+
+.car-price {
+  margin-top: auto;
+}
+
+.new-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.extra-charges {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 400;
 }
 
 /* View More Circle */
@@ -307,11 +324,35 @@
   background-color: #0056b3;
 }
 
-/* Responsive */
+.view-more-circle span {
+  line-height: 1;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  .cars-in-stock-section {
+    padding: 0.8rem;
+  }
+  
   .car-card {
     width: 280px;
     height: 380px;
+  }
+
+  .car-img-wrapper {
+    height: 180px;
+  }
+
+  .car-title {
+    font-size: 1rem;
+  }
+
+  .car-variant {
+    font-size: 0.85rem;
+  }
+
+  .new-price {
+    font-size: 1.1rem;
   }
 
   .view-more-circle {
@@ -327,13 +368,34 @@
     height: 360px;
   }
 
-  .car-img {
+  .car-img-wrapper {
     height: 160px;
   }
 
-  .badge {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.4rem;
+  .car-info {
+    padding: 0.8rem;
+  }
+
+  .car-title {
+    font-size: 0.95rem;
+  }
+
+  .car-variant {
+    font-size: 0.8rem;
+  }
+
+  .car-badges span {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .new-price {
+    font-size: 1rem;
+  }
+
+  .badge-bottom {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .view-more-circle {
@@ -343,6 +405,16 @@
   }
 }
 
+@media (max-width: 360px) {
+  .car-card {
+    width: 230px;
+    height: 340px;
+  }
+
+  .car-img-wrapper {
+    height: 150px;
+  }
+}
 /* Footer Styles */
 .footer {
   background-color: #222;
