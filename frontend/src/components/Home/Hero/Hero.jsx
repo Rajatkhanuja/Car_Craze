@@ -122,40 +122,38 @@ const Hero = () => {
   </div>
 </section>
 
-     <section id="cars-in-stock" class="cars-in-stock-section">
-  <h2 class="section-title">Our Cars in Stock</h2>
-  <div class="horizontal-scroll">
-    <div class="car-card-wrapper">
+     <section id="cars-in-stock" className="cars-in-stock-section">
+  <h2 className="section-title">Our Cars in Stock</h2>
+  <div className="horizontal-scroll">
+    <div className="car-card-wrapper">
       {cars.slice(0, 6).map((car, index) => (
         <div
           key={index}
-          class="car-card"
+          className="car-card"
           onClick={() => navigate(`/car-details/${car._id}`)}
         >
           <img
             src={car.photo1}
             alt={car.name}
-            class="car-img"
+            className="car-img"
             onError={(e) => (e.target.src = "/placeholder-car.jpg")}
           />
-          <div class="badge">CARCRAZE Assured</div>
-          <div class="car-info">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-              <h3 class="car-name" style="margin: 0;">
-                <span class="car-title">{car.year} {car.name}</span>
-                <span class="car-variant">{car.model}</span>
+          <div className="badge">CARCRAZE Assured</div>
+          <div className="car-info">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <h3 className="car-name" style={{ margin: 0 }}>
+                <span className="car-title">{car.year} {car.name}</span>
+                <span className="car-variant">{car.model}</span>
               </h3>
-              <div class="car-price" style="text-align: right;">
-                
-                <div class="price-details">
-                  
-                  <span class="new-price">₹{car.price} lakh</span>
+              <div className="car-price" style={{ textAlign: 'right' }}>
+                <div className="price-details">
+                  <span className="new-price">₹{car.price} lakh</span>
                 </div>
-                <div class="extra-charges">+ other charges</div>
+                <div className="extra-charges">+ other charges</div>
               </div>
             </div>
 
-            <div class="car-badges">
+            <div className="car-badges">
               <span>{car.running}</span>
               <span>{car.fuel}</span>
               <span>{car.transmission}</span>
@@ -164,12 +162,13 @@ const Hero = () => {
           </div>
         </div>
       ))}
-      <div class="car-card view-more-circle" onClick={() => navigate("/cars")}>
+      <div className="car-card view-more-circle" onClick={() => navigate("/cars")}>
         <span>+</span>
       </div>
     </div>
   </div>
 </section>
+
 
       <footer className="footer">
         <div className="footer-container">
