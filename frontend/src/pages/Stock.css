@@ -274,7 +274,7 @@ body {
 
   .content {
     margin-bottom: 220px;
-    padding: 0 0.5rem;
+    padding: 0 0.2rem; /* Reduced horizontal padding for wider cards */
     margin-top: 1rem;
   }
 
@@ -426,7 +426,7 @@ body {
 
   .content {
     margin-bottom: 190px;
-    padding: 0 0.3rem;
+    padding: 0 0.1rem; /* Further reduced horizontal padding */
   }
 
   .stock-header h1 {
