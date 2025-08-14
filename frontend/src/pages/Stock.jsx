@@ -194,49 +194,49 @@ const Stock = () => {
 
             {/* Mobile Filters */}
             <div className={`mobile-filters ${showMobileFilters ? 'show' : ''}`}>
-                    <h3>Budget Range</h3>
-                    <CustomSelect
-                        options={budgetOptions}
-                        value={selectedBudget}
-                        onChange={handleBudgetChange}
-                        placeholder="Select Budget"
-                        styleClass="budget-select-custom"
-                    />
+                <h3>Budget Range</h3>
+                <CustomSelect
+                    options={budgetOptions}
+                    value={selectedBudget}
+                    onChange={handleBudgetChange}
+                    placeholder="Select Budget"
+                    styleClass="budget-select-custom"
+                />
 
-                    <h3>Manufacturer</h3>
-                    <CustomSelect
-                        options={manufacturerOptions}
-                        value={selectedManufacturer}
-                        onChange={handleManufacturerChange}
-                        placeholder="Select Manufacturer"
-                        styleClass="manufacturer-select-custom"
-                    />
+                <h3>Manufacturer</h3>
+                <CustomSelect
+                    options={manufacturerOptions}
+                    value={selectedManufacturer}
+                    onChange={handleManufacturerChange}
+                    placeholder="Select Manufacturer"
+                    styleClass="manufacturer-select-custom"
+                />
 
-                    <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
-                        <button
-                            className="clear-filter"
-                            onClick={clearAllFilters}
-                            style={{ flex: 1 }}
-                        >
-                            Clear All
-                        </button>
-                        <button
-                            onClick={() => setShowMobileFilters(false)}
-                            style={{
-                                flex: 1,
-                                background: '#3182ce',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '6px',
-                                padding: '8px 12px',
-                                cursor: 'pointer'
-                            }}
-                        >
-                            Apply Filters
-                        </button>
-                    </div>
+                <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+                    <button
+                        className="clear-filter"
+                        onClick={clearAllFilters}
+                        style={{ flex: 1 }}
+                    >
+                        Clear All
+                    </button>
+                    <button
+                        onClick={() => setShowMobileFilters(false)}
+                        style={{
+                            flex: 1,
+                            background: '#3182ce',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '6px',
+                            padding: '8px 12px',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Apply Filters
+                    </button>
                 </div>
-            
+            </div>
+
 
             {/* Main Content */}
             <div className="content">
@@ -267,10 +267,11 @@ const Stock = () => {
                             </div>
 
                             <div className="stock-car-info">
-                                <h3 className="stock-car-name">
+                                <h3 className="car-title-main"> {/* New container for title and variant */}
                                     <span className="car-title">{car.year} {car.name}</span>
-                                    <span className="car-variant">{car.model}</span>
                                 </h3>
+                                <p className="car-variant-center">{car.model}</p> {/* Moved and styled separately */}
+
 
                                 <div className="car-badges">
                                     <span>{car.running} km</span>
