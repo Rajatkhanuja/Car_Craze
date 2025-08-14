@@ -108,15 +108,6 @@ const Stock = () => {
         setSelectedManufacturer(event.target.value);
     };
 
-    const formatPrice = (price) => {
-        return new Intl.NumberFormat('en-IN', {
-            style: 'currency',
-            currency: 'INR',
-             maximumFractionDigits: 1, // 🔁 allow 1 digit after decimal
-    minimumFractionDigits: 1  // ✅ ensure .0 is also shown (like 4.0)
-        }).format(price);
-    };
-
     const filteredCars = cars.filter(car => {
         const matchesManufacturer = !selectedManufacturer ||
             car.name.toLowerCase().includes(selectedManufacturer.toLowerCase());
@@ -129,10 +120,6 @@ const Stock = () => {
 
         return matchesManufacturer && matchesBudget;
     });
-
-    const handleViewDetails = (id) => {
-        navigate(`/car-details/${id}`);
-    };
 
     return (
         <div className="main-container">
@@ -184,34 +171,43 @@ const Stock = () => {
 
             <div className="content">
                 <div className="stock-header">
-                    <h1>Stock Cars</h1>
+                    <h1>Cars in Stock</h1>
                 </div>
 
                 <div className="stock-cars-grid">
                     {filteredCars.map((car, index) => (
-                        <div key={index} className="stock-car-card">
-                            <img
-                                src={car.photo1} // ✅ Direct Cloudinary URL
-                                alt={car.name}
-                                className="stock-car-img"
-                                onError={(e) => {
-                                    e.target.src = '/placeholder-car.jpg';
-                                }}
-                            />
-                            <div className="stock-car-info">
-                                <h3 className="stock-car-name">{car.name} - {car.model}</h3>
-                                <div className="car-details-row">
-                                    <p><strong>Reg.Year:</strong> {car.year}</p>
-                                    <p><strong>Fuel:</strong> {car.fuel}</p>
-                                </div>
-                                <div className="car-details-row">
-                                    <p><strong>Km Driven:</strong> {car.running}</p>
-                                    <p><strong>Price:</strong> ₹{car.price} Lakh</p>
+                        <div
+                            key={index}
+                            className="car-card" // Changed to car-card
+                            onClick={() => navigate(`/car-details/${car._id}`)}
+                        >
+                            <div className="car-img-wrapper">
+                                <img
+                                    src={car.photo1}
+                                    alt={car.name}
+                                    className="car-img" // Changed to car-img
+                                    onError={(e) => (e.target.src = "/placeholder-car.jpg")}
+                                />
+                                <div className="badge-bottom">CARCRAZE Assured</div>
+                            </div>
 
+                            <div className="car-info">
+                                <h3 className="car-name">
+                                    <span className="car-title">{car.year} {car.name}</span>
+                                    <span className="car-variant">{car.model}</span>
+                                </h3>
+
+                                <div className="car-badges">
+                                    <span>{car.running} km</span> {/* Added 'km' for clarity */}
+                                    <span>{car.fuel}</span>
+                                    <span>{car.transmission}</span>
+                                    <span>{car.registration}</span>
                                 </div>
-                                <button className="stock-view-details" onClick={() => handleViewDetails(car._id)}>
-                                    View Details
-                                </button>
+
+                                <div className="car-price">
+                                    <span className="new-price">₹{car.price} lakh</span>
+                                    <div className="extra-charges">+ other charges</div>
+                                </div>
                             </div>
                         </div>
                     ))}

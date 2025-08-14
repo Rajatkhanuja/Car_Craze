@@ -79,44 +79,82 @@ body {
   font-weight: bold; /* Make "Select Budget" and "Select Manufacturer" bold */
 }
 
-.budget-select,
-.manufacturer-select {
-  width: 100%;
-  padding: 0.7rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  appearance: none;
-  outline: none;
-  color: white; /* Changed to white for desktop as well */
+/* CustomSelect specific styles */
+.custom-select-container {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
 
-
-.budget-select:focus,
-.manufacturer-select:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-  transform: translateY(-2px);
-  z-index: 1004; /* Higher z-index when focused */
+.selected-value {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333; /* Default text color */
 }
 
-.budget-select:hover,
-.manufacturer-select:hover {
-  border-color: #667eea;
-  transform: translateY(-1px);
-  z-index: 1004; /* Higher z-index when hovered */
+/* Specific for desktop select-wrapper */
+.select-wrapper .custom-select-container .selected-value {
+    color: #333; /* Ensure text is visible on desktop */
 }
 
-/* Dropdown options styling */
-.budget-select option,
-.manufacturer-select option {
-  background: white;
-  color: white; /* Changed to white */
-  padding: 0.5rem;
-  z-index: 1005; /* Highest z-index for options */
-  font-weight: bold; /* Make dropdown options bold */
+.dropdown-arrow {
+    margin-left: 10px;
+}
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    list-style: none;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-item {
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: #333; /* Default text color */
+    cursor: pointer;
+}
+
+.option-item:hover {
+    background-color: #f0f0f0;
+}
+
+.option-item.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.clear-filter {
+    background: linear-gradient(135deg, #f06292 0%, #e91e63 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.clear-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
 }
 
 /* Content Area */
@@ -150,7 +188,7 @@ body {
   margin: 0 auto;
 }
 
-/* Stock Cars Grid */
+/* Stock Cars Grid (Updated for new card structure) */
 .stock-cars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -159,7 +197,8 @@ body {
   width: 100%;
 }
 
-.stock-car-card {
+/* Car Card Styles (from provided snippet) */
+.car-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -169,104 +208,104 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  z-index: 1; /* Lower z-index than sidebar */
+  cursor: pointer; /* Indicate clickable */
 }
 
-.stock-car-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.stock-car-card:hover::before {
-  opacity: 1;
-}
-
-.stock-car-card:hover {
+.car-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-.stock-car-img {
+.car-img-wrapper {
+  position: relative;
   width: 100%;
   height: 220px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.stock-car-card:hover .stock-car-img {
-  transform: scale(1.05);
-}
-
-.stock-car-info {
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.stock-car-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.stock-car-info p {
-  margin: 0.7rem 0;
-  color: #718096;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.stock-car-info strong {
-  color: #2d3748;
-  font-weight: 600;
-}
-
-.stock-view-details {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  margin-top: 1.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
   overflow: hidden;
 }
 
-.stock-view-details::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.car-img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.stock-view-details:hover::before {
-  left: 100%;
+.car-card:hover .car-img {
+  transform: scale(1.05);
 }
 
-.stock-view-details:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+.badge-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #4CAF50; /* Green color for assured badge */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 5;
+}
+
+.car-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.car-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.car-variant {
+  font-size: 1rem;
+  color: #718096;
+  margin-top: 0.2rem;
+}
+
+.car-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.car-badges span {
+  background-color: #edf2f7;
+  color: #4a5568;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.car-price {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.new-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.extra-charges {
+  font-size: 0.85rem;
+  color: #718096;
+  text-align: right;
 }
 
 .no-cars {
@@ -280,37 +319,6 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.car-info {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.car-details-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.car-details-row:last-child {
-  border-bottom: none;
-}
-
-.car-details-row p {
-  margin: 0;
-  color: #718096;
-  font-size: 0.95rem;
-}
-
-.car-details-row strong {
-  color: #2d3748;
-  font-weight: 600;
-}
-
 /* Mobile Styles */
 @media (max-width: 768px) {
   .main-container {
@@ -318,7 +326,7 @@ body {
     padding: 1rem;
     gap: 1rem;
   }
- .select-wrapper {
+  .select-wrapper {
     max-height: 180px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -389,55 +397,41 @@ body {
     z-index: 2002; /* Higher z-index for mobile */
   }
 
-  .budget-select,
-  .manufacturer-select {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.98);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: white; /* Changed to white for mobile */
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    z-index: 2003; /* Higher z-index for mobile */
+  /* Custom Select mobile adjustments */
+  .custom-select-container .selected-value {
+      background: rgba(255, 255, 255, 0.98);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: #333; /* Text color inside select */
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      z-index: 2003;
   }
 
-  .budget-select:focus,
-  .manufacturer-select:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    z-index: 2004; /* Highest z-index when focused on mobile */
+  .custom-select-container .options-list {
+      background: #667eea; /* Background for options in mobile for better visibility */
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      margin-top: 5px; /* Space between selected value and dropdown */
+      z-index: 2004;
   }
 
-  .budget-select:hover,
-  .manufacturer-select:hover {
-    z-index: 2004; /* Higher z-index when hovered on mobile */
+  .custom-select-container .option-item {
+      color: white; /* Options text white */
+      font-weight: bold;
+      padding: 0.8rem 1rem;
   }
 
-  /* Custom dropdown arrow */
-  .budget-select,
-  .manufacturer-select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); /* Changed arrow color to white */
-    background-position: right 0.5rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 1.5rem;
+  .custom-select-container .option-item:hover {
+      background-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Make options bold and white for mobile as well */
-  .budget-select option,
-  .manufacturer-select option {
-    font-weight: bold;
-    color: white; /* Changed to white for mobile */
-    background: #667eea; /* A background for options in mobile for better visibility */
+  .custom-select-container .option-item.selected {
+      background-color: rgba(255, 255, 255, 0.3);
   }
+
 
   .stock-cars-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -445,25 +439,20 @@ body {
     padding: 0 0.5rem;
   }
 
-  .stock-car-card {
+  .car-card {
     border-radius: 15px;
   }
 
-  .stock-car-img {
+  .car-img-wrapper {
     height: 160px;
   }
 
-  .stock-car-info {
+  .car-info {
     padding: 1.2rem;
   }
 
-  .stock-car-name {
+  .car-name {
     font-size: 1.1rem;
-  }
-
-  .stock-view-details {
-    padding: 0.8rem;
-    font-size: 0.9rem;
   }
 }
 
@@ -479,8 +468,7 @@ body {
     z-index: 1000; /* Maintain high z-index */
   }
 
-  .budget-select,
-  .manufacturer-select {
+  .custom-select-container .selected-value {
     padding: 0.9rem;
     font-size: 0.95rem;
     margin-bottom: 1rem;
@@ -505,11 +493,11 @@ body {
     gap: 0.8rem;
   }
 
-  .stock-car-img {
+  .car-img-wrapper {
     height: 140px;
   }
 
-  .stock-car-info {
+  .car-info {
     padding: 1rem;
   }
 }
@@ -526,8 +514,7 @@ body {
     z-index: 2000; /* Maintain high z-index */
   }
 
-  .budget-select,
-  .manufacturer-select {
+  .custom-select-container .selected-value {
     padding: 0.8rem;
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
@@ -552,15 +539,15 @@ body {
     gap: 0.6rem;
   }
 
-  .stock-car-img {
+  .car-img-wrapper {
     height: 120px;
   }
 
-  .stock-car-info {
+  .car-info {
     padding: 0.8rem;
   }
 
-  .stock-car-name {
+  .car-name {
     font-size: 1rem;
   }
 }
@@ -610,8 +597,7 @@ body {
     margin-bottom: 160px;
   }
 
-  .budget-select,
-  .manufacturer-select {
+  .custom-select-container .selected-value {
     padding: 0.7rem;
     font-size: 0.85rem;
     margin-bottom: 0.7rem;
@@ -638,21 +624,49 @@ body {
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
   }
 
-  .stock-car-card,
+  .car-card, /* Changed from stock-car-card */
   .sidebar {
     background: rgba(45, 55, 72, 0.95);
   }
 
-  .stock-car-name,
+  .car-name, /* Changed from stock-car-name */
   .sidebar h2 {
     color: #f7fafc;
   }
 
-  .stock-car-info p {
+  .car-info p { /* Changed from stock-car-info p */
     color: #cbd5e0;
   }
 
-  .stock-car-info strong {
+  .car-info strong { /* Changed from stock-car-info strong */
+    color: #e2e8f0;
+  }
+
+  .custom-select-container .selected-value {
+      background-color: #4a5568;
+      border-color: #636b77;
+      color: #f7fafc;
+  }
+
+  .custom-select-container .options-list {
+      background-color: #4a5568;
+      border-color: #636b77;
+  }
+
+  .custom-select-container .option-item {
+      color: #f7fafc;
+  }
+
+  .custom-select-container .option-item:hover {
+      background-color: #636b77;
+  }
+
+  .custom-select-container .option-item.selected {
+      background-color: #718096;
+  }
+
+  .car-badges span {
+    background-color: #4a5568;
     color: #e2e8f0;
   }
 }
@@ -674,14 +688,13 @@ html {
   }
 }
 
-.stock-car-card {
+.car-card { /* Changed from stock-car-card */
   animation: fadeInUp 0.6s ease-out;
 }
 
 /* Accessibility Improvements */
-.budget-select:focus,
-.manufacturer-select:focus,
-.stock-view-details:focus {
+.custom-select-container .selected-value:focus,
+.clear-filter:focus {
   outline: 2px solid #667eea;
   outline-offset: 2px;
 }
