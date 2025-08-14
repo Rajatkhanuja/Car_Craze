@@ -189,12 +189,11 @@ const Stock = () => {
                 className="mobile-filters-toggle"
                 onClick={() => setShowMobileFilters(!showMobileFilters)}
             >
-                🔍 Filters {(selectedBudget || selectedManufacturer) && '●'}
+                {showMobileFilters ? '✕ Close' : '🔍 Filters'} {(selectedBudget || selectedManufacturer) && '●'}
             </button>
 
             {/* Mobile Filters */}
-            {showMobileFilters && (
-                <div className="mobile-filters">
+            <div className={`mobile-filters ${showMobileFilters ? 'show' : ''}`}>
                     <h3>Budget Range</h3>
                     <CustomSelect
                         options={budgetOptions}
@@ -237,7 +236,7 @@ const Stock = () => {
                         </button>
                     </div>
                 </div>
-            )}
+            
 
             {/* Main Content */}
             <div className="content">
