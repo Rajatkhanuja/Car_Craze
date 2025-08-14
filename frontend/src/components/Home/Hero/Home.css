@@ -344,7 +344,7 @@
 
   .car-card {
     width: 280px;
-    height: 380px;
+    height: auto;
   }
 
   .car-img-wrapper {
@@ -373,7 +373,7 @@
 @media (max-width: 480px) {
   .car-card {
     width: 250px;
-    height: 360px;
+    height: auto;
   }
 
   .car-img-wrapper {
@@ -416,7 +416,7 @@
 @media (max-width: 360px) {
   .car-card {
     width: 230px;
-    height: 340px;
+    height: auto;
   }
 
   .car-img-wrapper {
