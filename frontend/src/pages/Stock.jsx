@@ -56,6 +56,7 @@ const Stock = () => {
     const [selectedBudget, setSelectedBudget] = useState("");
     const [selectedManufacturer, setSelectedManufacturer] = useState("");
     const [cars, setCars] = useState([]);
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
     const navigate = useNavigate();
 
     const manufacturers = ["Audi", "BMW", "Chevrolet", "Citroen", "Datsun", "Fiat", "Ford", "Honda",
@@ -120,8 +121,15 @@ const Stock = () => {
         return matchesManufacturer && matchesBudget;
     });
 
+    const clearAllFilters = () => {
+        setSelectedBudget("");
+        setSelectedManufacturer("");
+        setShowMobileFilters(false);
+    };
+
     return (
         <div className="main-container">
+            {/* Desktop Sidebar */}
             <aside className="sidebar">
                 <h2>Budget Range</h2>
                 <div className="select-wrapper">
@@ -133,17 +141,14 @@ const Stock = () => {
                         styleClass="budget-select-custom"
                     />
                 </div>
-                <button
-                    className="clear-filter"
-                    onClick={() => setSelectedBudget("")}
-                    style={{
-                        marginLeft: '10px',
-                        padding: '5px 10px',
-                        display: selectedBudget ? 'inline-block' : 'none'
-                    }}
-                >
-                    Clear Budget
-                </button>
+                {selectedBudget && (
+                    <button
+                        className="clear-filter"
+                        onClick={() => setSelectedBudget("")}
+                    >
+                        Clear Budget
+                    </button>
+                )}
 
                 <h2>Manufacturer</h2>
                 <div className="select-wrapper">
@@ -154,23 +159,95 @@ const Stock = () => {
                         placeholder="Select Manufacturer"
                         styleClass="manufacturer-select-custom"
                     />
+                    {selectedManufacturer && (
+                        <button
+                            className="clear-filter"
+                            onClick={() => setSelectedManufacturer("")}
+                        >
+                            Clear
+                        </button>
+                    )}
+                </div>
+
+                {(selectedBudget || selectedManufacturer) && (
                     <button
                         className="clear-filter"
-                        onClick={() => setSelectedManufacturer("")}
+                        onClick={clearAllFilters}
                         style={{
-                            marginLeft: '10px',
-                            padding: '5px 10px',
-                            display: selectedManufacturer ? 'inline-block' : 'none'
+                            marginTop: '20px',
+                            width: '100%',
+                            background: '#4a5568'
                         }}
                     >
-                        Clear
+                        Clear All Filters
                     </button>
-                </div>
+                )}
             </aside>
 
+            {/* Mobile Filter Toggle Button */}
+            <button
+                className="mobile-filters-toggle"
+                onClick={() => setShowMobileFilters(!showMobileFilters)}
+            >
+                🔍 Filters {(selectedBudget || selectedManufacturer) && '●'}
+            </button>
+
+            {/* Mobile Filters */}
+            {showMobileFilters && (
+                <div className="mobile-filters">
+                    <h3>Budget Range</h3>
+                    <CustomSelect
+                        options={budgetOptions}
+                        value={selectedBudget}
+                        onChange={handleBudgetChange}
+                        placeholder="Select Budget"
+                        styleClass="budget-select-custom"
+                    />
+
+                    <h3>Manufacturer</h3>
+                    <CustomSelect
+                        options={manufacturerOptions}
+                        value={selectedManufacturer}
+                        onChange={handleManufacturerChange}
+                        placeholder="Select Manufacturer"
+                        styleClass="manufacturer-select-custom"
+                    />
+
+                    <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+                        <button
+                            className="clear-filter"
+                            onClick={clearAllFilters}
+                            style={{ flex: 1 }}
+                        >
+                            Clear All
+                        </button>
+                        <button
+                            onClick={() => setShowMobileFilters(false)}
+                            style={{
+                                flex: 1,
+                                background: '#3182ce',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '6px',
+                                padding: '8px 12px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* Main Content */}
             <div className="content">
                 <div className="stock-header">
                     <h1>Cars in Stock</h1>
+                    {filteredCars.length > 0 && (
+                        <p style={{ color: '#718096', margin: '8px 0 0 0' }}>
+                            Showing {filteredCars.length} car{filteredCars.length !== 1 ? 's' : ''}
+                        </p>
+                    )}
                 </div>
 
                 <div className="stock-cars-grid">
@@ -213,7 +290,27 @@ const Stock = () => {
                 </div>
 
                 {filteredCars.length === 0 && (
-                    <p className="no-cars">No cars found matching your criteria.</p>
+                    <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+                        <p className="no-cars">No cars found matching your criteria.</p>
+                        {(selectedBudget || selectedManufacturer) && (
+                            <button
+                                onClick={clearAllFilters}
+                                style={{
+                                    marginTop: '16px',
+                                    background: '#3182ce',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '8px',
+                                    padding: '12px 24px',
+                                    cursor: 'pointer',
+                                    fontSize: '14px',
+                                    fontWeight: '500'
+                                }}
+                            >
+                                Clear Filters to See All Cars
+                            </button>
+                        )}
+                    </div>
                 )}
             </div>
         </div>
