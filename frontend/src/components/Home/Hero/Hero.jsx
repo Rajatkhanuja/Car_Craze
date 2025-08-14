@@ -122,7 +122,7 @@ const Hero = () => {
   </div>
 </section>
 
-     <section id="cars-in-stock" className="cars-in-stock-section">
+   <section id="cars-in-stock" className="cars-in-stock-section">
   <h2 className="section-title">Our Cars in Stock</h2>
   <div className="horizontal-scroll">
     <div className="car-card-wrapper">
@@ -132,32 +132,32 @@ const Hero = () => {
           className="car-card"
           onClick={() => navigate(`/car-details/${car._id}`)}
         >
-          <img
-            src={car.photo1}
-            alt={car.name}
-            className="car-img"
-            onError={(e) => (e.target.src = "/placeholder-car.jpg")}
-          />
-          <div className="badge">CARCRAZE Assured</div>
+          <div className="car-img-wrapper">
+            <img
+              src={car.photo1}
+              alt={car.name}
+              className="car-img"
+              onError={(e) => (e.target.src = "/placeholder-car.jpg")}
+            />
+            <div className="badge-bottom">CARCRAZE Assured</div>
+          </div>
+
           <div className="car-info">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <h3 className="car-name" style={{ margin: 0 }}>
-                <span className="car-title">{car.year} {car.name}</span>
-                <span className="car-variant">{car.model}</span>
-              </h3>
-              <div className="car-price" style={{ textAlign: 'right' }}>
-                <div className="price-details">
-                  <span className="new-price">₹{car.price} lakh</span>
-                </div>
-                <div className="extra-charges">+ other charges</div>
-              </div>
-            </div>
+            <h3 className="car-name">
+              <span className="car-title">{car.year} {car.name}</span>
+              <span className="car-variant">{car.model}</span>
+            </h3>
 
             <div className="car-badges">
               <span>{car.running}</span>
               <span>{car.fuel}</span>
               <span>{car.transmission}</span>
               <span>{car.registration}</span>
+            </div>
+
+            <div className="car-price">
+              <span className="new-price">₹{car.price} lakh</span>
+              <div className="extra-charges">+ other charges</div>
             </div>
           </div>
         </div>
@@ -168,6 +168,7 @@ const Hero = () => {
     </div>
   </div>
 </section>
+
 
 
       <footer className="footer">

@@ -180,8 +180,8 @@
 }
 
 .car-card {
-  width: 370px;
-  height: 450px;
+  width: 320px;
+  height: 400px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -191,21 +191,29 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  transition: transform 0.2s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-4px);
 }
 
 .car-img {
   width: 100%;
-  height: 220px;
+  height: 180px;
   object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
+/* Badge Bottom over Image */
 .badge {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 10px;
   background-color: #007bff;
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   padding: 0.3rem 0.5rem;
   border-radius: 4px;
@@ -214,7 +222,7 @@
 }
 
 .car-info {
-  padding: 1rem;
+  padding: 0.8rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -222,30 +230,33 @@
 
 .car-name {
   margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .car-title {
   font-size: 1rem;
   font-weight: 700;
   color: #000;
-  display: block;
+  margin-bottom: 2px;
 }
 
 .car-variant {
-  font-size: 0.9rem;
-  color: #888;
-  display: block;
-  margin-top: 2px;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.car-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 0.4rem;
 }
 
 .car-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
+  gap: 0.3rem;
+  font-size: 0.75rem;
   color: #555;
 }
 
@@ -255,44 +266,9 @@
   border-radius: 4px;
 }
 
-.car-price {
-  text-align: right;
-}
+/* Removed EMI, old price, extra charges */
 
-.emi {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 0.2rem;
-}
-
-.price-details {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 0.85rem;
-}
-
-.new-price {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #111;
-}
-
-.extra-charges {
-  font-size: 0.75rem;
-  color: #888;
-  margin-top: 0.2rem;
-  border-top: 1px dotted #ccc;
-  padding-top: 0.2rem;
-  width: max-content;
-}
-
+/* View More Circle (unchanged) */
 .view-more-circle {
   width: 90px;
   height: 90px;
@@ -314,11 +290,13 @@
   background-color: #0056b3;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .car-card {
-    width: 300px;
-    height: 430px;
+    width: 280px;
+    height: 380px;
   }
+
   .view-more-circle {
     width: 70px;
     height: 70px;
@@ -328,20 +306,23 @@
 
 @media (max-width: 480px) {
   .car-card {
-    width: 260px;
-    height: 390px;
+    width: 250px;
+    height: 360px;
   }
+
+  .car-img {
+    height: 160px;
+  }
+
+  .badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+
   .view-more-circle {
     width: 60px;
     height: 60px;
     font-size: 1.3rem;
-  }
-  .car-img {
-    height: 160px;
-  }
-  .badge {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.4rem;
   }
 }
 
