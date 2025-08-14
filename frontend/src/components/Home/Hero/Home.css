@@ -247,7 +247,8 @@
 }
 
 .car-name {
-  margin-bottom: 0.5rem;
+  /* Reduced margin-bottom to create more space */
+  margin-bottom: 0.2rem; /* Changed from 0.5rem */
 }
 
 .car-title {
@@ -255,7 +256,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem; /* Reduced margin-bottom for tighter spacing */
   line-height: 1.3;
 }
 
@@ -271,7 +272,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 0.5rem;
+  /* Reduced margin-bottom to create more space */
+  margin-bottom: 0.4rem; /* Changed from 0.5rem */
+  /* Added flex-grow to allow badges to take available space */
+  flex-grow: 0;
 }
 
 .car-badges span {
@@ -336,7 +340,7 @@
   .cars-in-stock-section {
     padding: 0.8rem;
   }
-  
+
   .car-card {
     width: 280px;
     height: 380px;
