@@ -138,20 +138,32 @@ const Hero = () => {
             class="car-img"
             onError={(e) => (e.target.src = "/placeholder-car.jpg")}
           />
+          <div class="badge">CARCRAZE Assured</div>
           <div class="car-info">
             <h3 class="car-name">
-              {car.name} {car.model}
+              <span class="car-title">{car.year} {car.name}</span>
+              <span class="car-variant">{car.model}</span>
             </h3>
-            <div class="car-details-row">
+            <div class="car-badges">
               <span>{car.running}</span>
               <span>{car.fuel}</span>
               <span>{car.transmission}</span>
               <span>{car.registration}</span>
             </div>
+            <div class="car-price">
+              
+              <div class="price-details">
+                
+                <span class="new-price">₹{car.price} lakh</span>
+              </div>
+              <div class="extra-charges">+ other charges</div>
+            </div>
           </div>
         </div>
       ))}
-      <div class="car-card view-more-circle" onClick={() => navigate("/cars")}>+</div>
+      <div class="car-card view-more-circle" onClick={() => navigate("/cars")}>
+        <span>+</span>
+      </div>
     </div>
   </div>
 </section>
