@@ -122,7 +122,7 @@ const Hero = () => {
   </div>
 </section>
 
-      <section id="cars-in-stock" class="cars-in-stock-section">
+     <section id="cars-in-stock" class="cars-in-stock-section">
   <h2 class="section-title">Our Cars in Stock</h2>
   <div class="horizontal-scroll">
     <div class="car-card-wrapper">
@@ -140,23 +140,26 @@ const Hero = () => {
           />
           <div class="badge">CARCRAZE Assured</div>
           <div class="car-info">
-            <h3 class="car-name">
-              <span class="car-title">{car.year} {car.name}</span>
-              <span class="car-variant">{car.model}</span>
-            </h3>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <h3 class="car-name" style="margin: 0;">
+                <span class="car-title">{car.year} {car.name}</span>
+                <span class="car-variant">{car.model}</span>
+              </h3>
+              <div class="car-price" style="text-align: right;">
+                
+                <div class="price-details">
+                  
+                  <span class="new-price">₹{car.price} lakh</span>
+                </div>
+                <div class="extra-charges">+ other charges</div>
+              </div>
+            </div>
+
             <div class="car-badges">
               <span>{car.running}</span>
               <span>{car.fuel}</span>
               <span>{car.transmission}</span>
               <span>{car.registration}</span>
-            </div>
-            <div class="car-price">
-              
-              <div class="price-details">
-                
-                <span class="new-price">₹{car.price} lakh</span>
-              </div>
-              <div class="extra-charges">+ other charges</div>
             </div>
           </div>
         </div>
