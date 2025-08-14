@@ -266,9 +266,26 @@
   border-radius: 4px;
 }
 
-/* Removed EMI, old price, extra charges */
+/* EMI and Other Charges (intact as required) */
+.car-emi {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
 
-/* View More Circle (unchanged) */
+.car-old-price {
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.car-extra-charges {
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 0.2rem;
+}
+
+/* View More Circle */
 .view-more-circle {
   width: 90px;
   height: 90px;
