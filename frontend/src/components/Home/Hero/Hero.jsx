@@ -122,41 +122,39 @@ const Hero = () => {
   </div>
 </section>
 
-      <section id="cars-in-stock" className="cars-in-stock-section">
-        <h2 className="section-title">Our Cars in Stock</h2>
-        <div className="cars-grid">
-          {cars.slice(0, 6).map((car, index) => (
-            <div key={index} className="car-card">
-              <img
-                src={car.photo1} // ✅ Cloudinary full URL
-                alt={car.name}
-                className="car-img"
-                onError={(e) => {
-                  e.target.src = '/placeholder-car.jpg'; // Fallback image
-                }}
-              />
-              <div className="car-info">
-                <h3 className="car-name">{car.name} - {car.model}</h3>
-                <div className="car-details-row">
-                  <p><strong>Reg.Year:</strong> {car.year}</p>
-                  <p><strong>Fuel:</strong> {car.fuel}</p>
-                </div>
-                <div className="car-details-row">
-                  <p><strong>Km Driven:</strong> {car.running}</p>
-                  <p><strong>Price:</strong> ₹{car.price} Lakh</p>
-
-                </div>
-                <button
-                  className="view-details"
-                  onClick={() => navigate(`/car-details/${car._id}`)}
-                >
-                  View Details
-                </button>
-              </div>
+      <section id="cars-in-stock" class="cars-in-stock-section">
+  <h2 class="section-title">Our Cars in Stock</h2>
+  <div class="horizontal-scroll">
+    <div class="car-card-wrapper">
+      {cars.slice(0, 6).map((car, index) => (
+        <div
+          key={index}
+          class="car-card"
+          onClick={() => navigate(`/car-details/${car._id}`)}
+        >
+          <img
+            src={car.photo1}
+            alt={car.name}
+            class="car-img"
+            onError={(e) => (e.target.src = "/placeholder-car.jpg")}
+          />
+          <div class="car-info">
+            <h3 class="car-name">
+              {car.name} {car.model}
+            </h3>
+            <div class="car-details-row">
+              <span>{car.running}</span>
+              <span>{car.fuel}</span>
+              <span>{car.transmission}</span>
+              <span>{car.registration}</span>
             </div>
-          ))}
+          </div>
         </div>
-      </section>
+      ))}
+      <div class="car-card view-more-circle" onClick={() => navigate("/cars")}>+</div>
+    </div>
+  </div>
+</section>
 
       <footer className="footer">
         <div className="footer-container">
