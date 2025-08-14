@@ -5,7 +5,7 @@ import "./Stock.css";
 
 const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
-// CustomSelect Component (No changes needed here)
+// CustomSelect Component
 const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass }) => {
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
@@ -52,7 +52,6 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
     );
 };
 
-
 const Stock = () => {
     const [selectedBudget, setSelectedBudget] = useState("");
     const [selectedManufacturer, setSelectedManufacturer] = useState("");
@@ -60,10 +59,9 @@ const Stock = () => {
     const navigate = useNavigate();
 
     const manufacturers = ["Audi", "BMW", "Chevrolet", "Citroen", "Datsun", "Fiat", "Ford", "Honda",
-"Hyundai", "Jaguar", "Jeep", "Kia", "Land Rover", "Mahindra", "Maruti Suzuki",
-"Mercedes-Benz", "Morris Garage", "Nissan", "Renault", "Skoda", "Tata",
-"Toyota", "Volkswagen"
-
+        "Hyundai", "Jaguar", "Jeep", "Kia", "Land Rover", "Mahindra", "Maruti Suzuki",
+        "Mercedes-Benz", "Morris Garage", "Nissan", "Renault", "Skoda", "Tata",
+        "Toyota", "Volkswagen"
     ];
 
     const manufacturerOptions = [{ label: "Select Manufacturer", value: "" }, ...manufacturers.map(m => ({ label: m, value: m }))];
@@ -179,21 +177,21 @@ const Stock = () => {
                     {filteredCars.map((car, index) => (
                         <div
                             key={index}
-                            className="stock-car-card" // ✅ CORRECTED: Was "car-card"
+                            className="stock-car-card"
                             onClick={() => navigate(`/car-details/${car._id}`)}
                         >
                             <div className="car-img-wrapper">
                                 <img
                                     src={car.photo1}
                                     alt={car.name}
-                                    className="stock-car-img" // ✅ CORRECTED: Was "car-img"
+                                    className="stock-car-img"
                                     onError={(e) => (e.target.src = "/placeholder-car.jpg")}
                                 />
                                 <div className="badge-bottom">CARCRAZE Assured</div>
                             </div>
 
-                            <div className="stock-car-info"> {/* ✅ CORRECTED: Was "car-info" */}
-                                <h3 className="stock-car-name"> {/* ✅ CORRECTED: Was "car-name" */}
+                            <div className="stock-car-info">
+                                <h3 className="stock-car-name">
                                     <span className="car-title">{car.year} {car.name}</span>
                                     <span className="car-variant">{car.model}</span>
                                 </h3>
