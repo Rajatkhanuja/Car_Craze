@@ -89,7 +89,6 @@ const Stock = () => {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                // ✅ Cache-bypass added here
                 const response = await axios.get(`${API_URL}/cars?nocache=${Date.now()}`);
                 setCars(response.data);
             } catch (error) {
@@ -114,8 +113,8 @@ const Stock = () => {
 
         let matchesBudget = true;
         if (selectedBudget) {
-            const range = budgetRanges[selectedBudget];
-            matchesBudget = car.price >= range.min && car.price <= range.max;
+            const range = budgetRanges?.[selectedBudget];
+            matchesBudget = car.price >= range?.min && car.price <= range?.max;
         }
 
         return matchesManufacturer && matchesBudget;
@@ -242,7 +241,6 @@ const Stock = () => {
             <div className="content">
                 <div className="stock-header">
                     <h1>Cars in Stock</h1>
-                    
                 </div>
 
                 <div className="stock-cars-grid">
@@ -264,11 +262,13 @@ const Stock = () => {
 
                             <div className="stock-car-info">
                                 <h3 className="car-title-main">
-                                    <span className="car-title">{car.year} {car.name}</span>
+                                    {/* Combined name and model for mobile view */}
+                                    <span className="car-title">{car.year} {car.name} {car.model}</span>
                                 </h3>
-                                <div className="car-variant-wrapper"> {/* New wrapper div */}
+                                {/* The car-variant-wrapper is now hidden on mobile via CSS */}
+                                {/* <div className="car-variant-wrapper">
                                     <span className="car-variant">{car.model}</span>
-                                </div>
+                                </div> */}
 
 
                                 <div className="car-badges">
