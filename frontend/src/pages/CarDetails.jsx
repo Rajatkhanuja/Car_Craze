@@ -177,7 +177,7 @@ const CarDetails = () => {
               </div>
             </div>
             <div className="price-section">
-              <span></span> <strong>{formatPrice(car.price)}</strong>
+              <span>₹</span><strong>{formatPrice(car.price)}lakh</strong>
             </div>
           </div>
 
@@ -229,7 +229,7 @@ const CarDetails = () => {
                   <span> {stockCar.registration}</span>
                 </div>
                 <p className="car-card-price">
-                  {formatPrice(stockCar.price)}
+                  <span>₹</span><strong>{formatPrice(car.price)}lakh</strong>
                   <span className="other-charges">+ other charges</span>
                 </p>
               </div>
