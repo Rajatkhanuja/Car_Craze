@@ -1,447 +1,492 @@
 /* Main Container */
 .main-container {
-  display: flex;
-  min-height: 100vh;
-  background-color: #f5f7fa;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Sidebar - Desktop */
 .sidebar {
-  /* Default for desktop: visible */
-  display: block; /* Ensure it's visible by default on larger screens */
-  width: 280px;
-  background: #fff;
-  padding: 24px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  height: fit-content;
-  border-radius: 0 12px 12px 0;
-  margin-top: 40px;
+    /* Default for desktop: visible */
+    display: block; /* Ensure it's visible by default on larger screens */
+    width: 280px;
+    background: #fff;
+    padding: 24px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    border-radius: 0 12px 12px 0;
+    margin-top: 40px;
 }
 
 .sidebar h2 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #2d3748;
-  margin: 0 0 16px 0;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 16px 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
 }
 
 .sidebar h2:not(:first-child) {
-  margin-top: 32px;
+    margin-top: 32px;
 }
 
 /* Content Area */
 .content {
-  flex: 1;
-  padding: 24px;
-  overflow-x: hidden;
+    flex: 1;
+    padding: 24px;
+    overflow-x: hidden;
 }
 
 .stock-header {
-  margin-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .stock-header h1 {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a202c;
-  margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
 }
 
 /* Custom Select Styles */
 .custom-select-container {
-  position: relative;
-  width: 100%;
-  margin-bottom: 12px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+    /* Ensure there's enough space for dropdown to open upwards */
+    z-index: 1; /* Reset z-index for stacking context */
 }
 
 .selected-value {
-  background: #fff;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  color: #4a5568;
-  transition: all 0.2s ease;
-  min-height: 48px;
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #4a5568;
+    transition: all 0.2s ease;
+    min-height: 48px;
 }
 
 .selected-value:hover {
-  border-color: #cbd5e0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .selected-value:focus {
-  border-color: #3182ce;
-  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
 }
 
 .dropdown-arrow {
-  color: #a0aec0;
-  font-size: 12px;
-  transition: transform 0.2s ease;
+    color: #a0aec0;
+    font-size: 12px;
+    transition: transform 0.2s ease;
 }
 
 .options-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 2px solid #e2e8f0;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 2000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    position: absolute;
+    top: 100%; /* Default: opens downwards */
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-top: none; /* Default for downward opening */
+    border-radius: 0 0 8px 8px; /* Default for downward opening */
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .option-item {
-  padding: 12px 16px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #4a5568;
-  transition: background-color 0.2s ease;
-  border-bottom: 1px solid #f7fafc;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4a5568;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f7fafc;
 }
 
 .option-item:hover {
-  background-color: #f7fafc;
+    background-color: #f7fafc;
 }
 
 .option-item.selected {
-  background-color: #ebf8ff;
-  color: #3182ce;
-  font-weight: 500;
+    background-color: #ebf8ff;
+    color: #3182ce;
+    font-weight: 500;
 }
 
 .option-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
+
+/* Custom Select Upward Opening Styles */
+.custom-select-container.open-up .options-list {
+    top: auto;
+    bottom: 100%; /* Position above the selected-value */
+    border-radius: 8px 8px 0 0; /* Adjust border-radius */
+    border-bottom: none; /* Remove bottom border */
+    border-top: 2px solid #e2e8f0; /* Add top border */
+}
+
+.custom-select-container.open-up .selected-value {
+    border-radius: 0 0 8px 8px; /* Adjust selected-value border-radius */
+    border-bottom: 2px solid #e2e8f0; /* Add bottom border */
+    border-top: none; /* Remove top border */
+}
+
+.custom-select-container.open-up .dropdown-arrow {
+    transform: rotate(180deg); /* Flip arrow for upward opening */
+}
+
 
 /* Clear Filter Buttons */
 .clear-filter {
-  background: #e53e3e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-weight: 500;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
 }
 
 .clear-filter:hover {
-  background: #c53030;
+    background: #c53030;
 }
 
 /* Cars Grid */
 .stock-cars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
 }
 
 /* Car Card */
 .stock-car-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
 }
 
 .stock-car-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border-color: #cbd5e0;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: #cbd5e0;
 }
 
 .car-img-wrapper {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
+    position: relative;
+    height: 200px;
+    overflow: hidden;
 }
 
 .stock-car-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .stock-car-card:hover .stock-car-img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .badge-bottom {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: #38a169;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #38a169;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Car Info */
 .stock-car-info {
-  padding: 20px;
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* CENTER items horizontally by default (for desktop) */
+    padding: 20px;
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* CENTER items horizontally by default (for desktop) */
 }
 
 .stock-car-name {
-  margin: 0; /* Remove default h3 margins */
-  font-size: 16px;
-  font-weight: 500;
-  color: #2d3748;
-  line-height: 1.3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    margin: 0; /* Remove default h3 margins */
+    font-size: 16px;
+    font-weight: 500;
+    color: #2d3748;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .car-title-main {
-  margin-bottom: 4px;
-  text-align: center; /* CENTER text by default (for desktop) */
-  width: 100%;
+    margin-bottom: 4px;
+    text-align: center; /* CENTER text by default (for desktop) */
+    width: 100%;
 }
 
 .car-variant-wrapper {
-  width: 100%;
-  text-align: center; /* CENTER text by default (for desktop) */
-  margin-bottom: 12px;
+    width: 100%;
+    text-align: center; /* CENTER text by default (for desktop) */
+    margin-bottom: 12px;
 }
 
 .car-variant {
-  font-size: 14px;
-  color: #718096;
-  font-weight: 400;
+    font-size: 14px;
+    color: #718096;
+    font-weight: 400;
 }
 
 /* Car Badges */
 .car-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* CENTER badges by default (for desktop) */
-  gap: 8px;
-  margin-bottom: 16px;
-  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* CENTER badges by default (for desktop) */
+    gap: 8px;
+    margin-bottom: 16px;
+    width: 100%;
 }
 
 /* Price */
 .car-price {
-  margin-top: auto;
-  text-align: center; /* CENTER price by default (for desktop) */
-  width: 100%;
+    margin-top: auto;
+    text-align: center; /* CENTER price by default (for desktop) */
+    width: 100%;
 }
 
 /* --- Existing CSS continues below --- */
 
 /* Mobile Filters Container - Hidden by default on desktop */
 .mobile-filters {
-  display: none; /* Hidden by default on desktop */
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  max-height: 70vh;
-  overflow-y: auto;
-  border-radius: 20px 20px 0 0;
-  transform: translateY(0);
-  transition: transform 0.3s ease;
+    display: none; /* Hidden by default on desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    /* Added flexbox for better layout of filters and buttons */
+    display: flex; /* Changed from none to flex */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Push buttons to bottom */
+    padding-bottom: env(safe-area-inset-bottom, 20px); /* For iPhone X notch etc. */
 }
+
+/* This is the key change for the filter visibility */
+.mobile-filters.show {
+    display: flex; /* Changed from 'block' to 'flex' */
+}
+
+/* Ensure filter content scrolls, but buttons stay at bottom */
+.mobile-filters > *:not(.filter-actions) {
+    flex-shrink: 0; /* Prevent filters from shrinking, allowing content above to scroll */
+}
+
+.mobile-filters .filter-actions {
+    margin-top: auto; /* Push to bottom */
+    padding-top: 16px; /* Space between filters and buttons */
+    background: #fff; /* Ensure buttons have a white background */
+    z-index: 1001; /* Keep buttons above scrolling content */
+    border-top: 1px solid #e2e8e0; /* Optional: Separator line */
+    padding-top: 20px;
+    display: flex; /* Added to arrange buttons side-by-side */
+    gap: 12px; /* Space between buttons */
+}
+
 
 /* Mobile Filters Toggle Button - Hidden by default on desktop */
 .mobile-filters-toggle {
-  display: none; /* Hidden by default on desktop */
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #3182ce;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  z-index: 1001;
-  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
-  min-width: 120px;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+    display: none; /* Hidden by default on desktop */
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+    min-width: 120px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
-  .stock-cars-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
+    .stock-cars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 
-  .sidebar {
-    width: 240px;
-    padding: 20px;
-  }
+    .sidebar {
+        width: 240px;
+        padding: 20px;
+    }
 
-  .content {
-    padding: 20px;
-  }
+    .content {
+        padding: 20px;
+    }
 }
 
 /* Mobile Styles (up to 768px wide) */
 @media (max-width: 768px) {
-  .main-container {
-    flex-direction: column;
-  }
+    .main-container {
+        flex-direction: column;
+    }
 
-  /* Hide desktop sidebar on mobile */
-  .sidebar {
-    display: none;
-  }
+    /* Hide desktop sidebar on mobile */
+    .sidebar {
+        display: none;
+    }
 
-  /* Show mobile filters toggle button on mobile */
-  .mobile-filters-toggle {
-    display: flex; /* Show the button on mobile */
-  }
+    /* Show mobile filters toggle button on mobile */
+    .mobile-filters-toggle {
+        display: flex; /* Show the button on mobile */
+    }
 
-  /* Show mobile filters container if 'show' class is present */
-  .mobile-filters.show {
-    display: block; /* Show the mobile filter overlay when active */
-  }
 
-  .content {
-    padding: 16px;
-    padding-bottom: 140px; /* Space for mobile filters toggle */
-  }
+    .content {
+        padding: 16px;
+        padding-bottom: 140px; /* Space for mobile filters toggle */
+    }
 
-  .stock-header h1 {
-    font-size: 24px;
-  }
+    .stock-header h1 {
+        font-size: 24px;
+    }
 
-  .stock-cars-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+    .stock-cars-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 
-  .stock-car-card {
-    border-radius: 8px;
-  }
+    .stock-car-card {
+        border-radius: 8px;
+    }
 
-  .car-img-wrapper {
-    height: 160px;
-  }
+    .car-img-wrapper {
+        height: 160px;
+    }
 
-  .stock-car-info {
-    padding: 16px;
-    /* LEFT ALIGN items horizontally on mobile */
-    align-items: flex-start; /* Changed from center to flex-start */
-  }
+    .stock-car-info {
+        padding: 16px;
+        /* LEFT ALIGN items horizontally on mobile */
+        align-items: flex-start; /* Changed from center to flex-start */
+    }
 
-  .car-title-main {
-    font-size: 15px;
-    margin-bottom: 2px;
-    text-align: left;
-    display: inline; /* LEFT ALIGN text on mobile */
-  }
+    .car-title-main {
+        font-size: 15px;
+        margin-bottom: 2px;
+        text-align: left;
+        display: inline; /* LEFT ALIGN text on mobile */
+    }
 
-  .car-variant-wrapper {
-    margin-bottom: 10px;
-    text-align: left;
-    display: inline; /* LEFT ALIGN text on mobile */
-  }
+    .car-variant-wrapper {
+        margin-bottom: 10px;
+        text-align: left;
+        display: inline; /* LEFT ALIGN text on mobile */
+    }
 
-  .car-variant {
-    font-size: 13px;
-    display: inline;
-  }
+    .car-variant {
+        font-size: 13px;
+        display: inline;
+    }
 
-  .new-price {
-    font-size: 18px;
-  }
+    .new-price {
+        font-size: 18px;
+    }
 
-  .car-badges {
-    gap: 6px;
-    justify-content: flex-start; /* LEFT ALIGN badges on mobile */
-  }
+    .car-badges {
+        gap: 6px;
+        justify-content: flex-start; /* LEFT ALIGN badges on mobile */
+    }
 
-  .car-badges span {
-    font-size: 11px;
-    padding: 3px 6px;
-  }
+    .car-badges span {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
 
-  .car-price {
-    text-align: right; /* LEFT ALIGN price on mobile */
-  }
+    .car-price {
+        text-align: right; /* Changed from left to right for price on mobile */
+    }
 }
 
 /* Very Small Mobile */
 @media (max-width: 480px) {
-  .content {
-    padding: 12px;
-  }
+    .content {
+        padding: 12px;
+    }
 
-  .stock-cars-grid {
-    gap: 12px;
-  }
+    .stock-cars-grid {
+        gap: 12px;
+    }
 
-  .car-img-wrapper {
-    height: 140px;
-  }
+    .car-img-wrapper {
+        height: 140px;
+    }
 
-  .stock-car-info {
-    padding: 12px;
-  }
+    .stock-car-info {
+        padding: 12px;
+    }
 
-  .mobile-filters {
-    padding: 16px;
-  }
+    .mobile-filters {
+        padding: 16px;
+    }
 }
 
 /* Custom scrollbar for options list */
 .options-list::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .options-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 .options-list::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
-  border-radius: 3px;
+    background: #cbd5e0;
+    border-radius: 3px;
 }
 
 .options-list::-webkit-scrollbar-thumb:hover {
-  background: #a0aec0;
+    background: #a0aec0;
 }

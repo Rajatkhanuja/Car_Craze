@@ -8,6 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 // CustomSelect Component
 const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [openDirection, setOpenDirection] = useState('down'); // 'down' or 'up'
     const selectRef = useRef(null);
 
     useEffect(() => {
@@ -22,6 +23,20 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
         };
     }, []);
 
+    const handleToggle = () => {
+        if (!isOpen && selectRef.current) {
+            const spaceBelow = window.innerHeight - selectRef.current.getBoundingClientRect().bottom;
+            const spaceAbove = selectRef.current.getBoundingClientRect().top;
+            // Assuming max-height of options-list is 300px (from CSS)
+            if (spaceBelow < 300 && spaceAbove > 300) {
+                setOpenDirection('up');
+            } else {
+                setOpenDirection('down');
+            }
+        }
+        setIsOpen(!isOpen);
+    };
+
     const handleOptionClick = (optionValue) => {
         onChange({ target: { value: optionValue } });
         setIsOpen(false);
@@ -30,8 +45,8 @@ const CustomSelect = ({ label, options, value, onChange, placeholder, styleClass
     const displayValue = options.find(opt => opt.value === value)?.label || placeholder;
 
     return (
-        <div className={`custom-select-container ${styleClass}`} ref={selectRef}>
-            <div className="selected-value" onClick={() => setIsOpen(!isOpen)}>
+        <div className={`custom-select-container ${styleClass} ${isOpen && openDirection === 'up' ? 'open-up' : ''}`} ref={selectRef}>
+            <div className="selected-value" onClick={handleToggle}>
                 {displayValue}
                 <span className="dropdown-arrow">{isOpen ? '▲' : '▼'}</span>
             </div>
@@ -124,7 +139,7 @@ const Stock = () => {
     const clearAllFilters = () => {
         setSelectedBudget("");
         setSelectedManufacturer("");
-        setShowMobileFilters(false);
+        setShowMobileFilters(false); // Close filters after clearing
     };
 
     return (
@@ -194,25 +209,27 @@ const Stock = () => {
 
             {/* Mobile Filters */}
             <div className={`mobile-filters ${showMobileFilters ? 'show' : ''}`}>
-                <h3>Budget Range</h3>
-                <CustomSelect
-                    options={budgetOptions}
-                    value={selectedBudget}
-                    onChange={handleBudgetChange}
-                    placeholder="Select Budget"
-                    styleClass="budget-select-custom"
-                />
+                <div> {/* Wrapper for filter options to allow scrolling */}
+                    <h3>Budget Range</h3>
+                    <CustomSelect
+                        options={budgetOptions}
+                        value={selectedBudget}
+                        onChange={handleBudgetChange}
+                        placeholder="Select Budget"
+                        styleClass="budget-select-custom"
+                    />
 
-                <h3>Manufacturer</h3>
-                <CustomSelect
-                    options={manufacturerOptions}
-                    value={selectedManufacturer}
-                    onChange={handleManufacturerChange}
-                    placeholder="Select Manufacturer"
-                    styleClass="manufacturer-select-custom"
-                />
+                    <h3>Manufacturer</h3>
+                    <CustomSelect
+                        options={manufacturerOptions}
+                        value={selectedManufacturer}
+                        onChange={handleManufacturerChange}
+                        placeholder="Select Manufacturer"
+                        styleClass="manufacturer-select-custom"
+                    />
+                </div>
 
-                <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+                <div className="filter-actions"> {/* New wrapper for action buttons */}
                     <button
                         className="clear-filter"
                         onClick={clearAllFilters}
