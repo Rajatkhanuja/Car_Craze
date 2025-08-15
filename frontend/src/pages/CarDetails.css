@@ -394,7 +394,7 @@
   }
   
   .info-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
   
@@ -417,7 +417,7 @@
   }
   
   .inspection-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
   
@@ -489,11 +489,33 @@
   }
   
   .info-grid {
-    gap: 10px;
+    gap: 8px;
   }
   
   .inspection-grid {
-    gap: 10px;
+    gap: 8px;
+  }
+  
+  .info-item {
+    padding: 8px;
+  }
+  
+  .info-item span:first-child {
+    min-width: 60px;
+    font-size: 12px;
+  }
+  
+  .inspection-item {
+    padding: 12px 8px;
+  }
+  
+  .inspection-item img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .inspection-item span {
+    font-size: 12px;
   }
   
   .car-card {
