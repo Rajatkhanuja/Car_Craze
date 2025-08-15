@@ -86,6 +86,18 @@ const Stock = () => {
         "above-10": { min: 1000000, max: Infinity },
     };
 
+    
+    const convertPriceToNumber = (priceString) => {
+        if (!priceString || typeof priceString !== 'string') {
+            return 0;
+        }
+        const numericPart = parseFloat(priceString.replace(/ lakhs?/i, ''));
+        if (isNaN(numericPart)) {
+            return 0;
+        }
+        return numericPart * 100000;
+    };
+
     useEffect(() => {
         const fetchCars = async () => {
             try {
@@ -114,7 +126,8 @@ const Stock = () => {
         let matchesBudget = true;
         if (selectedBudget) {
             const range = budgetRanges?.[selectedBudget];
-            matchesBudget = car.price >= range?.min && car.price <= range?.max;
+            const carPriceNumeric = convertPriceToNumber(car.price); // यहाँ बदलाव है!
+            matchesBudget = carPriceNumeric >= range?.min && carPriceNumeric <= range?.max;
         }
 
         return matchesManufacturer && matchesBudget;
