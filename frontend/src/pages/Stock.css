@@ -148,23 +148,6 @@
   background: #c53030;
 }
 
-/* Apply Filters Button - RED STYLE */
-.apply-filters-btn {
-  background: #e53e3e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.apply-filters-btn:hover {
-  background: #c53030;
-}
-
 /* Cars Grid */
 .stock-cars-grid {
   display: grid;
@@ -275,6 +258,8 @@
   width: 100%;
 }
 
+/* --- Existing CSS continues below --- */
+
 /* Mobile Filters Container - Hidden by default on desktop */
 .mobile-filters {
   display: none; /* Hidden by default on desktop */
@@ -284,7 +269,6 @@
   right: 0;
   background: #fff;
   padding: 20px;
-  padding-top: 50px; /* Add space for close button */
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   max-height: 70vh;
@@ -294,42 +278,10 @@
   transition: transform 0.3s ease;
 }
 
-/* Mobile Filters Header */
-.mobile-filters h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2d3748;
-  margin: 0 0 12px 0;
-}
-
-/* Close Button for Mobile Filters */
-.mobile-filters-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: #e53e3e;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1001;
-  font-weight: bold;
-}
-
-.mobile-filters-close:hover {
-  background: #c53030;
-}
-
 /* Mobile Filters Toggle Button - Hidden by default on desktop */
-/*.mobile-filters-toggle {
+.mobile-filters-toggle {
   display: none; /* Hidden by default on desktop */
-  /*position: fixed;
+  position: fixed;
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
@@ -347,7 +299,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-}*/
+}
+
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
@@ -387,30 +340,6 @@
     display: block; /* Show the mobile filter overlay when active */
   }
 
-  /* Mobile Select Dropdown Fix - Make them drop DOWN like normal */
-  .mobile-filters .custom-select-container {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .mobile-filters .options-list {
-    position: absolute;
-    top: 100%; /* Changed back to top: 100% for proper dropdown behavior */
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 2px solid #e2e8f0;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 2000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   .content {
     padding: 16px;
     padding-bottom: 140px; /* Space for mobile filters toggle */
@@ -442,19 +371,16 @@
   .car-title-main {
     font-size: 15px;
     margin-bottom: 2px;
-    text-align: left;
-    display: inline; /* LEFT ALIGN text on mobile */
+    text-align: left; /* LEFT ALIGN text on mobile */
   }
 
   .car-variant-wrapper {
     margin-bottom: 10px;
-    text-align: left;
-    display: inline; /* LEFT ALIGN text on mobile */
+    text-align: left; /* LEFT ALIGN text on mobile */
   }
 
   .car-variant {
     font-size: 13px;
-    display: inline;
   }
 
   .new-price {
@@ -472,7 +398,7 @@
   }
 
   .car-price {
-    text-align: right; /* RIGHT ALIGN price on mobile */
+    text-align: left; /* LEFT ALIGN price on mobile */
   }
 }
 
@@ -496,7 +422,6 @@
 
   .mobile-filters {
     padding: 16px;
-    padding-top: 45px; /* Adjust space for close button on small screens */
   }
 }
 
