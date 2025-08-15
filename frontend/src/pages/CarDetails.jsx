@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// CarDetails.js
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './CarDetails.css';
@@ -11,14 +12,18 @@ import transmissionImg from '../assets/transmission.jpg';
 import ownershipImg from '../assets/ownership.jpg';
 import insuranceImg from '../assets/insurance.jpg';
 import rtoImg from '../assets/rtoo.jpg';
+import engineCapacityImg from '../assets/engine-capacity.jpg'; // Assuming you have this icon
+import makeYearImg from '../assets/make-year.jpg'; // Assuming you have this icon
+import spareKeyImg from '../assets/spare-key.jpg'; // Assuming you have this icon
+import regNumberImg from '../assets/reg-number.jpg'; // Assuming you have this icon
 
 // Import inspection images (SVG & PNG)
 import noAccident from '../assets/non-accidental.33bf2d20.svg';
-import noOdometer from '../assets/non-flooded.ba7c4986.svg';
-import noWaterDamage from '../assets/non-tempered.91878cdb.svg';
+import noOdometer from '../assets/non-flooded.ba7c4986.svg'; // This was previously named noWaterDamage, corrected for clarity based on use
+import noWaterDamage from '../assets/non-tempered.91878cdb.svg'; // This was previously named noOdometer, corrected for clarity based on use
 import qualityCheck from '../assets/quality-check.c7af26d2.svg';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api'; // Fallback for API_URL
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -26,8 +31,9 @@ const CarDetails = () => {
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mainImage, setMainImage] = useState(0);
+  const [mainImageIndex, setMainImageIndex] = useState(0);
   const [stockCars, setStockCars] = useState([]);
+  const intervalRef = useRef(null);
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -46,7 +52,8 @@ const CarDetails = () => {
     const fetchStockCars = async () => {
       try {
         const res = await axios.get(`${API_URL}/cars`);
-        setStockCars(res.data.slice(0, 3));
+        // Filter out the current car and take the first 5 related cars
+        setStockCars(res.data.filter(stockCar => stockCar._id !== id).slice(0, 5));
       } catch (err) {
         console.error('Error fetching stock cars:', err);
       }
@@ -62,22 +69,28 @@ const CarDetails = () => {
 
   useEffect(() => {
     if (photos.length > 0) {
-      const interval = setInterval(() => {
-        setMainImage((i) => (i + 1) % photos.length);
-      }, 3000);
-      return () => clearInterval(interval);
+      clearInterval(intervalRef.current); // Clear any existing interval
+      intervalRef.current = setInterval(() => {
+        setMainImageIndex((prevIndex) => (prevIndex + 1) % photos.length);
+      }, 5000); // Change every 5 seconds
     }
+    return () => clearInterval(intervalRef.current); // Cleanup on unmount
   }, [photos]);
 
-  const formatPrice = (price) =>
-    new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 1,
-      minimumFractionDigits: 1,
-    }).format(price);
+  const handleThumbnailClick = (index) => {
+    setMainImageIndex(index);
+    clearInterval(intervalRef.current); // Stop auto-change on manual click
+    // Optionally, restart the interval after a delay if desired, or keep it stopped
+    intervalRef.current = setInterval(() => {
+        setMainImageIndex((prevIndex) => (prevIndex + 1) % photos.length);
+    }, 5000);
+  };
 
-  const handleMoreCars = () => navigate('/stock');
+  const formatPrice = (price) => {
+    if (price === undefined || price === null) return 'N/A';
+    const priceInLakh = (price / 100000).toFixed(2); // Convert to lakh and fix to 2 decimal places
+    return `₹${priceInLakh} lakh`;
+  };
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
@@ -89,22 +102,39 @@ const CarDetails = () => {
         <h1 className="car-title">{car.name} – {car.model}</h1>
 
         <div className="car-gallery">
-          <div className="main-image">
+          <div className="main-image-wrapper">
             <img
-              src={photos[mainImage]}
+              src={photos[mainImageIndex] || '/placeholder-car.jpg'}
               alt={`${car.name} main view`}
+              className="main-image"
               onError={(e) => (e.target.src = '/placeholder-car.jpg')}
             />
+            {photos.length > 1 && (
+              <div className="gallery-nav-buttons">
+                <button 
+                  className="nav-button prev" 
+                  onClick={() => handleThumbnailClick((mainImageIndex - 1 + photos.length) % photos.length)}
+                >
+                  &#10094; {/* Left arrow */}
+                </button>
+                <button 
+                  className="nav-button next" 
+                  onClick={() => handleThumbnailClick((mainImageIndex + 1) % photos.length)}
+                >
+                  &#10095; {/* Right arrow */}
+                </button>
+              </div>
+            )}
           </div>
           <div className="thumbnail-container">
             {photos.map((photo, idx) => (
               <div
                 key={idx}
-                className={`thumbnail ${mainImage === idx ? 'active' : ''}`}
-                onClick={() => setMainImage(idx)}
+                className={`thumbnail ${mainImageIndex === idx ? 'active' : ''}`}
+                onClick={() => handleThumbnailClick(idx)}
               >
                 <img
-                  src={photo}
+                  src={photo || '/placeholder-car.jpg'}
                   alt={`${car.name} view ${idx + 1}`}
                   onError={(e) => (e.target.src = '/placeholder-car.jpg')}
                 />
@@ -119,35 +149,51 @@ const CarDetails = () => {
             <div className="info-grid">
               <div className="info-item">
                 <img src={regYearImg} alt="Reg Year" className="info-icon" />
-                <span>Reg. Year:</span> {car.year}
+                <span>Reg. year:</span> {car.year || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={fuelImg} alt="Fuel" className="info-icon" />
-                <span>Fuel:</span> {car.fuel}
+                <span>Fuel:</span> {car.fuel || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={odometerImg} alt="KM Driven" className="info-icon" />
-                <span>KM Driven:</span> {car.running}
+                <span>KM Driven:</span> {car.running ? `${car.running} km` : 'N/A'}
               </div>
               <div className="info-item">
                 <img src={transmissionImg} alt="Transmission" className="info-icon" />
-                <span>Transmission:</span> {car.transmission}
+                <span>Transmission:</span> {car.transmission || 'N/A'}
+              </div>
+              <div className="info-item">
+                <img src={engineCapacityImg} alt="Engine Capacity" className="info-icon" />
+                <span>Engine capacity:</span> {car.engineCapacity ? `${car.engineCapacity}cc` : 'N/A'}
               </div>
               <div className="info-item">
                 <img src={ownershipImg} alt="Ownership" className="info-icon" />
-                <span>Ownership:</span> {car.ownership}
+                <span>Ownership:</span> {car.ownership || 'N/A'}
+              </div>
+              <div className="info-item">
+                <img src={makeYearImg} alt="Make Year" className="info-icon" />
+                <span>Make year:</span> {car.makeYear || 'N/A'}
+              </div>
+              <div className="info-item">
+                <img src={spareKeyImg} alt="Spare Key" className="info-icon" />
+                <span>Spare key:</span> {car.spareKey || 'N/A'}
+              </div>
+              <div className="info-item">
+                <img src={regNumberImg} alt="Reg Number" className="info-icon" />
+                <span>Reg number:</span> {car.registration || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={insuranceImg} alt="Insurance" className="info-icon" />
-                <span>Insurance:</span> {car.insurance}
+                <span>Insurance:</span> {car.insurance || 'N/A'}
               </div>
               <div className="info-item">
-                <img src={rtoImg} alt="Reg Number" className="info-icon" />
-                <span>Reg. Number:</span> {car.registration}
+                 {/* This icon might not be directly available, using a placeholder or combining if necessary */}
+                <span>Insurance type:</span> {car.insuranceType || 'N/A'} 
               </div>
             </div>
             <div className="price-section">
-              <span>Price:</span> {formatPrice(car.price)}
+              <span>Price:</span> <strong>{formatPrice(car.price)}</strong>
             </div>
           </div>
 
@@ -156,47 +202,60 @@ const CarDetails = () => {
             <div className="inspection-grid">
               <div className="inspection-item">
                 <img src={noAccident} alt="No accident history" />
-                <span>No Accident History</span>
+                <span>No accident history</span>
               </div>
               <div className="inspection-item">
-                <img src={noWaterDamage} alt="No odometer tampering" />
-                <span>No Odometer Tampering</span>
+                <img src={noOdometer} alt="No odometer tampering" />
+                <span>No odometer tampering</span>
               </div>
               <div className="inspection-item">
-                <img src={noOdometer} alt="No water damages" />
-                <span>No Water Damages</span>
+                <img src={noWaterDamage} alt="No water damages" />
+                <span>No water damages</span>
               </div>
               <div className="inspection-item">
-                <img src={qualityCheck} alt="118 Quality Checks" />
-                <span>118 Quality Checks</span>
+                <img src={qualityCheck} alt="140-quality check!" />
+                <span>140-quality check!</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="related-cars">
+      <div className="related-cars-section">
         <h2>Related Cars</h2>
-        <div className="stock-cars-grid">
-          {stockCars.map((stockCar, idx) => (
-            <div key={idx} className="car-card">
+        <div className="related-cars-carousel">
+          {stockCars.map((stockCar) => (
+            <div 
+              key={stockCar._id} 
+              className="car-card" 
+              onClick={() => navigate(`/car-details/${stockCar._id}`)}
+            >
               <img
-                src={stockCar.photo1}
-                alt={stockCar.name}
+                src={stockCar.photo1 || '/placeholder-car.jpg'}
+                alt={`${stockCar.name} ${stockCar.model}`}
                 className="car-img"
                 onError={(e) => (e.target.src = '/placeholder-car.jpg')}
               />
-              <div className="car-info">
-                <h3 className="car-name">{stockCar.name} – {stockCar.model}</h3>
-                <p><strong>Price:</strong> {formatPrice(stockCar.price)}</p>
+              <div className="car-card-content">
+                <p className="car-card-name">{stockCar.year} {stockCar.name} {stockCar.model}</p>
+                <div className="car-card-details">
+                  <span>{stockCar.running}km</span> | 
+                  <span> {stockCar.fuel}</span> | 
+                  <span> {stockCar.transmission}</span> | 
+                  <span> {stockCar.registration}</span>
+                </div>
+                <p className="car-card-price">
+                  {formatPrice(stockCar.price)}
+                  <span className="other-charges">+ other charges</span>
+                </p>
               </div>
             </div>
           ))}
-        </div>
-        <div className="more-cars-container">
-          <button className="more-cars-btn" onClick={handleMoreCars}>
-            More Cars
-          </button>
+          <div className="more-cars-button-wrapper">
+            <button className="more-cars-btn-circle" onClick={() => navigate("/stock")}>
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>
