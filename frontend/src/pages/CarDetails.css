@@ -310,12 +310,12 @@
   margin-top: 2px;
 }
 
-/*.more-cars-button-wrapper {
+.more-cars-button-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 80px;
-}*/
+}
 
 .more-cars-btn-circle {
   width: 60px;

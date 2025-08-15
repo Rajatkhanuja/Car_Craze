@@ -353,8 +353,8 @@
   font-size: 1.2rem; /* Adjusted for better fit inside small circle */
   font-weight: bold;
   background-color: #007bff;
-  color: rgb(56, 5, 241);
-  border-radius: 50%; /* This makes it a perfect circle */
+  color: rgb(247, 5, 5);
+  border-radius: 100%; /* This makes it a perfect circle */
   flex-shrink: 0;
   transition: background-color 0.3s ease;
   margin: auto 0;
