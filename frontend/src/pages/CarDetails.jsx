@@ -82,14 +82,14 @@ const CarDetails = () => {
   };
 
   const formatPrice = (price) => {
-    if (price === undefined || price === null) return 'N/A';
-    // Ensure price is a number before division
-    const numericPrice = Number(price); 
-    if (isNaN(numericPrice)) return 'N/A'; // Handle cases where price is not a valid number
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 1,
+    minimumFractionDigits: 1
+  }).format(price);
+};
 
-    const priceInLakh = (numericPrice / 100000).toFixed(2);
-    return `₹${priceInLakh} lakh`;
-  };
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
