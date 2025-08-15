@@ -359,7 +359,7 @@
     }
 
     .car-img-wrapper {
-        height: 180px; /* Increased image height for mobile */
+        height: 200px; /* Increased image height for mobile from 180px to 200px */
     }
 
     .stock-car-info {
@@ -417,7 +417,7 @@
     }
 
     .car-img-wrapper {
-        height: 160px; /* Adjust image height for very small mobiles if needed */
+        height: 180px; /* Adjusted image height for very small mobiles if needed (was 160px) */
     }
 
     .stock-car-info {
