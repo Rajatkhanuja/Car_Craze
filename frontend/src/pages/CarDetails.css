@@ -139,11 +139,13 @@
 .info-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 12px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex-direction: column;
+  text-align: center;
 }
 
 .info-icon {
@@ -154,14 +156,15 @@
 
 .info-item span:first-child {
   color: #666;
-  font-size: 14px;
-  min-width: 80px;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 4px;
 }
 
-.info-item span:last-child,
-.info-item {
+.info-item span:last-child {
   color: #2c3e50;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .price-section {
@@ -399,11 +402,16 @@
   }
   
   .info-item {
-    padding: 10px;
+    padding: 10px 8px;
+    gap: 6px;
   }
   
   .info-item span:first-child {
-    min-width: 70px;
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  
+  .info-item span:last-child {
     font-size: 13px;
   }
   
@@ -497,25 +505,36 @@
   }
   
   .info-item {
-    padding: 8px;
+    padding: 8px 6px;
+    gap: 4px;
   }
   
   .info-item span:first-child {
-    min-width: 60px;
+    font-size: 10px;
+    margin-bottom: 2px;
+  }
+  
+  .info-item span:last-child {
     font-size: 12px;
+  }
+  
+  .info-icon {
+    width: 20px;
+    height: 20px;
   }
   
   .inspection-item {
-    padding: 12px 8px;
+    padding: 10px 6px;
   }
   
   .inspection-item img {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
   }
   
   .inspection-item span {
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.2;
   }
   
   .car-card {
