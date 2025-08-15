@@ -3,176 +3,204 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './CarDetails.css';
 
-const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env (for API calls)
+// Import overview icons from src/assets
+import regYearImg from '../assets/reg-year.jpg';
+import fuelImg from '../assets/fuel.jpg';
+import odometerImg from '../assets/odometer.jpg';
+import transmissionImg from '../assets/transmission.jpg';
+import ownershipImg from '../assets/ownership.jpg';
+import insuranceImg from '../assets/insurance.jpg';
+import rtoImg from '../assets/rto.jpg';
+
+// Import inspection images (SVG & PNG)
+import noAccident from '../assets/non-accidental.33bf2d20.svg';
+import noOdometer from '../assets/no-odometer.svg';
+import noWaterDamage from '../assets/no-water-damage.svg';
+import qualityCheck from '../assets/quality-check.svg';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 const CarDetails = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [car, setCar] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [mainImage, setMainImage] = useState(0);
-  const [stockCars, setStockCars] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [car, setCar] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [mainImage, setMainImage] = useState(0);
+  const [stockCars, setStockCars] = useState([]);
 
-  useEffect(() => {
-    const fetchCarDetails = async () => {
-      try {
-        if (!id) throw new Error('Invalid car ID');
-        const response = await axios.get(`${API_URL}/cars/${id}`);
-        setCar(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching car details:', err);
-        setError(err.response?.data?.message || 'Failed to fetch car details.');
-        setLoading(false);
-      }
-    };
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        if (!id) throw new Error('Invalid car ID');
+        const response = await axios.get(`${API_URL}/cars/${id}`);
+        setCar(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching car details:', err);
+        setError(err.response?.data?.message || 'Failed to fetch car details.');
+        setLoading(false);
+      }
+    };
 
-    const fetchStockCars = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/cars`);
-        setStockCars(response.data.slice(0, 3));
-      } catch (err) {
-        console.error('Error fetching stock cars:', err);
-      }
-    };
+    const fetchStockCars = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/cars`);
+        setStockCars(res.data.slice(0, 3));
+      } catch (err) {
+        console.error('Error fetching stock cars:', err);
+      }
+    };
 
-    fetchCarDetails();
-    fetchStockCars();
-  }, [id]);
+    fetchCarDetails();
+    fetchStockCars();
+  }, [id]);
 
-  const photos = car ? [car.photo1, car.photo2, car.photo3, car.photo4, car.photo5].filter(Boolean) : [];
+  const photos = car
+    ? [car.photo1, car.photo2, car.photo3, car.photo4, car.photo5].filter(Boolean)
+    : [];
 
-  useEffect(() => {
-    if (photos.length > 0) {
-      const interval = setInterval(() => {
-        setMainImage((prevIndex) => (prevIndex + 1) % photos.length);
-      }, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [photos]);
+  useEffect(() => {
+    if (photos.length > 0) {
+      const interval = setInterval(() => {
+        setMainImage((i) => (i + 1) % photos.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [photos]);
 
-  const formatPrice = (price) =>
-    new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 1, // 🔁 allow 1 digit after decimal
-      minimumFractionDigits: 1
-    }).format(price);
+  const formatPrice = (price) =>
+    new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 1,
+      minimumFractionDigits: 1,
+    }).format(price);
 
-  const handleMoreCars = () => {
-    navigate('/stock');
-  };
+  const handleMoreCars = () => navigate('/stock');
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">{error}</div>;
-  if (!car) return <div className="error">Car not found</div>;
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
+  if (!car) return <div className="error">Car not found</div>;
 
-  return (
-    <div className="car-details-container">
-      {/* Main Content Section */}
-      <div className="car-details-content">
-        <h1 className="car-title">{car.name} - {car.model}</h1>
+  return (
+    <div className="car-details-container">
+      <div className="car-details-content">
+        <h1 className="car-title">{car.name} – {car.model}</h1>
 
-        <div className="car-gallery">
-          <div className="main-image">
-            <img
-              src={photos[mainImage]} // ✅ Direct Cloudinary URL
-              alt={`${car.name} main view`}
-              onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
-            />
-          </div>
+        <div className="car-gallery">
+          <div className="main-image">
+            <img
+              src={photos[mainImage]}
+              alt={`${car.name} main view`}
+              onError={(e) => (e.target.src = '/placeholder-car.jpg')}
+            />
+          </div>
+          <div className="thumbnail-container">
+            {photos.map((photo, idx) => (
+              <div
+                key={idx}
+                className={`thumbnail ${mainImage === idx ? 'active' : ''}`}
+                onClick={() => setMainImage(idx)}
+              >
+                <img
+                  src={photo}
+                  alt={`${car.name} view ${idx + 1}`}
+                  onError={(e) => (e.target.src = '/placeholder-car.jpg')}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-          <div className="thumbnail-container">
-            {photos.map((photo, index) => (
-              <div
-                key={index}
-                className={`thumbnail ${mainImage === index ? 'active' : ''}`}
-                onClick={() => setMainImage(index)}
-              >
-                <img
-                  src={photo} // ✅ Direct Cloudinary URL
-                  alt={`${car.name} view ${index + 1}`}
-                  onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="car-info">
-            {/* Car Overview Section */}
-            <div className="car-overview">
-                <h3>Car Overview</h3>
-                <div className="info-grid">
-                    <div className="info-item"><span>Reg. Year:</span> {car.year}</div>
-                    <div className="info-item"><span>Fuel:</span> {car.fuel}</div>
-                    <div className="info-item"><span>KM Driven:</span> {car.running}</div>
-                    <div className="info-item"><span>Transmission:</span> {car.transmission}</div>
-                    <div className="info-item"><span>Ownership:</span> {car.ownership}</div>
-                    <div className="info-item"><span>Insurance:</span> {car.insurance}</div>
-                    <div className="info-item"><span>Reg. Number:</span> {car.registration}</div>
-                </div>
-                <div className="price-section">
-                    <span>Price:</span> {formatPrice(car.price)}
-                </div>
+        <div className="car-info">
+          <div className="car-overview">
+            <h3>Car Overview</h3>
+            <div className="info-grid">
+              <div className="info-item">
+                <img src={regYearImg} alt="Reg Year" className="info-icon" />
+                <span>Reg. Year:</span> {car.year}
+              </div>
+              <div className="info-item">
+                <img src={fuelImg} alt="Fuel" className="info-icon" />
+                <span>Fuel:</span> {car.fuel}
+              </div>
+              <div className="info-item">
+                <img src={odometerImg} alt="KM Driven" className="info-icon" />
+                <span>KM Driven:</span> {car.running}
+              </div>
+              <div className="info-item">
+                <img src={transmissionImg} alt="Transmission" className="info-icon" />
+                <span>Transmission:</span> {car.transmission}
+              </div>
+              <div className="info-item">
+                <img src={ownershipImg} alt="Ownership" className="info-icon" />
+                <span>Ownership:</span> {car.ownership}
+              </div>
+              <div className="info-item">
+                <img src={insuranceImg} alt="Insurance" className="info-icon" />
+                <span>Insurance:</span> {car.insurance}
+              </div>
+              <div className="info-item">
+                <img src={rtoImg} alt="Reg Number" className="info-icon" />
+                <span>Reg. Number:</span> {car.registration}
+              </div>
             </div>
-
-            {/* Car Inspection Report Section */}
-            <div className="car-inspection-report">
-                <h3>Car Inspection Report</h3>
-                <div className="inspection-grid">
-                    <div className="inspection-item">
-                        <img src="/no-accident.png" alt="No accident history" /> {/* Placeholder image */}
-                        <span>No Accident History</span>
-                    </div>
-                    <div className="inspection-item">
-                        <img src="/no-odometer.png" alt="No odometer tampering" /> {/* Placeholder image */}
-                        <span>No Odometer Tampering</span>
-                    </div>
-                    <div className="inspection-item">
-                        <img src="/no-water-damage.png" alt="No water damages" /> {/* Placeholder image */}
-                        <span>No Water Damages</span>
-                    </div>
-                    <div className="inspection-item">
-                        <img src="/quality-check.png" alt="118 Quality Checks" /> {/* Placeholder image */}
-                        <span>118 Quality Checks</span>
-                    </div>
-                </div>
+            <div className="price-section">
+              <span>Price:</span> {formatPrice(car.price)}
             </div>
-        </div>
-      </div>
+          </div>
 
-      {/* Related Cars Section */}
-      <div className="related-cars">
-        <h2>Related Cars</h2>
-        <div className="stock-cars-grid">
-          {stockCars.map((stockCar, index) => (
-            <div key={index} className="car-card">
-              <img
-                src={stockCar.photo1} // ✅ Direct Cloudinary URL
-                alt={stockCar.name}
-                className="car-img"
-                onError={(e) => { e.target.src = '/placeholder-car.jpg'; }}
-              />
-              <div className="car-info">
-                <h3 className="car-name">{stockCar.name} - {stockCar.model}</h3>
-                <p><strong>Price:</strong> {formatPrice(stockCar.price)}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="more-cars-container">
-          <button
-            className="more-cars-btn"
-            onClick={handleMoreCars}
-          >
-            More Cars
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+          <div className="car-inspection-report">
+            <h3>Car Inspection Report</h3>
+            <div className="inspection-grid">
+              <div className="inspection-item">
+                <img src={noAccident} alt="No accident history" />
+                <span>No Accident History</span>
+              </div>
+              <div className="inspection-item">
+                <img src={noOdometer} alt="No odometer tampering" />
+                <span>No Odometer Tampering</span>
+              </div>
+              <div className="inspection-item">
+                <img src={noWaterDamage} alt="No water damages" />
+                <span>No Water Damages</span>
+              </div>
+              <div className="inspection-item">
+                <img src={qualityCheck} alt="118 Quality Checks" />
+                <span>118 Quality Checks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="related-cars">
+        <h2>Related Cars</h2>
+        <div className="stock-cars-grid">
+          {stockCars.map((stockCar, idx) => (
+            <div key={idx} className="car-card">
+              <img
+                src={stockCar.photo1}
+                alt={stockCar.name}
+                className="car-img"
+                onError={(e) => (e.target.src = '/placeholder-car.jpg')}
+              />
+              <div className="car-info">
+                <h3 className="car-name">{stockCar.name} – {stockCar.model}</h3>
+                <p><strong>Price:</strong> {formatPrice(stockCar.price)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="more-cars-container">
+          <button className="more-cars-btn" onClick={handleMoreCars}>
+            More Cars
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CarDetails;
