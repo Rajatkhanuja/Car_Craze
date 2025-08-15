@@ -159,11 +159,11 @@ const CarDetails = () => {
                 <span>No Accident History</span>
               </div>
               <div className="inspection-item">
-                <img src={noOdometer} alt="No odometer tampering" />
+                <img src={noWaterDamage} alt="No odometer tampering" />
                 <span>No Odometer Tampering</span>
               </div>
               <div className="inspection-item">
-                <img src={noWaterDamage} alt="No water damages" />
+                <img src={noOdometer} alt="No water damages" />
                 <span>No Water Damages</span>
               </div>
               <div className="inspection-item">
