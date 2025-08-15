@@ -14,9 +14,9 @@ import rtoImg from '../assets/rto.jpg';
 
 // Import inspection images (SVG & PNG)
 import noAccident from '../assets/non-accidental.33bf2d20.svg';
-import noOdometer from '../assets/no-odometer.svg';
-import noWaterDamage from '../assets/no-water-damage.svg';
-import qualityCheck from '../assets/quality-check.svg';
+import noOdometer from '../assets/non-flooded.ba7c4986.svg';
+import noWaterDamage from '../assets/non-tempered.91878cdb.svg';
+import qualityCheck from '../assets/quality-check.c7af26d2.svg';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
