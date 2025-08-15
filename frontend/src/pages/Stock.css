@@ -301,7 +301,6 @@
   gap: 8px;
 }
 
-
 /* Tablet Styles */
 @media (max-width: 1024px) {
   .stock-cars-grid {
@@ -372,6 +371,9 @@
     font-size: 15px;
     margin-bottom: 2px;
     text-align: left; /* LEFT ALIGN text on mobile */
+    white-space: nowrap; /* Keep name in one line */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
   }
 
   .car-variant-wrapper {
@@ -398,7 +400,7 @@
   }
 
   .car-price {
-    text-align: left; /* LEFT ALIGN price on mobile */
+    text-align: right; /* RIGHT ALIGN price on mobile */
   }
 }
 
