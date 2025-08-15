@@ -83,7 +83,11 @@ const CarDetails = () => {
 
   const formatPrice = (price) => {
     if (price === undefined || price === null) return 'N/A';
-    const priceInLakh = (price / 100000).toFixed(2); // Convert to lakh and fix to 2 decimal places
+    // Ensure price is a number before division
+    const numericPrice = Number(price); 
+    if (isNaN(numericPrice)) return 'N/A'; // Handle cases where price is not a valid number
+
+    const priceInLakh = (numericPrice / 100000).toFixed(2);
     return `₹${priceInLakh} lakh`;
   };
 
@@ -144,28 +148,28 @@ const CarDetails = () => {
             <div className="info-grid">
               <div className="info-item">
                 <img src={regYearImg} alt="Reg Year" className="info-icon" />
-                <span>Reg. year:</span> {car.year || 'N/A'}
+                <span>Reg. year</span> {car.year || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={fuelImg} alt="Fuel" className="info-icon" />
-                <span>Fuel:</span> {car.fuel || 'N/A'}
+                <span>Fuel</span> {car.fuel || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={odometerImg} alt="KM Driven" className="info-icon" />
-                <span>KM Driven:</span> {car.running ? `${car.running} km` : 'N/A'}
+                <span>KM Driven</span> {car.running ? `${car.running} km` : 'N/A'}
               </div>
               <div className="info-item">
                 <img src={transmissionImg} alt="Transmission" className="info-icon" />
-                <span>Transmission:</span> {car.transmission || 'N/A'}
+                <span>Transmission</span> {car.transmission || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={ownershipImg} alt="Ownership" className="info-icon" />
-                <span>Ownership:</span> {car.ownership || 'N/A'}
+                <span>Ownership</span> {car.ownership || 'N/A'}
               </div>
               
               <div className="info-item">
                 <img src={insuranceImg} alt="Insurance" className="info-icon" />
-                <span>Insurance:</span> {car.insurance || 'N/A'}
+                <span>Insurance</span> {car.insurance || 'N/A'}
               </div>
               <div className="info-item">
                  <img src={rtoImg} alt="rtoo" className="info-icon" />
@@ -194,7 +198,7 @@ const CarDetails = () => {
               </div>
               <div className="inspection-item">
                 <img src={qualityCheck} alt="140-quality check!" />
-                <span>140-quality check!</span>
+                <span>118-quality check!</span>
               </div>
             </div>
           </div>
