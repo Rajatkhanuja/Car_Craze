@@ -1,261 +1,223 @@
-.car-details-container {
-  max-width: 3100px; /* Maintain existing width */
-  margin: 90px 0 0 50px; /* Keep the existing margin */
-  padding: 20px;
-  display: flex; /* Use flexbox to position content horizontally */
-  gap: 20px; /* Add spacing between car details and related cars */
-}
+/* CarDetails.css additions/modifications */
 
-/* Add these styles to your CarDetails.css file */
-
-.more-cars-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.more-cars-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.more-cars-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.more-cars-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.related-cars {
-  flex-basis: 45%; /* Allocate space for Related Cars section */
-  max-width: 800px; /* Limit maximum width */
-  background: #f9f9f9; /* Optional background for better visibility */
-  padding: 10px;
-  border-radius: 9px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  align-self: flex-start; /* Align it to the start of the container */
-}
-
-.related-cars h3,
-.related-cars .price {
-  /* Assuming headings and price have specific classes */
-  margin-top: 0px; /* Remove unnecessary top margin */
-  margin-bottom: 1px; /* Ensure some spacing below the elements */
-  line-height: 1; /* Reduce the line height for a more compact appearance */
-}
-
-.related-cars .car-name {
-  /* If there's a specific class for car names */
-  font-size: 1.1rem; /* Adjust font size */
-  font-weight: bold;
-  margin-bottom: 1px; /* Reduce space below the name */
-}
-
-.related-cars .price {
-  color: #3b82f6; /* Highlight price in blue */
-  font-size: 1.2rem; /* Slightly larger font for price */
-  font-weight: 600;
-}
+/* General spacing and alignment */
 .car-details-content {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+    display: flex;
+    flex-direction: column; /* Or row, depending on your desired layout */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .car-title {
-  font-size: 1.8rem; /* Adjusted font size for smaller card */
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
+/* Car Gallery adjustments if needed */
 .car-gallery {
-  margin-bottom: 30px;
-}
-
-.main-image {
-  width: 100%;
-  height: 300px; /* Reduced image height */
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
+    display: flex;
+    flex-direction: column; /* For vertical layout of main image and thumbnails */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .main-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1s ease-in-out; /* Smooth fade transition for image change */
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .thumbnail-container {
-  display: flex; /* Use flexbox for row layout */
-  overflow-x: auto; /* Allow horizontal scrolling if necessary */
-  gap: 10px;
-  padding-bottom: 10px;
-  /* Add this for desktop to ensure proper wrapping if needed, though flex-shrink: 0 below handles primary behavior */
-  flex-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow thumbnails to wrap */
 }
 
 .thumbnail {
-  height: 150px; /* Reduced thumbnail size */
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  flex-shrink: 0; /* Prevent thumbnails from shrinking */
+    width: 80px; /* Adjust thumbnail size */
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
 }
 
 .thumbnail.active {
-  border-color: #3b82f6;
+    border-color: #007bff; /* Highlight active thumbnail */
 }
 
 .thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+/* Car Info Sections */
 .car-info {
-  margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between overview and inspection */
 }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
-  gap: 20px;
-  margin-bottom: 30px;
+.car-overview, .car-inspection-report {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.car-overview h3, .car-inspection-report h3 {
+    color: #007bff; /* Blue heading */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.info-grid, .inspection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    padding-bottom: 20px; /* Space before price or report */
 }
 
 .info-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px; /* Reduced padding */
-  border-bottom: 1px solid #d32121;
-  align-items: center; /* Align label and value in the center vertically */
+    background-color: #e9f5ff; /* Light blue background for info items */
+    padding: 12px 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.95em;
+    color: #555;
 }
 
-.info-label {
-  font-weight: 600;
-  color: #666;
-  margin-right: 10px; /* Reduced the space between label and value */
-  min-width: 120px; /* Ensure all labels have equal space */
-}
-
-.info-value {
-  color: #333;
-  flex-grow: 1; /* Allow the value to take available space */
+.info-item span {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px; /* Space between label and value */
 }
 
 .price-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #f8fafc;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.price-label {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.price-value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #3b82f6;
-}
-
-.loading {
-  text-align: center;
-  padding: 40px;
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.error {
-  text-align: center;
-  padding: 40px;
-  color: #ef4444;
-  font-size: 1.2rem;
-}
-
-/* Mobile Styles for 2 Rows */
-@media (max-width: 768px) {
-  .car-details-container {
-    padding: 10px;
-    margin-top: 80px;
-    margin-left: 10px; /* Adjusted for smaller screens */
-    flex-direction: column; /* Stack content vertically */
-  }
-
-  .main-image {
-    height: 250px; /* Adjusted image height for small screens */
-  }
-
-  /* Change grid to 2 columns for mobile screens */
-  .info-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
-  }
-
-  .car-title {
-    font-size: 1.3rem; /* Smaller font size on mobile */
-  }
-
-  .price-section {
-    flex-direction: column;
-    gap: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #28a745; /* Green for price */
     text-align: center;
-  }
-
-  .related-cars {
-    margin-top: 20px; /* Add space between car details and related cars */
-  }
-
-  .thumbnail-container {
-    display: grid; /* Change to grid for mobile */
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px; /* Maintain gap */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    padding-bottom: 0; /* Remove extra padding if not scrolling */
-  }
-
-  .thumbnail {
-    width: 100%; /* Make thumbnails take full width of their grid column */
-    height: 100px; /* Adjust height for mobile thumbnails */
-  }
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
 }
 
-/* Adjust for very small screens (less than 480px) */
-@media (max-width: 480px) {
-  .info-grid {
-    grid-template-columns: 1fr; /* 1 column for very small screens (i.e., 1 item per row) */
-  }
+.price-section span {
+    color: #555;
+    margin-right: 10px;
+}
 
-  .thumbnail-container {
-    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns even for very small screens if it looks good, or change to 1fr if preferred */
-  }
+.inspection-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for inspection items */
+    gap: 20px;
+    text-align: center;
+}
 
-  .thumbnail {
-    height: 80px; /* Further adjust thumbnail height for very small screens */
-  }
+.inspection-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #444;
+}
+
+.inspection-item img {
+    width: 50px; /* Size of the inspection icons */
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+/* Related Cars Section (keep as is or adjust as needed) */
+.related-cars {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.related-cars h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.stock-cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.car-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+.car-card .car-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.car-card .car-info {
+    padding: 15px;
+}
+
+.car-card .car-name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.car-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+.car-card strong {
+    color: #333;
+}
+
+.more-cars-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.more-cars-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.more-cars-btn:hover {
+    background-color: #0056b3;
 }
