@@ -350,15 +350,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.2rem; /* Adjusted for better fit inside small circle */
   font-weight: bold;
   background-color: #007bff;
-  color: white;
-  border-radius: 50%;
+  color: rgb(56, 5, 241);
+  border-radius: 50%; /* This makes it a perfect circle */
   flex-shrink: 0;
   transition: background-color 0.3s ease;
   margin: auto 0;
   align-self: center;
+  padding: 0; /* Make sure there's no internal spacing messing it up */
+  line-height: 1; /* Prevent vertical misalignment */
 }
 
 .view-more-circle:hover {
@@ -368,6 +370,7 @@
 .view-more-circle span {
   line-height: 1;
 }
+
 
 /* Responsive Design for Cars in Stock */
 @media (max-width: 768px) {
