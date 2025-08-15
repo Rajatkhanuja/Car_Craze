@@ -220,7 +220,7 @@ const Stock = () => {
                     styleClass="manufacturer-select-custom"
                 />
 
-                <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+                <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
                     <button
                         className="clear-filter"
                         onClick={clearAllFilters}
