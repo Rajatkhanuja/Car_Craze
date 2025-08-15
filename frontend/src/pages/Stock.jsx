@@ -208,7 +208,7 @@ const Stock = () => {
                     value={selectedBudget}
                     onChange={handleBudgetChange}
                     placeholder="Select Budget"
-                    styleClass="budget-select-custom"
+                    styleClass="budget-select-custom mobile-select"
                 />
 
                 <h3>Manufacturer</h3>
@@ -217,7 +217,7 @@ const Stock = () => {
                     value={selectedManufacturer}
                     onChange={handleManufacturerChange}
                     placeholder="Select Manufacturer"
-                    styleClass="manufacturer-select-custom"
+                    styleClass="manufacturer-select-custom mobile-select"
                 />
 
                 <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
@@ -229,22 +229,14 @@ const Stock = () => {
                         Clear All
                     </button>
                     <button
+                        className="apply-filters-btn"
                         onClick={() => setShowMobileFilters(false)}
-                        style={{
-                            flex: 1,
-                            background: '#3182ce',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '6px',
-                            padding: '8px 12px',
-                            cursor: 'pointer'
-                        }}
+                        style={{ flex: 1 }}
                     >
                         Apply Filters
                     </button>
                 </div>
             </div>
-
 
             {/* Main Content */}
             <div className="content">
@@ -278,10 +270,9 @@ const Stock = () => {
                                 <h3 className="car-title-main">
                                     <span className="car-title">{car.year} {car.name}</span>
                                 </h3>
-                                <div className="car-variant-wrapper"> {/* New wrapper div */}
+                                <div className="car-variant-wrapper">
                                     <span className="car-variant">{car.model}</span>
                                 </div>
-
 
                                 <div className="car-badges">
                                     <span>{car.running} km</span>

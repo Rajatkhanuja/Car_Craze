@@ -148,6 +148,23 @@
   background: #c53030;
 }
 
+/* Apply Filters Button - RED STYLE */
+.apply-filters-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.apply-filters-btn:hover {
+  background: #c53030;
+}
+
 /* Cars Grid */
 .stock-cars-grid {
   display: grid;
@@ -370,7 +387,7 @@
     display: block; /* Show the mobile filter overlay when active */
   }
 
-  /* Fix for Mobile Select Options - Make them open upwards */
+  /* Mobile Select Dropdown Fix - Make them drop DOWN like normal */
   .mobile-filters .custom-select-container {
     position: relative;
     margin-bottom: 20px;
@@ -378,30 +395,20 @@
   
   .mobile-filters .options-list {
     position: absolute;
-    bottom: 100%; /* Change from top: 100% to bottom: 100% */
+    top: 100%; /* Changed back to top: 100% for proper dropdown behavior */
     left: 0;
     right: 0;
     background: #fff;
     border: 2px solid #e2e8f0;
-    border-bottom: none; /* Change from border-top: none */
-    border-radius: 8px 8px 0 0; /* Change border radius */
-    max-height: 200px; /* Reduce height for mobile */
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
     overflow-y: auto;
     z-index: 2000;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1); /* Change shadow direction */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Special handling for manufacturer select */
-  .mobile-filters .manufacturer-select-custom .options-list {
-    max-height: 180px; /* Slightly smaller for manufacturer dropdown */
-  }
-
-  /* Ensure Budget dropdown also opens upward properly */
-  .mobile-filters .budget-select-custom .options-list {
-    max-height: 180px;
   }
 
   .content {
