@@ -18,7 +18,7 @@
   top: 0;
   height: fit-content;
   border-radius: 0 12px 12px 0;
-  margin-top: 40px;
+  margin-top: 80px; /* Adjusted: Increased margin-top to move it below the navbar */
 }
 
 .sidebar h2 {
@@ -43,6 +43,7 @@
 
 .stock-header {
   margin-bottom: 32px;
+  margin-top: 60px; /* Adjusted: Added margin-top to move it below the navbar */
 }
 
 .stock-header h1 {
@@ -400,7 +401,7 @@
   }
 
   .car-price {
-    text-align: right; /* RIGHT ALIGN price on mobile */
+    text-align: left; /* LEFT ALIGN price on mobile */
   }
 }
 

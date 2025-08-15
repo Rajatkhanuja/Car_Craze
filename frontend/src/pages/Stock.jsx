@@ -242,11 +242,7 @@ const Stock = () => {
             <div className="content">
                 <div className="stock-header">
                     <h1>Cars in Stock</h1>
-                    {filteredCars.length > 0 && (
-                        <p style={{ color: '#718096', margin: '8px 0 0 0' }}>
-                            Showing {filteredCars.length} car{filteredCars.length !== 1 ? 's' : ''}
-                        </p>
-                    )}
+                    
                 </div>
 
                 <div className="stock-cars-grid">
