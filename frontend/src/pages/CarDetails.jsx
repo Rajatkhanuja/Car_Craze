@@ -168,8 +168,8 @@ const CarDetails = () => {
                 <span>Insurance:</span> {car.insurance || 'N/A'}
               </div>
               <div className="info-item">
-                 {/* This icon might not be directly available, using a placeholder or combining if necessary */}
-                <span>Insurance type:</span> {car.insuranceType || 'N/A'} 
+                 <img src={rtoImg} alt="rtoo" className="info-icon" />
+                <span>Reg. Number</span> {car.registration || 'N/A'} 
               </div>
             </div>
             <div className="price-section">
