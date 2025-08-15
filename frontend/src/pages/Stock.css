@@ -258,8 +258,6 @@
   width: 100%;
 }
 
-/* --- Existing CSS continues below --- */
-
 /* Mobile Filters Container - Hidden by default on desktop */
 .mobile-filters {
   display: none; /* Hidden by default on desktop */
@@ -276,7 +274,39 @@
   border-radius: 20px 20px 0 0;
   transform: translateY(0);
   transition: transform 0.3s ease;
-  
+}
+
+/* Mobile Filters Header */
+.mobile-filters h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+  position: relative;
+}
+
+/* Close Button for Mobile Filters */
+.mobile-filters-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  font-weight: bold;
+}
+
+.mobile-filters-close:hover {
+  background: #c53030;
 }
 
 /* Mobile Filters Toggle Button - Hidden by default on desktop */
@@ -301,7 +331,6 @@
   justify-content: center;
   gap: 8px;
 }
-
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
@@ -339,6 +368,34 @@
   /* Show mobile filters container if 'show' class is present */
   .mobile-filters.show {
     display: block; /* Show the mobile filter overlay when active */
+  }
+
+  /* Fix for Mobile Select Options - Make them open upwards */
+  .mobile-filters .custom-select-container {
+    position: relative;
+  }
+  
+  .mobile-filters .options-list {
+    position: absolute;
+    bottom: 100%; /* Change from top: 100% to bottom: 100% */
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-bottom: none; /* Change from border-top: none */
+    border-radius: 8px 8px 0 0; /* Change border radius */
+    max-height: 200px; /* Reduce height for mobile */
+    overflow-y: auto;
+    z-index: 2000;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1); /* Change shadow direction */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Special handling for manufacturer select */
+  .mobile-filters .manufacturer-select-custom .options-list {
+    max-height: 150px; /* Even smaller for manufacturer dropdown */
   }
 
   .content {
@@ -402,7 +459,7 @@
   }
 
   .car-price {
-    text-align: right; /* LEFT ALIGN price on mobile */
+    text-align: right; /* RIGHT ALIGN price on mobile */
   }
 }
 

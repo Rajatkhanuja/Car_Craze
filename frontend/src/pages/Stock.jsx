@@ -194,6 +194,14 @@ const Stock = () => {
 
             {/* Mobile Filters */}
             <div className={`mobile-filters ${showMobileFilters ? 'show' : ''}`}>
+                {/* Close Button at Top Right */}
+                <button 
+                    className="mobile-filters-close"
+                    onClick={() => setShowMobileFilters(false)}
+                >
+                    ✕
+                </button>
+                
                 <h3>Budget Range</h3>
                 <CustomSelect
                     options={budgetOptions}
