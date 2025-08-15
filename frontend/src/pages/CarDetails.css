@@ -314,7 +314,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px;
+  min-width: 80px;
 }
 
 .more-cars-btn-circle {
