@@ -371,16 +371,19 @@
   .car-title-main {
     font-size: 15px;
     margin-bottom: 2px;
-    text-align: left; /* LEFT ALIGN text on mobile */
+    text-align: left;
+    display: inline; /* LEFT ALIGN text on mobile */
   }
 
   .car-variant-wrapper {
     margin-bottom: 10px;
-    text-align: left; /* LEFT ALIGN text on mobile */
+    text-align: left;
+    display: inline; /* LEFT ALIGN text on mobile */
   }
 
   .car-variant {
     font-size: 13px;
+    display: inline;
   }
 
   .new-price {
@@ -398,7 +401,7 @@
   }
 
   .car-price {
-    text-align: left; /* LEFT ALIGN price on mobile */
+    text-align: right; /* LEFT ALIGN price on mobile */
   }
 }
 
