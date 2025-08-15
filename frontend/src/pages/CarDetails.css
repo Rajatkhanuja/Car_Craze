@@ -7,7 +7,7 @@
   font-family: 'Arial', sans-serif;
   background-color: #f8f9fa;
   min-height: 100vh;
-  margin-top: 60px;
+  margin-top: 65px;
 }
 
 .car-details-content {
@@ -355,7 +355,7 @@
 @media (max-width: 768px) {
   .car-details-container {
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 60px;
   }
   
   .car-details-content {
@@ -489,7 +489,7 @@
 @media (max-width: 480px) {
   .car-details-container {
     padding: 5px;
-     margin-top: 45px;
+     margin-top: 55px;
   }
   
   .main-image-wrapper {
