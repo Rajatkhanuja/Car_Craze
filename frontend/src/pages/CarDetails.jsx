@@ -12,11 +12,6 @@ import transmissionImg from '../assets/transmission.jpg';
 import ownershipImg from '../assets/ownership.jpg';
 import insuranceImg from '../assets/insurance.jpg';
 import rtoImg from '../assets/rtoo.jpg';
-import engineCapacityImg from '../assets/engine-capacity.jpg'; // Assuming you have this icon
-import makeYearImg from '../assets/make-year.jpg'; // Assuming you have this icon
-import spareKeyImg from '../assets/spare-key.jpg'; // Assuming you have this icon
-import regNumberImg from '../assets/reg-number.jpg'; // Assuming you have this icon
-
 // Import inspection images (SVG & PNG)
 import noAccident from '../assets/non-accidental.33bf2d20.svg';
 import noOdometer from '../assets/non-flooded.ba7c4986.svg'; // This was previously named noWaterDamage, corrected for clarity based on use
@@ -164,25 +159,10 @@ const CarDetails = () => {
                 <span>Transmission:</span> {car.transmission || 'N/A'}
               </div>
               <div className="info-item">
-                <img src={engineCapacityImg} alt="Engine Capacity" className="info-icon" />
-                <span>Engine capacity:</span> {car.engineCapacity ? `${car.engineCapacity}cc` : 'N/A'}
-              </div>
-              <div className="info-item">
                 <img src={ownershipImg} alt="Ownership" className="info-icon" />
                 <span>Ownership:</span> {car.ownership || 'N/A'}
               </div>
-              <div className="info-item">
-                <img src={makeYearImg} alt="Make Year" className="info-icon" />
-                <span>Make year:</span> {car.makeYear || 'N/A'}
-              </div>
-              <div className="info-item">
-                <img src={spareKeyImg} alt="Spare Key" className="info-icon" />
-                <span>Spare key:</span> {car.spareKey || 'N/A'}
-              </div>
-              <div className="info-item">
-                <img src={regNumberImg} alt="Reg Number" className="info-icon" />
-                <span>Reg number:</span> {car.registration || 'N/A'}
-              </div>
+              
               <div className="info-item">
                 <img src={insuranceImg} alt="Insurance" className="info-icon" />
                 <span>Insurance:</span> {car.insurance || 'N/A'}
