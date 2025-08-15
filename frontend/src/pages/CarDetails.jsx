@@ -10,7 +10,7 @@ import odometerImg from '../assets/odometer.jpg';
 import transmissionImg from '../assets/transmission.jpg';
 import ownershipImg from '../assets/ownership.jpg';
 import insuranceImg from '../assets/insurance.jpg';
-import rtoImg from '../assets/rto.jpg';
+import rtoImg from '../assets/rtoo.jpg';
 
 // Import inspection images (SVG & PNG)
 import noAccident from '../assets/non-accidental.33bf2d20.svg';
