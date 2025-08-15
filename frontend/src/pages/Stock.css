@@ -327,9 +327,9 @@
 }
 
 /* Mobile Filters Toggle Button - Hidden by default on desktop */
-.mobile-filters-toggle {
+/*.mobile-filters-toggle {
   display: none; /* Hidden by default on desktop */
-  position: fixed;
+  /*position: fixed;
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
@@ -347,7 +347,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-}
+}*/
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
