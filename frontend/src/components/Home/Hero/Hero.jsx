@@ -162,7 +162,7 @@ const Hero = () => {
           </div>
         </div>
       ))}
-      <div className="car-card view-more-circle" onClick={() => navigate("/cars")}>
+      <div className="car-card view-more-circle" onClick={() => navigate("/stock")}>
         <span>+</span>
       </div>
     </div>
