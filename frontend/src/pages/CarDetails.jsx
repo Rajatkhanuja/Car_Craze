@@ -173,7 +173,7 @@ const CarDetails = () => {
               </div>
             </div>
             <div className="price-section">
-              <span>₹</span> <strong>{formatPrice(car.price)} lakh</strong>
+              <span></span> <strong>{formatPrice(car.price)}</strong>
             </div>
           </div>
 

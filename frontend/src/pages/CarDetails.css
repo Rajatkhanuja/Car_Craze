@@ -355,7 +355,7 @@
 @media (max-width: 768px) {
   .car-details-container {
     padding: 10px;
-    margin-top: 70px;
+    margin-top: 75px;
   }
   
   .car-details-content {
@@ -489,7 +489,7 @@
 @media (max-width: 480px) {
   .car-details-container {
     padding: 5px;
-     margin-top: 65px;
+     margin-top: 70px;
   }
   
   .main-image-wrapper {
