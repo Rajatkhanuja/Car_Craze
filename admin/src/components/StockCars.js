@@ -132,7 +132,7 @@ const StockCars = () => {
         {/* Running and Transmission Section */}
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="running">Km Driven</label>
+            <label htmlFor="running">Km Driven(type only number)</label>
             <input type="text" id="running" name="running" placeholder="Enter Running"
               value={formData.running} onChange={handleChange} required />
           </div>
