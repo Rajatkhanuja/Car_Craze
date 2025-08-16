@@ -8,7 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL; // ✅ Env variable se backend UR
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phoneNumber: "", // Changed 'email' to 'phoneNumber'
     message: "",
   });
 
@@ -25,7 +25,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); 
+    setIsLoading(true);
     setSubmissionStatus("");
 
     try {
@@ -39,7 +39,7 @@ const Contact = () => {
 
       if (response.ok) {
         setSubmissionStatus("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", phoneNumber: "", message: "" }); // Changed 'email' to 'phoneNumber'
       } else {
         const errorData = await response.json();
         setSubmissionStatus(errorData.message || "Failed to send message. Please try again.");
@@ -71,8 +71,17 @@ const Contact = () => {
             <input type="text" name="name" value={formData.name} onChange={handleChange} required disabled={isLoading} />
           </div>
           <div className="form-group">
-            <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required disabled={isLoading} />
+            <label>Phone Number:</label> {/* Changed label */}
+            <input
+              type="tel" // Changed type to 'tel' for phone numbers
+              name="phoneNumber" // Changed name to 'phoneNumber'
+              value={formData.phoneNumber} // Changed value to formData.phoneNumber
+              onChange={handleChange}
+              required
+              disabled={isLoading}
+              pattern="[0-9]{10}" // Added pattern for 10 digits
+              title="Please enter a 10-digit phone number" // Tooltip for validation
+            />
           </div>
           <div className="form-group">
             <label>Message:</label>
@@ -109,11 +118,11 @@ const Contact = () => {
           <div className="footer-section links">
             <h3>Quick Links</h3>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">ABOUT US</Link></li>
-                            <li><Link to="/stock">BUY USED CAR</Link></li>
-                            <li><Link to="/sell">SELL CAR</Link></li>
-                            <li><Link to="/contact">CONTACT US</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">ABOUT US</Link></li>
+              <li><Link to="/stock">BUY USED CAR</Link></li>
+              <li><Link to="/sell">SELL CAR</Link></li>
+              <li><Link to="/contact">CONTACT US</Link></li>
             </ul>
           </div>
           <div className="footer-section contact">
@@ -124,7 +133,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 Car Craze. All Rights Reserved.</p>
+          <p>© 2025 Car Craze. All Rights Reserved.</p>
         </div>
       </footer>
     </>
