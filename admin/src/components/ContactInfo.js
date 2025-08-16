@@ -6,7 +6,7 @@ const API_URL = process.env.REACT_APP_API_URL; // ✅ Backend URL from env
 
 const ContactInfo = () => {
   const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const ContactInfo = () => {
 
   const handleDelete = async (id) => {
     console.log("Delete called for ID:", id);
-  
+
     try {
       const response = await fetch(`${API_URL}/contact/contact/${id}`, {
         method: "DELETE",
@@ -50,7 +50,7 @@ const ContactInfo = () => {
           "Authorization": `Bearer ${localStorage.getItem("adminToken")}`,
         },
       });
-  
+
       if (response.ok) {
         console.log("Message deleted successfully");
         setMessages(prevMessages => prevMessages.filter(msg => msg._id !== id));
@@ -83,7 +83,7 @@ const ContactInfo = () => {
             {messages.map((msg) => (
               <div key={msg._id} className="message-item">
                 <p><strong>Name:</strong> {msg.name}</p>
-                <p><strong>Email:</strong> {msg.email}</p>
+                <p><strong>Phone Number:</strong> {msg.phoneNumber}</p> {/* Changed 'Email' to 'Phone Number' and 'msg.email' to 'msg.phoneNumber' */}
                 <p><strong>Message:</strong> {msg.message}</p>
                 <p><strong>Date:</strong> {new Date(msg.createdAt).toLocaleString()}</p>
                 <button className="delete-btn" onClick={() => handleDelete(msg._id)}>Delete</button>
