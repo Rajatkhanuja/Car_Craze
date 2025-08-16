@@ -83,10 +83,42 @@ const Contact = () => {
               title="Please enter a 10-digit phone number" // Tooltip for validation
             />
           </div>
-          <div className="form-group">
-            <label>Message:</label>
-            <textarea name="message" value={formData.message} onChange={handleChange} required disabled={isLoading}></textarea>
-          </div>
+         <div className="form-group">
+  <label htmlFor="serviceSelect">Select a Service:</label>
+  <select
+    id="serviceSelect" // Added an id for the label's htmlFor
+    name="Help & Support" // Keep the name as "message" if that's what your formData expects
+    value={formData.message}
+    onChange={handleChange}
+    required
+    disabled={isLoading}
+  >
+    <option value="">-- Please choose an option --</option> {/* Default option */}
+
+    {/* Car Services */}
+    <optgroup label="🚗 Car Services">
+      <option value="Buy Used Car">Buy Used Car</option>
+      <option value="Sell Car">Sell Car</option>
+      <option value="Park and Sell">Park and Sell</option>
+      <option value="Used Car Loan">Used Car Loan</option>
+    </optgroup>
+
+    {/* Assistance & Protection */}
+    <optgroup label="🛡️ Assistance & Protection">
+      <option value="Insurance">Insurance</option>
+      <option value="Road Side Assistance">Road Side Assistance</option>
+      <option value="Warranty">Warranty</option>
+      <option value="RTO Work">RTO Work</option>
+    </optgroup>
+
+    {/* Vehicle Care */}
+    <optgroup label="🧰 Vehicle Care">
+      <option value="Pre-Delivery Inspection">Pre-Delivery Inspection</option>
+      <option value="Denting & Painting Work">Denting & Painting Work</option>
+      <option value="Dryclean & Polish Work">Dryclean & Polish Work</option>
+    </optgroup>
+  </select>
+</div>
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Submitting..." : "Submit"}
           </button>
