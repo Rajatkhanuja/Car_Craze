@@ -13,7 +13,7 @@ const StockCars = () => {
     year: '',
     fuel: '',
     running: '',
-    transmission: '', // ✅ Added
+    transmission: '',
     ownership: '',
     insurance: '',
     registration: '',
@@ -23,6 +23,11 @@ const StockCars = () => {
     photo3: null,
     photo4: null,
     photo5: null,
+    photo6: null, // Added for 10 photos
+    photo7: null, // Added for 10 photos
+    photo8: null, // Added for 10 photos
+    photo9: null, // Added for 10 photos
+    photo10: null, // Added for 10 photos
   });
 
   const handleChange = (e) => {
@@ -66,6 +71,7 @@ const StockCars = () => {
           confirmButtonText: 'OK',
         });
 
+        // Reset form data for all 10 photos
         setFormData({
           name: '',
           model: '',
@@ -82,6 +88,11 @@ const StockCars = () => {
           photo3: null,
           photo4: null,
           photo5: null,
+          photo6: null, // Reset for 10 photos
+          photo7: null, // Reset for 10 photos
+          photo8: null, // Reset for 10 photos
+          photo9: null, // Reset for 10 photos
+          photo10: null, // Reset for 10 photos
         });
       }
     } catch (error) {
@@ -132,7 +143,7 @@ const StockCars = () => {
         {/* Running and Transmission Section */}
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="running">Km Driven(type only number)</label>
+            <label htmlFor="running">Km Driven (type only number)</label>
             <input type="text" id="running" name="running" placeholder="Enter Running"
               value={formData.running} onChange={handleChange} required />
           </div>
@@ -164,25 +175,23 @@ const StockCars = () => {
             <input type="text" id="registration" name="registration" placeholder="Enter Registration Number"
               value={formData.registration} onChange={handleChange} required />
           </div>
-      <div className="form-group">
-  <label htmlFor="price">Price (only type 1 or 1.5)</label>
-  <input
-    type="text"
-    id="price"
-    name="price"
-    placeholder="only type 1 or 1.5"
-    value={formData.price}
-    onChange={handleChange}
-    pattern="^₹?[0-9]+(\.[0-9]+)?\s?(Lakh|lakh|Lakhs|lakhs)?$"
-    title="Example: ₹4.5 Lakh"
-    required
-  />
-</div>
-
-
+          <div className="form-group">
+            <label htmlFor="price">Price (only type 1 or 1.5)</label>
+            <input
+              type="text"
+              id="price"
+              name="price"
+              placeholder="only type 1 or 1.5"
+              value={formData.price}
+              onChange={handleChange}
+              pattern="^₹?[0-9]+(\.[0-9]+)?\s?(Lakh|lakh|Lakhs|lakhs)?$"
+              title="Example: ₹4.5 Lakh"
+              required
+            />
+          </div>
         </div>
 
-        {/* Photo Upload Section */}
+        {/* Photo Upload Section (10 photos) */}
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="photo1">Cover Image</label>
@@ -209,6 +218,32 @@ const StockCars = () => {
           <div className="form-group">
             <label htmlFor="photo5">Photo 5</label>
             <input type="file" id="photo5" name="photo5" onChange={handleFileChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo6">Photo 6</label>
+            <input type="file" id="photo6" name="photo6" onChange={handleFileChange} />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="photo7">Photo 7</label>
+            <input type="file" id="photo7" name="photo7" onChange={handleFileChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo8">Photo 8</label>
+            <input type="file" id="photo8" name="photo8" onChange={handleFileChange} />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="photo9">Photo 9</label>
+            <input type="file" id="photo9" name="photo9" onChange={handleFileChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo10">Photo 10</label>
+            <input type="file" id="photo10" name="photo10" onChange={handleFileChange} />
           </div>
         </div>
 
