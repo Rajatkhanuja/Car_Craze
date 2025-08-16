@@ -142,7 +142,7 @@ const Contact = () => {
 
       <div className="map-container">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.5458025251267!2d73.6558319!3d24.621066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967efe2a6f2b451%3A0x6a0f7b0f6a2a0f6a!2sNear%20Bhairavgarh%20Resort%2C%20200%20Ft%20Khelgaon%20Road%2C%20Sukher%2C%20Udaipur%2C%20Rajasthan%20313001!5e0!3m2!1sen!2sin!4v1678901234567!5m2!1sen!2sin" // Corrected Google Maps embed URL
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.6124914546544!2d73.72336347519266!3d24.637037378075817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e5b31694639d%3A0x8b40dfa4830df303!2sCar%20Craze!5e0!3m2!1sen!2sin!4v1755346505473!5m2!1sen!2sin" // Corrected Google Maps embed URL
           width="100%"
           height="450"
           style={{ border: "0" }}
