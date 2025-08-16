@@ -58,17 +58,24 @@ const UpdateService = () => {
   };
 
   const formatPrice = (price) => {
+    // Ensure price is a number before formatting
+    const numericPrice = parseFloat(price);
+    if (isNaN(numericPrice)) {
+      return price; // Return original if not a valid number
+    }
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
       maximumFractionDigits: 1, // 🔁 allow 1 digit after decimal
-    minimumFractionDigits: 1 
-    }).format(price);
+      minimumFractionDigits: 1
+    }).format(numericPrice);
   };
 
   const getImageUrl = (photoPath) => {
     if (!photoPath) return null;
+    // Cloudinary URLs already start with 'http' or 'https'
     if (photoPath.startsWith('http')) return photoPath;
+    // Fallback for local uploads (if you still have any or need it for testing)
     const normalizedPath = photoPath.replace(/\\/g, '/');
     const cleanPath = normalizedPath.replace(/^(?:uploads\/)?/, '').replace(/^\/+/, '');
     return `${API_URL}/uploads/${cleanPath}`;
@@ -133,9 +140,8 @@ const UpdateService = () => {
                       {formatPrice(car.price)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {Object.entries(car)
-                        .filter(([key, value]) => key.startsWith('photo') && value)
-                        .length > 0 ? (
+                      {/* Check if any photo exists before showing View Photos button */}
+                      {Array.from({ length: 10 }, (_, i) => `photo${i + 1}`).some(key => car[key]) ? (
                         <button
                           onClick={() => toggleExpand(car._id)}
                           className="flex items-center text-blue-600 hover:text-blue-800"
@@ -170,19 +176,20 @@ const UpdateService = () => {
                   {expandedCar === car._id && (
                     <tr>
                       <td colSpan="7" className="px-6 py-4">
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                          {['photo1', 'photo2', 'photo3', 'photo4', 'photo5'].map((photoKey, index) => {
-                            if (!car[photoKey]) return null;
+                        {/* Adjusted grid for potentially more photos if needed, e.g., grid-cols-5 */}
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                          {Array.from({ length: 10 }, (_, i) => `photo${i + 1}`).map((photoKey) => {
+                            if (!car[photoKey]) return null; // Only render if photo path exists
 
                             const imageUrl = getImageUrl(car[photoKey]);
                             return imageUrl ? (
                               <div key={photoKey} className="relative aspect-w-3 aspect-h-2">
                                 <img
                                   src={imageUrl}
-                                  alt={`Car ${index + 1}`}
+                                  alt={`Car Photo ${photoKey.replace('photo', '')}`}
                                   className="w-full h-48 object-cover rounded-lg shadow-sm"
                                   onError={(e) => {
-                                    e.target.src = '/placeholder-car.jpg';
+                                    e.target.src = '/placeholder-car.jpg'; // Fallback image if loading fails
                                   }}
                                 />
                               </div>
