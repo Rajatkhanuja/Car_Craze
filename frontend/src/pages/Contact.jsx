@@ -3,17 +3,17 @@ import Navbar from "../components/Navbar";
 import "./Contact.css";
 import { Link } from 'react-router-dom';
 
-const API_URL = process.env.REACT_APP_API_URL; // ✅ Env variable se backend URL
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    phoneNumber: "", // Changed 'email' to 'phoneNumber'
-    message: "",
+    phoneNumber: "",
+    message: "", // This will store the selected option's value
   });
 
   const [submissionStatus, setSubmissionStatus] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Track loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +39,8 @@ const Contact = () => {
 
       if (response.ok) {
         setSubmissionStatus("Message sent successfully!");
-        setFormData({ name: "", phoneNumber: "", message: "" }); // Changed 'email' to 'phoneNumber'
+        // Clear the form after successful submission
+        setFormData({ name: "", phoneNumber: "", message: "" });
       } else {
         const errorData = await response.json();
         setSubmissionStatus(errorData.message || "Failed to send message. Please try again.");
@@ -71,54 +72,63 @@ const Contact = () => {
             <input type="text" name="name" value={formData.name} onChange={handleChange} required disabled={isLoading} />
           </div>
           <div className="form-group">
-            <label>Phone Number:</label> {/* Changed label */}
+            <label>Phone Number:</label>
             <input
-              type="tel" // Changed type to 'tel' for phone numbers
-              name="phoneNumber" // Changed name to 'phoneNumber'
-              value={formData.phoneNumber} // Changed value to formData.phoneNumber
+              type="tel"
+              name="phoneNumber"
+              value={formData.phoneNumber}
               onChange={handleChange}
               required
               disabled={isLoading}
-              pattern="[0-9]{10}" // Added pattern for 10 digits
-              title="Please enter a 10-digit phone number" // Tooltip for validation
+              pattern="[0-9]{10}"
+              title="Please enter a 10-digit phone number"
             />
           </div>
-         <div className="form-group">
-  <label htmlFor="serviceSelect">Select a Service:</label>
-  <select
-    id="serviceSelect" // Added an id for the label's htmlFor
-    name="Help & Support" // Keep the name as "message" if that's what your formData expects
-    value={formData.message}
-    onChange={handleChange}
-    required
-    disabled={isLoading}
-  >
-    <option value="">-- Please choose an option --</option> {/* Default option */}
+          <div className="form-group">
+            <label htmlFor="serviceSelect">Help & Support</label>
+            <select
+              id="serviceSelect"
+              name="message" // This is crucial for handleChange to update formData.message
+              value={formData.message}
+              onChange={handleChange}
+              required
+              disabled={isLoading}
+            >
+              <option value="">-- Please choose an option --</option> {/* Default option */}
 
-    {/* Car Services */}
-    <optgroup label="🚗 Car Services">
-      <option value="Buy Used Car">Buy Used Car</option>
-      <option value="Sell Car">Sell Car</option>
-      <option value="Park and Sell">Park and Sell</option>
-      <option value="Used Car Loan">Used Car Loan</option>
-    </optgroup>
+              {/* Car Services */}
+              <optgroup label="🚗 Car Services">
+                <option value="Buy Used Car">Buy Used Car</option>
+                <option value="Sell Car">Sell Car</option>
+                <option value="Park and Sell">Park and Sell</option>
+                <option value="Used Car Loan">Used Car Loan</option>
+              </optgroup>
 
-    {/* Assistance & Protection */}
-    <optgroup label="🛡️ Assistance & Protection">
-      <option value="Insurance">Insurance</option>
-      <option value="Road Side Assistance">Road Side Assistance</option>
-      <option value="Warranty">Warranty</option>
-      <option value="RTO Work">RTO Work</option>
-    </optgroup>
+              {/* Assistance & Protection */}
+              <optgroup label="🛡️ Assistance & Protection">
+                <option value="Insurance">Insurance</option>
+                <option value="Road Side Assistance">Road Side Assistance</option>
+                <option value="Warranty">Warranty</option>
+                <option value="RTO Work">RTO Work</option>
+              </optgroup>
 
-    {/* Vehicle Care */}
-    <optgroup label="🧰 Vehicle Care">
-      <option value="Pre-Delivery Inspection">Pre-Delivery Inspection</option>
-      <option value="Denting & Painting Work">Denting & Painting Work</option>
-      <option value="Dryclean & Polish Work">Dryclean & Polish Work</option>
-    </optgroup>
-  </select>
-</div>
+              {/* Vehicle Care */}
+              <optgroup label="🧰 Vehicle Care">
+                <option value="Pre-Delivery Inspection">Pre-Delivery Inspection</option>
+                <option value="Denting & Painting Work">Denting & Painting Work</option>
+                <option value="Dryclean & Polish Work">Dryclean & Polish Work</option>
+              </optgroup>
+            </select>
+          </div>
+
+          {/* --- Display the selected option here --- */}
+          {formData.message && ( // Only show this div if a message is selected
+            <div className="selected-message-display">
+              <p><strong>Selected Service:</strong> {formData.message}</p>
+            </div>
+          )}
+          {/* -------------------------------------- */}
+
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Submitting..." : "Submit"}
           </button>
@@ -132,7 +142,7 @@ const Contact = () => {
 
       <div className="map-container">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.6124914546544!2d73.72336347519266!3d24.637037378075817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e5b31694639d%3A0x8b40dfa4830df303!2sCar%20Craze!5e0!3m2!1sen!2sin!4v1734194501838!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.5458025251267!2d73.6558319!3d24.621066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967efe2a6f2b451%3A0x6a0f7b0f6a2a0f6a!2sNear%20Bhairavgarh%20Resort%2C%20200%20Ft%20Khelgaon%20Road%2C%20Sukher%2C%20Udaipur%2C%20Rajasthan%20313001!5e0!3m2!1sen!2sin!4v1678901234567!5m2!1sen!2sin" // Corrected Google Maps embed URL
           width="100%"
           height="450"
           style={{ border: "0" }}
