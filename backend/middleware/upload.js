@@ -1,4 +1,3 @@
-// middleware/upload.js
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('../config/cloudinary');
@@ -22,6 +21,11 @@ const upload = multer({
   { name: 'photo3', maxCount: 1 },
   { name: 'photo4', maxCount: 1 },
   { name: 'photo5', maxCount: 1 },
+  { name: 'photo6', maxCount: 1 }, // Added
+  { name: 'photo7', maxCount: 1 }, // Added
+  { name: 'photo8', maxCount: 1 }, // Added
+  { name: 'photo9', maxCount: 1 }, // Added
+  { name: 'photo10', maxCount: 1 }, // Added
 ]);
 
 module.exports = upload;

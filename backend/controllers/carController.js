@@ -104,7 +104,8 @@ exports.deleteCar = async (req, res) => {
     }
 
     // Delete images from Cloudinary
-    const photoKeys = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5'];
+    // Updated to include all 10 photo fields
+    const photoKeys = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6', 'photo7', 'photo8', 'photo9', 'photo10']; 
     for (let key of photoKeys) {
       if (car[key]) {
         try {
