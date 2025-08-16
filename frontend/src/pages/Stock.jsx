@@ -253,7 +253,7 @@ const Stock = () => {
             {/* Main Content */}
             <div className="content">
                 <div className="stock-header">
-                    <h1>Cars in Stock</h1>
+                    <h1>PRE-LOVED CARS</h1>
                 </div>
 
                 <div className="stock-cars-grid">

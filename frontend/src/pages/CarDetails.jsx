@@ -148,7 +148,7 @@ const CarDetails = () => {
             <div className="info-grid">
               <div className="info-item">
                 <img src={regYearImg} alt="Reg Year" className="info-icon" />
-                <span>Reg. year</span> {car.year || 'N/A'}
+                <span>Reg. Year</span> {car.year || 'N/A'}
               </div>
               <div className="info-item">
                 <img src={fuelImg} alt="Fuel" className="info-icon" />
@@ -177,28 +177,28 @@ const CarDetails = () => {
               </div>
             </div>
             <div className="price-section">
-              <span></span><strong>{formatPrice(car.price)}lakh</strong>
+              <span className="new-price">₹{car.price} lakh</span>
             </div>
           </div>
 
           <div className="car-inspection-report">
-            <h3>Car Inspection Report</h3>
+            <h3>Car Report</h3>
             <div className="inspection-grid">
               <div className="inspection-item">
                 <img src={noAccident} alt="No accident history" />
-                <span>No accident history</span>
+                <span>No Accident History</span>
               </div>
               <div className="inspection-item">
                 <img src={noOdometer} alt="No odometer tampering" />
-                <span>No odometer tampering</span>
+                <span>No Odometer Tampering</span>
               </div>
               <div className="inspection-item">
                 <img src={noWaterDamage} alt="No water damages" />
-                <span>No water damages</span>
+                <span>No Water Damages</span>
               </div>
               <div className="inspection-item">
                 <img src={qualityCheck} alt="140-quality check!" />
-                <span>118-quality check!</span>
+                <span>118 Quality Check!</span>
               </div>
             </div>
           </div>
