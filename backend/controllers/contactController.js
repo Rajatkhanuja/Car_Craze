@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");  // Ensure this line is present
+const mongoose = require("mongoose"); // Ensure this line is present
 const Contact = require("../models/Contact");
 
 // POST: Submit contact form
 const submitContact = async (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, phoneNumber, message } = req.body; // Changed 'email' to 'phoneNumber'
 
   try {
-    const newContact = new Contact({ name, email, message });
+    const newContact = new Contact({ name, phoneNumber, message }); // Changed 'email' to 'phoneNumber'
     await newContact.save();
     res.status(201).json({ message: "Contact submitted successfully", contact: newContact });
   } catch (error) {
@@ -36,11 +36,11 @@ const deleteContact = async (req, res) => {
 
     // Use findByIdAndDelete with error handling
     const deletedContact = await Contact.findByIdAndDelete(id);
-    
+
     if (!deletedContact) {
       return res.status(404).json({ message: "Contact not found" });
     }
-    
+
     res.status(200).json({ message: "Contact deleted successfully", contact: deletedContact });
   } catch (error) {
     console.error("Delete contact error:", error);
