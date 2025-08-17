@@ -169,10 +169,9 @@ const CarDetails = () => {
         <h3>Car Overview</h3>
         <div className="info-grid">
           <div className="info-item">
-            
-            <img src={regYearImg} alt="Reg Year" className="w-5 h-5 filter contrast-180 brightness-90" />
-
-            <span>Reg. Year</span> {car.year || 'N/A'}
+            <img src={regYearImg} alt="Reg Year" className="info-icon" />
+            <span className="font-bold">Reg. Year</span>
+ {car.year || 'N/A'}
           </div>
           <div className="info-item">
             <img src={fuelImg} alt="Fuel" className="info-icon" />
