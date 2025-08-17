@@ -170,8 +170,7 @@ const CarDetails = () => {
         <div className="info-grid">
           <div className="info-item">
             <img src={regYearImg} alt="Reg Year" className="info-icon" />
-            <span className="font-bold">Reg. Year</span>
- {car.year || 'N/A'}
+            <span>Reg. Year</span> {car.year || 'N/A'}
           </div>
           <div className="info-item">
             <img src={fuelImg} alt="Fuel" className="info-icon" />
