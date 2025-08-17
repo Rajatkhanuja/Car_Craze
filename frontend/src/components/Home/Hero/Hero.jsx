@@ -149,7 +149,7 @@ const Hero = () => {
             </h3>
 
             <div className="car-badges">
-              <span>{car.running}</span>
+              <span>{car.running}km</span>
               <span>{car.fuel}</span>
               <span>{car.transmission}</span>
               <span>{car.registration}</span>
