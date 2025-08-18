@@ -13,6 +13,9 @@ import UsedCarLoan from './pages/UsedCarLoan';
 import SellCar from './pages/SellCar';
 import ParkAndSell from './pages/ParkAndSell';
 import Insurance from './pages/Insurance';
+import Roadside from './pages/Roadside';
+import Warranty from './pages/Warranty';
+import Predelivery from './pages/Predelivery';
 // Components
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
@@ -45,6 +48,9 @@ const App = () => {
           <Route path="/sell-car" element={<SellCar />} />
           <Route path="/park-and-sell" element={<ParkAndSell />} />
           <Route path="/insurance" element={<Insurance />} />
+          <Route path="/rodeside" element={<Roadside />} />
+          <Route path="/warranty" element={<Warranty />} />
+          <Route path="/Predelivery" element={<Predelivery />} />
         </Routes>
       </BrowserRouter>
     </>

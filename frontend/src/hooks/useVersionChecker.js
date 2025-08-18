@@ -19,7 +19,7 @@ const useVersionChecker = () => {
       }
     };
 
-    const interval = setInterval(checkVersion, 5 * 60 * 1000); // Every 5 mins
+    const interval = setInterval(checkVersion, 25 * 60 * 1000); // Every 5 mins
     checkVersion(); // Check immediately
 
     return () => clearInterval(interval);
