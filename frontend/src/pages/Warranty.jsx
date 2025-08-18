@@ -127,7 +127,7 @@ const WarrantyPage = () => {
 
                 {/* Footer */}
                 <footer className="text-center p-6 sm:p-8 text-gray-500 text-sm border-t border-gray-200 mt-8">
-                    <p>&copy; {new Date().getFullYear()} CarCraze. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Car Craze. All rights reserved.</p>
                 </footer>
             </div>
         </div>
