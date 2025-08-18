@@ -162,13 +162,13 @@ const Stock = () => {
                     </button>
                 )}
 
-                <h2>Manufacturer</h2>
+                <h2>Brand</h2>
                 <div className="select-wrapper">
                     <CustomSelect
                         options={manufacturerOptions}
                         value={selectedManufacturer}
                         onChange={handleManufacturerChange}
-                        placeholder="Select Manufacturer"
+                        placeholder="Select Brand"
                         styleClass="manufacturer-select-custom"
                     />
                     {selectedManufacturer && (
@@ -215,12 +215,12 @@ const Stock = () => {
                     styleClass="budget-select-custom"
                 />
 
-                <h3>Manufacturer</h3>
+                <h3>Brand</h3>
                 <CustomSelect
                     options={manufacturerOptions}
                     value={selectedManufacturer}
                     onChange={handleManufacturerChange}
-                    placeholder="Select Manufacturer"
+                    placeholder="Select Brand"
                     styleClass="manufacturer-select-custom"
                 />
 

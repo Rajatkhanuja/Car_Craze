@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages
@@ -12,10 +12,13 @@ import BuyUsedCar from './pages/BuyUsedCar';
 import UsedCarLoan from './pages/UsedCarLoan';
 import SellCar from './pages/SellCar';
 import ParkAndSell from './pages/ParkAndSell';
-
+import Insurance from './pages/Insurance';
 // Components
 import Navbar from './components/Navbar';
-import ScrollToTop from './components/ScrollToTop'; // ✅ Import ScrollToTop
+import ScrollToTop from './components/ScrollToTop';
+
+// Custom Hook
+import useVersionChecker from './hooks/useVersionChecker'; // ✅ Add this
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,14 +26,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const App = () => {
 
-  // ✅ Auto Refresh after 1 hour
-  useEffect(() => {
-    const refreshTimer = setTimeout(() => {
-      window.location.reload();
-    }, 3600000); // 1 hour = 3600000 milliseconds
-
-    return () => clearTimeout(refreshTimer); // Clean up on unmount
-  }, []);
+  useVersionChecker(); // ✅ Auto-refresh on version update
 
   return (
     <>
@@ -48,6 +44,7 @@ const App = () => {
           <Route path="/used-car-loan" element={<UsedCarLoan />} />
           <Route path="/sell-car" element={<SellCar />} />
           <Route path="/park-and-sell" element={<ParkAndSell />} />
+          <Route path="/insurance" element={<Insurance />} />
         </Routes>
       </BrowserRouter>
     </>
