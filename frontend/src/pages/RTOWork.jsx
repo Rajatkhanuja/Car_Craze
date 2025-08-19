@@ -1,17 +1,17 @@
 import React from 'react';
 
-const Predelivery = () => {
+const RTOWork = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-8 font-sans">
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden mt-20">
 
                 {/* Header Section */}
-                <div className="relative bg-teal-700 p-6 sm:p-8 text-center text-white">
+                <div className="relative bg-cyan-700 p-6 sm:p-8 text-center text-white">
                     <h1 className="text-3xl sm:text-4xl font-extrabold mb-1">
-                        Pre-Delivery Inspection (PDI)
+                        RTO Work & Documentation
                     </h1>
                     <p className="text-sm sm:text-base font-medium opacity-90 mt-2">
-                        Ensuring every detail is perfect before you drive away.
+                        Seamless paperwork, stress-free ownership.
                     </p>
                 </div>
 
@@ -19,79 +19,76 @@ const Predelivery = () => {
                 <div className="p-6 sm:p-8">
                     <div className="mb-8 p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
                         <p className="text-gray-600 leading-relaxed mb-4">
-                            Our comprehensive Pre-Delivery Inspection is a meticulous multi-point checklist that guarantees your new vehicle meets our highest standards of quality and safety. Our certified technicians carefully examine every aspect of your car to ensure it is in pristine condition for your first drive.
+                            Navigating RTO processes can be complex and time-consuming. Our expert team provides end-to-end assistance with all your vehicle-related documentation, ensuring a smooth and hassle-free experience. We handle everything from registration to license renewals so you can focus on driving.
                         </p>
                         <p className="text-gray-600 leading-relaxed">
-                            Below is a summary of the key areas we check during our PDI process.
+                            Below is a list of the key RTO services we offer.
                         </p>
                     </div>
 
                     <hr className="my-8 border-gray-200" />
 
-                    {/* PDI Checklist Sections */}
+                    {/* Services Sections */}
                     <div className="grid md:grid-cols-2 gap-8">
-                        {/* Exterior Inspection */}
+                        {/* Vehicle Registration */}
                         <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
                             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                1. Exterior Check
+                                1. Vehicle Registration
                             </h2>
                             <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Paint and bodywork for any scratches or dents.</li>
-                                <li>Glass, mirrors, and lights for damage and functionality.</li>
-                                <li>Wheel rims and tire pressure.</li>
-                                <li>All exterior lighting and indicators are working.</li>
-                                <li>Fuel cap, trunk, and hood alignment.</li>
+                                <li><strong>New Vehicle Registration:</strong> Complete paperwork for your new car.</li>
+                                <li><strong>Registration Renewal:</strong> Timely renewal of your vehicle's registration certificate (RC).</li>
+                                <li><strong>Registration Transfer:</strong> Seamless transfer of ownership and RC details.</li>
                             </ul>
                         </div>
 
-                        {/* Interior Inspection */}
+                        {/* Driver's License */}
                         <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
                             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                2. Interior Check
+                                2. Driver's License
                             </h2>
                             <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Upholstery and trim for any imperfections.</li>
-                                <li>Dashboard instruments and infotainment system.</li>
-                                <li>Seat belts, airbags, and safety features.</li>
-                                <li>Heating, ventilation, and air conditioning (HVAC) system.</li>
-                                <li>All windows and locks operate smoothly.</li>
+                                <li><strong>License Renewal:</strong> Hassle-free renewal of your driving license.</li>
+                                <li><strong>Duplicate License:</strong> Assistance in obtaining a duplicate license.</li>
+                                <li><strong>Change of Address:</strong> Updating your address on your license.</li>
                             </ul>
                         </div>
 
-                        {/* Mechanical Inspection */}
+                        {/* Other Services */}
                         <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
                             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                3. Mechanical & Under-Hood
+                                3. Other RTO Services
                             </h2>
                             <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Engine oil, brake fluid, and coolant levels.</li>
-                                <li>Brakes and suspension system performance.</li>
-                                <li>Battery health and charging system.</li>
-                                <li>No abnormal sounds from the engine or exhaust.</li>
-                                <li>Fluid leaks are checked and rectified.</li>
+                                <li><strong>Change of Ownership:</strong> Full support for buying or selling a used vehicle.</li>
+                                <li><strong>Duplicate Documents:</strong> Help with lost or damaged RC books and keys.</li>
+                                <li><strong>NOC (No Objection Certificate):</strong> Obtaining NOC for inter-state vehicle transfer.</li>
                             </ul>
                         </div>
 
-                        {/* Final Check */}
+                        {/* Required Documents */}
                         <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
                             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                4. Final Verification
+                                4. Required Documents
                             </h2>
                             <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Vehicle documents and manuals are present.</li>
-                                <li>All keys and remotes are functional.</li>
-                                <li>Road test to verify driving performance.</li>
-                                <li>Final clean and polish of the vehicle.</li>
+                                <li>Original Vehicle documents.</li>
+                                <li>Proof of Identity and Address.</li>
+                                <li>Pollution Under Control (PUC) certificate.</li>
+                                <li>Insurance Certificate.</li>
                             </ul>
+                            <p className="text-gray-600 mt-4">
+                                *Required documents may vary based on the specific service.
+                            </p>
                         </div>
                     </div>
-                    
+
                     <div className="text-center mt-10">
                         <a 
                             href="/contact" 
                             className="inline-block py-3 px-8 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
                         >
-                            Schedule Your Test Drive
+                            Get Started with Your Paperwork
                         </a>
                     </div>
                 </div>
@@ -105,4 +102,4 @@ const Predelivery = () => {
     );
 };
 
-export default Predelivery;
+export default RTOWork;

@@ -75,9 +75,9 @@ const Navbar = () => {
               <Link to="/rodeside" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Road Side Assistance</Link>
               <Link to="/warranty" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Warranty</Link>
               <Link to="/predelivery" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Pre Delivery Inspection</Link>
-              <Link to="/denting-painting" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Denting & Painting Work</Link>
-              <Link to="/dryclean-polish" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
-              <Link to="/rto-work" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">RTO Work</Link>
+              <Link to="/DentingPainting" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Denting & Painting Work</Link>
+              <Link to="/DrycleanPolish" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
+              <Link to="/RTOWork" onClick={closeMenu} className="block px-4 py-2 hover:bg-yellow-400 text-white no-underline">RTO Work</Link>
             </div>
           </div>
 
@@ -122,9 +122,9 @@ const Navbar = () => {
                 <Link to="/rodeside" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Road Side Assistance</Link>
                 <Link to="/warranty" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Warranty</Link>
                 <Link to="/predelivery" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Pre Delivery Inspection</Link>
-                <Link to="/denting-painting" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Denting & Painting Work</Link>
-                <Link to="/dryclean-polish" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
-                <Link to="/rto-work" onClick={closeMenu} className="block py-1  mb-3 hover:text-yellow-400 text-white no-underline">RTO Work</Link>
+                <Link to="/DentingPainting" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Denting & Painting Work</Link>
+                <Link to="/DrycleanPolish" onClick={closeMenu} className="block py-1 hover:text-yellow-400 text-white no-underline">Dryclean & Polish Work</Link>
+                <Link to="/RTOWork" onClick={closeMenu} className="block py-1  mb-3 hover:text-yellow-400 text-white no-underline">RTO Work</Link>
               </div>
             )}
           </div>

@@ -16,6 +16,9 @@ import Insurance from './pages/Insurance';
 import Roadside from './pages/Roadside';
 import Warranty from './pages/Warranty';
 import Predelivery from './pages/Predelivery';
+import DentingPainting from './pages/DentingPainting';
+import DrycleanPolish from './pages/DrycleanPolish';
+import RTOWork from './pages/RTOWork';
 // Components
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
@@ -51,6 +54,9 @@ const App = () => {
           <Route path="/rodeside" element={<Roadside />} />
           <Route path="/warranty" element={<Warranty />} />
           <Route path="/Predelivery" element={<Predelivery />} />
+          <Route path="/DentingPainting" element={<DentingPainting />} />
+          <Route path="/DrycleanPolish" element={<DrycleanPolish />} />
+          <Route path="/RTOWork" element={<RTOWork />} />
         </Routes>
       </BrowserRouter>
     </>

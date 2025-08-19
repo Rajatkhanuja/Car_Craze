@@ -69,7 +69,7 @@ const WarrantyPage = () => {
                         <div className="text-center mt-6">
                             <a 
                                 href="/contact" 
-                                className="inline-block py-3 px-8 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg"
+                                className="inline-block py-3 px-8 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
                             >
                                 Contact Us to Start a Claim
                             </a>
