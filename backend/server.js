@@ -12,41 +12,43 @@ const carRouter = require("./routes/carRouter");
 dotenv.config();
 const app = express();
 
-// ✅ Flexible CORS setup for frontend & admin
+// ✅ Allow these domains
+const allowedOrigins = [
+  "https://carcraze-two.vercel.app",    // frontend
+  "https://carcraze-admin.vercel.app"   // admin panel
+];
+
+// ✅ CORS middleware
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      "https://carcraze-two.vercel.app",   // Main frontend
-      "https://carcraze-admin.vercel.app"  // Admin panel
-    ];
-    if (!origin) return callback(null, true); // Allow Postman, mobile apps
-    if (allowedOrigins.includes(origin) || origin.endsWith("vercel.app")) {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // for Postman & mobile
+    if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
     return callback(new Error("Not allowed by CORS"));
   },
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  credentials: true
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
 }));
 
-// ✅ Handle preflight requests (CORS error fix)
+// ✅ Important: Handle preflight requests properly
 app.options("*", cors());
 
 // Middleware
 app.use(express.json());
 
-// ✅ Routes
-app.use("/admin", adminRoutes);           // Admin login & auth
-app.use("/contact", contactRoutes);       // Contact form
-app.use("/api/car-data", formRoutes);     // Sell car form
-app.use("/cars", carRouter);              // Cars list & details
+// Routes
+app.use("/admin", adminRoutes);
+app.use("/contact", contactRoutes);
+app.use("/api/car-data", formRoutes);
+app.use("/cars", carRouter);
 
-// ✅ Health check route
+// Health check
 app.get("/", (req, res) => {
   res.json({ status: "Backend is running" });
 });
 
-// ✅ Global error handler
+// Global error handler
 app.use((err, req, res, next) => {
   console.error("Error Details:", err);
   res.status(500).json({ 
@@ -55,6 +57,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ✅ Start server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
