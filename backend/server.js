@@ -12,29 +12,32 @@ const carRouter = require("./routes/carRouter");
 dotenv.config();
 const app = express();
 
-// ✅ Allow these domains
+// ✅ CORS Setup
 const allowedOrigins = [
-  "https://carcraze-two.vercel.app",    // frontend
-  "https://carcraze-admin.vercel.app"   // admin panel
+  "https://carcraze-two.vercel.app",
+  "https://carcraze-admin.vercel.app"
 ];
 
-// ✅ CORS middleware
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // for Postman & mobile
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
     }
-    return callback(new Error("Not allowed by CORS"));
   },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
-}));
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
 
-// ✅ Important: Handle preflight requests properly
-app.options("*", cors());
+// ✅ CORS middleware
+app.use(cors(corsOptions));
 
-// Middleware
+// ✅ Handle preflight requests
+app.options("*", cors(corsOptions));
+
+// Body parser
 app.use(express.json());
 
 // Routes
@@ -51,12 +54,11 @@ app.get("/", (req, res) => {
 // Global error handler
 app.use((err, req, res, next) => {
   console.error("Error Details:", err);
-  res.status(500).json({ 
-    message: "Internal Server Error", 
-    error: err.message 
+  res.status(500).json({
+    message: "Internal Server Error",
+    error: err.message,
   });
 });
 
-// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
