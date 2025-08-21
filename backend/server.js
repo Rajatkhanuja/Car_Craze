@@ -29,24 +29,24 @@ app.use(cors({
   credentials: true
 }));
 
+// ✅ Handle preflight requests (CORS error fix)
+app.options("*", cors());
+
 // Middleware
 app.use(express.json());
 
-// ❌ Local uploads folder serving is removed
-// ✅ Cloudinary will handle file storage & access via its URLs
-
-// Routes
+// ✅ Routes
 app.use("/admin", adminRoutes);           // Admin login & auth
 app.use("/contact", contactRoutes);       // Contact form
 app.use("/api/car-data", formRoutes);     // Sell car form
 app.use("/cars", carRouter);              // Cars list & details
 
-// Health check
+// ✅ Health check route
 app.get("/", (req, res) => {
   res.json({ status: "Backend is running" });
 });
 
-// Global error handler
+// ✅ Global error handler
 app.use((err, req, res, next) => {
   console.error("Error Details:", err);
   res.status(500).json({ 
@@ -55,6 +55,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
+// ✅ Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
