@@ -5,16 +5,16 @@ const Insurance = () => {
   const [selectedPlan, setSelectedPlan] = useState('');
 
   const plans = [
-    { id: 'third-party', name: 'Third Party', price: '₹2,500/year', coverage: 'Legal Coverage' },
-    { id: 'comprehensive', name: 'Comprehensive', price: '₹8,500/year', coverage: 'Full Protection' },
-    { id: 'zero-dep', name: 'Zero Depreciation', price: '₹12,000/year', coverage: 'Maximum Cover' }
+    { id: 'third-party', name: 'Third Party', price: 'Starting from ₹2,500/Year', coverage: 'Legal Coverage' },
+    { id: 'comprehensive', name: 'Comprehensive', price: 'Starting from ₹6,000/Year', coverage: 'Full Protection' },
+    { id: 'zero-dep', name: 'Zero Depreciation', price: 'Starting from ₹8,000/Year', coverage: 'Maximum Cover' }
   ];
 
-  const features = [
-    'Cashless Garage',
-    'Roadside Assistance',
-    'Quick Claim',
-    'Theft Protection'
+   const features = [
+    "Cashless Garages",
+    "Road Side Assistance",
+    "Quick Claim Settlement",
+    "Fire/ Theft Protection"
   ];
  const handleContactClick = () => {
     // This simulates a navigation to a new page.
@@ -71,7 +71,7 @@ const Insurance = () => {
           </div>
 
           {/* Features */}
-          <div className="mt-6">
+         <div className="mt-6">
             <h3 className="font-semibold text-gray-800 mb-3">Key Benefits</h3>
             <div className="grid grid-cols-2 gap-2">
               {features.map((feature, index) => (
@@ -90,13 +90,13 @@ const Insurance = () => {
               <h3 className="font-semibold text-orange-800">Why Car Insurance?</h3>
             </div>
             <p className="text-sm text-orange-700">
-              Legal requirement + Financial protection against accidents, theft & damages.
+              Legal Requirement + Financial Protection against Accidents, Theft & Damages.
             </p>
           </div>
 
           {/* Contact */}
           <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-            <h3 className="font-semibold text-gray-800 mb-3">Get Quote</h3>
+            <h3 className="font-semibold text-gray-800 mb-3">Get Best Quotes</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <span className="text-red-600">📞</span>
