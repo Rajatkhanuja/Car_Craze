@@ -12,39 +12,34 @@ const carRouter = require("./routes/carRouter");
 dotenv.config();
 const app = express();
 
-// ✅ CORS Setup
-const allowedOrigins = [
-  "https://carcraze-two.vercel.app",
-  "https://carcraze-admin.vercel.app"
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
+// ✅ Flexible CORS setup for frontend & admin
+app.use(cors({
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "https://carcraze-two.vercel.app",   // Main frontend
+      "https://carcraze-admin.vercel.app"  // Admin panel
+    ];
+    if (!origin) return callback(null, true); // Allow Postman, mobile apps
+    if (allowedOrigins.includes(origin) || origin.endsWith("vercel.app")) {
+      return callback(null, true);
     }
+    return callback(new Error("Not allowed by CORS"));
   },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true
+}));
 
-// ✅ CORS middleware
-app.use(cors(corsOptions));
-
-// ✅ Handle preflight requests
-app.options("*", cors(corsOptions));
-
-// Body parser
+// Middleware
 app.use(express.json());
 
+// ❌ Local uploads folder serving is removed
+// ✅ Cloudinary will handle file storage & access via its URLs
+
 // Routes
-app.use("/admin", adminRoutes);
-app.use("/contact", contactRoutes);
-app.use("/api/car-data", formRoutes);
-app.use("/cars", carRouter);
+app.use("/admin", adminRoutes);           // Admin login & auth
+app.use("/contact", contactRoutes);       // Contact form
+app.use("/api/car-data", formRoutes);     // Sell car form
+app.use("/cars", carRouter);              // Cars list & details
 
 // Health check
 app.get("/", (req, res) => {
@@ -54,11 +49,12 @@ app.get("/", (req, res) => {
 // Global error handler
 app.use((err, req, res, next) => {
   console.error("Error Details:", err);
-  res.status(500).json({
-    message: "Internal Server Error",
-    error: err.message,
+  res.status(500).json({ 
+    message: "Internal Server Error", 
+    error: err.message 
   });
 });
 
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
