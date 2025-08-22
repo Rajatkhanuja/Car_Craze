@@ -48,8 +48,8 @@ const BuyUsedCar = () => {
               </div>
               <div className="feature-card">
                 <div className="feature-icon">★</div>
-                <h4>Trusted Dealers</h4>
-                <p>We only list vehicles from verified sellers and showrooms.</p>
+                <h4>Widest Choice</h4>
+                <p>Find cars from every Brand, Model, & Budget.</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">📋</div>
@@ -59,16 +59,7 @@ const BuyUsedCar = () => {
             </div>
           </div>
 
-          <div className="services-section">
-            <h3 className="subsection-title">Services We Offer</h3>
-            <div className="services-list">
-              <div className="service-item">🚗 Buy & Sell Used Cars</div>
-              <div className="service-item">💰 Loan Assistance</div>
-              <div className="service-item">🔧 Denting & Painting Work</div>
-              <div className="service-item">✨ Dryclean & Polish Work</div>
-            </div>
-          </div>
-
+          
           <div className="cta-section">
             <h3 className="cta-title">Ready to Own Your Next Car?</h3>
             <p className="cta-text">
