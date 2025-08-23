@@ -39,12 +39,12 @@ const BuyUsedCar = () => {
               <div className="feature-card">
                 <div className="feature-icon">✓</div>
                 <h4>Certified Vehicles</h4>
-                <p>Every car is thoroughly inspected and verified for quality and condition.</p>
+                <p>Every car is thoroughly Inspected and Verified for Quality and Condition.</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">₹</div>
                 <h4>Best Price Guarantee</h4>
-                <p>No hidden charges. What you see is what you pay.</p>
+                <p>No Hidden Charges. What you see is what you pay.</p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">★</div>
@@ -54,7 +54,7 @@ const BuyUsedCar = () => {
               <div className="feature-card">
                 <div className="feature-icon">📋</div>
                 <h4>Full Transparency</h4>
-                <p>From service history to insurance, we give you all the details upfront.</p>
+                <p>From Service History to Insurance, we give you all the details upfront.</p>
               </div>
             </div>
           </div>

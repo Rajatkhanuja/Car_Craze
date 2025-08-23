@@ -14,6 +14,7 @@ import cars24 from "../assets/cars24.jpg";
 import eqq from "../assets/eqq.jpg";
 import pp from "../assets/pp.jpg";
 import choo from "../assets/choo.jpg";
+import shri from "../assets/shri.jpg";
 
 
 const UsedCarLoan = () => {
@@ -182,6 +183,7 @@ const UsedCarLoan = () => {
     <div className="partner-item"><img src={eqq} alt="Equitas Small Finance Bank" /></div>
     <div className="partner-item"><img src={pp} alt="Piramal Finance" /></div>
     <div className="partner-item"><img src={choo} alt="Cholamandalam Finance" /></div>
+    <dic className="partner-item"><img src={shri} alt="shriram finance" /></dic>
   </div>
 </div>
 
