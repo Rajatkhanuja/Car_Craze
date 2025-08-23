@@ -3,6 +3,18 @@ import Navbar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
 import "./usedcarloan.css";
 import carImage from "../assets/ch.jpg";
+import idfc from "../assets/idfc.jpg";
+import bajaj from "../assets/bajaj.jpg";
+import mahi from "../assets/mahi.jpg";
+import au from "../assets/au.jpg";
+import ind from "../assets/ind.jpg";
+import kog from "../assets/kog.jpg";
+import hdb from "../assets/hdb.jpg";
+import cars24 from "../assets/cars24.jpg";
+import eqq from "../assets/eqq.jpg";
+import pp from "../assets/pp.jpg";
+import choo from "../assets/choo.jpg";
+
 
 const UsedCarLoan = () => {
   const navigate = useNavigate();
@@ -155,22 +167,24 @@ const UsedCarLoan = () => {
           </div>
 
           {/* Partner Banks */}
-          <div className="partners-section">
-            <h3 className="subsection-title">Our Banking Partners</h3>
-            <div className="partners-grid">
-              <div className="partner-item">IDFC First Bank</div>
-              <div className="partner-item">Bajaj Finserv</div>
-              <div className="partner-item">Mahindra Finance</div>
-              <div className="partner-item">AU Small Finance Bank</div>
-              <div className="partner-item">IndusInd Bank</div>
-              <div className="partner-item">Kogta Financial</div>
-              <div className="partner-item">HDB Financial Services</div>
-              <div className="partner-item">Cars24 Financial Services</div>
-              <div className="partner-item">Equitas Small Finance Bank</div>
-              <div className="partner-item">Piramal Finance</div>
-              <div className="partner-item">Cholamandalam Finance</div>
-            </div>
-          </div>
+          {/* Partner Banks */}
+<div className="partners-section">
+  <h3 className="subsection-title">Our Banking Partners</h3>
+  <div className="partners-grid">
+    <div className="partner-item"><img src={idfc} alt="IDFC First Bank" /></div>
+    <div className="partner-item"><img src={bajaj} alt="Bajaj Finserv" /></div>
+    <div className="partner-item"><img src={mahi} alt="Mahindra Finance" /></div>
+    <div className="partner-item"><img src={au} alt="AU Small Finance Bank" /></div>
+    <div className="partner-item"><img src={ind} alt="IndusInd Bank" /></div>
+    <div className="partner-item"><img src={kog} alt="Kogta Financial" /></div>
+    <div className="partner-item"><img src={hdb} alt="HDB Financial Services" /></div>
+    <div className="partner-item"><img src={cars24} alt="Cars24 Financial Services" /></div>
+    <div className="partner-item"><img src={eqq} alt="Equitas Small Finance Bank" /></div>
+    <div className="partner-item"><img src={pp} alt="Piramal Finance" /></div>
+    <div className="partner-item"><img src={choo} alt="Cholamandalam Finance" /></div>
+  </div>
+</div>
+
         </div>
         {/* Contact Button Section */}
 <div className="contact-button-section" style={{ textAlign: "center", margin: "40px 0" }}>

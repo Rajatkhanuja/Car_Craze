@@ -50,10 +50,8 @@ const ParkAndSell = () => {
         </div>
       </div>
 
-      {/* New Enhanced Content */}
-      
-      {/* Statistics Section */}
-      <div style={{
+      {/* Statistics Section - Moved up to reduce gap */}
+      <div className="stats-section" style={{
         background: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)',
         color: 'white',
         padding: '60px 20px',
@@ -63,7 +61,7 @@ const ParkAndSell = () => {
           <h2 style={{ fontSize: '2.5rem', marginBottom: '50px', fontWeight: 'bold' }}>
             Why Choose Our Park & Sell Program?
           </h2>
-          <div style={{
+          <div className="stats-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '40px',
@@ -82,7 +80,7 @@ const ParkAndSell = () => {
               <div style={{ fontSize: '1.2rem', marginTop: '10px' }}>Higher Average Price</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '3rem', fontWeight: 'bold', color: '#e74c3c' }}>7</div>
+              <div style={{ fontSize: '3rem', fontWeight: 'bold', color: '#e74c3c' }}>20</div>
               <div style={{ fontSize: '1.2rem', marginTop: '10px' }}>Days Average Selling Time</div>
             </div>
           </div>
@@ -101,7 +99,7 @@ const ParkAndSell = () => {
           }}>
             Key Features & Benefits
           </h2>
-          <div style={{
+          <div className="features-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '40px'
@@ -155,7 +153,7 @@ const ParkAndSell = () => {
           }}>
             How It Works
           </h2>
-          <div style={{
+          <div className="steps-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '30px'
@@ -164,7 +162,7 @@ const ParkAndSell = () => {
               {
                 step: "01",
                 title: "Bring Your Car",
-                description: "Visit our facility with your vehicle and required documents",
+                description: "Visit our Store with your vehicle and required documents",
                 icon: "🚗"
               },
               {
@@ -175,12 +173,18 @@ const ParkAndSell = () => {
               },
               {
                 step: "03",
-                title: "Marketing & Display", 
-                description: "We professionally photograph and market your car to buyers",
-                icon: "📸"
+                title: "Refurbishment Service", 
+                description: "We restore and enhance your vehicle to intact selling condition for maximum value",
+                icon: "🔧"
               },
               {
                 step: "04",
+                title: "Marketing & Display", 
+                description: "We professionally photograph, list on marketplaces and market your cars to buyers.",
+                icon: "📸"
+              },
+              {
+                step: "05",
                 title: "Secure Sale",
                 description: "Handle negotiations, documentation and secure payment transfer",
                 icon: "✅"
@@ -303,7 +307,7 @@ const ParkAndSell = () => {
               e.target.style.background = 'transparent';
               e.target.style.color = 'white';
             }}>
-              Call Now: +91 8094559521
+              Call Now: +91 8369908950
             </button>
           </div>
         </div>
@@ -404,12 +408,13 @@ const ParkAndSell = () => {
           transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* Mobile Responsive Design */
         @media (max-width: 768px) {
           .park-sell-container {
-            padding: 20px 15px;
-            min-height: 60vh;
+            padding: 20px 15px 0px 15px;
+            min-height: auto;
             margin-top: 3rem;
+            margin-bottom: 0;
           }
           
           .park-sell-content {
@@ -417,7 +422,13 @@ const ParkAndSell = () => {
             text-align: center;
             padding: 20px;
             margin-top: 20px;
+            margin-bottom: 0;
             gap: 20px;
+          }
+
+          .stats-section {
+            margin-top: -20px !important;
+            padding-top: 40px !important;
           }
           
           .car-image {
@@ -429,6 +440,72 @@ const ParkAndSell = () => {
           .park-sell-text h1 {
             font-size: 1.8rem;
             margin-bottom: 15px;
+          }
+
+          /* Statistics Grid - Mobile Single Row */
+          .stats-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 15px !important;
+            margin-top: 30px !important;
+          }
+
+          .stats-grid > div {
+            padding: 10px 5px;
+          }
+
+          .stats-grid > div > div:first-child {
+            font-size: 1.8rem !important;
+          }
+
+          .stats-grid > div > div:last-child {
+            font-size: 0.8rem !important;
+            line-height: 1.2;
+          }
+
+          /* Features Grid - Mobile 2x2 Layout */
+          .features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+          }
+
+          .features-grid > div {
+            padding: 20px 15px !important;
+          }
+
+          .features-grid h3 {
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+          }
+
+          .features-grid p {
+            font-size: 0.9rem !important;
+          }
+
+          /* Steps Grid - Mobile 2x2 Layout */
+          .steps-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+          }
+
+          .steps-grid > div {
+            padding: 20px 10px !important;
+          }
+
+          .steps-grid h3 {
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+          }
+
+          .steps-grid p {
+            font-size: 0.9rem !important;
+          }
+
+          .steps-grid > div > div:first-child {
+            font-size: 2rem !important;
+            margin-bottom: 15px !important;
           }
           
           .section-title {
@@ -450,12 +527,18 @@ const ParkAndSell = () => {
 
         @media (max-width: 480px) {
           .park-sell-container {
-            padding: 15px 10px;
+            padding: 15px 10px 0px 10px;
           }
           
           .park-sell-content {
             padding: 15px;
             margin-top: 15px;
+            margin-bottom: 0;
+          }
+
+          .stats-section {
+            margin-top: -15px !important;
+            padding-top: 30px !important;
           }
           
           .car-image {
@@ -466,6 +549,37 @@ const ParkAndSell = () => {
           .park-sell-text h1 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+          }
+
+          /* Very Small Mobile - Keep Single Row Stats */
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+
+          .stats-grid > div > div:first-child {
+            font-size: 1.5rem !important;
+          }
+
+          .stats-grid > div > div:last-child {
+            font-size: 0.7rem !important;
+          }
+
+          /* Features and Steps remain 2x2 */
+          .features-grid {
+            gap: 15px !important;
+          }
+
+          .features-grid > div {
+            padding: 15px 10px !important;
+          }
+
+          .steps-grid {
+            gap: 15px !important;
+          }
+
+          .steps-grid > div {
+            padding: 15px 8px !important;
           }
           
           .section-title {
@@ -494,11 +608,17 @@ const ParkAndSell = () => {
 
         @media (max-width: 320px) {
           .park-sell-container {
-            padding: 10px 8px;
+            padding: 10px 8px 0px 8px;
           }
           
           .park-sell-content {
             padding: 12px;
+            margin-bottom: 0;
+          }
+
+          .stats-section {
+            margin-top: -10px !important;
+            padding-top: 25px !important;
           }
           
           .car-image {
@@ -516,6 +636,11 @@ const ParkAndSell = () => {
           
           .benefit-item {
             font-size: 0.85rem;
+          }
+
+          /* Extra small - 2x2 layout for stats too */
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>

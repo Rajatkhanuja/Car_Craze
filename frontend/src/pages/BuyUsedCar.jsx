@@ -27,9 +27,9 @@ const BuyUsedCar = () => {
           <div className="intro-section">
             <h2 className="section-title">Find the Perfect Used Car with Confidence!</h2>
             <p className="intro-text">
-              At <span className="brand-name">CAR CRAZE</span>, we make buying a used car simple, transparent, and reliable.
+              At <span className="brand-name">CAR CRAZE</span>, we make buying a used car simple, Transparent, and Reliable.
               Whether you're a first-time buyer or looking for an upgrade, our wide selection of certified pre-owned cars
-              ensures that you get <span className="highlight">quality, performance, and value</span> — all in one place.
+              ensures that you get <span className="highlight">Quality, Performance, and Value</span> — All in one place.
             </p>
           </div>
 
