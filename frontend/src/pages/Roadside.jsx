@@ -1,96 +1,140 @@
 import React from 'react';
-
+import logo from "../assets/logoo.jpg";
 const Roadside = () => {
-  // Data for the different services offered, now using emojis for icons
-  const servicesData = [
+  const exclusiveBenefits = [
+    {
+      icon: '🚗',
+      title: 'Free Towing Service',
+      description: 'Free towing for mechanical/electrical breakdown/accident up to 50kms'
+    },
     {
       icon: '🔋',
-      title: 'Battery Jump-Start',
-      description: 'If your vehicle\'s battery is dead, we will provide immediate assistance to get you back on the road.',
-      bgColor: 'bg-yellow-500'
+      title: 'Battery Jumpstart',
+      description: 'Quick battery jumpstart service to get you back on the road immediately'
     },
     {
-      icon: '�',
-      title: 'Tire Change',
-      description: 'In case of a flat tire, we will replace it with your spare or arrange for a quick repair.',
-      bgColor: 'bg-green-500'
+      icon: '🛞',
+      title: 'Flat Tyre Assistance',
+      description: 'Towing to tyre repair shop/authorized workshop whichever is nearest'
     },
     {
-      icon: '⚙️', // Replaced 'towing-vehicle' with a proper gear emoji
-      title: 'Towing Service',
-      description: 'We will safely transport your vehicle to the nearest authorized workshop for repair.',
-      bgColor: 'bg-blue-500'
+      icon: '🔑',
+      title: 'Locked/Lost Key Assistance',
+      description: 'Retrieve spare key (within city limits) or tow to nearest workshop/customer residence'
     },
     {
       icon: '⛽',
-      title: 'Fuel Delivery',
-      description: 'If you run out of fuel, we will deliver it to your location so you can continue your journey.',
-      bgColor: 'bg-red-500'
+      title: 'Out of Fuel Assistance',
+      description: 'Fuel delivery up to 5 litres (fuel cost borne by customer on actuals)'
     },
+    {
+      icon: '⚠️',
+      title: 'Wrong Fuelling Assistance',
+      description: 'Recovery/Towing service for wrong fuel situations'
+    },
+    {
+      icon: '🔧',
+      title: 'On Site Minor Repairs',
+      description: 'Minor repair services directly at your location when possible'
+    }
   ];
 
-  const handleContactClick = () => {
-    // This will navigate to the /contact page
-    window.location.href = '/contact';
-  };
+  const terms = [
+    '7 days cooling period applicable',
+    'Any claim caused due to intentional acts or gross negligence',
+    'Situations where the vehicle is involved in illegal activities',
+    'Not serviceable outside the defined geographical limits'
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-8 font-sans">
-      <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden mt-8">
+    <div className="min-h-screen bg-white p-4 font-sans mt-20 ">
+      <div className="max-w-4xl mx-auto">
+        
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center space-x-2">
+  <img src={logo} alt="CAR CRAZE Logo" className="h-8 w-auto" />
+  <span className="text-gray-800 font-bold text-2xl">CAR CRAZE</span>
+</div>
 
-        {/* Header Section */}
-        <div className="relative bg-red-600 p-6 sm:p-8 text-center text-white">
-          {/* Placeholder image for a car broken down on the road */}
-          <img
-            src="https://placehold.co/800x400/DC2626/FFFFFF?text=Roadside+Assistance"
-            alt="Roadside Assistance"
-            className="w-full h-auto object-cover rounded-xl mb-4"
-          />
-          <h1 className="text-3xl sm:text-4xl font-extrabold mb-1">
-            Roadside Assistance
+            
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-600 mb-4">
+            KNOW YOUR EXCLUSIVE BENEFITS:
           </h1>
-          <p className="text-sm sm:text-base font-medium opacity-90">
-            When you're in trouble, we're just a call away.
-          </p>
+          
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              Roadside Assistance for Passenger 2 & 4 wheelers
+            </h2>
+            <p className="text-lg text-gray-700">
+              Hassle free assistance in case of a roadside emergency due to breakdown or accident.
+            </p>
+          </div>
         </div>
 
-        {/* Services Section */}
-        <div className="p-6 sm:p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-            Our Key Services
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {servicesData.map((service, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 p-6 rounded-2xl shadow-sm transition-all hover:shadow-md border border-gray-100"
-              >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${service.bgColor}`}>
-                  <span className="text-2xl">{service.icon}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {exclusiveBenefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:bg-gray-100 transition-all duration-300 shadow-sm"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="text-3xl">{benefit.icon}</div>
+                <div>
+                  <h3 className="font-bold text-gray-800 text-lg mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {service.description}
-                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Terms and Conditions */}
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <h3 className="text-2xl font-bold text-red-600 mb-4 flex items-center">
+            📋 Terms & Conditions
+          </h3>
+          <div className="space-y-3">
+            {terms.map((term, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <span className="text-red-500 font-bold text-lg">•</span>
+                <p className="text-gray-700 text-sm">{term}</p>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* CTA Section */}
-          <div className="mt-8 text-center">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
-              Get Immediate Help
+        {/* Emergency Contact */}
+        <div className="mt-8 text-center">
+          <div className="bg-red-600 rounded-2xl p-6 shadow-2xl">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              🚨 Need Emergency Assistance?
             </h3>
-            <button
-              onClick={handleContactClick}
-              className="w-full py-4 px-6 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg flex items-center justify-center space-x-3"
+           <button 
+              onClick={() => window.location.href = '/contact'}
+              className="bg-yellow-400 hover:bg-yellow-300 text-red-800 font-bold py-4 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-lg"
             >
-              Contact Us
+              GET IN TOUCH
             </button>
+            <p className="text-white text-sm mt-3">
+              Available 24/7 for your roadside emergencies
+            </p>
           </div>
         </div>
+
+        {/* Footer Note */}
+        <div className="text-center mt-6">
+          <p className="text-gray-500 text-xs">
+            * Terms and conditions apply. Service availability may vary by location.
+          </p>
+        </div>
+
       </div>
     </div>
   );
