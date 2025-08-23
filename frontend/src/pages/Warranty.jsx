@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import icicLogo from "../assets/icic.jpg";
+import cwiLogo from "../assets/cwi.jpg";
 const Warranty = () => {
     // State to manage which accordion section is open
     const [openSection, setOpenSection] = useState(null);
@@ -49,10 +50,10 @@ const Warranty = () => {
                                 {/* Warranty Header Card */}
                                 <div className="bg-orange-100 rounded-2xl p-4 sm:p-6 mb-6">
                                     <div className="flex items-center mb-4">
-                                        <div className="bg-blue-600 rounded-lg p-2 mr-3">
-                                            <span className="text-white font-bold text-lg">CWI</span>
-                                        </div>
-                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Extended Warranty</h3>
+                                        <div className="bg-white rounded-lg p-2 mr-3">
+  <img src={cwiLogo} alt="CWI Logo" className="h-8 w-auto" />
+</div>
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800"> Car Craze Extended Warranty</h3>
                                     </div>
                                     
                                     <div className="grid grid-cols-2 gap-4 text-sm">
@@ -190,24 +191,24 @@ const Warranty = () => {
                                 {/* Warranty Header Card */}
                                 <div className="bg-orange-100 rounded-2xl p-4 sm:p-6 mb-6">
                                     <div className="flex items-center mb-4">
-                                        <div className="bg-blue-600 rounded-lg p-2 mr-3">
-                                            <span className="text-white font-bold text-lg">ICICI</span>
-                                        </div>
-                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Extended Warranty</h3>
+                                        <div className="bg-white rounded-lg p-2 mr-3">
+  <img src={icicLogo} alt="ICIC Logo" className="h-8 w-auto" />
+</div>
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800"> Car Craze Extended Warranty</h3>
                                     </div>
                                     
                                     <div className="grid grid-cols-2 gap-4 text-sm">
                                         <div>
                                             <p className="text-gray-600 mb-1">Claim Limit:</p>
-                                            <p className="font-bold text-gray-800">Unlimited claims</p>
+                                            <p className="font-bold text-gray-800">₹2,00,000</p>
                                         </div>
                                         <div>
                                             <p className="text-gray-600 mb-1">Tenure:</p>
-                                            <p className="font-bold text-gray-800">12 months</p>
+                                            <p className="font-bold text-gray-800">1 year</p>
                                         </div>
                                         <div>
                                             <p className="text-gray-600 mb-1">Distance limit:</p>
-                                            <p className="font-bold text-gray-800">15,000 km</p>
+                                            <p className="font-bold text-gray-800">20,000 km</p>
                                         </div>
                                         <div>
                                             <p className="text-gray-600 mb-1">Cool-off period:</p>
@@ -220,99 +221,64 @@ const Warranty = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-gray-800 mb-4">Warranty plan inclusions</h3>
                                     
-                                    {/* Engine Section */}
+                                    {/* Transmission (Manual) */}
                                     <div className="mb-6">
                                         <div className="flex items-center mb-3">
                                             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
                                                 <span className="text-white text-sm">✓</span>
                                             </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Engine</h4>
+                                            <h4 className="text-lg font-semibold text-gray-800">Transmission (Manual)</h4>
                                         </div>
                                         <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• Cylinder block and head</p>
-                                            <p>• Piston rings and liners</p>
-                                            <p>• Crankshaft</p>
-                                            <p>• Camshaft</p>
-                                            <p>• Connecting rods</p>
-                                            <p>• Flywheel</p>
-                                            <p>• All internal parts</p>
+                                            <p>• Shafts</p>
+                                            <p>• Gears</p>
+                                            <p>• Synchromesh Hubs & Rings</p>
+                                            <p>• Selectors</p>
+                                            <p>• Transfer Gears</p>
+                                            <p>• Gear Shifter Assembly</p>
                                         </div>
                                     </div>
 
-                                    {/* Gearbox (Manual & Automatic) */}
+                                    {/* Transmission (Automatic) */}
                                     <div className="mb-6">
                                         <div className="flex items-center mb-3">
                                             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
                                                 <span className="text-white text-sm">✓</span>
                                             </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Gearbox (Manual & Automatic)</h4>
+                                            <h4 className="text-lg font-semibold text-gray-800">Transmission (Automatic)</h4>
                                         </div>
                                         <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• Gears, shafts, and bearings</p>
-                                            <p>• Syncromesh rings</p>
-                                            <p>• Gearbox housing</p>
-                                            <p>• All internal parts</p>
+                                            <p>• Shafts</p>
+                                            <p>• Gear</p>
+                                            <p>• Oil pump</p>
+                                            <p>• Valve</p>
+                                            <p>• Drive plate</p>
+                                            <p>• Transfer gear</p>
+                                            <p>• Transmission gear</p>
                                         </div>
                                     </div>
 
-                                    {/* Steering */}
+                                    {/* Engine & Peripherals */}
                                     <div className="mb-6">
                                         <div className="flex items-center mb-3">
                                             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
                                                 <span className="text-white text-sm">✓</span>
                                             </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Steering</h4>
+                                            <h4 className="text-lg font-semibold text-gray-800">Engine & Peripherals</h4>
                                         </div>
                                         <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• Steering rack</p>
-                                            <p>• Steering pump</p>
-                                            <p>• All internal parts</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Braking System */}
-                                    <div className="mb-6">
-                                        <div className="flex items-center mb-3">
-                                            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                                                <span className="text-white text-sm">✓</span>
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Braking System</h4>
-                                        </div>
-                                        <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• ABS control unit</p>
-                                            <p>• Master cylinder</p>
-                                            <p>• Brake calipers and wheel cylinders</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Suspension */}
-                                    <div className="mb-6">
-                                        <div className="flex items-center mb-3">
-                                            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                                                <span className="text-white text-sm">✓</span>
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Suspension</h4>
-                                        </div>
-                                        <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• Shock absorbers</p>
-                                            <p>• Wheel bearings</p>
-                                            <p>• Coil springs</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Electrical */}
-                                    <div className="mb-6">
-                                        <div className="flex items-center mb-3">
-                                            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                                                <span className="text-white text-sm">✓</span>
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-gray-800">Electrical</h4>
-                                        </div>
-                                        <div className="ml-9 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                            <p>• Starter motor</p>
-                                            <p>• Alternator</p>
-                                            <p>• Power window motors</p>
-                                            <p>• Central locking system</p>
+                                            <p>• Oil Pump</p>
+                                            <p>• Crankshaft & Pulley</p>
+                                            <p>• Connecting Rods & Bearings</p>
+                                            <p>• Big end and main bearing</p>
+                                            <p>• Inlet and exhaust valves</p>
+                                            <p>• Cylinder block and cylinder head</p>
+                                            <p>• Gudgeon pins</p>
+                                            <p>• Camshaft and bearings</p>
+                                            <p>• Pistons & Rings</p>
+                                            <p>• Springs and guides</p>
+                                            <p>• Rocker arm and shaft</p>
+                                            <p>• Camgear</p>
                                         </div>
                                     </div>
                                 </div>

@@ -15,6 +15,10 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.brand-name {
+  color: #ff0000;
+  font-weight: bold;
+}
 
 .car-image {
   width: 400px;

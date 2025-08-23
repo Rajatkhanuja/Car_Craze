@@ -140,7 +140,7 @@ const UsedCarLoan = () => {
                     </svg>
                   </div>
                   <h4 className="eligibility-title">Employment Status</h4>
-                  <p className="eligibility-desc">Serving everyone - salaried, self-employed, and pensioners</p>
+                  <p className="eligibility-desc">Serving Everyone - Salaried, Self-Employed and Pensioners</p>
                 </div>
 
                 <div className="eligibility-card">

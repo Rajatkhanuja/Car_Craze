@@ -75,7 +75,7 @@
 }
 
 .brand-name {
-  color: #ff0000;
+  color: #ff0000 !important;
   font-weight: bold;
 }
 

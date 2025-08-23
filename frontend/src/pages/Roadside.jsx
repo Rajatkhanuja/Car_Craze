@@ -51,19 +51,6 @@ const Roadside = () => {
       <div className="max-w-4xl mx-auto">
         
         <div className="text-center mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center space-x-2">
-  <img src={logo} alt="CAR CRAZE Logo" className="h-8 w-auto" />
-  <span className="text-gray-800 font-bold text-2xl">CAR CRAZE</span>
-</div>
-
-            
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-600 mb-4">
-            KNOW YOUR EXCLUSIVE BENEFITS:
-          </h1>
-          
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
               Roadside Assistance for Passenger 2 & 4 wheelers

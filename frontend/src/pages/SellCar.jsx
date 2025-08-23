@@ -28,10 +28,10 @@ const SellCar = () => {
             <p>
               Just provide your car details with one click and get instant cash!
             </p>
-            <p>
-              Choose Car Craze for fast, easy, and trustworthy service.
-            </p>
-            <button className="sell-button" onClick={handleSellClick}>
+           <p>
+  Choose <span className="brand-name">Car Craze</span> for fast, easy, and trustworthy service.
+</p>
+           <button className="sell-button" onClick={handleSellClick}>
               Sell Now
             </button>
           </div>
