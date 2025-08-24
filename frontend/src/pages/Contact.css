@@ -5,6 +5,13 @@ body {
   padding: 0;
   background-color: #f9f9f9;
 }
+.car-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
 
 /* === CONTACT HEADER === */
 .contact-header {

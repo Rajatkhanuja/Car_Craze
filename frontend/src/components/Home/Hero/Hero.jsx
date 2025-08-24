@@ -5,7 +5,6 @@ import s from '../../../assets/s.jpg';
 import r from '../../../assets/r.jpg';
 import g from '../../../assets/g.jpg';
 import q from '../../../assets/q.jpg';
-import w from '../../../assets/w.jpg';
 import challanImage from '../../../assets/ch.jpg';
 import serviceHistoryImage from '../../../assets/service.jpg';
 import rtoImage from '../../../assets/rto.jpg';
@@ -51,9 +50,9 @@ const Hero = () => {
       <header id="header" className="hero-header">
         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src={s} className="d-block w-100 carousel-img img-1" alt="Image 1" />
-            </div>
+              <div className="carousel-item active">
+                <img src={s} className="d-block w-100 carousel-img img-1" alt="Image 1" />
+              </div>
             <div className="carousel-item">
               <img src={r} className="d-block w-100 carousel-img img-2" alt="Image 2" />
             </div>
@@ -63,9 +62,7 @@ const Hero = () => {
             <div className="carousel-item">
               <img src={q} className="d-block w-100 carousel-img img-4" alt="New Image 1" />
             </div>
-            <div className="carousel-item">
-              <img src={w} className="d-block w-100 carousel-img img-5" alt="New Image 2" />
-            </div>
+            
           </div>
 
           <button

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import icicLogo from "../assets/icic.jpg";
 import cwiLogo from "../assets/cwi.jpg";
+
 const Warranty = () => {
     // State to manage which accordion section is open
     const [openSection, setOpenSection] = useState(null);
@@ -14,14 +15,23 @@ const Warranty = () => {
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-8 font-sans">
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden mt-20">
 
-                {/* Header Section - Unchanged */}
-                <div className="relative bg-blue-700 p-6 sm:p-8 text-center text-white">
-                    <h1 className="text-3xl sm:text-4xl font-extrabold mb-1">
-                        Car Warranty & Protection Plan
-                    </h1>
-                    <p className="text-sm sm:text-base font-medium opacity-90 mt-2">
-                        Driving with confidence, knowing you're protected.
-                    </p>
+                {/* Header Section with Hero Background Image */}
+                <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 text-white overflow-hidden">
+                    <div 
+                        className="w-full h-64 sm:h-80 bg-cover bg-center bg-gray-700"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://time.com/personal-finance/static/a156dd42380fc79045b03212bf3a0bfb/fd8bd/what-is-a-car-warranty.jpg')`,
+                        }}
+                    >
+                        <div className="absolute inset-0 flex flex-col justify-center items-start p-6 sm:p-8">
+                            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 leading-tight">
+                                Car Warranty &<br />Protection Plan
+                            </h1>
+                            <p className="text-sm sm:text-lg font-medium opacity-90">
+                                Driving with confidence, knowing you're protected.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Content Sections */}
@@ -51,8 +61,8 @@ const Warranty = () => {
                                 <div className="bg-orange-100 rounded-2xl p-4 sm:p-6 mb-6">
                                     <div className="flex items-center mb-4">
                                         <div className="bg-white rounded-lg p-2 mr-3">
-  <img src={cwiLogo} alt="CWI Logo" className="h-8 w-auto" />
-</div>
+                                            <img src={cwiLogo} alt="CWI Logo" className="h-8 w-auto" />
+                                        </div>
                                         <h3 className="text-xl sm:text-2xl font-bold text-gray-800"> Car Craze Extended Warranty</h3>
                                     </div>
                                     
@@ -192,8 +202,8 @@ const Warranty = () => {
                                 <div className="bg-orange-100 rounded-2xl p-4 sm:p-6 mb-6">
                                     <div className="flex items-center mb-4">
                                         <div className="bg-white rounded-lg p-2 mr-3">
-  <img src={icicLogo} alt="ICIC Logo" className="h-8 w-auto" />
-</div>
+                                            <img src={icicLogo} alt="ICIC Logo" className="h-8 w-auto" />
+                                        </div>
                                         <h3 className="text-xl sm:text-2xl font-bold text-gray-800"> Car Craze Extended Warranty</h3>
                                     </div>
                                     

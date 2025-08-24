@@ -60,7 +60,8 @@ const Contact = () => {
         <h1>Contact Us</h1>
       </div>
       <div className="contact-details">
-        <p><strong>Car Craze</strong></p>
+        <p><strong class="car-title">Car Craze</strong></p>
+
         <p>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
         <p><strong>Email:</strong> <a href="mailto:crazeudr@gmail.com">carcrazeudr@gmail.com</a></p>
         <p><strong>Phone:</strong> <a href="tel:+918094559521">+91 8094559521</a></p>

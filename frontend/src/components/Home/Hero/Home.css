@@ -15,7 +15,19 @@
   margin-top: 50px; /* Ya jitna tu niche lana chahta hai */
 }
 .carousel-img.img-1 {
-  margin-top: 89px;
+  margin-top: 90px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+/* Mobile view: margin-top only on small screens */
+@media screen and (max-width: 768px) {
+  .carousel-img.img-1 {
+    margin-top: 89px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 .carousel-img {
   width: 100%;
