@@ -12,9 +12,11 @@
   height: 100%;
 }
 .carousel-img.img-3 {
-  margin-top: 90px; /* Ya jitna tu niche lana chahta hai */
+  margin-top: 50px; /* Ya jitna tu niche lana chahta hai */
 }
-
+.carousel-img.img-1 {
+  margin-top: 89px;
+}
 .carousel-img {
   width: 100%;
   height: 100vh; /* Default for larger screens */
