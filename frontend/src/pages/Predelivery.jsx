@@ -45,20 +45,16 @@ const Predelivery = () => {
                                             Brand new car
                                         </h3>
                                         <p className="text-gray-600 text-sm sm:text-base">
-                                            22% of Brand New Cars have Manufacturing
+                                            Uncover engine and manufacturing defects
                                         </p>
                                     </div>
                                     <div className="flex items-center ml-4">
                                         <img 
-                                            src="https://img.freepik.com/premium-photo/brand-new-car_1059123-229.jpg" 
+                                            src="https://www.lartiste.com.my/wp-content/uploads/2020/10/RM-300-giant-bow-Satin-ribbon-car-deco.jpg" 
                                             alt="New car"
                                             className="w-16 h-12 sm:w-20 sm:h-16 object-contain"
                                         />
-                                        <div className="ml-3 w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center group-hover:bg-orange-300 transition-colors">
-                                            <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +67,7 @@ const Predelivery = () => {
                                             Used car
                                         </h3>
                                         <p className="text-gray-600 text-sm sm:text-base">
-                                            35% Used Cars have Manufacturing
+                                            Uncover hidden accidents and cover-ups
                                         </p>
                                     </div>
                                     <div className="flex items-center ml-4">
@@ -80,11 +76,7 @@ const Predelivery = () => {
                                             alt="Used car"
                                             className="w-16 h-12 sm:w-20 sm:h-16 object-contain"
                                         />
-                                        <div className="ml-3 w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center group-hover:bg-orange-300 transition-colors">
-                                            <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +139,7 @@ const Predelivery = () => {
                                         Hidden accidental history
                                     </h3>
                                     <p className="text-gray-600 text-sm sm:text-base">
-                                        <span className="font-semibold text-gray-800">30%</span> used cars have hidden accidental history
+                                        <span className="font-semibold text-gray-800">35%</span> used cars have hidden accidental history
                                     </p>
                                 </div>
                             </div>

@@ -181,7 +181,7 @@ const Hero = () => {
           <div className="footer-section links">
             <h3>Quick Links</h3>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">HOME</Link></li>
               <li><Link to="/about">ABOUT US</Link></li>
               <li><Link to="/stock">BUY USED CAR</Link></li>
               <li><Link to="/sell">SELL CAR</Link></li>
