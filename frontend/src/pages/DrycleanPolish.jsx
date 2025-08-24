@@ -5,78 +5,75 @@ const DrycleanPolish = () => {
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-8 font-sans">
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden mt-20">
 
-                {/* Header Section */}
-                <div className="relative bg-purple-700 p-6 sm:p-8 text-center text-white">
-                    <h1 className="text-3xl sm:text-4xl font-extrabold mb-1">
-                        Dry Cleaning & Polishing
-                    </h1>
-                    <p className="text-sm sm:text-base font-medium opacity-90 mt-2">
-                        Revitalize your car's look, inside and out.
-                    </p>
+                {/* Header Section with Hero Background Image */}
+                <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 text-white overflow-hidden">
+                    <div 
+                        className="w-full h-64 sm:h-80 bg-cover bg-center bg-gray-700"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://fourwheeltrends.com/wp-content/uploads/2024/04/diy-car-interior-cleaning-tips.jpg')`,
+                        }}
+                    >
+                        <div className="absolute inset-0 flex flex-col justify-center items-center p-6 sm:p-8 text-center">
+                            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 leading-tight">
+                                Dry Cleaning & Polishing
+                            </h1>
+                            <p className="text-sm sm:text-lg font-medium opacity-90">
+                                Revitalize your car's look, inside and out.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Content Section */}
                 <div className="p-6 sm:p-8">
-                    <div className="mb-8 p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
-                        <p className="text-gray-600 leading-relaxed mb-4">
-                            Our professional dry cleaning and polishing services are designed to give your car a complete makeover. From deep-cleaning the interiors to restoring the exterior's shine, we use eco-friendly products and advanced techniques to ensure a pristine finish.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed">
-                            Explore our range of services to bring back the new-car feel.
-                        </p>
-                    </div>
-
-                    <hr className="my-8 border-gray-200" />
-
-                    {/* Services Sections */}
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Dry Cleaning Services */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                1. Interior Dry Cleaning
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Upholstery & Carpet Cleaning:</strong> Removal of tough stains and dirt.</li>
-                                <li><strong>Dashboard & Console Sanitization:</strong> A thorough, anti-bacterial clean.</li>
-                                <li><strong>AC Vent Cleaning:</strong> Ensures fresh, odor-free air.</li>
-                                <li><strong>Trunk & Mat Cleaning:</strong> Comprehensive cleaning of all interior spaces.</li>
-                            </ul>
+                    
+                    {/* Services Grid */}
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        
+                        {/* Dry Cleaning Services Box */}
+                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                            <div className="h-48 bg-cover bg-center" style={{backgroundImage: "url('https://tse2.mm.bing.net/th/id/OIP.TxnYQnemwTy3bsLRW_8DLgAAAA?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3')"}}>
+                                <div className="h-full  bg-opacity-40 flex items-center justify-center">
+                                    <div className="text-center text-white">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                                    Dry Cleaning Services
+                                </h2>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Professional interior dry cleaning services to make your car's cabin fresh and spotless. We deep clean seats, carpets, and dashboard with advanced techniques.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* Polishing Services */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                2. Exterior Polishing
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Paint Polishing:</strong> Removes minor scratches and swirl marks.</li>
-                                <li><strong>Protective Waxing:</strong> Adds a durable, glossy finish to your car's paint.</li>
-                                <li><strong>Headlight Restoration:</strong> Improves visibility and aesthetics.</li>
-                                <li><strong>Chrome & Trim Polishing:</strong> Restores shine to all metal and plastic parts.</li>
-                            </ul>
+                        {/* Polishing Services Box */}
+                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                            <div className="h-48 bg-cover bg-center" style={{backgroundImage: "url('https://th.bing.com/th/id/R.1ed75fbef8fe26f47a9c95fb0694fcb4?rik=T3zpsYS3IuuxDQ&riu=http%3a%2f%2fwww.ramoozcarcaredubai.com%2fimg%2fpo3.jpg&ehk=zfmpLgPjxF740GvIVfLdTLHruUk2I65heBs7ids1iDs%3d&risl=&pid=ImgRaw&r=0')"}}>
+                                <div className="h-full  bg-opacity-40 flex items-center justify-center">
+                                    <div className="text-center text-white">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                                    Polishing Services
+                                </h2>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Expert exterior polishing and waxing services for mirror-like shine. We restore your car's paint and protect it with premium quality products.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <hr className="my-8 border-gray-200" />
-
-                    {/* Our Process Section */}
-                    <div className="p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                            Our Process
-                        </h2>
-                        <ol className="list-decimal list-inside text-gray-600 space-y-3">
-                            <li><strong>Pre-Wash & Detail:</strong> Initial wash and detailing to remove surface dirt.</li>
-                            <li><strong>Interior Treatment:</strong> Dry cleaning and sanitization of all interior surfaces.</li>
-                            <li><strong>Paint Correction:</strong> Minor imperfections are addressed before polishing.</li>
-                            <li><strong>Polishing & Waxing:</strong> Professional application of polish and wax for a deep shine.</li>
-                            <li><strong>Final Inspection:</strong> A quality check to ensure every detail is perfect.</li>
-                        </ol>
-                    </div>
-
+                    {/* Contact Button */}
                     <div className="text-center mt-10">
                         <a 
                             href="/contact" 
-                            className="inline-block py-3 px-8 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
+                            className="inline-block py-4 px-10 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
                         >
                             Schedule a Service
                         </a>
