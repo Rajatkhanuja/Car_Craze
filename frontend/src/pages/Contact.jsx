@@ -173,7 +173,8 @@ const Contact = () => {
 
     <div className="footer-section contact">
       <h3>Contact Us</h3>
-      <p><i className="fas fa-phone"></i> +91 8094559521</p>
+      <p><i className="fas fa-phone-alt icon-right"></i> +91 8094559521</p>
+
       <p><i className="fas fa-envelope"></i> carcrazeudr@gmail.com</p>
       <p><i className="fas fa-map-marker-alt"></i> Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
     </div>
