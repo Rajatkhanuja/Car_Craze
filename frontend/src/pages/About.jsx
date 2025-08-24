@@ -4,6 +4,20 @@ import "./About.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoo.jpg";
 
+import idfc from "../assets/idfc.jpg";
+import bajaj from "../assets/bajaj.jpg";
+import mahi from "../assets/mahi.jpg";
+import au from "../assets/au.jpg";
+import ind from "../assets/ind.jpg";
+import kog from "../assets/kog.jpg";
+import hdb from "../assets/hdb.jpg";
+import cars24 from "../assets/cars24.jpg";
+import eqq from "../assets/eqq.jpg";
+import pp from "../assets/pp.jpg";
+import choo from "../assets/choo.jpg";
+import shri from "../assets/shri.jpg";
+
+
 const About = () => {
   return (
     <>
@@ -30,12 +44,12 @@ const About = () => {
               <div className="story-text">
                 <p className="highlight-para">
                   Welcome to <strong className="brand-text">CAR CRAZE</strong>, a trusted name in the automotive industry since our establishment in 2004.
-                  With over two decades of experience, we have proudly emerged as seasoned experts in the sale and purchase of 
-                  non-accidental and non-odometer tempered cars.
+                  With over two decades of experience, we have proudly emerged as Seasoned Experts in the Sale and Purchase of 
+                  Non-Accidental and Non-Odometer Tempered Cars.
                 </p>
                 <p>
                   Our commitment to providing a seamless automotive experience led us to become a 
-                  <strong className="accent-text"> one-stop solution</strong> for all your car-related needs.
+                  <strong className="accent-text"> One-Stop Solution</strong> for all your car-related needs.
                 </p>
               </div>
               <div className="story-visual">
@@ -83,14 +97,14 @@ const About = () => {
             <div className="mission-content">
               <h2>Our Mission</h2>
               <p className="mission-text">
-                At CAR CRAZE, we understand that buying or selling a car involves more than a transaction – 
-                it's about <strong className="highlight-text">trust, reliability, and satisfaction</strong>. Our dedicated team works tirelessly 
-                to ensure that each customer receives the highest level of service, whether you are looking to finance your dream car, 
-                secure the right insurance, or simply explore our extensive range of certified vehicles.
+                At CAR CRAZE, we understand that buying or selling a car involves more than a transaction  
+                it's about <strong className="highlight-text">Trust, Reliability, and Satisfaction</strong>. Our dedicated team works tirelessly 
+                to ensure that each Customer receives the highest level of service, whether you are looking to Finance your dream car, 
+                secure the right Insurance, or simply explore our intensive range of Certified Vehicles.
               </p>
               <div className="mission-highlight">
                 <p>
-                  What sets us apart is our emphasis on <strong className="accent-text">transparency and accountability</strong>. Every certified car 
+                  What sets us apart is our emphasis on <strong className="accent-text">Transparency and Accountability</strong>. Every Certified Car 
                   at CAR CRAZE comes with a detailed history, providing you with the confidence and peace of mind you deserve.
                 </p>
               </div>
@@ -107,11 +121,18 @@ const About = () => {
               to a variety of financing options tailored to your needs.
             </p>
             <div className="partners-grid">
-              <div className="partner-card">IDFC Bank</div>
-              <div className="partner-card">Bajaj Finance</div>
-              <div className="partner-card">Mahindra & Mahindra Finance</div>
-              <div className="partner-card">AU Small Finance</div>
-              <div className="partner-card">IndusInd Bank</div>
+              <div className="partner-item"><img src={idfc} alt="IDFC First Bank" /></div>
+                  <div className="partner-item"><img src={bajaj} alt="Bajaj Finserv" /></div>
+                  <div className="partner-item"><img src={mahi} alt="Mahindra Finance" /></div>
+                  <div className="partner-item"><img src={au} alt="AU Small Finance Bank" /></div>
+                  <div className="partner-item"><img src={ind} alt="IndusInd Bank" /></div>
+                  <div className="partner-item"><img src={kog} alt="Kogta Financial" /></div>
+                  <div className="partner-item"><img src={hdb} alt="HDB Financial Services" /></div>
+                  <div className="partner-item"><img src={cars24} alt="Cars24 Financial Services" /></div>
+                  <div className="partner-item"><img src={eqq} alt="Equitas Small Finance Bank" /></div>
+                  <div className="partner-item"><img src={pp} alt="Piramal Finance" /></div>
+                  <div className="partner-item"><img src={choo} alt="Cholamandalam Finance" /></div>
+                  <dic className="partner-item"><img src={shri} alt="shriram finance" /></dic>
             </div>
           </div>
 
@@ -121,7 +142,7 @@ const About = () => {
               <p>
                 As an established player in the market, CAR CRAZE remains committed to delivering excellence in every aspect of 
                 the automotive journey. Whether you are a buyer or a seller, our mission is to make your experience with us 
-                <strong className="highlight-text"> memorable, reliable, and hassle-free</strong>.
+                <strong className="highlight-text"> Memorable, Reliable, and Hassle-Free</strong>.
               </p>
             </div>
           </div>

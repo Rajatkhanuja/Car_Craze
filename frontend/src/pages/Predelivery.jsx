@@ -20,16 +20,81 @@ const Predelivery = () => {
                             <p className="text-sm sm:text-lg font-medium opacity-90">
                                 Buy a car from anywhere, we'll inspect it for you.
                             </p>
+                             <p className="text-sm sm:text-lg font-medium opacity-130">
+                                15% cars inspected by us
+                            </p>
+
                         </div>
                     </div>
                 </div>
 
                 {/* Main Content Section */}
                 <div className="p-4 sm:p-6 lg:p-8">
+                    {/* Choose Your Car Type Section */}
+                    <div className="mb-8 sm:mb-12">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
+                            Choose your car type
+                        </h2>
+                        
+                        <div className="grid gap-4 sm:gap-6 max-w-2xl mx-auto">
+                            {/* Brand New Car */}
+                            <div className="group cursor-pointer bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex-1">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+                                            Brand new car
+                                        </h3>
+                                        <p className="text-gray-600 text-sm sm:text-base">
+                                            22% of Brand New Cars have Manufacturing
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center ml-4">
+                                        <img 
+                                            src="https://img.freepik.com/premium-photo/brand-new-car_1059123-229.jpg" 
+                                            alt="New car"
+                                            className="w-16 h-12 sm:w-20 sm:h-16 object-contain"
+                                        />
+                                        <div className="ml-3 w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center group-hover:bg-orange-300 transition-colors">
+                                            <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Used Car */}
+                            <div className="group cursor-pointer bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex-1">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+                                            Used car
+                                        </h3>
+                                        <p className="text-gray-600 text-sm sm:text-base">
+                                            35% Used Cars have Manufacturing
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center ml-4">
+                                        <img 
+                                            src="https://static.cargurus.com/images/forsale/2024/06/27/16/52/2014_hyundai_elantra_coupe-pic-1997727373422656220-1024x768.jpeg" 
+                                            alt="Used car"
+                                            className="w-16 h-12 sm:w-20 sm:h-16 object-contain"
+                                        />
+                                        <div className="ml-3 w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center group-hover:bg-orange-300 transition-colors">
+                                            <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Statistics Section */}
                     <div className="mb-8 sm:mb-12">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8">
-                            75% of our pre-delivery inspections reveal issues
+                            70% of Our Pre-Delivery Inspections Reveal Issues
                         </h2>
                         
                         <div className="grid gap-4 sm:gap-6">
@@ -46,7 +111,7 @@ const Predelivery = () => {
                                         Engine defects
                                     </h3>
                                     <p className="text-gray-600 text-sm sm:text-base">
-                                        <span className="font-semibold text-gray-800">20%</span> cars inspected by CARS24 have engine defects
+                                        <span className="font-semibold text-gray-800">20%</span> cars inspected by CARCRAZE have engine defects
                                     </p>
                                 </div>
                             </div>
@@ -107,75 +172,6 @@ const Predelivery = () => {
                         </div>
                     </div>
 
-                    {/* Description Section */}
-                    <div className="mb-8 p-4 sm:p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
-                        <p className="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base">
-                            Buy a Car from anywhere, We'll inspect it for you. Brand New Car, Used Car
-                        </p>
-                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                            Below is a summary of the key areas we check during our PDI process.
-                        </p>
-                    </div>
-
-                    <hr className="my-6 sm:my-8 border-gray-200" />
-
-                    {/* PDI Checklist Sections */}
-                    <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-                        {/* Exterior Inspection */}
-                        <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
-                                1. Exterior Check
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
-                                <li>Paint and bodywork for any scratches or dents.</li>
-                                <li>Glass, mirrors, and lights for damage and functionality.</li>
-                                <li>Wheel rims and tire pressure.</li>
-                                <li>All exterior lighting and indicators are working.</li>
-                                <li>Fuel cap, trunk, and hood alignment.</li>
-                            </ul>
-                        </div>
-
-                        {/* Interior Inspection */}
-                        <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
-                                2. Interior Check
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
-                                <li>Upholstery and trim for any imperfections.</li>
-                                <li>Dashboard instruments and infotainment system.</li>
-                                <li>Seat belts, airbags, and safety features.</li>
-                                <li>Heating, ventilation, and air conditioning (HVAC) system.</li>
-                                <li>All windows and locks operate smoothly.</li>
-                            </ul>
-                        </div>
-
-                        {/* Mechanical Inspection */}
-                        <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
-                                3. Mechanical & Under-Hood
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
-                                <li>Engine oil, brake fluid, and coolant levels.</li>
-                                <li>Brakes and suspension system performance.</li>
-                                <li>Battery health and charging system.</li>
-                                <li>No abnormal sounds from the engine or exhaust.</li>
-                                <li>Fluid leaks are checked and rectified.</li>
-                            </ul>
-                        </div>
-
-                        {/* Final Check */}
-                        <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
-                                4. Final Verification
-                            </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
-                                <li>Vehicle documents and manuals are present.</li>
-                                <li>All keys and remotes are functional.</li>
-                                <li>Road test to verify driving performance.</li>
-                                <li>Final clean and polish of the vehicle.</li>
-                            </ul>
-                        </div>
-                    </div>
                     
                     <div className="text-center mt-8 sm:mt-10">
                         <a 
