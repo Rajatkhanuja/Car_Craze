@@ -15,15 +15,12 @@ const Predelivery = () => {
                     >
                         <div className="absolute inset-0 flex flex-col justify-center items-start p-6 sm:p-8">
                             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 leading-tight">
-                                Buy safe with our pre-delivery<br />inspections
+                                Buy safe with<br /> our pre-delivery inspections
                             </h1>
                             <p className="text-sm sm:text-lg font-medium opacity-90">
                                 Buy a car from anywhere, we'll inspect it for you.
                             </p>
-                             <p className="text-sm sm:text-lg font-medium opacity-130">
-                                15% cars inspected by us
-                            </p>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -103,7 +100,7 @@ const Predelivery = () => {
                                         Engine defects
                                     </h3>
                                     <p className="text-gray-600 text-sm sm:text-base">
-                                        <span className="font-semibold text-gray-800">20%</span> cars inspected by CARCRAZE have engine defects
+                                        <span className="font-semibold text-gray-800">15%</span> cars inspected by CARCRAZE have engine defects
                                     </p>
                                 </div>
                             </div>
@@ -121,7 +118,7 @@ const Predelivery = () => {
                                         Manufacturing errors
                                     </h3>
                                     <p className="text-gray-600 text-sm sm:text-base">
-                                        <span className="font-semibold text-gray-800">27%</span> of brand new cars have manufacturing errors
+                                        <span className="font-semibold text-gray-800">22%</span> of brand new cars have manufacturing errors
                                     </p>
                                 </div>
                             </div>

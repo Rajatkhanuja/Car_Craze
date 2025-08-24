@@ -11,6 +11,9 @@
 .carousel-inner {
   height: 100%;
 }
+.carousel-img.img-3 {
+  margin-top: 90px; /* Ya jitna tu niche lana chahta hai */
+}
 
 .carousel-img {
   width: 100%;
