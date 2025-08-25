@@ -100,7 +100,7 @@ const Insurance = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <span className="text-red-600">📞</span>
-                <span className="text-sm"> +91 8094559521</span>
+                <span className="text-sm"> +91 8094559521, +91 8369908950</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-red-600">✉️</span>

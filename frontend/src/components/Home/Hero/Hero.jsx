@@ -208,6 +208,7 @@ const Hero = () => {
               <li><Link to="/about">ABOUT US</Link></li>
               <li><Link to="/stock">BUY USED CAR</Link></li>
               <li><Link to="/sell">SELL CAR</Link></li>
+              <li><Link to="/loyalty">LOYALTY PROGRAM</Link></li>
               <li><Link to="/contact">CONTACT US</Link></li>
             </ul>
           </div>

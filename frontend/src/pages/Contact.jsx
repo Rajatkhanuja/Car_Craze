@@ -132,11 +132,7 @@ const Contact = () => {
                 <option value="Denting & Painting Work">Denting & Painting Work</option>
                 <option value="Dryclean & Polish Work">Dryclean & Polish Work</option>
               </optgroup>
-              {/* Loyalty Program */}
-<optgroup label="🎁 Loyalty Program">
-  <option value="Eligibility">Eligibility</option>
-  <option value="Referral Rewards">Referral Rewards</option>
-</optgroup>
+           
             </select>
           </div>
 
@@ -186,6 +182,7 @@ const Contact = () => {
         <li><Link to="/about">About Us</Link></li>
         <li><Link to="/stock">Buy Used Car</Link></li>
         <li><Link to="/sell">Sell Car</Link></li>
+        <li><Link to="/loyalty">LOYALTY PROGRAM</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
       </ul>
     </div>
