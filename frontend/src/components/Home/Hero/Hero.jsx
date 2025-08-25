@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="carousel-item">
               <div
                 style={{
-                  height: isMobile ? '400px' : '900px',
+                   height: isMobile ? '400px' : '90vh', // 📱 400px on mobile, 💻 90% height on desktop
                   display: 'flex',
                   alignItems: 'flex-end',
                   justifyContent: 'center'
