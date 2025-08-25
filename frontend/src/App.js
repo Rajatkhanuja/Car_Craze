@@ -19,6 +19,7 @@ import Predelivery from './pages/Predelivery';
 import DentingPainting from './pages/DentingPainting';
 import DrycleanPolish from './pages/DrycleanPolish';
 import RTOWork from './pages/RTOWork';
+import Loyalty from './pages/Loyalty';
 // Components
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/DentingPainting" element={<DentingPainting />} />
           <Route path="/DrycleanPolish" element={<DrycleanPolish />} />
           <Route path="/RTOWork" element={<RTOWork />} />
+          <Route path="/loyalty" element={<Loyalty/>} />
         </Routes>
       </BrowserRouter>
     </>

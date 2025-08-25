@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="carousel-item">
               <div
                 style={{
-                   height: isMobile ? '43vh' : '90vh', // 📱 400px on mobile, 💻 90% height on desktop
+                   height: isMobile ? '42vh' : '90vh', // 📱 400px on mobile, 💻 90% height on desktop
                   display: 'flex',
                   alignItems: 'flex-end',
                   justifyContent: 'center'
@@ -205,7 +205,6 @@ const Hero = () => {
           <div className="footer-section links">
             <h3>Quick Links</h3>
             <ul>
-              <li><Link to="/">HOME</Link></li>
               <li><Link to="/about">ABOUT US</Link></li>
               <li><Link to="/stock">BUY USED CAR</Link></li>
               <li><Link to="/sell">SELL CAR</Link></li>
@@ -215,7 +214,7 @@ const Hero = () => {
 
           <div className="footer-section contact">
             <h3>Contact Us</h3>
-            <p><i className="fas fa-phone-alt"></i> +91 8094559521</p>
+            <p><i className="fas fa-phone-alt"></i> +91 8094559521, +91 8369908950</p>
             <p><i className="fas fa-envelope"></i> carcrazeudr@gmail.com</p>
             <p><i className="fas fa-map-marker-alt"></i>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
           </div>

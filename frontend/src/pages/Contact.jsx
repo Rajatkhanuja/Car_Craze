@@ -132,6 +132,11 @@ const Contact = () => {
                 <option value="Denting & Painting Work">Denting & Painting Work</option>
                 <option value="Dryclean & Polish Work">Dryclean & Polish Work</option>
               </optgroup>
+              {/* Loyalty Program */}
+<optgroup label="🎁 Loyalty Program">
+  <option value="Eligibility">Eligibility</option>
+  <option value="Referral Rewards">Referral Rewards</option>
+</optgroup>
             </select>
           </div>
 
@@ -187,8 +192,7 @@ const Contact = () => {
 
     <div className="footer-section contact">
       <h3>Contact Us</h3>
-      <p><i className="fas fa-phone-alt icon-right"></i> +91 8094559521</p>
-
+      <p><i className="fas fa-phone-alt icon-right"></i> +91 8094559521, +91 8369908950</p>
       <p><i className="fas fa-envelope"></i> carcrazeudr@gmail.com</p>
       <p><i className="fas fa-map-marker-alt"></i> Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
     </div>
