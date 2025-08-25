@@ -5,80 +5,76 @@ const RTOWork = () => {
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-8 font-sans">
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden mt-20">
 
-                {/* Header Section */}
-                <div className="relative bg-cyan-700 p-6 sm:p-8 text-center text-white">
-                    <h1 className="text-3xl sm:text-4xl font-extrabold mb-1">
-                        RTO Work & Documentation
-                    </h1>
-                    <p className="text-sm sm:text-base font-medium opacity-90 mt-2">
-                        Seamless paperwork, stress-free ownership.
-                    </p>
+                {/* Header Section with Background Image */}
+                <div className="relative bg-gradient-to-r from-cyan-800 to-cyan-900 text-white overflow-hidden">
+                    <div 
+                        className="w-full h-64 sm:h-80 bg-cover bg-center bg-cyan-700"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(6,182,212,0.8), rgba(8,145,178,0.8)), url('https://tse3.mm.bing.net/th/id/OIP.jjt-kUDljvOQcXNvYOp3LAAAAA?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3')`,
+                        }}
+                    >
+                        <div className="absolute inset-0 flex flex-col justify-center items-center p-6 sm:p-8 text-center">
+                            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 leading-tight">
+                                RTO Work &<br />Documentation
+                            </h1>
+                            <p className="text-sm sm:text-lg font-medium opacity-90">
+                                Seamless Paperwork, Stress-Free Ownership
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Content Section */}
                 <div className="p-6 sm:p-8">
-                    <div className="mb-8 p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-100">
-                        <p className="text-gray-600 leading-relaxed mb-4">
-                            Navigating RTO processes can be complex and time-consuming. Our expert team provides end-to-end assistance with all your vehicle-related documentation, ensuring a smooth and hassle-free experience. We handle everything from registration to license renewals so you can focus on driving.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed">
-                            Below is a list of the key RTO services we offer.
-                        </p>
-                    </div>
-
-                    <hr className="my-8 border-gray-200" />
-
-                    {/* Services Sections */}
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Vehicle Registration */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                1. Vehicle Registration
+                    {/* Services Sections - 5 Boxes */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* New Vehicle Registration */}
+                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                            <h2 className="text-xl font-bold text-cyan-700 mb-3">
+                                New Vehicle Registration
                             </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>New Vehicle Registration:</strong> Complete paperwork for your new car.</li>
-                                <li><strong>Registration Renewal:</strong> Timely renewal of your vehicle's registration certificate (RC).</li>
-                                <li><strong>Registration Transfer:</strong> Seamless transfer of ownership and RC details.</li>
-                            </ul>
+                            <p className="text-gray-600 leading-relaxed">
+                                Complete paperwork for your new car.
+                            </p>
                         </div>
 
-                        {/* Driver's License */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                2. Driver's License
+                        {/* Registration Renewal */}
+                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                            <h2 className="text-xl font-bold text-cyan-700 mb-3">
+                                Registration Renewal
                             </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>License Renewal:</strong> Hassle-free renewal of your driving license.</li>
-                                <li><strong>Duplicate License:</strong> Assistance in obtaining a duplicate license.</li>
-                                <li><strong>Change of Address:</strong> Updating your address on your license.</li>
-                            </ul>
+                            <p className="text-gray-600 leading-relaxed">
+                                Timely renewal of your vehicle's Registration certificate (RC).
+                            </p>
                         </div>
 
-                        {/* Other Services */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                3. Other RTO Services
+                        {/* Change of Ownership */}
+                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                            <h2 className="text-xl font-bold text-cyan-700 mb-3">
+                                Change of Ownership
                             </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Change of Ownership:</strong> Full support for buying or selling a used vehicle.</li>
-                                <li><strong>Duplicate Documents:</strong> Help with lost or damaged RC books and keys.</li>
-                                <li><strong>NOC (No Objection Certificate):</strong> Obtaining NOC for inter-state vehicle transfer.</li>
-                            </ul>
+                            <p className="text-gray-600 leading-relaxed">
+                                Seamless transfer of ownership and RC details.
+                            </p>
                         </div>
 
-                        {/* Required Documents */}
-                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                4. Required Documents
+                        {/* Duplicate Documents */}
+                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                            <h2 className="text-xl font-bold text-cyan-700 mb-3">
+                                Duplicate Documents
                             </h2>
-                            <ul className="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Original Vehicle documents.</li>
-                                <li>Proof of Identity and Address.</li>
-                                <li>Pollution Under Control (PUC) certificate.</li>
-                                <li>Insurance Certificate.</li>
-                            </ul>
-                            <p className="text-gray-600 mt-4">
-                                *Required documents may vary based on the specific service.
+                            <p className="text-gray-600 leading-relaxed">
+                                Help with lost or damaged RC.
+                            </p>
+                        </div>
+
+                        {/* NOC Certificate */}
+                        <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                            <h2 className="text-xl font-bold text-cyan-700 mb-3">
+                                NOC <br/> (No Objection Certificate)
+                            </h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Obtaining NOC for inter-state vehicle transfer.
                             </p>
                         </div>
                     </div>

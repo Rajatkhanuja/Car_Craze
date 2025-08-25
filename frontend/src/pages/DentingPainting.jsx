@@ -15,7 +15,7 @@ const DentingPainting = () => {
                     >
                         <div className="absolute inset-0 flex flex-col justify-center items-center p-6 sm:p-8 text-center">
                             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 leading-tight">
-                                Car Craze Denting & Painting
+                                 Denting & Painting
                             </h1>
                             <p className="text-sm sm:text-lg font-medium opacity-90">
                                 Quality Service, Perfect Finish
@@ -32,7 +32,7 @@ const DentingPainting = () => {
                         
                         {/* Denting Services Box */}
                         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
-                            <div className="h-48 bg-cover bg-center" style={{backgroundImage: "url('https://tse3.mm.bing.net/th/id/OIP.oDILhPQ5R20hNjPlU_x2-AHaD3?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3')"}}>
+                            <div className="h-48 bg-cover bg-center" style={{backgroundImage: "url('https://th.bing.com/th/id/R.6d19f408dc87c742f24c6fd858d23e67?rik=r7%2bS3mQKRHx%2bDw&riu=http%3a%2f%2fezdentrepair.com%2fwp-content%2fuploads%2f2014%2f05%2fSentra_Before_After.jpg&ehk=ToQvAPxcDdZneZQagMargwydjGuECrIYXs7%2fPvakxWU%3d&risl=&pid=ImgRaw&r=0')"}}>
                                 <div className="h-full  bg-opacity-40 flex items-center justify-center">
                                     <div className="text-center text-white">
                                        
@@ -75,7 +75,7 @@ const DentingPainting = () => {
                             href="/contact" 
                             className="inline-block py-4 px-10 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
                         >
-                            Contact Us
+                            Get in Touch
                         </a>
                     </div>
                 </div>

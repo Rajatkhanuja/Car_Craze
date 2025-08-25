@@ -75,7 +75,7 @@ const DrycleanPolish = () => {
                             href="/contact" 
                             className="inline-block py-4 px-10 rounded-xl font-bold text-lg text-white transition-all transform hover:scale-105 bg-red-600 hover:bg-red-700 shadow-lg no-underline"
                         >
-                            Schedule a Service
+                            Schedule Your Service
                         </a>
                     </div>
                 </div>

@@ -143,7 +143,7 @@ const Roadside = () => {
                 onClick={() => window.location.href = '/contact'}
                 className="bg-yellow-400 hover:bg-yellow-300 text-red-800 font-bold py-4 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-lg"
               >
-                GET IN TOUCH
+                Get in Touch
               </button>
               <p className="text-white text-sm mt-3">
                 Available 24/7 for your roadside emergencies
