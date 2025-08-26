@@ -98,7 +98,7 @@ const Insurance = () => {
           <div className="mt-6 p-4 bg-gray-50 rounded-xl">
             <h3 className="font-semibold text-gray-800 mb-3">Get Best Quotes</h3>
             <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2 text-sm text-white">
+              <div className="flex flex-wrap items-center gap-2 text-sm text-black">
   <span className="text-red-600 text-lg">📞</span>
   <span className="whitespace-nowrap">+91 8094559521,</span>
   <span className="whitespace-nowrap">+91 8369908950</span>
