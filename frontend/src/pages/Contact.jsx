@@ -63,6 +63,31 @@ const Contact = () => {
 <div className="contact-details">
   <p><strong className="car-title text-center">Car Craze</strong></p>
 
+  
+
+
+  <p>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
+
+  <p><strong>Email:</strong> <a href="mailto:crazeudr@gmail.com">carcrazeudr@gmail.com</a></p>
+<p className="text-sm text-black flex flex-wrap justify-center text-center gap-1 items-center">
+  <strong className="text-red-500">Phone:</strong>
+  <a href="tel:+918094559521" className="hover:underline whitespace-nowrap text-black">
+    +91 8094559521
+  </a>,
+  <a href="tel:+918369908950" className="hover:underline whitespace-nowrap text-black">
+    +91 8369908950
+  </a>
+</p>
+
+
+
+
+
+  <div className="opening-hours  mt-3 px-4 sm:px-0 text-sm text-white">
+    <h3 className="text-lg font-semibold mb-2 text-red-500">Business Hours</h3>
+    <p   className="mb-1">Monday to Saturday: 10:00 AM – 7:30 PM</p>
+    <p>Sunday: 10:00 AM – 3:00 PM</p>
+  </div>
   <div className="flex flex-col items-center mb-4">
   {/* Follow Us Text */}
   <span className="text-black font-medium mb-2">Follow Us:</span>
@@ -91,29 +116,6 @@ const Contact = () => {
   </div>
 </div>
 
-
-  <p>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
-
-  <p><strong>Email:</strong> <a href="mailto:crazeudr@gmail.com">carcrazeudr@gmail.com</a></p>
-<p className="text-sm text-black flex flex-wrap justify-center text-center gap-1 items-center">
-  <strong className="text-red-500">Phone:</strong>
-  <a href="tel:+918094559521" className="hover:underline whitespace-nowrap text-black">
-    +91 8094559521
-  </a>,
-  <a href="tel:+918369908950" className="hover:underline whitespace-nowrap text-black">
-    +91 8369908950
-  </a>
-</p>
-
-
-
-
-
-  <div className="opening-hours  mt-3 px-4 sm:px-0 text-sm text-white">
-    <h3 className="text-lg font-semibold mb-2 text-red-500">Business Hours</h3>
-    <p   className="mb-1">Monday to Saturday: 10:00 AM – 7:30 PM</p>
-    <p>Sunday: 10:00 AM – 3:00 PM</p>
-  </div>
 </div>
 
       <div className="contact-form">
