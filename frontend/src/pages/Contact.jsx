@@ -63,30 +63,34 @@ const Contact = () => {
 <div className="contact-details">
   <p><strong className="car-title text-center">Car Craze</strong></p>
 
-  <div className="flex justify-center items-center gap-4 mb-4">
+  <div className="flex flex-col items-center mb-4">
   {/* Follow Us Text */}
-  <span className="text-black font-medium">Follow Us:</span>
+  <span className="text-black font-medium mb-2">Follow Us:</span>
 
-  {/* Instagram Icon */}
-  <a
-    href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-pink-500 text-2xl hover:scale-110 transition-transform"
-  >
-    <i className="fab fa-instagram"></i>
-  </a>
+  {/* Icons Row */}
+  <div className="flex gap-4">
+    {/* Instagram Icon */}
+    <a
+      href="https://www.instagram.com/carcrazeudaipur"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-pink-500 text-2xl hover:scale-110 transition-transform"
+    >
+      <i className="fab fa-instagram"></i>
+    </a>
 
-  {/* WhatsApp Icon */}
-  <a
-    href="https://wa.me/918094559521" // Change this to your number
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-green-500 text-2xl hover:scale-110 transition-transform"
-  >
-    <i className="fab fa-whatsapp"></i>
-  </a>
+    {/* WhatsApp Icon */}
+    <a
+      href="https://wa.me/918094559521"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-500 text-2xl hover:scale-110 transition-transform"
+    >
+      <i className="fab fa-whatsapp"></i>
+    </a>
+  </div>
 </div>
+
 
   <p>Near Bhairavgarh Resort, 200 Ft Khelgaon Road, Sukher, Udaipur, Rajasthan 313001</p>
 
