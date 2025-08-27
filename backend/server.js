@@ -18,9 +18,9 @@ app.use(cors({
     const allowedOrigins = [
       "https://carcraze-two.vercel.app",   // Main frontend
       "https://carcraze-admin.vercel.app",  // Admin panel
-      "https://carcraze.co.in",            // Live frontend
-      "https://www.carcraze.co.in",        // Live frontend with www
-      "https://admin.carcraze.co.in"       // Live admin panel
+       "https://carcraze.co.in",            // Live frontend domain
+      "https://www.carcraze.co.in",        // Live frontend with www domain
+      "https://admin.carcraze.co.in"       // Live admin panel domain
     ];
     if (!origin) return callback(null, true); // Allow Postman, mobile apps
     if (allowedOrigins.includes(origin) || origin.endsWith("vercel.app")) {
