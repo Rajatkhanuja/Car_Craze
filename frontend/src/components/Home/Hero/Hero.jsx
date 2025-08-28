@@ -58,6 +58,12 @@ const Hero = () => {
 
   return (
     <>
+    <div
+  id="carouselExample"
+  className="carousel slide"
+  data-bs-ride="carousel"
+  data-bs-interval="2000"  // 2 sec me slide change
+></div>
       <header id="header" className="hero-header">
         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -73,7 +79,7 @@ const Hero = () => {
             <div className="carousel-item">
               <div
                 style={{
-                   height: isMobile ? '42vh' : '90vh', // 📱 400px on mobile, 💻 90% height on desktop
+                   height: isMobile ? '42vh' : '100vh', // 📱 400px on mobile, 💻 90% height on desktop
                   display: 'flex',
                   alignItems: 'flex-end',
                   justifyContent: 'center'

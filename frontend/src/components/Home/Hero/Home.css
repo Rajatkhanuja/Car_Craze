@@ -7,6 +7,9 @@
   height: 100vh; /* Default for larger screens */
   overflow: hidden;
 }
+.carousel-item {
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out !important;
+}
 
 
 .carousel-inner {
