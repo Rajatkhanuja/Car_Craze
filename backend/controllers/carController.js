@@ -5,7 +5,7 @@ const cloudinary = require('../config/cloudinary');
 // Add Car (Cloudinary upload)
 exports.addCar = async (req, res) => {
   try {
-    const { name, model, running, insurance, ownership, fuel, year, registration, price, transmission } = req.body;
+    const { name, model, running, insurance, ownership, fuel, year, registration, price, transmission, booked } = req.body;
 
     const photoFields = {};
     if (req.files) {
@@ -26,6 +26,7 @@ exports.addCar = async (req, res) => {
       registration,
       price,
       transmission,
+      booked: booked ?? false, // ✅ Default false if not provided
       ...photoFields
     });
 
@@ -69,7 +70,7 @@ exports.getCarById = async (req, res) => {
   }
 };
 
-// ✅ Update car (multiple fields)
+// ✅ Update car (multiple fields + booked)
 exports.updateCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -94,14 +95,16 @@ exports.updateCar = async (req, res) => {
       "transmission",
       "ownership",
       "insurance",
-      "registration"   // Reg. No
+      "registration",  // Reg. No
+      "booked"         // ✅ New field
     ];
 
     updatableFields.forEach((field) => {
       if (req.body[field] !== undefined && req.body[field] !== "") {
-        // year should always be a number
         if (field === "year") {
-          car[field] = Number(req.body[field]);
+          car[field] = Number(req.body[field]); // Ensure number for year
+        } else if (field === "booked") {
+          car[field] = req.body[field] === true || req.body[field] === "true"; // Always boolean
         } else {
           car[field] = req.body[field];
         }
@@ -116,7 +119,6 @@ exports.updateCar = async (req, res) => {
   }
 };
 
-
 // Delete car + Cloudinary images
 exports.deleteCar = async (req, res) => {
   try {
@@ -130,7 +132,6 @@ exports.deleteCar = async (req, res) => {
     for (let key of photoKeys) {
       if (car[key]) {
         try {
-          // Extract public_id from Cloudinary URL
           const publicId = car[key].split('/').pop().split('.')[0];
           await cloudinary.uploader.destroy(`carcraze_uploads/${publicId}`);
         } catch (err) {
