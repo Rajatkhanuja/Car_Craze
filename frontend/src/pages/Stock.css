@@ -135,7 +135,7 @@
 .booked-badge {
     position: absolute;
     bottom: 42px; /* Just above CARCRAZE Assured */
-    left: 5;
+    left: 12px;
     background-color: #ffe5b4; /* Light orange */
     color: #e53e3e; /* Red text */
     padding: 4px 10px;
