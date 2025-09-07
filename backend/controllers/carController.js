@@ -7,7 +7,6 @@ exports.addCar = async (req, res) => {
   try {
     const { name, model, running, insurance, ownership, fuel, year, registration, price, transmission } = req.body;
 
-
     const photoFields = {};
     if (req.files) {
       Object.keys(req.files).forEach(key => {
@@ -18,16 +17,16 @@ exports.addCar = async (req, res) => {
 
     const car = new Car({
       name,
-  model,
-  running,
-  insurance,
-  ownership,
-  fuel,
-  year,
-  registration,
-  price,
-  transmission,
-  ...photoFields
+      model,
+      running,
+      insurance,
+      ownership,
+      fuel,
+      year,
+      registration,
+      price,
+      transmission,
+      ...photoFields
     });
 
     const savedCar = await car.save();
@@ -70,11 +69,10 @@ exports.getCarById = async (req, res) => {
   }
 };
 
-// Update car price
+// ✅ Update car (multiple fields)
 exports.updateCar = async (req, res) => {
   try {
     const { id } = req.params;
-    const { price } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: "Invalid ID format" });
@@ -85,9 +83,25 @@ exports.updateCar = async (req, res) => {
       return res.status(404).json({ message: "Car not found" });
     }
 
-    car.price = price;
-    const updatedCar = await car.save();
+    // ✅ Update fields if provided
+    const updatableFields = [
+      "price",
+      "year",
+      "fuel",
+      "running",
+      "transmission",
+      "ownership",
+      "insurance",
+      "registration"
+    ];
 
+    updatableFields.forEach((field) => {
+      if (req.body[field] !== undefined) {
+        car[field] = req.body[field];
+      }
+    });
+
+    const updatedCar = await car.save();
     res.status(200).json(updatedCar);
   } catch (err) {
     console.error('Update car error:', err);
@@ -104,7 +118,6 @@ exports.deleteCar = async (req, res) => {
     }
 
     // Delete images from Cloudinary
-    // Updated to include all 10 photo fields
     const photoKeys = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6', 'photo7', 'photo8', 'photo9', 'photo10']; 
     for (let key of photoKeys) {
       if (car[key]) {
