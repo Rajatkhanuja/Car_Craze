@@ -85,16 +85,17 @@
 .car-card .booked-badge {
   position: absolute;
   top: 8px;
-  right: 8px;
-  background-color: #e53e3e; /* Red background */
-    color: white;
+  right: 12px; /* shifted slightly more right */
+  background-color: #ffe5b4; /* Light orange background */
+  color: #e53e3e; /* Red text */
   font-weight: 700;
   font-size: 0.75rem;
   padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 6px;
   z-index: 20;
   text-transform: uppercase; /* Capital letters */
 }
+
 
 
 
