@@ -22,6 +22,7 @@ const EditCar = () => {
   const [ownership, setOwnership] = useState('');
   const [insurance, setInsurance] = useState('');
   const [registration, setRegistration] = useState('');
+  const [booked, setBooked] = useState(false); // ✅ New state
 
   useEffect(() => {
     fetchCarDetails();
@@ -42,6 +43,7 @@ const EditCar = () => {
       setOwnership(carData.ownership || '');
       setInsurance(carData.insurance || '');
       setRegistration(carData.registration || '');
+      setBooked(carData.booked || false); // ✅ pre-fill booked
 
       setLoading(false);
     } catch (err) {
@@ -62,7 +64,8 @@ const EditCar = () => {
         transmission,
         ownership,
         insurance,
-        registration
+        registration,
+        booked // ✅ send booked status
       });
       navigate('/update-service');
     } catch (err) {
@@ -227,6 +230,20 @@ const EditCar = () => {
                   className="form-input"
                   required
                 />
+              </div>
+
+              {/* ✅ Booked Option */}
+              <div className="form-group">
+                <label htmlFor="booked" className="form-label">Booked</label>
+                <select
+                  id="booked"
+                  value={booked ? "true" : "false"}
+                  onChange={(e) => setBooked(e.target.value === "true")}
+                  className="form-input"
+                >
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
               </div>
 
               <div className="button-group">
