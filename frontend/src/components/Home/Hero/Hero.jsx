@@ -152,51 +152,59 @@ const Hero = () => {
       </section>
 
       <section id="cars-in-stock" className="cars-in-stock-section">
-        <h2 className="section-title">Our Cars in Stock</h2>
-        <div className="horizontal-scroll">
-          <div className="car-card-wrapper">
-            {cars.slice(0, 6).map((car, index) => (
-              <div
-                key={index}
-                className="car-card"
-                onClick={() => navigate(`/car-details/${car._id}`)}
-              >
-                <div className="car-img-wrapper">
-                  <img
-                    src={car.photo1}
-                    alt={car.name}
-                    className="car-img"
-                    onError={(e) => (e.target.src = "/placeholder-car.jpg")}
-                  />
-                  <div className="badge-bottom">CARCRAZE Assured</div>
-                </div>
+  <h2 className="section-title">Our Cars in Stock</h2>
+  <div className="horizontal-scroll">
+    <div className="car-card-wrapper">
+      {cars.slice(0, 6).map((car, index) => (
+        <div
+          key={index}
+          className="car-card"
+          onClick={() => navigate(`/car-details/${car._id}`)}
+        >
+          <div className="car-img-wrapper" style={{ position: 'relative' }}>
+            <img
+              src={car.photo1}
+              alt={car.name}
+              className="car-img"
+              onError={(e) => (e.target.src = "/placeholder-car.jpg")}
+            />
+            <div className="badge-bottom">CARCRAZE Assured</div>
 
-                <div className="car-info">
-                  <h3 className="car-name">
-                    <span className="car-title">{car.year} {car.name}</span>
-                    <span className="car-variant">{car.model}</span>
-                  </h3>
-
-                  <div className="car-badges">
-                    <span>{car.running}km</span>
-                    <span>{car.fuel}</span>
-                    <span>{car.transmission}</span>
-                    <span>{car.registration}</span>
-                  </div>
-
-                  <div className="car-price">
-                    <span className="new-price">₹{car.price} lakh</span>
-                    <div className="extra-charges">+ other charges</div>
-                  </div>
-                </div>
+            {/* ✅ Booked Badge */}
+            {car.booked && (
+              <div className="badge-top-right booked-badge">
+                Booked
               </div>
-            ))}
-            <div className="car-card view-more-circle" onClick={() => navigate("/stock")}>
-              <span>+</span>
+            )}
+          </div>
+
+          <div className="car-info">
+            <h3 className="car-name">
+              <span className="car-title">{car.year} {car.name}</span>
+              <span className="car-variant">{car.model}</span>
+            </h3>
+
+            <div className="car-badges">
+              <span>{car.running}km</span>
+              <span>{car.fuel}</span>
+              <span>{car.transmission}</span>
+              <span>{car.registration}</span>
+            </div>
+
+            <div className="car-price">
+              <span className="new-price">₹{car.price} lakh</span>
+              <div className="extra-charges">+ other charges</div>
             </div>
           </div>
         </div>
-      </section>
+      ))}
+      <div className="car-card view-more-circle" onClick={() => navigate("/stock")}>
+        <span>+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <footer className="footer">
         <div className="footer-container">
