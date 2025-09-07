@@ -109,7 +109,7 @@ const Sell = () => {
     <option value="Mahindra">Mahindra</option>
     <option value="Maruti Suzuki">Maruti Suzuki</option>
     <option value="Mercedes-Benz">Mercedes Benz</option>
-    <option value="Morris Garage">Morris Garage</option>
+    <option value="M G">M G</option>
     <option value="Skoda">Skoda</option>
     <option value="Nissan">Nissan</option>
     <option value="Renault">Renault</option>

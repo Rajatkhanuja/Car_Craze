@@ -61,7 +61,7 @@ const Stock = () => {
 
     const manufacturers = ["Audi", "BMW", "Chevrolet", "Citroen", "Datsun", "Fiat", "Ford", "Honda",
         "Hyundai", "Jaguar", "Jeep", "Kia", "Land Rover", "Mahindra", "Maruti Suzuki",
-        "Mercedes-Benz", "Morris Garage", "Nissan", "Renault", "Skoda", "Tata",
+        "Mercedes-Benz", "M G", "Nissan", "Renault", "Skoda", "Tata",
         "Toyota", "Volkswagen"
     ];
 
