@@ -83,31 +83,39 @@ exports.updateCar = async (req, res) => {
       return res.status(404).json({ message: "Car not found" });
     }
 
-    // ✅ Update fields if provided
+    // ✅ Fields that can be updated
     const updatableFields = [
+      "name",
+      "model",
       "price",
-      "year",
+      "year",          // Reg. Year
       "fuel",
-      "running",
+      "running",       // KM Driven
       "transmission",
       "ownership",
       "insurance",
-      "registration"
+      "registration"   // Reg. No
     ];
 
     updatableFields.forEach((field) => {
-      if (req.body[field] !== undefined) {
-        car[field] = req.body[field];
+      if (req.body[field] !== undefined && req.body[field] !== "") {
+        // year should always be a number
+        if (field === "year") {
+          car[field] = Number(req.body[field]);
+        } else {
+          car[field] = req.body[field];
+        }
       }
     });
 
     const updatedCar = await car.save();
     res.status(200).json(updatedCar);
   } catch (err) {
-    console.error('Update car error:', err);
+    console.error("Update car error:", err);
     res.status(500).json({ message: err.message });
   }
 };
+
 
 // Delete car + Cloudinary images
 exports.deleteCar = async (req, res) => {
