@@ -86,8 +86,8 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background-color: #FFD8A8; /* light orange */
-  color: red; /* text color red */
+  background-color: #e53e3e; /* Red background */
+    color: white;
   font-weight: 700;
   font-size: 0.75rem;
   padding: 0.3rem 0.6rem;
