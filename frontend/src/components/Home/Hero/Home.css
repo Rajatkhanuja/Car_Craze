@@ -81,6 +81,23 @@
   z-index: 1;
 }
 
+/* BOOKED Badge on Car Card */
+.car-card .booked-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #FFD8A8; /* light orange */
+  color: red; /* text color red */
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  z-index: 20;
+  text-transform: uppercase; /* Capital letters */
+}
+
+
+
 /* -------------------- */
 /* 🚗 Services Section */
 /* -------------------- */
