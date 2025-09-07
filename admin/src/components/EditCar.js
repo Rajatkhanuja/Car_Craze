@@ -13,15 +13,15 @@ const EditCar = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ✅ Add all fields
+  // ✅ State variables (backend-compatible names)
   const [price, setPrice] = useState('');
-  const [regYear, setRegYear] = useState('');
+  const [year, setYear] = useState('');
   const [fuel, setFuel] = useState('');
-  const [kmDriven, setKmDriven] = useState('');
+  const [running, setRunning] = useState('');
   const [transmission, setTransmission] = useState('');
   const [ownership, setOwnership] = useState('');
   const [insurance, setInsurance] = useState('');
-  const [regNumber, setRegNumber] = useState('');
+  const [registration, setRegistration] = useState('');
 
   useEffect(() => {
     fetchCarDetails();
@@ -35,13 +35,13 @@ const EditCar = () => {
 
       // ✅ Pre-fill values
       setPrice(carData.price || '');
-      setRegYear(carData.regYear || '');
+      setYear(carData.year || '');
       setFuel(carData.fuel || '');
-      setKmDriven(carData.kmDriven || '');
+      setRunning(carData.running || '');
       setTransmission(carData.transmission || '');
       setOwnership(carData.ownership || '');
       setInsurance(carData.insurance || '');
-      setRegNumber(carData.regNumber || '');
+      setRegistration(carData.registration || '');
 
       setLoading(false);
     } catch (err) {
@@ -53,16 +53,16 @@ const EditCar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ✅ Send all updated fields
+      // ✅ Send backend-compatible keys
       await axios.patch(`${API_URL}/cars/${id}`, {
         price,
-        regYear,
+        year,
         fuel,
-        kmDriven,
+        running,
         transmission,
         ownership,
         insurance,
-        regNumber
+        registration
       });
       navigate('/update-service');
     } catch (err) {
@@ -135,47 +135,109 @@ const EditCar = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="price" className="form-label">Price (INR)</label>
-                <input type="number" id="price" value={price} onChange={(e) => setPrice(e.target.value)} className="form-input" required />
+                <input
+                  type="number"
+                  id="price"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label htmlFor="regYear" className="form-label">Registration Year</label>
-                <input type="number" id="regYear" value={regYear} onChange={(e) => setRegYear(e.target.value)} className="form-input" required />
+                <label htmlFor="year" className="form-label">Registration Year</label>
+                <input
+                  type="number"
+                  id="year"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label htmlFor="fuel" className="form-label">Fuel</label>
-                <input type="text" id="fuel" value={fuel} onChange={(e) => setFuel(e.target.value)} className="form-input" required />
+                <input
+                  type="text"
+                  id="fuel"
+                  value={fuel}
+                  onChange={(e) => setFuel(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label htmlFor="kmDriven" className="form-label">KM Driven</label>
-                <input type="number" id="kmDriven" value={kmDriven} onChange={(e) => setKmDriven(e.target.value)} className="form-input" required />
+                <label htmlFor="running" className="form-label">KM Driven</label>
+                <input
+                  type="number"
+                  id="running"
+                  value={running}
+                  onChange={(e) => setRunning(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label htmlFor="transmission" className="form-label">Transmission</label>
-                <input type="text" id="transmission" value={transmission} onChange={(e) => setTransmission(e.target.value)} className="form-input" required />
+                <input
+                  type="text"
+                  id="transmission"
+                  value={transmission}
+                  onChange={(e) => setTransmission(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label htmlFor="ownership" className="form-label">Ownership</label>
-                <input type="text" id="ownership" value={ownership} onChange={(e) => setOwnership(e.target.value)} className="form-input" required />
+                <input
+                  type="text"
+                  id="ownership"
+                  value={ownership}
+                  onChange={(e) => setOwnership(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label htmlFor="insurance" className="form-label">Insurance</label>
-                <input type="text" id="insurance" value={insurance} onChange={(e) => setInsurance(e.target.value)} className="form-input" required />
+                <input
+                  type="text"
+                  id="insurance"
+                  value={insurance}
+                  onChange={(e) => setInsurance(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label htmlFor="regNumber" className="form-label">Registration Number</label>
-                <input type="text" id="regNumber" value={regNumber} onChange={(e) => setRegNumber(e.target.value)} className="form-input" required />
+                <label htmlFor="registration" className="form-label">Registration Number</label>
+                <input
+                  type="text"
+                  id="registration"
+                  value={registration}
+                  onChange={(e) => setRegistration(e.target.value)}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <div className="button-group">
                 <button type="submit" className="button button-primary">Update</button>
-                <button type="button" onClick={() => navigate('/update-service')} className="button button-secondary">Cancel</button>
+                <button
+                  type="button"
+                  onClick={() => navigate('/update-service')}
+                  className="button button-secondary"
+                >
+                  Cancel
+                </button>
               </div>
             </form>
           </div>
