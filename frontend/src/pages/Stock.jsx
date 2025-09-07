@@ -290,7 +290,8 @@ const Stock = () => {
                                     <span>{car.transmission}</span>
                                     <span>{car.registration}</span>
                                 </div>
-
+                                  {/* ✅ BOOKED Badge */}
+    {car.booked && <div className="booked-badge">BOOKED</div>}  
                                 <div className="car-price">
                                     <span className="new-price">₹{car.price} lakh</span>
                                     <div className="extra-charges">+ other charges</div>
