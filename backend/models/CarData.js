@@ -7,7 +7,7 @@ const carDataSchema = new mongoose.Schema({
     enum: [
       "Audi", "BMW", "Ford", "Honda", "Hyundai", "Jaguar", "Kia",
       "Mahindra", "Maruti Suzuki", "Mercedes-Benz", "Skoda", "Tata",
-      "Toyota", "Volkswagen", "Morris Garage", "Chevrolet",
+      "Toyota", "Volkswagen", "M G", "Chevrolet",
       "Datsun", "Fiat", "Jeep", "Land Rover", "Nissan", "Renault","Citroen"
     ],
   },
